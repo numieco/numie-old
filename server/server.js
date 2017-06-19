@@ -1,3 +1,7 @@
+require('babel-register')({
+    presets: ['react', 'es2015', 'stage-2']
+})
+
 const express = require('express')
 const path = require('path')
 

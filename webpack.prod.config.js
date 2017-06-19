@@ -19,7 +19,7 @@ module.exports = {
   output: {
     publicPath: './',
     path: path.join(__dirname, 'public'),
-    filename: '[chunkhash].js'
+    filename: 'main.js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -50,9 +50,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       files: {
-        css: ['style.css'],
         js: ['main.js'],
-      }
+      },
+      inject: false
     })
   ]
 };
