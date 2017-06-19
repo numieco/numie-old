@@ -20,6 +20,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "public", "index.html"))
 })
 
-app.listen(port, host, () => {
-  console.log("server started at port: " + host + ":" + port)
+app.listen(port, () => {
+  console.log("server started at port: " + port)
 })
