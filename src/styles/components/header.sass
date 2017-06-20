@@ -8,6 +8,9 @@
     padding: 20px
     display: inline-block
     width: calc(100% - 40px)
+    a
+      color: white
+      text-decoration: none
     .logo
       display: inline-block
       float: left
@@ -78,14 +81,22 @@
       margin: 0 auto
       position: relative
       height: 40px
+      .logo
+        position: absolute
+        z-index: 1
+        left: 20px
       .get-in-touch
         float: right
         margin-right: 0px
+        position: absolute
+        z-index: 1
+        right: 20px
       .menu
         display: inline-block
         text-align: center
         width: 100%
         position: absolute
+        z-index: 0
         left: 0
         padding: 10px 0px
         line-height: 17px

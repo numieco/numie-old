@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import NumieLogo from '../SVG/NumieLogo'
 
 export default class Header extends React.Component {
@@ -39,11 +41,15 @@ export default class Header extends React.Component {
           ? (
               <div className='menu-wrapper'>
                 <div className='logo'>
-                  <NumieLogo />
+                  <Link to={'/'}>
+                    <NumieLogo />
+                  </Link>  
                 </div>
                 <div className='wrap-buttons'>
                   <div className='get-in-touch'>
-                    Get In Touch
+                    <Link to={'/contact'}>  
+                      Get In Touch
+                    </Link>
                   </div>
                   <div className='mobile-menu'>
                     <div className='menu-button-inner'>
@@ -55,11 +61,15 @@ export default class Header extends React.Component {
           : ( 
               <div className='menu-wrapper'>
                 <div className='logo'>
-                  <NumieLogo />
+                  <Link to={'/'}>
+                    <NumieLogo />
+                  </Link>
                 </div>
                 <div className='menu'>
                   <div className='home-menu'>
-                    Home
+                    <Link to={'/'}>
+                      Home
+                    </Link>
                   </div>
                   <div className='what-we-do-menu'>
                     What we do
@@ -72,7 +82,9 @@ export default class Header extends React.Component {
                   </div>
                 </div>
                 <div className='get-in-touch'>
-                  Get In Touch
+                  <Link to={'/contact'}>
+                    Get In Touch
+                  </Link>
                 </div>
               </div>
             )
