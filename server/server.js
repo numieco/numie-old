@@ -32,11 +32,20 @@ slack.setWebhook(secret.slackWebhookURL)
 
 app.post('/getdata', (req, res) => {
   console.log(req.body)
-  
+ 
   slack.webhook({
     channel: 'inquiries',
     username: 'dkapadiya',
-    text: 'Email : ' + req.body.email + '\n\nPhone : ' + req.body.phone + '\n\nDescription : ' + req.body.description + '\n\nBudget : ' + req.body.budget
+    text: '*' + (req.body.budget != '' ? 'Work' : 'General') + '*' + ' Inquiry!' +
+      '\n\n*Name* : ' + req.body.firstname +
+      '\n\n*Email* : ' + req.body.email + 
+      '\n\n*Phone* : ' + req.body.phone + 
+      (
+        req.body.budget != ''
+        ? ('\n\n*Budget* : ' + req.body.budget)
+        : ''
+      ) +
+      '\n\n*Message* : ' + req.body.description,
   }, (err, resp) => {
     if (err)
       console.log(err)
@@ -55,10 +64,19 @@ app.post('/getdata', (req, res) => {
   }))
 
   let mailOptions = {
-    from: 'dhanesh.kapadiya92@gmail.com',
+    from: req.body.email,
     to: 'dhanesh.kapadiya92@gmail.com',
-    subject: req.body.budget != '' ? 'General Enquiry' : 'Business Enquiry',
-    text: 'Email : ' + req.body.email + '\n\nPhone : ' + req.body.phone + '\n\nDescription : ' + req.body.description + '\n\nBudget : ' + req.body.budget
+    replyTo: req.body.email,
+    subject: req.body.budget != '' ? 'Work Inquiry!' : 'General Inquiry!',
+    html: '<b>Name</b> : ' + req.body.firstname +
+      '<br><b>Email</b> : ' + req.body.email + 
+      '<br><b>Phone</b> : <a href="tel:'+ req.body.phone +'">' + req.body.phone + '</a>' +
+      (
+        req.body.budget != '' 
+        ? ('<br><b>Budget</b> : ' + req.body.budget)
+        : ''
+      ) +
+      '<br><b>Message</b> : ' + req.body.description,
   }
 
   transport.sendMail(mailOptions, (err, response) => {
