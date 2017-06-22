@@ -1,0 +1,103 @@
+.contact-page
+  width: calc(100% - 60px)
+  padding: 30px
+  height: calc(100vh - 110px)
+  .background
+    height: 100vh
+    width: 100%
+    background: #141516
+    z-index: -1
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+
+  .content
+    .contact-title
+      width: 100%
+      margin-bottom: 20px
+      display: inline-block
+      .inquiry-type
+        float: left
+        font-size: 16px
+        font-weight: bold
+        letter-spacing: 0.8px
+        text-transform: uppercase
+        max-width: 225px
+        display: inline-block
+        .lets-chat
+          color: white
+          display: inline-block
+          margin-right: 7px
+        .wrap-type
+          float: right
+          display: inline-block
+          .upper
+            color: #e0394a
+          .lower
+            color: #e0394a
+            opacity: 0.5
+            clear: both
+
+      .close-button
+        float: right
+        display: inline-block
+        opacity: 0.5
+        font-size: 12px
+        font-weight: bold
+        line-height: 1.9
+        letter-spacing: 0.9px
+        color: #646464
+        .x
+          float: left
+          margin-right: 5px
+        .close
+          float: right
+
+    .fullname, .email, .phone, .description
+      margin-bottom: 30px
+      input
+        width: calc(100% - 32px)
+        padding: 15px
+        border-radius: 4px
+        border: solid 1px #646464
+        background: #141516
+        font-size: 10px
+        color: #646464
+    .budget
+      margin-bottom: 30px
+      select
+        width: 100%
+        padding: 15px
+        border-radius: 4px
+        border: solid 1px #646464
+        background: #141516
+        font-size: 10px
+        color: #646464
+    .description
+      margin-bottom: 0px
+      input
+        height: calc(100vh - 397px)
+
+    .submit
+      width: 100%
+      height: 20px
+      position: fixed
+      bottom: 0
+      right: 0
+      left: 0
+      z-index: 0
+      background: #e0394a
+      color: white
+      font-size: 16px
+      font-weight: bold
+      line-height: 1.25
+      letter-spacing: 0.8px
+      padding: 15px 0px
+      text-align: center
+
+@media (max-width: 320px)
+  .close-button
+    .x
+      display: none

@@ -4,12 +4,13 @@ import axios from 'axios'
 import Header from '../components/Header'
 
 const options = [
+  { value: 'Prefer not to say', label: 'Prefer not to say' },
   { value: '< $2000', label: '< $2000' },
-  { value: '2000 - 5000', label: '2000 - 5000' },
-  { value: '5000 - 10000', label: '5000 - 10000' },
-  { value: '10,000 - 15,000', label: '10,000 - 15,000' },
-  { value: '15,000 - 20,000', label: '15,000 - 20,000' },
-  { value: '> 20,000', label: '> 20,000' }
+  { value: '$2000 - $5000', label: '$2000 - $5000' },
+  { value: '$5000 - $10000', label: '$5000 - $10000' },
+  { value: '$10,000 - $15,000', label: '$10,000 - $15,000' },
+  { value: '$15,000 - $20,000', label: '$15,000 - $20,000' },
+  { value: '> $20,000', label: '> $20,000' }
 ]
 
 export default class ContactPage extends React.Component {
@@ -21,7 +22,8 @@ export default class ContactPage extends React.Component {
       phone : '',
       description: '',
       budget: '',
-      isBusinessEnquiry: false
+      isBusinessEnquiry: false,
+      type: 'thoughts'
     }
 
     this.handleFullname = this.handleFullname.bind(this)
@@ -29,6 +31,7 @@ export default class ContactPage extends React.Component {
     this.handlePhone = this.handlePhone.bind(this)
     this.handleDesc = this.handleDesc.bind(this)
     this.handleBudget = this.handleBudget.bind(this)
+    this.handleType = this.handleType.bind(this)
     this.submitData = this.submitData.bind(this)
   }
 
@@ -48,12 +51,18 @@ export default class ContactPage extends React.Component {
     this.setState({ description: e.target.value }, () => console.log('desc ' + this.state.description))
   }
 
-  handleBudget = (selectedValue) => {
-    console.log(selectedValue)
-    if(selectedValue !== null)
-      this.setState({ budget: selectedValue.value }, () => console.log('budget ' + this.state.budget))
+  handleBudget = (e) => {
+    console.log(e.target.value)
+    if(e.target !== null)
+      this.setState({ budget: e.target.value }, () => console.log('budget ' + this.state.budget))
     else
       this.setState({ budget: '' })
+  }
+
+  handleType = () => {
+    this.setState({
+      type : this.state.type == 'thoughts' ? 'projects' : 'thoughts'
+    })
   }
 
   submitData = () => {
@@ -73,39 +82,69 @@ export default class ContactPage extends React.Component {
   render () {
     return (
       <div className='contact-page'>
-        <Header />
+        <div className='background' />
         <div className='content'>
+          <div className='contact-title'>
+            <div className='inquiry-type'>
+              <span className='lets-chat'>let's chat</span>
+              <div className='wrap-type'>
+                <span className='upper'>
+                  {this.state.type== 'thoughts' ? 'thoughts' : 'projects'}
+                </span>
+                <div className='lower' onClick={this.handleType}>
+                  {this.state.type == 'thoughts' ? 'projects' : 'thoughts'}
+                </div>
+              </div>
+            </div>
+            <div className='close-button'>
+              <span className='x'>x</span>
+              <span className='close'>CLOSE</span>
+            </div>
+          </div>
           <div className='fullname'>
-            Full Name :
-            <input type='text' value={ this.state.fullname } onChange={ this.handleFullname } />
+            <input type='text' 
+              value={ this.state.fullname } 
+              onChange={ this.handleFullname } 
+              placeholder='Name'
+            />
           </div>
           <div className='email'>
-            Email: 
-            <input type='text' value={ this.state.email } onChange={ this.handleEmail } />
+            <input 
+              type='text' 
+              value={ this.state.email } 
+              onChange={ this.handleEmail } 
+              placeholder='Email'
+            />
           </div>
           <div className='phone'>
-            Phone: 
-            <input type='text' value={ this.state.phone } onChange={ this.handlePhone } />
-          </div>
-          <div className='description'>
-            Description: 
-            <input type='text' value={ this.state.description } onChange={ this.handleDesc } />
-          </div>
-          <div className=''>
-            <b>NOTE:</b> Only for Business Enquiry
+            <input 
+              type='text' 
+              value={ this.state.phone } 
+              onChange={ this.handlePhone } 
+              placeholder='Phone'
+            />
           </div>
           <div className='budget'>
-            Budget: 
-            <Select 
-              name='budget'
-              className='budget-box'
-              value={ this.state.budget }
-              options={ options }
-              onChange={ this.handleBudget }
+            <select onChange={this.handleBudget} value={this.state.budget}>
+              <option value='' disabled defaultValue=''>Budget</option>
+              <option value='Prefer not to say'>Prefer not to say</option>
+              <option value='2000 - $5000'>2000 - $5000</option>
+              <option value='$5000 - $10000'>$5000 - $10000</option>
+              <option value='$10,000 - $15,000'>$10,000 - $15,000</option>
+              <option value='$15,000 - $20,000'>$15,000 - $20,000</option>
+              <option value='> $20,000'>> $20,000</option>
+            </select>
+          </div>
+          <div className='description'>
+            <input 
+              type='text' 
+              value={ this.state.description } 
+              onChange={ this.handleDesc } 
+              placeholder='Message'
             />
           </div>
           <div className='submit' onClick={ this.submitData }>
-            SUBMIT
+            SEND
           </div>
         </div>
       </div>
