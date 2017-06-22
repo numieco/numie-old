@@ -32,7 +32,7 @@ slack.setWebhook(secret.slackWebhookURL)
 
 app.post('/getdata', (req, res) => {
   console.log(req.body)
-/* 
+
   slack.webhook({
     channel: 'inquiries',
     username: 'dkapadiya',
@@ -51,7 +51,7 @@ app.post('/getdata', (req, res) => {
     if (err)
       console.log(err)
   })
-*/
+
   let transport = nodemailer.createTransport(smtpTransport({
     service: "Gmail",
     auth: {
