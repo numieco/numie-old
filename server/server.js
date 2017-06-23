@@ -27,7 +27,7 @@ app.get('*', (req, res) => {
 })
 
 let slack = new Slack()
-slack.setWebhook(secret.slackWebhookURL)
+slack.setWebhook(process.env.slackWebhookURL)
 
 
 app.post('/getdata', (req, res) => {
@@ -57,9 +57,9 @@ app.post('/getdata', (req, res) => {
     auth: {
       xoauth2: xoauth2.createXOAuth2Generator({
         user: "test.numie@gmail.com",
-        clientId: secret.xoauth2ClientID,
-        clientSecret: secret.xoauth2ClientSecret,
-        refreshToken: secret.xoauthRefreshToken
+        clientId: process.env.xoauth2ClientID,
+        clientSecret: process.env.xoauth2ClientSecret,
+        refreshToken: process.env.xoauthRefreshToken
       })
     }
   }))

@@ -23,7 +23,7 @@ export default class ContactPage extends React.Component {
       description: '',
       budget: '',
       isBusinessEnquiry: false,
-      type: 'thoughts'
+      type: 'anything'
     }
 
     this.handleFullname = this.handleFullname.bind(this)
@@ -61,7 +61,7 @@ export default class ContactPage extends React.Component {
 
   handleType = () => {
     this.setState({
-      type : this.state.type == 'thoughts' ? 'projects' : 'thoughts'
+      type : this.state.type == 'anything' ? 'projects' : 'anything'
     })
   }
 
@@ -89,10 +89,10 @@ export default class ContactPage extends React.Component {
               <span className='lets-chat'>let's chat</span>
               <div className='wrap-type'>
                 <span className='upper'>
-                  {this.state.type== 'thoughts' ? 'thoughts' : 'projects'}
+                  {this.state.type== 'anything' ? 'anything' : 'projects'}
                 </span>
                 <div className='lower' onClick={this.handleType}>
-                  {this.state.type == 'thoughts' ? 'projects' : 'thoughts'}
+                  {this.state.type == 'anything' ? 'projects' : 'anything'}
                 </div>
               </div>
             </div>
@@ -116,31 +116,48 @@ export default class ContactPage extends React.Component {
               placeholder='Email'
             />
           </div>
-          <div className='phone'>
-            <input 
-              type='text' 
-              value={ this.state.phone } 
-              onChange={ this.handlePhone } 
-              placeholder='Phone'
-            />
-          </div>
-          <div className='budget'>
-            <select onChange={this.handleBudget} value={this.state.budget}>
-              <option value='' disabled defaultValue=''>Budget</option>
-              <option value='Prefer not to say'>Prefer not to say</option>
-              <option value='2000 - $5000'>2000 - $5000</option>
-              <option value='$5000 - $10000'>$5000 - $10000</option>
-              <option value='$10,000 - $15,000'>$10,000 - $15,000</option>
-              <option value='$15,000 - $20,000'>$15,000 - $20,000</option>
-              <option value='> $20,000'>> $20,000</option>
-            </select>
-          </div>
-          <div className='description'>
-            <input 
+
+          {
+            this.state.type == 'projects'
+            ? (
+                <div className='phone'>
+                  <input 
+                    type='text' 
+                    value={ this.state.phone } 
+                    onChange={ this.handlePhone } 
+                    placeholder='Phone'
+                  />
+                </div>
+              )
+            : null
+          }
+
+          {
+            this.state.type == 'projects'
+            ? (
+                <div className='budget'>
+                  <select onChange={this.handleBudget} value={this.state.budget}>
+                    <option value='' disabled defaultValue=''>Budget</option>
+                    <option value='Prefer not to say'>Prefer not to say</option>
+                    <option value='2000 - $5000'>2000 - $5000</option>
+                    <option value='$5000 - $10000'>$5000 - $10000</option>
+                    <option value='$10,000 - $15,000'>$10,000 - $15,000</option>
+                    <option value='$15,000 - $20,000'>$15,000 - $20,000</option>
+                    <option value='> $20,000'> $20,000</option>
+                  </select>
+                </div>
+              )
+            : null
+          }
+
+          <div className={ 'description description-' + this.state.type } >
+            <textarea 
               type='text' 
               value={ this.state.description } 
               onChange={ this.handleDesc } 
               placeholder='Message'
+              cols='40'
+              rows='5'
             />
           </div>
           <div className='submit' onClick={ this.submitData }>
