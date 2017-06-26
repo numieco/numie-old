@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer')
 const smtpTransport = require('nodemailer-smtp-transport')
 const xoauth2 = require('xoauth2')
 const Slack = require('slack-node')
-//const secret =  require('../src/secrets')
+const secret =  require('../src/secrets')
 const app = express()
 const host = process.env.HOST || "localhost"
 const port = process.env.PORT || 8888
@@ -27,7 +27,7 @@ app.get('*', (req, res) => {
 })
 
 let slack = new Slack()
-slack.setWebhook(process.env.slackWebhookURL)
+slack.setWebhook(secret.slackWebhookURL)
 
 
 app.post('/getdata', (req, res) => {
@@ -35,7 +35,7 @@ app.post('/getdata', (req, res) => {
 
   slack.webhook({
     channel: 'inquiries',
-    username: 'dkapadiya',
+    username: 'inquiries-bot',
     text: '=========================' + 
       '\n\n*' + (req.body.budget != '' ? 'Work' : 'General') + '*' + ' Inquiry!' +
       '\n\n*Name* : ' + req.body.firstname +
@@ -57,9 +57,9 @@ app.post('/getdata', (req, res) => {
     auth: {
       xoauth2: xoauth2.createXOAuth2Generator({
         user: "test.numie@gmail.com",
-        clientId: process.env.xoauth2ClientID,
-        clientSecret: process.env.xoauth2ClientSecret,
-        refreshToken: process.env.xoauthRefreshToken
+        clientId: secret.xoauth2ClientID,
+        clientSecret: secret.xoauth2ClientSecret,
+        refreshToken: secret.xoauthRefreshToken
       })
     }
   }))
