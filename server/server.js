@@ -14,7 +14,7 @@ const app = express()
 const host = process.env.HOST || "localhost"
 const port = process.env.PORT || 8888
 
-app.use(express.static(path.resolve(__dirname, "..", "public")))
+app.use(express.static(path.resolve(__dirname, "..", "static")))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 /*
@@ -23,15 +23,17 @@ app.use(bodyParser.urlencoded({ extended: true }))
 */
 
 app.use((req, res, next) => {
-  if (req.header ('x-forwarded-proto') !== 'https')
+  if (req.header ('x-forwarded-proto') !== 'https'){
+    console.log(`https://${req.header('host')}${req.url}`)
     res.redirect(`https://${req.header('host')}${req.url}`)
+  }
   else
     next()
 })
 
 app.get('*', (req, res) => {
   console.log(req.connection.encrypted)
-  res.sendFile(path.resolve(__dirname, "..", "public", "index.html"))
+  res.sendFile(path.resolve(__dirname, "..", "static", "public", "index.html"))
 })
 
 let slack = new Slack()
