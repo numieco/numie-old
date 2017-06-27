@@ -22,7 +22,15 @@ app.use(bodyParser.urlencoded({ extended: true }))
   will be handled at client-side (using react-router).
 */
 
+app.use((req, res, next) => {
+  if (req.header ('x-forwarded-proto') !== 'https')
+    res.redirect(`https://${req.header('host')}${req.url}`)
+  else
+    next()
+})
+
 app.get('*', (req, res) => {
+  console.log(req.connection.encrypted)
   res.sendFile(path.resolve(__dirname, "..", "public", "index.html"))
 })
 
