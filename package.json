@@ -15,6 +15,7 @@
     "build-dev": "webpack --config webpack.config.js --progress --profile --watch",
     "postinstall": "npm run build",
     "start": "node ./server/server.js",
+    "start-dev" : "NODE_ENV=development node ./server/server.js",
     "start:local": "npm run build && node ./server/server.js",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": "webpack-dev-server --progress --profile --colors",

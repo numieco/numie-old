@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer')
 const smtpTransport = require('nodemailer-smtp-transport')
 const xoauth2 = require('xoauth2')
 const Slack = require('slack-node')
-const secret =  require('../src/secrets')
+const secret =  process.env.NODE_ENV == 'production' ? process.env : require('../src/secrets')
 const app = express()
 const host = process.env.HOST || "localhost"
 const port = process.env.PORT || 8888
@@ -40,7 +40,11 @@ app.post('/getdata', (req, res) => {
       '\n\n*' + (req.body.budget != '' ? 'Work' : 'General') + '*' + ' Inquiry!' +
       '\n\n*Name* : ' + req.body.firstname +
       '\n\n*Email* : ' + req.body.email + 
-      '\n\n*Phone* : ' + req.body.phone + 
+      (
+        req.body.phone != ''
+        ? ('\n\n*Phone* : ' + req.body.phone)
+        : ''
+      ) + 
       (
         req.body.budget != ''
         ? ('\n\n*Budget* : ' + req.body.budget)
@@ -71,7 +75,11 @@ app.post('/getdata', (req, res) => {
     subject: req.body.budget != '' ? 'Work Inquiry!' : 'General Inquiry!',
     html: '<b>Name</b> : ' + req.body.firstname +
       '<br><b>Email</b> : ' + req.body.email + 
-      '<br><b>Phone</b> : <a href="tel:'+ req.body.phone +'">' + req.body.phone + '</a>' +
+      (
+        req.body.phone != ''
+        ? ('<br><b>Phone</b> : <a href="tel:'+ req.body.phone +'">' + req.body.phone + '</a>')
+        : ''
+      ) +
       (
         req.body.budget != '' 
         ? ('<br><b>Budget</b> : ' + req.body.budget)
