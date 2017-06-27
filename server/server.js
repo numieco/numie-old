@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 */
 
 app.use((req, res, next) => {
-  if (req.header ('x-forwarded-proto') !== 'https'){
+  if (process.env.NODE_ENV == 'production' && req.header ('x-forwarded-proto') !== 'https'){
     console.log(`https://${req.header('host')}${req.url}`)
     res.redirect(`https://${req.header('host')}${req.url}`)
   }
