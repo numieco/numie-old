@@ -1,7 +1,14 @@
+.page-wrap
+  display: inline-block
+  width: 100%
+
 .contact-page
   width: calc(100% - 60px)
+  max-width: 500px
   padding: 30px
   height: calc(100vh - 110px)
+  display: block
+  margin: 0 auto
   .background
     height: 100vh
     width: 100%
@@ -17,7 +24,7 @@
     .contact-title
       width: 100%
       margin-bottom: 20px
-      display: inline-block
+      display: table
       .inquiry-type
         float: left
         font-size: 16px
@@ -52,33 +59,49 @@
         .x
           float: left
           margin-right: 5px
+          text-transform: uppercase
         .close
           float: right
 
     .fullname, .email, .phone, .description
       margin-bottom: 30px
-      input
+      display: inline-block
+      width: 100%
+      input, textarea
         width: calc(100% - 32px)
-        padding: 15px
+        padding: 14px 15px
         border-radius: 4px
         border: solid 1px #646464
         background: #141516
         font-size: 10px
         color: #646464
+        outline: none
     .budget
       margin-bottom: 30px
       select
         width: 100%
-        padding: 15px
+        padding: 14px 15px
+        appearance: none
+        -webkit-appearance: none
+        -moz-appearance: none
         border-radius: 4px
         border: solid 1px #646464
         background: #141516
         font-size: 10px
         color: #646464
-    .description
+        outline: none
+    .description-projects
       margin-bottom: 0px
-      input
-        height: calc(100vh - 397px)
+      textarea
+        height: 100vh
+        resize: none
+        max-height: 70px
+    .description-anything
+      margin-bottom: 0px
+      textarea
+        height: 100vh
+        max-height: 177px
+        resize: none
 
     .submit
       width: 100%
@@ -96,8 +119,214 @@
       letter-spacing: 0.8px
       padding: 15px 0px
       text-align: center
+      cursor: pointer
+
+.side-info-bar
+  display: none
+
+.error
+  position: relative
+  input, select, textarea
+    color: #e0394a !important
+    border-color: #e0394a !important
+    &::placeholder
+      color: #e0394a
+.error-text
+  position: absolute
+  bottom: -15px
+  color: #e0394a
+  font-size: 10px
+
 
 @media (max-width: 320px)
   .close-button
     .x
       display: none
+
+@media (min-height: 667px) and (max-height: 735px)
+  .contact-page
+    .content
+      .contact-title
+        .inquiry-type,
+        .lets-chat,
+        .wrap-type,
+          font-size: 18px
+
+      .fullname, .email, .phone
+        input
+          font-size: 12px
+          height: 20px
+
+      .budget
+        select
+          font-size: 12px
+          padding: 16.5px 15px
+
+      .description-anything
+        textarea
+          font-size: 12px
+          max-height: 220px
+      .description-projects
+        textarea
+          font-size: 12px
+          max-height: 130px
+
+@media (min-height: 736px) and (max-height: 767px)
+  .contact-page
+    .content
+      .contact-title
+        .inquiry-type
+          max-width: 271px
+        .inquiry-type,
+        .lets-chat,
+        .wrap-type,
+          font-size: 22px
+
+      .fullname, .email, .phone
+        input
+          font-size: 12px
+          height: 20px
+
+      .budget
+        select
+          font-size: 12px
+          padding: 16.5px 15px
+
+      .description-anything
+        textarea
+          font-size: 12px
+          max-height: 220px
+      .description-projects
+        textarea
+          font-size: 12px
+          max-height: 190px
+
+@media (min-width: 768px)
+  .contact-page
+    .content
+      .contact-title
+        .inquiry-type
+          max-width: 371px
+        .inquiry-type,
+        .lets-chat,
+        .wrap-type,
+          font-size: 30px
+
+      .fullname, .email, .phone
+        input
+          font-size: 12px
+          height: 20px
+
+      .budget
+        select
+          font-size: 12px
+          padding: 16.5px 15px
+
+      .description-anything
+        textarea
+          font-size: 12px
+          max-height: 192px
+      .description-projects
+        textarea
+          font-size: 12px
+          max-height: 190px
+    .close-button
+      font-size: 20px !important
+
+@media (min-width: 960px)
+  .contact-page
+    padding-top: 40px
+    max-height: calc(100vh - 125px)
+    max-width: 580px
+    .content
+      display: inline-block
+      width: 100%
+      position: relative
+      .contact-title
+        margin-bottom: 55px
+        .inquiry-type
+          max-width: 371px
+        .inquiry-type,
+        .lets-chat,
+        .wrap-type,
+          font-size: 30px
+
+      .fullname, .email, .phone
+        input
+          font-size: 12px
+          height: 20px
+
+      .budget
+        select
+          font-size: 12px
+
+      .fullname, .email, .phone, .budget
+        width: calc(50% - 15px)
+
+      .fullname, .phone
+        float: left
+        margin-right: 30px
+
+      .email, .budget
+        float: right
+
+      .description-anything, .description-projects
+        margin-bottom: 30px
+        textarea
+          font-size: 12px
+          max-height: 168px
+
+    .close-button
+      font-size: 20px !important
+      position: absolute
+      left: 0
+      bottom: 5px
+
+    .submit
+      max-width: 200px
+      position: initial !important
+      float: right
+      border-radius: 4px
+
+@media (min-width: 1280px)
+  .page-wrap
+    width: calc(100% - 300px)
+    display: inline-block
+    float: left !important
+  .side-info-bar
+    float: right
+    width: 200px
+    padding: 50px
+    padding-top: 177px
+    display: inline-block
+    .projects-text, .thoughts-text
+      font-size: 20px
+      font-weight: 600
+      line-height: 1.5
+      color: white
+      position: relative
+      padding-bottom: 23px
+      
+      &:after
+        position: absolute
+        content: ' '
+        height: 3px
+        width: 50px
+        background-color: #e0394a
+        bottom: 0px
+        left: 0px
+    .sidebar-email-title, .sidebar-phone-title, .social-media-buttons
+      margin-top: 50px
+    .sidebar-email-title, .sidebar-phone-title
+      font-size: 16px
+      font-weight: bold
+      letter-spacing: 1.1px
+      color: white
+      text-transform: uppercase
+    .sidebar-email-value, .sidebar-phone-value
+      font-size: 14px
+      color: #e0394a
+    .sidebar-facebook, .sidebar-twitter, .sidebar-instagram
+      display: table
+      float: left
+      margin-right: 20px

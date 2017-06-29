@@ -9,12 +9,12 @@ const nodemailer = require('nodemailer')
 const smtpTransport = require('nodemailer-smtp-transport')
 const xoauth2 = require('xoauth2')
 const Slack = require('slack-node')
-const secret =  require('../src/secrets')
+const secret =  process.env.NODE_ENV == 'production' ? process.env : require('../src/secrets')
 const app = express()
 const host = process.env.HOST || "localhost"
 const port = process.env.PORT || 8888
 
-app.use(express.static(path.resolve(__dirname, "..", "public")))
+app.use(express.static(path.resolve(__dirname, "..", "static")))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 /*
@@ -22,8 +22,18 @@ app.use(bodyParser.urlencoded({ extended: true }))
   will be handled at client-side (using react-router).
 */
 
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV == 'production' && req.header ('x-forwarded-proto') !== 'https'){
+    console.log(`https://${req.header('host')}${req.url}`)
+    res.redirect(`https://${req.header('host')}${req.url}`)
+  }
+  else
+    next()
+})
+
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, "..", "public", "index.html"))
+  console.log(req.connection.encrypted)
+  res.sendFile(path.resolve(__dirname, "..", "static", "public", "index.html"))
 })
 
 let slack = new Slack()
@@ -32,15 +42,19 @@ slack.setWebhook(secret.slackWebhookURL)
 
 app.post('/getdata', (req, res) => {
   console.log(req.body)
-/* 
+
   slack.webhook({
     channel: 'inquiries',
-    username: 'dkapadiya',
+    username: 'inquiries-bot',
     text: '=========================' + 
       '\n\n*' + (req.body.budget != '' ? 'Work' : 'General') + '*' + ' Inquiry!' +
       '\n\n*Name* : ' + req.body.firstname +
       '\n\n*Email* : ' + req.body.email + 
-      '\n\n*Phone* : ' + req.body.phone + 
+      (
+        req.body.phone != ''
+        ? ('\n\n*Phone* : ' + req.body.phone)
+        : ''
+      ) + 
       (
         req.body.budget != ''
         ? ('\n\n*Budget* : ' + req.body.budget)
@@ -51,7 +65,7 @@ app.post('/getdata', (req, res) => {
     if (err)
       console.log(err)
   })
-*/
+
   let transport = nodemailer.createTransport(smtpTransport({
     service: "Gmail",
     auth: {
@@ -71,7 +85,11 @@ app.post('/getdata', (req, res) => {
     subject: req.body.budget != '' ? 'Work Inquiry!' : 'General Inquiry!',
     html: '<b>Name</b> : ' + req.body.firstname +
       '<br><b>Email</b> : ' + req.body.email + 
-      '<br><b>Phone</b> : <a href="tel:'+ req.body.phone +'">' + req.body.phone + '</a>' +
+      (
+        req.body.phone != ''
+        ? ('<br><b>Phone</b> : <a href="tel:'+ req.body.phone +'">' + req.body.phone + '</a>')
+        : ''
+      ) +
       (
         req.body.budget != '' 
         ? ('<br><b>Budget</b> : ' + req.body.budget)
