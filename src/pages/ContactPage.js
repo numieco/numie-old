@@ -54,12 +54,6 @@ export default class ContactPage extends React.Component {
     this.handleDescBlur = this.handleDescBlur.bind(this)
   }
 
-  componentDidMount () {
-    document.addEventListener('gesturestart', (e) => {
-      e.preventDefault()
-    })
-  }
-
   validateEmail (email) {
     return (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
   }
@@ -257,10 +251,8 @@ export default class ContactPage extends React.Component {
                   onBlur={ this.handleFullnameBlur }
                   placeholder='Name'
                 />
-
                 { this.state.nameRequired ? <div className='error-text'> required </div> : null }
                 { this.state.nameMinChar ? <div className='error-text'> Must be at least 2 characters </div> : null }
-
               </div>
               <div className={ (this.state.emailRequired || this.state.emailInvalid) ? 'email error' : 'email' }>
                 <input 
@@ -272,9 +264,7 @@ export default class ContactPage extends React.Component {
                 />
                 { this.state.emailRequired ? <div className='error-text'> required </div> : null }
                 { this.state.emailInvalid ? <div className='error-text'> Invalid Email Address </div> : null }
-
               </div>
-
               {
                 this.state.type == 'projects'
                 ? (
@@ -293,7 +283,6 @@ export default class ContactPage extends React.Component {
                   )
                 : null
               }
-
               {
                 this.state.type == 'projects'
                 ? (
@@ -316,7 +305,6 @@ export default class ContactPage extends React.Component {
                   )
                 : null
               }
-
               <div className={ (this.state.messageRequired || this.state.messageMinChar) ? ('description error description-' + this.state.type) : ('description description-' + this.state.type) } >
                 <textarea 
                   type='text' 
@@ -366,11 +354,9 @@ export default class ContactPage extends React.Component {
             <div className='sidebar-instagram'>
               <InstagramSvg />
             </div>
-
             <div className='sidebar-twitter'>
               <TwitterSvg />
             </div>
-
             <div className='sidebar-facebook'>
               <FacebookSvg />
             </div>
