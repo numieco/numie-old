@@ -39,7 +39,8 @@ export default class ContactPage extends React.Component {
       messageMinChar: false,
 
       typeUpperClass: 'upper',
-      typeLowerClass: 'lower'
+      typeLowerClass: 'lower',
+      wrapTypeClass: 'wrap-type'
     }
 
     this.handleFullname = this.handleFullname.bind(this)
@@ -172,35 +173,21 @@ export default class ContactPage extends React.Component {
   }
 
   handleType = () => {
-    if(this.state.typeUpperClass == 'upper') {
+    if (this.state.wrapTypeClass == 'wrap-type'
+      || this.state.wrapTypeClass == 'wrap-type goDown') {
       this.setState({
-        typeUpperClass: 'upper translate-active-toDown'
+        wrapTypeClass: 'wrap-type goUp'
+      })
+    } else if (this.state.wrapTypeClass == 'wrap-type up-active') {
+      this.setState({
+        wrapTypeClass: 'wrap-type goDown'
       })
     }
 
-    if(this.state.typeUpperClass == 'lower') {
-      this.setState({
-        typeUpperClass: 'lower translate-active-toUp'
-      })
-    }
-
-    if(this.state.typeLowerClass == 'lower') {
-      this.setState({
-        typeLowerClass: 'lower translate-active-toUp'
-      })
-    }
-
-    if(this.state.typeLowerClass == 'upper') {
-      this.setState({
-        typeLowerClass: 'upper translate-active-toDown'
-      })
-    }
-    
     setTimeout(() => {
       this.setState({
         type : this.state.type == 'anything' ? 'projects' : 'anything',
-        typeLowerClass: this.state.typeLowerClass.indexOf('lower') != -1 ? 'upper' : 'lower',
-        typeUpperClass: this.state.typeUpperClass.indexOf('lower') != -1 ? 'upper' : 'lower'
+        wrapTypeClass: this.state.wrapTypeClass.indexOf('goDown') != -1 ? 'wrap-type' : 'wrap-type up-active'
       }, () => {
         if(this.state.type != 'projects') {
           this.setState({
@@ -262,13 +249,13 @@ export default class ContactPage extends React.Component {
               <div className='contact-title'>
                 <div className='inquiry-type'>
                   <span className='lets-chat'>let's chat</span>
-                  <div className='wrap-type'>
-                    <div className={this.state.typeUpperClass}
+                  <div className={this.state.wrapTypeClass}>
+                    <div className='upper'
                       onClick={this.handleType}
                     >
                       anything
                     </div>
-                    <div className={this.state.typeLowerClass}
+                    <div className='lower'
                       onClick={this.handleType}
                     >
                       projects
