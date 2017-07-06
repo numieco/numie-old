@@ -178,17 +178,29 @@ export default class ContactPage extends React.Component {
       })
     }
 
+    if(this.state.typeUpperClass == 'lower') {
+      this.setState({
+        typeUpperClass: 'lower translate-active-toUp'
+      })
+    }
+
     if(this.state.typeLowerClass == 'lower') {
       this.setState({
         typeLowerClass: 'lower translate-active-toUp'
+      })
+    }
+
+    if(this.state.typeLowerClass == 'upper') {
+      this.setState({
+        typeLowerClass: 'upper translate-active-toDown'
       })
     }
     
     setTimeout(() => {
       this.setState({
         type : this.state.type == 'anything' ? 'projects' : 'anything',
-        typeLowerClass: 'lower',
-        typeUpperClass: 'upper'
+        typeLowerClass: this.state.typeLowerClass.indexOf('lower') != -1 ? 'upper' : 'lower',
+        typeUpperClass: this.state.typeUpperClass.indexOf('lower') != -1 ? 'upper' : 'lower'
       }, () => {
         if(this.state.type != 'projects') {
           this.setState({
@@ -251,13 +263,15 @@ export default class ContactPage extends React.Component {
                 <div className='inquiry-type'>
                   <span className='lets-chat'>let's chat</span>
                   <div className='wrap-type'>
-                    <div className={this.state.typeUpperClass}>
-                      {this.state.type== 'anything' ? 'anything' : 'projects'}
+                    <div className={this.state.typeUpperClass}
+                      onClick={this.handleType}
+                    >
+                      anything
                     </div>
                     <div className={this.state.typeLowerClass}
                       onClick={this.handleType}
                     >
-                      {this.state.type == 'anything' ? 'projects' : 'anything'}
+                      projects
                     </div>
                   </div>
                 </div>

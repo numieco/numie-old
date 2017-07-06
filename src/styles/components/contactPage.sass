@@ -11,27 +11,37 @@
 
 +keyframes (upToDown)
   20%
-    transform: translateY(8px)
+    top: 10%
+    bottom: 40%
   40%
-    transform: translateY(16px)
+    top: 20%
+    bottom: 30%
   60%
-    transform: translateY(24px)
+    top: 30%
+    bottom: 20%
   80%
-    transform: translateY(32px)
+    top: 40%
+    bottom: 10%
   100%
-    transform: translateY(41px)
+    top: 50%
+    bottom: 0%
 
 +keyframes (downToUp)
   20%
-    transform: translateY(-8px)
+    bottom: 10%
+    top: 40%
   40%
-    transform: translateY(-16px)
+    bottom: 20%
+    top: 30%
   60%
-    transform: translateY(-24px)
+    bottom: 30%
+    top: 20%
   80%
-    transform: translateY(-32px)
+    bottom: 40%
+    top: 10%
   100%
-    transform: translateY(-41px)
+    bottom: 50%
+    top: 0%
 
 .page-wrap
   display: inline-block
@@ -76,14 +86,20 @@
           float: right
           display: inline-block
           cursor: pointer
+          position: relative
+          height: 44px
           .upper
             color: #e0394a
             user-select: none
+            position: absolute
+            top: 0%
           .lower
             color: #e0394a
             opacity: 0.5
             clear: both
             user-select: none
+            position: absolute
+            bottom: 0%
 
           .translate-active-toUp
             animation: downToUp 0.3s ease
@@ -197,6 +213,8 @@
         .lets-chat,
         .wrap-type,
           font-size: 18px
+        .wrap-type
+          height: 48px
 
       .fullname, .email, .phone
         input
@@ -227,6 +245,8 @@
         .lets-chat,
         .wrap-type,
           font-size: 22px
+        .wrap-type
+          height: 60px !important
 
       .fullname, .email, .phone
         input
@@ -257,6 +277,8 @@
         .lets-chat,
         .wrap-type,
           font-size: 30px
+        .wrap-type
+          height: 82px  !important
 
       .fullname, .email, .phone
         input
