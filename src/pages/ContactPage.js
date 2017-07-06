@@ -36,7 +36,10 @@ export default class ContactPage extends React.Component {
       phoneInvalid: false,
       budgetRequired: false,
       messageRequired: false,
-      messageMinChar: false
+      messageMinChar: false,
+
+      typeUpperClass: 'upper',
+      typeLowerClass: 'lower'
     }
 
     this.handleFullname = this.handleFullname.bind(this)
@@ -169,19 +172,36 @@ export default class ContactPage extends React.Component {
   }
 
   handleType = () => {
-    this.setState({
-      type : this.state.type == 'anything' ? 'projects' : 'anything'
-    }, () => {
-      if(this.state.type != 'projects') {
-        this.setState({
-          phone: '',
-          budget: '',
-          phoneRequired: false,
-          phoneInvalid: false,
-          budgetRequired: false
-        })
-      }
-    })
+    if(this.state.typeUpperClass == 'upper') {
+      this.setState({
+        typeUpperClass: 'upper translate-active-toDown'
+      })
+    }
+
+    if(this.state.typeLowerClass == 'lower') {
+      this.setState({
+        typeLowerClass: 'lower translate-active-toUp'
+      })
+    }
+    
+    setTimeout(() => {
+      this.setState({
+        type : this.state.type == 'anything' ? 'projects' : 'anything',
+        typeLowerClass: 'lower',
+        typeUpperClass: 'upper'
+      }, () => {
+        if(this.state.type != 'projects') {
+          this.setState({
+            phone: '',
+            budget: '',
+            phoneRequired: false,
+            phoneInvalid: false,
+            budgetRequired: false
+          })
+        }
+      })      
+    }, 301)
+
   }
 
   submitData = () => {
@@ -231,10 +251,12 @@ export default class ContactPage extends React.Component {
                 <div className='inquiry-type'>
                   <span className='lets-chat'>let's chat</span>
                   <div className='wrap-type'>
-                    <span className='upper'>
+                    <div className={this.state.typeUpperClass}>
                       {this.state.type== 'anything' ? 'anything' : 'projects'}
-                    </span>
-                    <div className='lower' onClick={this.handleType}>
+                    </div>
+                    <div className={this.state.typeLowerClass}
+                      onClick={this.handleType}
+                    >
                       {this.state.type == 'anything' ? 'projects' : 'anything'}
                     </div>
                   </div>
