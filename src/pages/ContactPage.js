@@ -26,7 +26,7 @@ export default class ContactPage extends React.Component {
       description: '',
       budget: '',
       isBusinessEnquiry: false,
-      type: 'anything',
+      type: 'projects',
 
       nameRequired: false,
       nameMinChar: false,
@@ -56,6 +56,49 @@ export default class ContactPage extends React.Component {
     this.handlePhoneBlur = this.handlePhoneBlur.bind(this)
     this.handleBudgetBlur = this.handleBudgetBlur.bind(this)
     this.handleDescBlur = this.handleDescBlur.bind(this)
+  }
+
+  componentDidMount () {
+    var formEl = document.querySelector('div.contact-form'),
+    revealer = new RevealFx(formEl),
+    closeCtrl = formEl.querySelector('div.close-button');
+
+    //document.querySelector('lower').addEventListener('click', () => {})
+
+    document.querySelector('.get-in-touch').addEventListener('click', function() {
+      document.querySelector('.header').style.zIndex = -2
+      revealer.reveal({
+        bgcolor: '#e0394a',
+        direction: 'bt',
+        duration: 600,
+        onCover: function(contentEl, revealerEl) {
+          formEl.classList.add('form--open');
+          contentEl.style.opacity = 1;
+        },
+        onComplete: function() {
+          closeCtrl.addEventListener('click', closeForm);
+        }
+      });
+    });
+
+    function closeForm() {
+      closeCtrl.removeEventListener('click', closeForm);
+      formEl.classList.remove('form--open');
+      revealer.reveal({
+        bgcolor: '#e0394a',
+        direction: 'tb',
+        duration: 600, 
+        onCover: function(contentEl, revealerEl) {
+          formEl.classList.remove('form--open');
+          contentEl.style.opacity = 0;
+          setTimeout(() => {
+            document.querySelector('.header').style.zIndex = 3
+          }, 601)
+        }
+      });
+    }
+
+    formEl.addEventListener('submit', function(ev) {ev.preventDefault();});
   }
 
   validateEmail (email) {
@@ -241,7 +284,7 @@ export default class ContactPage extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id='contact' className='contact-form'>
         <div className='page-wrap'>
           <div className='contact-page'>
             <div className='background' />
@@ -262,12 +305,12 @@ export default class ContactPage extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className='close-button'>
+                <div className='close-button form__section'>
                   <span className='x'>x</span>
                   <span className='close'>CLOSE</span>
                 </div>
               </div>
-              <div className={ (this.state.nameRequired || this.state.nameMinChar) ? 'fullname error' : 'fullname' }>
+              <div className={ (this.state.nameRequired || this.state.nameMinChar) ? 'fullname error' : 'fullname form__section' }>
                 <input type='text' 
                   value={ this.state.fullname } 
                   onChange={ this.handleFullname } 
@@ -277,7 +320,7 @@ export default class ContactPage extends React.Component {
                 { this.state.nameRequired ? <div className='error-text'> required </div> : null }
                 { this.state.nameMinChar ? <div className='error-text'> Must be at least 2 characters </div> : null }
               </div>
-              <div className={ (this.state.emailRequired || this.state.emailInvalid) ? 'email error' : 'email' }>
+              <div className={ (this.state.emailRequired || this.state.emailInvalid) ? 'email error' : 'email form__section' }>
                 <input 
                   type='text' 
                   value={ this.state.email } 
@@ -291,7 +334,7 @@ export default class ContactPage extends React.Component {
               {
                 this.state.type == 'projects'
                 ? (
-                    <div className={ (this.state.phoneRequired || this.state.phoneInvalid) ? 'phone error' : 'phone' }>
+                    <div className={ (this.state.phoneRequired || this.state.phoneInvalid) ? 'phone error' : 'phone form__section' }>
                       <input 
                         type='text' 
                         value={ this.state.phone } 
@@ -309,7 +352,7 @@ export default class ContactPage extends React.Component {
               {
                 this.state.type == 'projects'
                 ? (
-                    <div className={ this.state.budgetRequired ? 'budget error' : 'budget' }>
+                    <div className={ this.state.budgetRequired ? 'budget error' : 'budget form__section' }>
                       <select 
                         onChange={this.handleBudget} 
                         onBlur={ this.handleBudgetBlur }
@@ -328,7 +371,7 @@ export default class ContactPage extends React.Component {
                   )
                 : null
               }
-              <div className={ (this.state.messageRequired || this.state.messageMinChar) ? ('description error description-' + this.state.type) : ('description description-' + this.state.type) } >
+              <div className={ (this.state.messageRequired || this.state.messageMinChar) ? ('description error description-' + this.state.type) : ('description form__section description-' + this.state.type) } >
                 <textarea 
                   type='text' 
                   value={ this.state.description } 
@@ -341,13 +384,13 @@ export default class ContactPage extends React.Component {
                 { this.state.messageRequired ? <div className='error-text'> required </div> : null }
                 { this.state.messageMinChar ? <div className='error-text'> Must be at least 20 characters </div> : null }              
               </div>
-              <div className='submit' onClick={ this.submitData }>
+              <div className='submit form__section' onClick={ this.submitData }>
                 SEND
               </div>
             </div>
           </div>
         </div>
-        <div className='side-info-bar'>
+        <div className='side-info-bar form__section'>
           {
             this.state.type == 'projects'
             ? (

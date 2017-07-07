@@ -47,9 +47,9 @@ export default class Header extends React.Component {
                 </div>
                 <div className='wrap-buttons'>
                   <div className='get-in-touch'>
-                    <Link to={'/contact'}>  
+                    <a href='#contact'>
                       Get In Touch
-                    </Link>
+                    </a>
                   </div>
                   <div className='mobile-menu'>
                     <div className='menu-button-inner'>
@@ -82,9 +82,9 @@ export default class Header extends React.Component {
                   </div>
                 </div>
                 <div className='get-in-touch'>
-                  <Link to={'/contact'}>
+                  <a href='#contact'>
                     Get In Touch
-                  </Link>
+                  </a>
                 </div>
               </div>
             )
