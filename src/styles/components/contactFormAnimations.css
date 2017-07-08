@@ -1,0 +1,208 @@
+@-webkit-keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@-moz-keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@-ms-keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@-webkit-keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@-moz-keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@-ms-keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@-webkit-keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@-moz-keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@-ms-keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@-webkit-keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
+@-ms-keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
+@keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }

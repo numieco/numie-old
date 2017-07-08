@@ -173,12 +173,12 @@ export default class ContactPage extends React.Component {
   }
 
   handleType = () => {
-    if (this.state.wrapTypeClass == 'wrap-type'
-      || this.state.wrapTypeClass == 'wrap-type goDown') {
+    if (this.state.wrapTypeClass == 'wrap-type') {
       this.setState({
         wrapTypeClass: 'wrap-type goUp'
       })
-    } else if (this.state.wrapTypeClass == 'wrap-type up-active') {
+    }
+    if (this.state.wrapTypeClass == 'wrap-type up-active') {
       this.setState({
         wrapTypeClass: 'wrap-type goDown'
       })
@@ -186,8 +186,10 @@ export default class ContactPage extends React.Component {
 
     setTimeout(() => {
       this.setState({
-        type : this.state.type == 'anything' ? 'projects' : 'anything',
-        wrapTypeClass: this.state.wrapTypeClass.indexOf('goDown') != -1 ? 'wrap-type' : 'wrap-type up-active'
+        type : this.state.type == 'anything' ? 'projects' : 'anything'
+      }),
+      this.setState({
+        wrapTypeClass: this.state.wrapTypeClass == 'wrap-type goDown' ? 'wrap-type' : 'wrap-type up-active'
       }, () => {
         if(this.state.type != 'projects') {
           this.setState({
@@ -199,7 +201,7 @@ export default class ContactPage extends React.Component {
           })
         }
       })      
-    }, 301)
+    }, 300)
 
   }
 

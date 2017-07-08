@@ -57,21 +57,25 @@
             clear: both
             user-select: none
         .up-active
-          top: -100% !important
+          top: -100%
           .upper
             opacity: 0.5
           .lower
             opacity: 1
 
         .goUp
-          animation: downToUp 0.3s ease
+          animation: downToUp 0.3s
+          animation-timing-function: ease
           animation-direction: normal
+          top: -100%
           .upper
             animation: makefaded 0.3s ease
             animation-direction: normal
+            opacity: 0.5
           .lower
             animation: makeSolid 0.3s ease
             animation-direction: normal
+            opacity: 1
 
         .goDown
           animation: upToDown 0.3s ease

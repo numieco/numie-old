@@ -1,0 +1,525 @@
+@-webkit-keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@-moz-keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@-ms-keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@keyframes upToDown {
+  0% {
+    top: -100%; }
+  20% {
+    top: -80%; }
+  40% {
+    top: -60%; }
+  60% {
+    top: -40%; }
+  80% {
+    top: -20%; }
+  100% {
+    top: 0%; } }
+@-webkit-keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@-moz-keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@-ms-keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@keyframes downToUp {
+  0% {
+    top: 0%; }
+  20% {
+    top: -20%; }
+  40% {
+    top: -40%; }
+  60% {
+    top: -60%; }
+  80% {
+    top: -80%; }
+  100% {
+    top: -100%; } }
+@-webkit-keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@-moz-keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@-ms-keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@keyframes makefaded {
+  0% {
+    opacity: 1; }
+  20% {
+    opacity: 0.9; }
+  40% {
+    opacity: 0.8; }
+  60% {
+    opacity: 0.7; }
+  80% {
+    opacity: 0.6; }
+  100% {
+    opacity: 0.5; } }
+@-webkit-keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
+@-ms-keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
+@keyframes makeSolid {
+  0% {
+    opacity: 0.5; }
+  20% {
+    opacity: 0.6; }
+  40% {
+    opacity: 0.7; }
+  60% {
+    opacity: 0.8; }
+  80% {
+    opacity: 0.9; }
+  100% {
+    opacity: 1; } }
+.page-wrap {
+  display: inline-block;
+  width: 100%; }
+
+.contact-page {
+  width: calc(100% - 60px);
+  max-width: 500px;
+  padding: 30px;
+  height: calc(100vh - 110px);
+  display: block;
+  margin: 0 auto; }
+  .contact-page .background {
+    height: 100vh;
+    width: 100%;
+    background: #141516;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; }
+  .contact-page .content .contact-title {
+    width: 100%;
+    margin-bottom: 20px;
+    display: table;
+    padding-bottom: 41px; }
+    .contact-page .content .contact-title .inquiry-type {
+      float: left;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      max-width: 225px;
+      display: inline-block;
+      position: relative; }
+      .contact-page .content .contact-title .inquiry-type .lets-chat {
+        color: white;
+        display: inline-block;
+        margin-right: 7px; }
+      .contact-page .content .contact-title .inquiry-type .wrap-type {
+        float: right;
+        display: inline-block;
+        cursor: pointer;
+        position: absolute;
+        top: 0%; }
+        .contact-page .content .contact-title .inquiry-type .wrap-type .upper {
+          color: #e0394a;
+          user-select: none;
+          opacity: 1; }
+        .contact-page .content .contact-title .inquiry-type .wrap-type .lower {
+          color: #e0394a;
+          opacity: 0.5;
+          clear: both;
+          user-select: none; }
+      .contact-page .content .contact-title .inquiry-type .up-active {
+        top: -100%; }
+        .contact-page .content .contact-title .inquiry-type .up-active .upper {
+          opacity: 0.5; }
+        .contact-page .content .contact-title .inquiry-type .up-active .lower {
+          opacity: 1; }
+      .contact-page .content .contact-title .inquiry-type .goUp {
+        animation: downToUp 0.3s;
+        animation-timing-function: ease;
+        animation-direction: normal;
+        top: -100%; }
+        .contact-page .content .contact-title .inquiry-type .goUp .upper {
+          animation: makefaded 0.3s ease;
+          animation-direction: normal;
+          opacity: 0.5; }
+        .contact-page .content .contact-title .inquiry-type .goUp .lower {
+          animation: makeSolid 0.3s ease;
+          animation-direction: normal;
+          opacity: 1; }
+      .contact-page .content .contact-title .inquiry-type .goDown {
+        animation: upToDown 0.3s ease;
+        animation-direction: normal; }
+        .contact-page .content .contact-title .inquiry-type .goDown .upper {
+          animation: makeSolid 0.3s ease;
+          animation-direction: normal; }
+        .contact-page .content .contact-title .inquiry-type .goDown .lower {
+          animation: makefaded 0.3s ease;
+          animation-direction: normal; }
+    .contact-page .content .contact-title .close-button {
+      float: right;
+      display: inline-block;
+      opacity: 0.5;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.9;
+      letter-spacing: 0.9px;
+      color: #646464; }
+      .contact-page .content .contact-title .close-button .x {
+        float: left;
+        margin-right: 5px;
+        text-transform: uppercase; }
+      .contact-page .content .contact-title .close-button .close {
+        float: right; }
+  .contact-page .content .fullname, .contact-page .content .email, .contact-page .content .phone, .contact-page .content .description {
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%; }
+    .contact-page .content .fullname input, .contact-page .content .fullname textarea, .contact-page .content .email input, .contact-page .content .email textarea, .contact-page .content .phone input, .contact-page .content .phone textarea, .contact-page .content .description input, .contact-page .content .description textarea {
+      width: calc(100% - 32px);
+      padding: 14px 15px;
+      border-radius: 4px;
+      border: solid 1px #646464;
+      background: #141516;
+      font-size: 10px;
+      color: #646464;
+      outline: none; }
+  .contact-page .content .budget {
+    margin-bottom: 30px; }
+    .contact-page .content .budget select {
+      width: 100%;
+      padding: 14px 15px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border-radius: 4px;
+      border: solid 1px #646464;
+      background: #141516;
+      font-size: 10px;
+      color: #646464;
+      outline: none; }
+  .contact-page .content .description-projects {
+    margin-bottom: 0px; }
+    .contact-page .content .description-projects textarea {
+      height: 100vh;
+      resize: none;
+      max-height: 70px; }
+  .contact-page .content .description-anything {
+    margin-bottom: 0px; }
+    .contact-page .content .description-anything textarea {
+      height: 100vh;
+      max-height: 177px;
+      resize: none; }
+  .contact-page .content .submit {
+    width: 100%;
+    height: 20px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    background: #e0394a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: 0.8px;
+    padding: 15px 0px;
+    text-align: center;
+    cursor: pointer; }
+
+.side-info-bar {
+  display: none; }
+
+.error {
+  position: relative; }
+  .error input, .error select, .error textarea {
+    color: #e0394a !important;
+    border-color: #e0394a !important; }
+    .error input::placeholder, .error select::placeholder, .error textarea::placeholder {
+      color: #e0394a; }
+
+.error-text {
+  position: absolute;
+  bottom: -15px;
+  color: #e0394a;
+  font-size: 10px; }
+
+@media (max-width: 320px) {
+  .close-button .x {
+    display: none; } }
+@media (min-height: 667px) and (max-height: 735px) {
+  .contact-page .content .contact-title .inquiry-type,
+  .contact-page .content .contact-title .lets-chat,
+  .contact-page .content .contact-title .wrap-type {
+    font-size: 18px; }
+  .contact-page .content .fullname input, .contact-page .content .email input, .contact-page .content .phone input {
+    font-size: 12px;
+    height: 20px; }
+  .contact-page .content .budget select {
+    font-size: 12px;
+    padding: 16.5px 15px; }
+  .contact-page .content .description-anything textarea {
+    font-size: 12px;
+    max-height: 220px; }
+  .contact-page .content .description-projects textarea {
+    font-size: 12px;
+    max-height: 130px; } }
+@media (min-height: 736px) and (max-height: 767px) {
+  .contact-page .content .contact-title .inquiry-type {
+    max-width: 271px; }
+  .contact-page .content .contact-title .inquiry-type,
+  .contact-page .content .contact-title .lets-chat,
+  .contact-page .content .contact-title .wrap-type {
+    font-size: 22px; }
+  .contact-page .content .fullname input, .contact-page .content .email input, .contact-page .content .phone input {
+    font-size: 12px;
+    height: 20px; }
+  .contact-page .content .budget select {
+    font-size: 12px;
+    padding: 16.5px 15px; }
+  .contact-page .content .description-anything textarea {
+    font-size: 12px;
+    max-height: 220px; }
+  .contact-page .content .description-projects textarea {
+    font-size: 12px;
+    max-height: 190px; } }
+@media (min-width: 768px) {
+  .contact-page .content .contact-title .inquiry-type {
+    max-width: 371px; }
+  .contact-page .content .contact-title .inquiry-type,
+  .contact-page .content .contact-title .lets-chat,
+  .contact-page .content .contact-title .wrap-type {
+    font-size: 30px; }
+  .contact-page .content .fullname input, .contact-page .content .email input, .contact-page .content .phone input {
+    font-size: 12px;
+    height: 20px; }
+  .contact-page .content .budget select {
+    font-size: 12px;
+    padding: 16.5px 15px; }
+  .contact-page .content .description-anything textarea {
+    font-size: 12px;
+    max-height: 192px; }
+  .contact-page .content .description-projects textarea {
+    font-size: 12px;
+    max-height: 190px; }
+  .contact-page .close-button {
+    font-size: 20px !important; } }
+@media (min-width: 960px) {
+  .contact-page {
+    padding-top: 40px;
+    max-height: calc(100vh - 125px);
+    max-width: 580px; }
+    .contact-page .content {
+      display: inline-block;
+      width: 100%;
+      position: relative; }
+      .contact-page .content .contact-title {
+        margin-bottom: 55px; }
+        .contact-page .content .contact-title .inquiry-type {
+          max-width: 371px; }
+        .contact-page .content .contact-title .inquiry-type,
+        .contact-page .content .contact-title .lets-chat,
+        .contact-page .content .contact-title .wrap-type {
+          font-size: 30px; }
+      .contact-page .content .fullname input, .contact-page .content .email input, .contact-page .content .phone input {
+        font-size: 12px;
+        height: 20px; }
+      .contact-page .content .budget select {
+        font-size: 12px; }
+      .contact-page .content .fullname, .contact-page .content .email, .contact-page .content .phone, .contact-page .content .budget {
+        width: calc(50% - 15px); }
+      .contact-page .content .fullname, .contact-page .content .phone {
+        float: left;
+        margin-right: 30px; }
+      .contact-page .content .email, .contact-page .content .budget {
+        float: right; }
+      .contact-page .content .description-anything, .contact-page .content .description-projects {
+        margin-bottom: 30px; }
+        .contact-page .content .description-anything textarea, .contact-page .content .description-projects textarea {
+          font-size: 12px;
+          max-height: 168px; }
+    .contact-page .close-button {
+      font-size: 20px !important;
+      position: absolute;
+      left: 0;
+      bottom: 5px; }
+    .contact-page .submit {
+      max-width: 200px;
+      position: initial !important;
+      float: right;
+      border-radius: 4px; } }
+@media (min-width: 1280px) {
+  .page-wrap {
+    width: calc(100% - 300px);
+    display: inline-block;
+    float: left !important; }
+
+  .side-info-bar {
+    float: right;
+    width: 200px;
+    padding: 50px;
+    padding-top: 177px;
+    display: inline-block; }
+    .side-info-bar .projects-text, .side-info-bar .thoughts-text {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: white;
+      position: relative;
+      padding-bottom: 23px; }
+      .side-info-bar .projects-text:after, .side-info-bar .thoughts-text:after {
+        position: absolute;
+        content: " ";
+        height: 3px;
+        width: 50px;
+        background-color: #e0394a;
+        bottom: 0px;
+        left: 0px; }
+    .side-info-bar .sidebar-email-title, .side-info-bar .sidebar-phone-title, .side-info-bar .social-media-buttons {
+      margin-top: 50px; }
+    .side-info-bar .sidebar-email-title, .side-info-bar .sidebar-phone-title {
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      color: white;
+      text-transform: uppercase; }
+    .side-info-bar .sidebar-email-value, .side-info-bar .sidebar-phone-value {
+      font-size: 14px;
+      color: #e0394a; }
+    .side-info-bar .sidebar-facebook, .side-info-bar .sidebar-twitter, .side-info-bar .sidebar-instagram {
+      display: table;
+      float: left;
+      margin-right: 20px; } }
