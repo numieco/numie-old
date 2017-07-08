@@ -32,7 +32,6 @@ app.use((req, res, next) => {
 })
 
 app.get('*', (req, res) => {
-  console.log(req.connection.encrypted)
   res.sendFile(path.resolve(__dirname, "..", "static", "public", "index.html"))
 })
 
