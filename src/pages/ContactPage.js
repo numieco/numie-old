@@ -26,7 +26,7 @@ export default class ContactPage extends React.Component {
       description: '',
       budget: '',
       isBusinessEnquiry: false,
-      type: 'projects',
+      type: 'anything',
 
       nameRequired: false,
       nameMinChar: false,
