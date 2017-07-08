@@ -256,7 +256,7 @@ export default class ContactPage extends React.Component {
       || this.state.phoneRequired || this.state.phoneInvalid
       || this.state.messageRequired || this.state.messageMinChar
       || this.state.budgetRequired ) {
-      //do nothing
+
       if (this.state.fullname == '')
         this.setState({ nameRequired: true })
       if (this.state.email == '')
@@ -267,6 +267,7 @@ export default class ContactPage extends React.Component {
         this.setState({ phoneRequired: true })
       if (this.state.type == 'projects' && this.state.budget == '')
         this.setState({ budgetRequired: true })
+    
     } else {
       axios({
         method: 'POST',
@@ -394,29 +395,29 @@ export default class ContactPage extends React.Component {
           {
             this.state.type == 'projects'
             ? (
-                  <div className='projects-text'>
+                  <div className='projects-text form__section'>
                     We’d love to help build your newest project.
                   </div>
               )
             : (
-                  <div className='thoughts-text'>
+                  <div className='thoughts-text form__section'>
                     Have something on your mind? Let’s chat!
                   </div>
               )
           }
-          <div className='sidebar-email-title'>
+          <div className='sidebar-email-title form__section'>
             email
           </div>
-          <div className='sidebar-email-value'>
+          <div className='sidebar-email-value form__section'>
             yo@numie.co
           </div>
-          <div className='sidebar-phone-title'>
+          <div className='sidebar-phone-title form__section'>
             phone
           </div>
-          <div className='sidebar-phone-value'>
+          <div className='sidebar-phone-value form__section'>
             +1 960.333.5235
           </div>
-          <div className='social-media-buttons'>
+          <div className='social-media-buttons form__section'>
             <div className='sidebar-instagram'>
               <InstagramSvg />
             </div>
