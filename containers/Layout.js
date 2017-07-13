@@ -85,8 +85,8 @@ export default class Layout extends Component {
 
         {this.props.children}
 
-        <script type="text/javascript" src='static/BlockRevealers/js/anime.min.js'></script>
-        <script type="text/javascript" src='static/BlockRevealers/js/main.js'></script>
+        <script type="text/javascript" src='static/scripts/anime.min.js'></script>
+        <script type="text/javascript" src='static/scripts/main.js'></script>
 
       </div>
 
