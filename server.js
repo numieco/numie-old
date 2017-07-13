@@ -18,7 +18,7 @@ const Slack = require('slack-node')
 
 const secret =  process.env.NODE_ENV == 'production' ? process.env : require('./secrets')
 const host = process.env.HOST || "localhost"
-const port = process.env.PORT || 8888
+const port = process.env.PORT || 3000
 
 let slack = new Slack()
 slack.setWebhook(secret.slackWebhookURL)
@@ -45,15 +45,15 @@ app.prepare()
     slack.webhook({
       channel: 'inquiries',
       username: 'inquiries-bot',
-      text: '=========================' + 
+      text: '=========================' +
         '\n\n*' + (req.body.budget != '' ? 'Work' : 'General') + '*' + ' Inquiry!' +
         '\n\n*Name* : ' + req.body.firstname +
-        '\n\n*Email* : ' + req.body.email + 
+        '\n\n*Email* : ' + req.body.email +
         (
           req.body.phone != ''
           ? ('\n\n*Phone* : ' + req.body.phone)
           : ''
-        ) + 
+        ) +
         (
           req.body.budget != ''
           ? ('\n\n*Budget* : ' + req.body.budget)
@@ -83,14 +83,14 @@ app.prepare()
       replyTo: req.body.email,
       subject: req.body.budget != '' ? 'Work Inquiry!' : 'General Inquiry!',
       html: '<b>Name</b> : ' + req.body.firstname +
-        '<br><b>Email</b> : ' + req.body.email + 
+        '<br><b>Email</b> : ' + req.body.email +
         (
           req.body.phone != ''
           ? ('<br><b>Phone</b> : <a href="tel:'+ req.body.phone +'">' + req.body.phone + '</a>')
           : ''
         ) +
         (
-          req.body.budget != '' 
+          req.body.budget != ''
           ? ('<br><b>Budget</b> : ' + req.body.budget)
           : ''
         ) +
@@ -98,7 +98,7 @@ app.prepare()
     }
 
     transport.sendMail(mailOptions, (err, response) => {
-      if (err) 
+      if (err)
         console.log(err)
       else
         console.log('success')
