@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
-import NumieLogo from '../SVG/NumieLogo'
+import NumieLogo from './SVG/NumieLogo'
 
 export default class Header extends React.Component {
   constructor (props) {
@@ -12,7 +12,7 @@ export default class Header extends React.Component {
     }
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.listenResizeEvent()
     window.addEventListener('resize', this.listenResizeEvent)
   }
@@ -41,13 +41,13 @@ export default class Header extends React.Component {
           ? (
               <div className='menu-wrapper'>
                 <div className='logo'>
-                  <Link to={'/'}>
-                    <NumieLogo />
+                  <Link href='/'>
+                    <a><NumieLogo /></a>
                   </Link>  
                 </div>
                 <div className='wrap-buttons'>
                   <div className='get-in-touch'>
-                    <a href='#contact'>
+                    <a>
                       Get In Touch
                     </a>
                   </div>
@@ -61,14 +61,14 @@ export default class Header extends React.Component {
           : ( 
               <div className='menu-wrapper'>
                 <div className='logo'>
-                  <Link to={'/'}>
-                    <NumieLogo />
+                  <Link href='/'>
+                    <a><NumieLogo /></a>
                   </Link>
                 </div>
                 <div className='menu'>
                   <div className='home-menu'>
-                    <Link to={'/'}>
-                      Home
+                    <Link href='/'>
+                      <a>Home</a>
                     </Link>
                   </div>
                   <div className='what-we-do-menu'>
@@ -82,7 +82,7 @@ export default class Header extends React.Component {
                   </div>
                 </div>
                 <div className='get-in-touch'>
-                  <a href='#contact'>
+                  <a>
                     Get In Touch
                   </a>
                 </div>

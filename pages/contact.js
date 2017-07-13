@@ -1,10 +1,13 @@
 import React from 'react'
+import Link from 'next/link'
 import Select from 'react-select'
 import axios from 'axios'
 import Header from '../components/Header'
-import FacebookSvg from '../SVG/FacebookSvg'
-import InstagramSvg from '../SVG/InstagramSvg'
-import TwitterSvg from '../SVG/TwitterSvg'
+import FacebookSvg from '../components/SVG/FacebookSvg'
+import InstagramSvg from '../components/SVG/InstagramSvg'
+import TwitterSvg from '../components/SVG/TwitterSvg'
+
+import Layout from '../containers/Layout'
 
 const options = [
   { value: 'Prefer not to say', label: 'Prefer not to say' },
@@ -59,50 +62,52 @@ export default class ContactPage extends React.Component {
   }
 
   componentDidMount () {
+
     var formEl = document.querySelector('div.contact-form'),
     revealer = new RevealFx(formEl),
-    closeCtrl = formEl.querySelector('div.close-button');
+    closeCtrl = formEl.querySelector('div.close-button')
 
     //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
+      console.log('clicked')
       document.querySelector('.header').style.zIndex = -2
       revealer.reveal({
         bgcolor: '#e0394a',
         direction: 'bt',
         duration: 600,
         onCover: function(contentEl, revealerEl) {
-          formEl.classList.add('form--open');
-          contentEl.style.opacity = 1;
+          formEl.classList.add('form--open')
+          contentEl.style.opacity = 1
         },
         onComplete: function() {
-          closeCtrl.addEventListener('click', closeForm);
+          closeCtrl.addEventListener('click', closeForm)
         }
-      });
-    });
+      })
+    })
 
     function closeForm() {
-      closeCtrl.removeEventListener('click', closeForm);
-      formEl.classList.remove('form--open');
+      closeCtrl.removeEventListener('click', closeForm)
+      formEl.classList.remove('form--open')
       revealer.reveal({
         bgcolor: '#e0394a',
         direction: 'tb',
         duration: 600, 
         onCover: function(contentEl, revealerEl) {
-          formEl.classList.remove('form--open');
-          contentEl.style.opacity = 0;
+          formEl.classList.remove('form--open')
+          contentEl.style.opacity = 0
           setTimeout(() => {
             document.querySelector('.header').style.zIndex = 3
           }, 601)
         }
-      });
+      })
     }
 
-    formEl.addEventListener('submit', function(ev) {ev.preventDefault();});
+    formEl.addEventListener('submit', function(ev) {ev.preventDefault()})
   }
 
   validateEmail (email) {
-    return (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
+    return (/^(([^<>()[\]\\.,:\s@\"]+(\.[^<>()[\]\\.,:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
   }
 
   validatePhone (numer) {
@@ -279,12 +284,21 @@ export default class ContactPage extends React.Component {
           description: this.state.description,
           budget: this.state.budget
         }
-      })      
+      })
+      .then((response) => {
+        console.log('AXIOS response')
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log('AXIOS error')
+        console.log(error)
+      })
     }
   }
 
   render () {
     return (
+      <Layout>
       <div id='contact' className='contact-form'>
         <div className='page-wrap'>
           <div className='contact-page'>
@@ -306,10 +320,12 @@ export default class ContactPage extends React.Component {
                     </div>
                   </div>
                 </div>
+                <Link href='/'>
                 <div className='close-button form__section'>
                   <span className='x'>x</span>
                   <span className='close'>CLOSE</span>
                 </div>
+                </Link>
               </div>
               <div className={ (this.state.nameRequired || this.state.nameMinChar) ? 'fullname error' : 'fullname form__section' }>
                 <input type='text' 
@@ -430,6 +446,7 @@ export default class ContactPage extends React.Component {
           </div>
         </div>
       </div>
+      </Layout>
     )
   }
 }
