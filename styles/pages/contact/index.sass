@@ -1,4 +1,6 @@
+@import 'utilities/variables'
 @import 'contactFormAnimations'
+
 .block-revealer__content
   .page-wrap
     opacity: 1 !important
@@ -73,11 +75,11 @@
           position: absolute
           top: 0%
           .upper
-            color: #e0394a
+            color: $numie-red
             user-select: none
             opacity: 1
           .lower
-            color: #e0394a
+            color: $numie-red
             opacity: 0.5
             clear: both
             user-select: none
@@ -173,7 +175,7 @@
       right: 0
       left: 0
       z-index: 0
-      background: #e0394a
+      background: $numie-red
       color: white
       font-size: 16px
       font-weight: bold
@@ -189,14 +191,14 @@
 .error
   position: relative
   input, select, textarea
-    color: #e0394a !important
-    border-color: #e0394a !important
+    color: $numie-red !important
+    border-color: $numie-red !important
     &::placeholder
-      color: #e0394a
+      color: $numie-red
 .error-text
   position: absolute
   bottom: -15px
-  color: #e0394a
+  color: $numie-red
   font-size: 10px
 
 
@@ -377,7 +379,7 @@
         content: ' '
         height: 3px
         width: 50px
-        background-color: #e0394a
+        background-color: $numie-red
         bottom: 0px
         left: 0px
     .sidebar-email-title, .sidebar-phone-title, .social-media-buttons
@@ -390,7 +392,7 @@
       text-transform: uppercase
     .sidebar-email-value, .sidebar-phone-value
       font-size: 14px
-      color: #e0394a
+      color: $numie-red
     .sidebar-facebook, .sidebar-twitter, .sidebar-instagram
       display: table
       float: left

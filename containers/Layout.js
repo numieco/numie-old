@@ -7,22 +7,13 @@ import stylesheet from 'styles/index.sass'
 
 const page = {
   index: {
-    title: 'Numie',
-    description: 'This is a great new Project',
-    url: 'https://google.com',
+    title: 'Numie &amp Digital Studio',
+    description: 'Numie is an in-house digital and marketing studio.',
+    url: 'https://numie.co',
     keywords: 'test',
     facebookShare: 'static/images/meta/facebook_share.png',
     twitterShare: 'static/images/meta/twitter_share.png',
-    favicon: 'static/images/meta/favicon.png'
-  },
-  about: {
-    title: 'About - New Project',
-    description: 'This is a great new Project',
-    url: 'https://google.com',
-    keywords: 'test',
-    facebookShare: 'static/images/meta/facebook_share.png',
-    twitterShare: 'static/images/meta/twitter_share.png',
-    favicon: 'static/images/meta/favicon.png'
+    favicon: 'static/images/meta/favicon.ico'
   }
 };
 

@@ -18,5 +18,6 @@
   "presets": [
     "next/babel"
   ],
-  "ignore": []
+  "ignore": [],
+  "compact": false
 }
