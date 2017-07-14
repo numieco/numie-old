@@ -8,7 +8,7 @@ export default class Header extends React.Component {
     super (props)
 
     this.state = {
-      isMobile : false
+      isMobile : true
     }
   }
 
@@ -36,59 +36,52 @@ export default class Header extends React.Component {
   render () {
     return (
       <div className='header'>
-        {
-          this.state.isMobile === true
-          ? (
-              <div className='menu-wrapper'>
-                <div className='logo'>
-                  <Link href='/'>
-                    <a><NumieLogo /></a>
-                  </Link>  
-                </div>
-                <div className='wrap-buttons'>
-                  <div className='get-in-touch'>
-                    <a>
-                      Get In Touch
-                    </a>
+        <div className='menu-wrapper'>
+          <div className='logo'>
+            <Link href='/'>
+              <a><NumieLogo /></a>
+            </Link>  
+          </div>
+          <div className={this.state.isMobile ? 'wrap-buttons' : ''}>
+            {
+              !this.state.isMobile
+              ? (
+                  <div className='menu'>
+                    <div className='home-menu'>
+                      <Link href='/'>
+                        <a>Home</a>
+                      </Link>
+                    </div>
+                    <div className='what-we-do-menu'>
+                      What we do
+                    </div>
+                    <div className='out-work-menu'>
+                      Our work
+                    </div>
+                    <div className='writing-menu'>
+                      Writing
+                    </div>
                   </div>
+                )
+              : null
+            }
+            <div className='get-in-touch'>
+              <a>
+                Get In Touch
+              </a>
+            </div>
+            {
+              this.state.isMobile
+              ? (
                   <div className='mobile-menu'>
                     <div className='menu-button-inner'>
                     </div>
                   </div>
-                </div>
-              </div>
-            )
-          : ( 
-              <div className='menu-wrapper'>
-                <div className='logo'>
-                  <Link href='/'>
-                    <a><NumieLogo /></a>
-                  </Link>
-                </div>
-                <div className='menu'>
-                  <div className='home-menu'>
-                    <Link href='/'>
-                      <a>Home</a>
-                    </Link>
-                  </div>
-                  <div className='what-we-do-menu'>
-                    What we do
-                  </div>
-                  <div className='out-work-menu'>
-                    Our work
-                  </div>
-                  <div className='writing-menu'>
-                    Writing
-                  </div>
-                </div>
-                <div className='get-in-touch'>
-                  <a>
-                    Get In Touch
-                  </a>
-                </div>
-              </div>
-            )
-        }
+                )
+              : null
+            }
+          </div>
+        </div>
       </div>
     )
   }

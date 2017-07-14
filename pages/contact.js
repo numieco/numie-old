@@ -70,7 +70,6 @@ export default class ContactPage extends React.Component {
     //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
-      console.log('clicked')
 
       document.querySelector('.submit').style.bottom = 0
       document.querySelector('.background').style.top = 0
