@@ -7,7 +7,7 @@ import stylesheet from 'styles/index.sass'
 
 const page = {
   index: {
-    title: 'Numie &amp Digital Studio',
+    title: 'Numie - Digital Studio',
     description: 'Numie is an in-house digital and marketing studio.',
     url: 'https://numie.co',
     keywords: 'test',
@@ -69,9 +69,8 @@ export default class Layout extends Component {
           <meta content={page.index.description} name='twitter:description'></meta>
           <meta content={page.index.twitterShare} name='twitter:image'></meta>
 
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet" />
-
           <style dangerouslySetInnerHTML={{ __html: stylesheet }}/>
+
         </Head>
 
         {this.props.children}

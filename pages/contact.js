@@ -92,7 +92,7 @@ export default class ContactPage extends React.Component {
       revealer.reveal({
         bgcolor: '#e0394a',
         direction: 'tb',
-        duration: 600, 
+        duration: 600,
         onCover: function(contentEl, revealerEl) {
           formEl.classList.remove('form--open')
           contentEl.style.opacity = 0
@@ -123,7 +123,7 @@ export default class ContactPage extends React.Component {
   }
 
   handleFullnameBlur = () => {
-    if(this.state.fullname.length <= 0) { 
+    if(this.state.fullname.length <= 0) {
       this.setState({
         nameRequired: true,
         nameMinChar: false
@@ -144,7 +144,7 @@ export default class ContactPage extends React.Component {
   }
 
   handleEmailBlur = () => {
-    if(this.state.email.length <= 0) { 
+    if(this.state.email.length <= 0) {
       this.setState({
         emailRequired: true,
         emailInvalid: false
@@ -165,7 +165,7 @@ export default class ContactPage extends React.Component {
   }
 
   handlePhoneBlur = () => {
-    if(this.state.phone.length <= 0) { 
+    if(this.state.phone.length <= 0) {
       this.setState({
         phoneRequired: true,
         phoneInvalid: false
@@ -186,7 +186,7 @@ export default class ContactPage extends React.Component {
   }
 
   handleDescBlur = () => {
-    if(this.state.description.length <= 0) { 
+    if(this.state.description.length <= 0) {
       this.setState({
         messageRequired: true,
         messageMinChar: false
@@ -209,7 +209,7 @@ export default class ContactPage extends React.Component {
   }
 
   handleBudgetBlur = () => {
-    if(this.state.budget.length <= 0) { 
+    if(this.state.budget.length <= 0) {
       this.setState({
         budgetRequired: true
       })
@@ -246,7 +246,7 @@ export default class ContactPage extends React.Component {
             budgetRequired: false
           })
         }
-      })      
+      })
     }, 301)
 
   }
@@ -272,7 +272,7 @@ export default class ContactPage extends React.Component {
         this.setState({ phoneRequired: true })
       if (this.state.type == 'projects' && this.state.budget == '')
         this.setState({ budgetRequired: true })
-    
+
     } else {
       axios({
         method: 'POST',
@@ -328,9 +328,9 @@ export default class ContactPage extends React.Component {
                 </Link>
               </div>
               <div className={ (this.state.nameRequired || this.state.nameMinChar) ? 'fullname error' : 'fullname form__section' }>
-                <input type='text' 
-                  value={ this.state.fullname } 
-                  onChange={ this.handleFullname } 
+                <input type='text'
+                  value={ this.state.fullname }
+                  onChange={ this.handleFullname }
                   onBlur={ this.handleFullnameBlur }
                   placeholder='Name'
                 />
@@ -338,10 +338,10 @@ export default class ContactPage extends React.Component {
                 { this.state.nameMinChar ? <div className='error-text'> Must be at least 2 characters </div> : null }
               </div>
               <div className={ (this.state.emailRequired || this.state.emailInvalid) ? 'email error' : 'email form__section' }>
-                <input 
-                  type='text' 
-                  value={ this.state.email } 
-                  onChange={ this.handleEmail } 
+                <input
+                  type='text'
+                  value={ this.state.email }
+                  onChange={ this.handleEmail }
                   onBlur={ this.handleEmailBlur }
                   placeholder='Email'
                 />
@@ -352,16 +352,16 @@ export default class ContactPage extends React.Component {
                 this.state.type == 'projects'
                 ? (
                     <div className={ (this.state.phoneRequired || this.state.phoneInvalid) ? 'phone error' : 'phone form__section' }>
-                      <input 
-                        type='text' 
-                        value={ this.state.phone } 
-                        onChange={ this.handlePhone } 
+                      <input
+                        type='text'
+                        value={ this.state.phone }
+                        onChange={ this.handlePhone }
                         onBlur={ this.handlePhoneBlur }
                         placeholder='Phone'
                       />
                       { this.state.phoneRequired ? <div className='error-text'> required </div> : null }
                       { this.state.phoneInvalid ? <div className='error-text'> Invalid Phone Number </div> : null }
-                      
+
                     </div>
                   )
                 : null
@@ -370,8 +370,8 @@ export default class ContactPage extends React.Component {
                 this.state.type == 'projects'
                 ? (
                     <div className={ this.state.budgetRequired ? 'budget error' : 'budget form__section' }>
-                      <select 
-                        onChange={this.handleBudget} 
+                      <select
+                        onChange={this.handleBudget}
                         onBlur={ this.handleBudgetBlur }
                         value={this.state.budget}
                       >
@@ -389,17 +389,17 @@ export default class ContactPage extends React.Component {
                 : null
               }
               <div className={ (this.state.messageRequired || this.state.messageMinChar) ? ('description error description-' + this.state.type) : ('description form__section description-' + this.state.type) } >
-                <textarea 
-                  type='text' 
-                  value={ this.state.description } 
-                  onChange={ this.handleDesc } 
+                <textarea
+                  type='text'
+                  value={ this.state.description }
+                  onChange={ this.handleDesc }
                   onBlur={ this.handleDescBlur }
                   placeholder='Message'
                   cols='40'
                   rows='5'
                 />
                 { this.state.messageRequired ? <div className='error-text'> required </div> : null }
-                { this.state.messageMinChar ? <div className='error-text'> Must be at least 20 characters </div> : null }              
+                { this.state.messageMinChar ? <div className='error-text'> Must be at least 20 characters </div> : null }
               </div>
               <div className='submit form__section' onClick={ this.submitData }>
                 SEND
