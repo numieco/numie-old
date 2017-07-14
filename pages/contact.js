@@ -63,15 +63,20 @@ export default class ContactPage extends React.Component {
 
   componentDidMount () {
 
-    var formEl = document.querySelector('div.contact-form'),
+    var formEl = document.querySelector('.contact-form'),
     revealer = new RevealFx(formEl),
-    closeCtrl = formEl.querySelector('div.close-button')
+    closeCtrl = document.querySelector('.close-button')
 
     //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
       console.log('clicked')
+
+      document.querySelector('.submit').style.bottom = 0
+      document.querySelector('.background').style.top = 0
+      document.querySelector('#contact').style.top = 0
       document.querySelector('.header').style.zIndex = -2
+
       revealer.reveal({
         bgcolor: '#e0394a',
         direction: 'bt',
@@ -87,8 +92,6 @@ export default class ContactPage extends React.Component {
     })
 
     function closeForm() {
-      closeCtrl.removeEventListener('click', closeForm)
-      formEl.classList.remove('form--open')
       revealer.reveal({
         bgcolor: '#e0394a',
         direction: 'tb',
@@ -103,7 +106,6 @@ export default class ContactPage extends React.Component {
       })
     }
 
-    formEl.addEventListener('submit', function(ev) {ev.preventDefault()})
   }
 
   validateEmail (email) {
@@ -298,8 +300,8 @@ export default class ContactPage extends React.Component {
 
   render () {
     return (
-      <Layout>
       <div id='contact' className='contact-form'>
+      <div className='block-revealer__content'>
         <div className='page-wrap'>
           <div className='contact-page'>
             <div className='background' />
@@ -446,7 +448,7 @@ export default class ContactPage extends React.Component {
           </div>
         </div>
       </div>
-      </Layout>
+      </div>
     )
   }
 }

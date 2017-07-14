@@ -82,14 +82,17 @@
 			this.el.style.position = 'relative';
 		}
 		// Content element.
-		this.content = createDOMEl('div', 'block-revealer__content', this.el.innerHTML);
-		if( this.options.isContentHidden) {
-			this.content.style.opacity = 0;
-		}
+		// this.content = createDOMEl('div', 'block-revealer__content', this.el.innerHTML);
+		// if( this.options.isContentHidden) {
+		// 	this.content.style.opacity = 0;
+		// }
 		// Revealer element (the one that animates)
+
+		this.content = document.querySelector('.block-revealer__content');
+
 		this.revealer = createDOMEl('div', 'block-revealer__element');
 		this.el.classList.add('block-revealer');
-		this.el.innerHTML = '';
+		// this.el.innerHTML = '';
 		this.el.appendChild(this.content);
 		this.el.appendChild(this.revealer);
 	};
