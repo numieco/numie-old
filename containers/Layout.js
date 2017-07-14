@@ -23,7 +23,7 @@ export default class Layout extends Component {
   }
 
   componentDidMount () {
-
+    document.documentElement.className = 'js'
     // //Google Analytics
     // ReactGA.initialize('UA-XXXXXXXXX-X')
     // ReactGA.pageview(document.location.pathname)
@@ -70,7 +70,7 @@ export default class Layout extends Component {
           <meta content={page.index.twitterShare} name='twitter:image'></meta>
           
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet" />
-          
+
           <style dangerouslySetInnerHTML={{ __html: stylesheet }}/>
 
         </Head>
