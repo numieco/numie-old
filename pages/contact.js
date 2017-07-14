@@ -408,7 +408,7 @@ export default class ContactPage extends React.Component {
             </div>
           </div>
         </div>
-        <div className='side-info-bar form__section'>
+        <div className='side-info-bar'>
           {
             this.state.type == 'projects'
             ? (

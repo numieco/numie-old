@@ -29,6 +29,9 @@
   width: 100%
   opacity: 0
 
+.side-info-bar
+  display: none
+
 .contact-page
   width: calc(100% - 60px)
   max-width: 500px
@@ -356,14 +359,14 @@
     width: calc(100% - 300px)
     display: inline-block
     float: left !important
-  .form--open
-    .side-info-bar
-      display: inline-block
+
   .side-info-bar
+    display: block
     float: right
     width: 200px
     padding: 50px
     padding-top: 177px
+    opacity: 1
     .projects-text, .thoughts-text
       font-size: 20px
       font-weight: 600
