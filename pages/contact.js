@@ -53,12 +53,6 @@ export default class ContactPage extends React.Component {
     this.handleBudget = this.handleBudget.bind(this)
     this.handleType = this.handleType.bind(this)
     this.submitData = this.submitData.bind(this)
-
-    this.handleFullnameBlur = this.handleFullnameBlur.bind(this)
-    this.handleEmailBlur = this.handleEmailBlur.bind(this)
-    this.handlePhoneBlur = this.handlePhoneBlur.bind(this)
-    this.handleBudgetBlur = this.handleBudgetBlur.bind(this)
-    this.handleDescBlur = this.handleDescBlur.bind(this)
   }
 
   componentDidMount () {
@@ -111,115 +105,54 @@ export default class ContactPage extends React.Component {
     return (/^(([^<>()[\]\\.,:\s@\"]+(\.[^<>()[\]\\.,:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
   }
 
-  validatePhone (numer) {
-    return (/^(\+?([0-9]{2})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(numer))
+  validatePhone (number) {
+    return (/^(\+?([0-9]{2})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(number))
   }
 
   handleFullname = (e) => {
     this.setState({
       fullname: e.target.value,
-      nameRequired: e.target.value == '' ? true : false,
-      nameMinChar: e.target.value.length < 2 ? true : false
+      nameRequired: false
     })
   }
 
-  handleFullnameBlur = () => {
-    if(this.state.fullname.length <= 0) {
-      this.setState({
-        nameRequired: true,
-        nameMinChar: false
-      })
-    } else {
-      this.setState({
-        nameRequired: false
-      })
-    }
-  }
 
   handleEmail = (e) => {
     this.setState({
       email: e.target.value,
-      emailRequired: e.target.value == '' ? true : false,
-      emailInvalid: e.target.value == '' ? false : !this.validateEmail(e.target.value)
+      emailRequired: false,
+      emailInvalid: false
     })
   }
 
-  handleEmailBlur = () => {
-    if(this.state.email.length <= 0) {
-      this.setState({
-        emailRequired: true,
-        emailInvalid: false
-      })
-    } else {
-      this.setState({
-        emailRequired: false
-      })
-    }
-  }
 
   handlePhone = (e) => {
     this.setState({
       phone: e.target.value,
-      phoneRequired: e.target.value == '' ? true : false,
-      phoneInvalid: e.target.value == '' ? false : !this.validatePhone(e.target.value)
+      phoneRequired: false,
+      phoneInvalid: false
     })
   }
 
-  handlePhoneBlur = () => {
-    if(this.state.phone.length <= 0) {
-      this.setState({
-        phoneRequired: true,
-        phoneInvalid: false
-      })
-    } else {
-      this.setState({
-        phoneRequired: false
-      })
-    }
-  }
 
   handleDesc = (e) => {
     this.setState({
       description: e.target.value,
-      messageRequired: e.target.value == '' ? true : false,
-      messageMinChar: e.target.value.length < 20 ? true : false
+      messageRequired: false
     })
   }
 
-  handleDescBlur = () => {
-    if(this.state.description.length <= 0) {
-      this.setState({
-        messageRequired: true,
-        messageMinChar: false
-      })
-    } else {
-      this.setState({
-        messageRequired: false
-      })
-    }
-  }
 
   handleBudget = (e) => {
     if(e.target !== null)
       this.setState({
         budget: e.target.value,
-        budgetRequired: e.target.value == '' ? true : false
+        budgetRequired: false
       })
     else
       this.setState({ budget: '' })
   }
 
-  handleBudgetBlur = () => {
-    if(this.state.budget.length <= 0) {
-      this.setState({
-        budgetRequired: true
-      })
-    } else {
-      this.setState({
-        budgetRequired: false
-      })
-    }
-  }
 
   handleType = () => {
     if (this.state.wrapTypeClass == 'wrap-type'
@@ -253,16 +186,31 @@ export default class ContactPage extends React.Component {
   }
 
   submitData = () => {
+    this.setState({
+      emailInvalid: this.state.email == '' ? false : !this.validateEmail(this.state.email),
+      phoneInvalid: this.state.phone == '' ? false : !this.validatePhone(this.state.phone)
+
+    }, () => console.log(this.state.emailInvalid))
 
     if( this.state.fullname == '' || this.state.email == '' || this.state.description == ''
       || (this.state.type == 'projects' && this.state.phone == '')
       || (this.state.type == 'projects' && this.state.budget == '')
       || this.state.nameRequired || this.state.nameMinChar
-      || this.state.emailRequired || this.state.emailInvalid
-      || this.state.phoneRequired || this.state.phoneInvalid
+      || this.state.emailRequired || !this.validateEmail(this.state.email)
+      || this.state.phoneRequired || (this.state.type == 'projects' && !this.validatePhone(this.state.phone))
       || this.state.messageRequired || this.state.messageMinChar
       || this.state.budgetRequired ) {
-
+      
+      console.log(this.state.nameRequired,
+        this.state.nameMinChar,
+        this.state.emailRequired,
+        !this.validateEmail(this.state.email),
+        this.state.phoneRequired,
+        this.state.type == 'projects' && !this.validatePhone(this.state.phone),
+        this.state.messageRequired,
+        this.state.messageMinChar,
+        this.state.budgetRequired)
+              
       if (this.state.fullname == '')
         this.setState({ nameRequired: true })
       if (this.state.email == '')
@@ -332,7 +280,6 @@ export default class ContactPage extends React.Component {
                 <input type='text'
                   value={ this.state.fullname }
                   onChange={ this.handleFullname }
-                  onBlur={ this.handleFullnameBlur }
                   placeholder='Name'
                 />
                 { this.state.nameRequired ? <div className='error-text'> required </div> : null }
@@ -343,7 +290,6 @@ export default class ContactPage extends React.Component {
                   type='text'
                   value={ this.state.email }
                   onChange={ this.handleEmail }
-                  onBlur={ this.handleEmailBlur }
                   placeholder='Email'
                 />
                 { this.state.emailRequired ? <div className='error-text'> required </div> : null }
@@ -357,7 +303,6 @@ export default class ContactPage extends React.Component {
                         type='text'
                         value={ this.state.phone }
                         onChange={ this.handlePhone }
-                        onBlur={ this.handlePhoneBlur }
                         placeholder='Phone'
                       />
                       { this.state.phoneRequired ? <div className='error-text'> required </div> : null }
@@ -373,7 +318,6 @@ export default class ContactPage extends React.Component {
                     <div className={ this.state.budgetRequired ? 'budget error' : 'budget form__section' }>
                       <select
                         onChange={this.handleBudget}
-                        onBlur={ this.handleBudgetBlur }
                         value={this.state.budget}
                       >
                         <option value='' disabled defaultValue=''>Budget</option>
@@ -394,7 +338,6 @@ export default class ContactPage extends React.Component {
                   type='text'
                   value={ this.state.description }
                   onChange={ this.handleDesc }
-                  onBlur={ this.handleDescBlur }
                   placeholder='Message'
                   cols='40'
                   rows='5'
