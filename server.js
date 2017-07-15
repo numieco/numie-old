@@ -103,8 +103,8 @@ app.prepare()
       else
         console.log('success')
     })
-
-    return handle(req, res)
+    res.status(200)
+    res.end()
   })
 
 
