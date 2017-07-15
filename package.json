@@ -1,14 +1,14 @@
 {
-  "name": "tortuga",
-  "version": "0.0.2",
-  "description": "Tortuga Web Framework for Numie",
+  "name": "numie",
+  "version": "0.0.1",
+  "description": "Numie website",
   "main": "''",
   "author": "Nummie, LLC",
   "license": "MIT",
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/numieco/tortuga"
+    "url": "https://github.com/numieco/numie"
   },
   "engines": {
     "node": "7.10.1"
