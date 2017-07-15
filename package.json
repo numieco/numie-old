@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "node server.js",
     "build-static": "next build && next export",
     "heroku-postbuild": "npm run build"
   },
