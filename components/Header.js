@@ -8,7 +8,7 @@ export default class Header extends React.Component {
     super (props)
 
     this.state = {
-      isMobile : true
+      isMobile : false
     }
   }
 
