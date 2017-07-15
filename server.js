@@ -79,7 +79,7 @@ app.prepare()
 
     let mailOptions = {
       from: req.body.email,
-      to: process.env.NODE_ENV == 'production' ? 'yo@numie.co' : 'dhanesh.kapadiya92@gmail.com',
+      to: 'yo@numie.co',
       replyTo: req.body.email,
       subject: req.body.budget != '' ? 'Work Inquiry!' : 'General Inquiry!',
       html: '<b>Name</b> : ' + req.body.firstname +
