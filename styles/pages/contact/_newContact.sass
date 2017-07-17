@@ -12,16 +12,42 @@
   opacity: 0
   z-index: 9999
 
+.form--open
+  z-index: 1
+  .page-wrap
+    opacity: 1 !important
+
+.error
+  position: relative
+  input, select, textarea
+    color: $numie-red !important
+    border-color: $numie-red !important
+    box-shadow: 0 1px 0 0 $numie-red !important
+    &::placeholder
+      color: $numie-red !important
+.error-text
+  position: absolute
+  bottom: 10px
+  color: $numie-red
+  font-size: 10px
+
 .contact-form
   min-height: 100vh
-  background-color: $dark-grey
+  overflow: hidden
+  //background-color: $dark-grey
+  font-family: 'Open sans' !important
+  position: fixed
+  z-index: -1
+  top: 100vh
+  width: 100%
   .background
     height: 100vh
     width: 100%
     background: #141516
     z-index: -1
+    opacity: 0 //<<<<-------- Needed to change dynamically to 0
     position: fixed
-    top: 100vh //<<<<-------- Needed to change dynamically to 0
+    top: 0 
     bottom: 0
     right: 0
     left: 0
@@ -31,6 +57,7 @@
     flex-direction: column
     padding: 20px
     min-height: 100vh
+    opacity: 0
     .contact-header
       display: flex
       flex-direction: row
@@ -102,7 +129,7 @@
       div
         background-color: transparent
       .input, .textarea
-        background-color: $dark-grey !important
+        background-color: transparent
         box-shadow: 0 1px 0 0 #2b2b2b
         border: none
         border-radius: initial
@@ -146,6 +173,7 @@
     top: -100vh
     display: none
     margin-bottom: 10px
+
 +large-phone
   .contact-form
     .page-wrap
@@ -256,6 +284,7 @@
             letter-spacing: 1.1px
             color: #747474
             text-transform: uppercase
+            text-align: center
           .send-button
             position: static
             font-size: 16px
@@ -303,7 +332,7 @@
             padding-bottom: 0px
 
           .sidebar-content
-            flex: auto
+            flex: 1 0 100%
             &:last-child
               margin-bottom: 0
             .sidebar-title
@@ -334,6 +363,8 @@
               margin-left: 15px
             &:last-child
               margin: 0
+          .input
+            padding: 15px
           .message
             flex: 0 0 100%
             textarea

@@ -46,7 +46,7 @@ app.prepare()
       channel: 'inquiries',
       username: 'inquiries-bot',
       text: '=========================' +
-        '\n\n*' + (req.body.budget != '' ? 'Work' : 'General') + '*' + ' Inquiry!' +
+        '\n\n*' + 'Inquiry!*' +
         '\n\n*Name* : ' + req.body.firstname +
         '\n\n*Email* : ' + req.body.email +
         (
@@ -55,8 +55,8 @@ app.prepare()
           : ''
         ) +
         (
-          req.body.budget != ''
-          ? ('\n\n*Budget* : ' + req.body.budget)
+          req.body.company != ''
+          ? ('\n\n*Company* : ' + req.body.company)
           : ''
         ) +
         '\n\n*Message* : ' + req.body.description ,
@@ -81,7 +81,7 @@ app.prepare()
       from: req.body.email,
       to: process.env.NODE_ENV == 'production' ? 'yo@numie.co' : 'dhanesh.kapadiya92@gmail.com',
       replyTo: req.body.email,
-      subject: req.body.budget != '' ? 'Work Inquiry!' : 'General Inquiry!',
+      subject: 'Inquiry!',
       html: '<b>Name</b> : ' + req.body.firstname +
         '<br><b>Email</b> : ' + req.body.email +
         (
@@ -90,8 +90,8 @@ app.prepare()
           : ''
         ) +
         (
-          req.body.budget != ''
-          ? ('<br><b>Budget</b> : ' + req.body.budget)
+          req.body.company != ''
+          ? ('<br><b>Company</b> : ' + req.body.company)
           : ''
         ) +
         '<br><b>Message</b> : ' + req.body.description,
