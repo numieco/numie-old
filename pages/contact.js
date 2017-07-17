@@ -262,19 +262,19 @@ export default class ContactPage extends React.Component {
               </div>
 
               <div className='contact-content'>
-                <div className='sidebar-content'>
-                  <div className='sidebar-title form__section'>
+                <div className='sidebar-content form__section'>
+                  <div className='sidebar-title'>
                     email
                   </div>
-                  <div className='sidebar-value form__section'>
+                  <div className='sidebar-value'>
                     yo@numie.co
                   </div>
                 </div>
-                <div className='sidebar-content'>
-                  <div className='sidebar-title form__section'>
+                <div className='sidebar-content form__section'>
+                  <div className='sidebar-title'>
                     phone
                   </div>
-                  <div className='sidebar-value form__section'>
+                  <div className='sidebar-value'>
                     +1 960.333.5235
                   </div>
                 </div>
