@@ -56,7 +56,7 @@ export default class ContactPage extends React.Component {
   }
 
   componentDidMount () {
-
+/*
     var formEl = document.querySelector('.contact-form'),
     revealer = new RevealFx(formEl),
     closeCtrl = document.querySelector('.close-button')
@@ -98,7 +98,7 @@ export default class ContactPage extends React.Component {
         }
       })
     }
-
+*/
   }
 
   validateEmail (email) {
@@ -247,150 +247,124 @@ export default class ContactPage extends React.Component {
 
   render () {
     return (
-      <div id='contact' className='contact-form'>
-      <div className='block-revealer__content'>
-        <div className='page-wrap'>
-          <div className='contact-page'>
-            <div className='background' />
-            <div className='content'>
-              <div className='contact-title'>
-                <div className='inquiry-type'>
-                  <span className='lets-chat'>let's chat</span>
-                  <div className={this.state.wrapTypeClass}>
-                    <div className='upper'
-                      onClick={this.handleType}
-                    >
-                      anything
-                    </div>
-                    <div className='lower'
-                      onClick={this.handleType}
-                    >
-                      projects
-                    </div>
+      <Layout>
+        <div id='contact' className='contact-form'>
+          <div className='block-revealer__content'>
+            <div className='page-wrap'>
+
+              <div className='sidebar'>
+
+                <div className='contact-header form__section'>
+                  <div className='title'>
+                    get in touch
+                  </div>
+                  <div className='close-button'>
+                    close
                   </div>
                 </div>
-                <Link href='/'>
-                <div className='close-button form__section'>
-                  <span className='x'>x</span>
-                  <span className='close'>CLOSE</span>
-                </div>
-                </Link>
-              </div>
-              <div className={ (this.state.nameRequired || this.state.nameMinChar) ? 'fullname error' : 'fullname form__section' }>
-                <input type='text'
-                  value={ this.state.fullname }
-                  onChange={ this.handleFullname }
-                  placeholder='Name'
-                />
-                { this.state.nameRequired ? <div className='error-text'> required </div> : null }
-                { this.state.nameMinChar ? <div className='error-text'> Must be at least 2 characters </div> : null }
-              </div>
-              <div className={ (this.state.emailRequired || this.state.emailInvalid) ? 'email error' : 'email form__section' }>
-                <input
-                  type='text'
-                  value={ this.state.email }
-                  onChange={ this.handleEmail }
-                  placeholder='Email'
-                />
-                { this.state.emailRequired ? <div className='error-text'> required </div> : null }
-                { this.state.emailInvalid ? <div className='error-text'> Invalid Email Address </div> : null }
-              </div>
-              {
-                this.state.type == 'projects'
-                ? (
-                    <div className={ (this.state.phoneRequired || this.state.phoneInvalid) ? 'phone error' : 'phone form__section' }>
-                      <input
-                        type='text'
-                        value={ this.state.phone }
-                        onChange={ this.handlePhone }
-                        placeholder='Phone'
-                      />
-                      { this.state.phoneRequired ? <div className='error-text'> required </div> : null }
-                      { this.state.phoneInvalid ? <div className='error-text'> Invalid Phone Number </div> : null }
 
+                <div className='contact-content'>
+                  <div className='sidebar-content'>
+                    <div className='sidebar-title form__section'>
+                      email
                     </div>
-                  )
-                : null
-              }
-              {
-                this.state.type == 'projects'
-                ? (
-                    <div className={ this.state.budgetRequired ? 'budget error' : 'budget form__section' }>
-                      <select
-                        onChange={this.handleBudget}
-                        value={this.state.budget}
-                      >
-                        <option value='' disabled defaultValue=''>Budget</option>
-                        <option value='Prefer not to say'>Prefer not to say</option>
-                        <option value='2000 - $5000'>2000 - $5000</option>
-                        <option value='$5000 - $10000'>$5000 - $10000</option>
-                        <option value='$10,000 - $15,000'>$10,000 - $15,000</option>
-                        <option value='$15,000 - $20,000'>$15,000 - $20,000</option>
-                        <option value='> $20,000'> $20,000</option>
-                      </select>
-                      { this.state.budgetRequired ? <div className='error-text'> required </div> : null }
+                    <div className='sidebar-value form__section'>
+                      yo@numie.co
                     </div>
-                  )
-                : null
-              }
-              <div className={ (this.state.messageRequired || this.state.messageMinChar) ? ('description error description-' + this.state.type) : ('description form__section description-' + this.state.type) } >
-                <textarea
-                  type='text'
-                  value={ this.state.description }
-                  onChange={ this.handleDesc }
-                  placeholder='Message'
-                  cols='40'
-                  rows='5'
-                />
-                { this.state.messageRequired ? <div className='error-text'> required </div> : null }
-                { this.state.messageMinChar ? <div className='error-text'> Must be at least 20 characters </div> : null }
-              </div>
-              <div className='submit form__section' onClick={ this.submitData }>
-                SEND
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='side-info-bar'>
-          {
-            this.state.type == 'projects'
-            ? (
-                  <div className='projects-text form__section'>
+                  </div>
+                  <div className='sidebar-content'>
+                    <div className='sidebar-title form__section'>
+                      phone
+                    </div>
+                    <div className='sidebar-value form__section'>
+                      +1 960.333.5235
+                    </div>
+                  </div>
+                  <div className='sidebar-content social-media-buttons form__section'>
+                    <div className='sidebar-instagram'>
+                      <InstagramSvg />
+                    </div>
+                    <div className='sidebar-twitter'>
+                      <TwitterSvg />
+                    </div>
+                    <div className='sidebar-facebook'>
+                      <FacebookSvg />
+                    </div>
+                  </div>
+                  <div className='sidebar-content sidebar-text'>
                     We’d love to help build your newest project.
                   </div>
-              )
-            : (
-                  <div className='thoughts-text form__section'>
-                    Have something on your mind? Let’s chat!
-                  </div>
-              )
-          }
-          <div className='sidebar-email-title form__section'>
-            email
-          </div>
-          <div className='sidebar-email-value form__section'>
-            yo@numie.co
-          </div>
-          <div className='sidebar-phone-title form__section'>
-            phone
-          </div>
-          <div className='sidebar-phone-value form__section'>
-            +1 960.333.5235
-          </div>
-          <div className='social-media-buttons form__section'>
-            <div className='sidebar-instagram'>
-              <InstagramSvg />
+                </div>
+
+              </div>
+              <div className='contact-input'>
+              <div className='wrap-input'>
+                <div className='name'>
+                  <input 
+                    type='text'
+                    className='input'
+                    value={ this.state.fullname }
+                    onChange={ this.handleFullname }
+                    placeholder='Name*'
+                  />
+                </div>
+                <div className='email'>
+                  <input
+                    type='text'
+                    className='input'
+                    value={ this.state.email }
+                    onChange={ this.handleEmail }
+                    placeholder='Email*'
+                  />
+                </div>
+                <div className='phone'>
+                  <input
+                    type='text'
+                    className='input'
+                    value={ this.state.phone }
+                    onChange={ this.handlePhone }
+                    placeholder='Phone'
+                  />                
+                </div>
+                <div className='company'>
+                  <input
+                    type='text'
+                    className='input'
+                    value={ this.state.company }
+                    onChange={ this.handleCompany }
+                    placeholder='Company'
+                  />
+                </div>
+                <div className='message'>
+                  <textarea
+                    type='text'
+                    className='textarea'
+                    value={ this.state.description }
+                    onChange={ this.handleDesc }
+                    placeholder='Message*'
+                    cols='40'
+                    rows='5'
+                  />
+                </div>
+              </div>
+
+              <div className='wrap-buttons'>
+                <div className='close-button'>
+                  close
+                </div>
+                <div className='send-button'>
+                  send
+                </div>
+              </div>
+              <div className='send button'>
+                send
+              </div>
             </div>
-            <div className='sidebar-twitter'>
-              <TwitterSvg />
             </div>
-            <div className='sidebar-facebook'>
-              <FacebookSvg />
-            </div>
+
           </div>
         </div>
-      </div>
-      </div>
+      </Layout>
     )
   }
 }
