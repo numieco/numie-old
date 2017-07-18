@@ -10,17 +10,41 @@
   background: #000
   pointer-events: none
   opacity: 0
-  z-index: 9999
+  z-index: 9998
   color: transparent
   font-size: 60px
   display: flex
   justify-content: center
   align-items: center
   text-transform: uppercase
+.success-block
+  display: none
+  z-index: 9999
+  position: fixed
+
+.success-block-active
+  -webkit-animation: success 2s linear
+  animation: success 2s linear
+  animation-delay: 1s
+
+  position: fixed
+  top: 0
+  bottom: 0
+  height: 100vh
+  width: 100%
+  color: transparent
+  font-size: 60px
+  display: flex
+  justify-content: center
+  align-items: center
+  text-transform: uppercase
+  background: transparent
+
 .form--open
   z-index: 1
   .page-wrap
     opacity: 1 !important
+  
 
 .error
   position: relative

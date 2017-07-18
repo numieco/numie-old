@@ -70,7 +70,8 @@ export default class ContactPage extends React.Component {
     //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
-      let revealBlock = document.querySelector('.block-revealer__element').innerHTML = 'success !!'
+      let revealBlock = document.querySelector('.block-revealer__element')
+
       document.querySelector('.header').style.zIndex = -2
       document.querySelector('.contact-form').style.position = 'static'
 
@@ -84,8 +85,8 @@ export default class ContactPage extends React.Component {
           document.querySelector('.background').style.opacity = 1
         },
         onComplete: function() {
-          closeCtrlOne.addEventListener('click', closeForm)
-          closeCtrlTwo.addEventListener('click', closeForm)
+          // closeCtrlOne.addEventListener('click', closeForm)
+          // closeCtrlTwo.addEventListener('click', closeForm)
         }
       })
     })
@@ -111,20 +112,26 @@ export default class ContactPage extends React.Component {
   successReveal = () => {
     var formEl = document.querySelector('.contact-form')
     let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
+
+    document.querySelector('.success-block').classList.add('success-block-active')
+    document.querySelector('.success-block').style.top = '10%'
+
     revealer.reveal({
       bgcolor: '#42E464',
       direction: 'bt',
-      duration: 1000,
+      duration: 2000,
       onCover: function(contentEl, revealerEl) {
         formEl.classList.remove('form--open')
         contentEl.style.opacity = 0
         setTimeout(() => {
           document.querySelector('.contact-form').style.position = 'fixed'
           document.querySelector('.header').style.zIndex = 3
-        }, 600)
+        }, 2000)
       },
       onComplete: function() {
         let revealBlock = document.querySelector('.block-revealer__element').style.color = 'transparent'
+        document.querySelector('.success-block').classList.remove('success-block-active')
+        document.querySelector('.success-block').style.top = '-100vh'
       }
     })
   }
@@ -310,6 +317,7 @@ export default class ContactPage extends React.Component {
   render () {
     return (
       <div id='contact' className='contact-form'>
+        <div className='success-block'> SUCCESS !! </div>
         <div className='block-revealer__content'>
           <div className='background' />
           <div className='page-wrap'>
@@ -319,7 +327,7 @@ export default class ContactPage extends React.Component {
                 <div className='title'>
                   get in touch
                 </div>
-                <div className='close-button'>
+                <div className='close-button' onClick={ this.successReveal }>
                   close
                 </div>
               </div>
@@ -419,7 +427,7 @@ export default class ContactPage extends React.Component {
               </div>
 
               <div className='wrap-buttons form__section'>
-                <div className='close-button'>
+                <div className='close-button' onClick={ this.successReveal }>
                   close
                 </div>
                 <div className='send-button' onClick={this.submitData}>
