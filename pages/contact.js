@@ -67,9 +67,6 @@ export default class ContactPage extends React.Component {
     submitClickOne = document.querySelector('.send-button'),
     submitClickTwo = document.querySelector('.contact-input .send')
 
-    this.listenToInputs();
-
-
     //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
@@ -111,16 +108,6 @@ export default class ContactPage extends React.Component {
 
   }
 
-  listenToInputs = () => {
- var inputs = document.querySelectorAll('input, textarea');
- for (var i=0; i<inputs.length; i++){
-     inputs[i].addEventListener('change', () => {
-           inputs[i].style.boxShadow = '0 1px 0 0 #fff';
-           inputs[i].style.color = '#ffffff';
-     });
- }
-}
-
   successReveal = () => {
     var formEl = document.querySelector('.contact-form')
     let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
@@ -137,7 +124,7 @@ export default class ContactPage extends React.Component {
         }, 600)
       },
       onComplete: function() {
-let revealBlock = document.querySelector('.block-revealer__element').style.color = 'transparent'
+        let revealBlock = document.querySelector('.block-revealer__element').style.color = 'transparent'
       }
     })
   }
@@ -151,6 +138,14 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
   }
 
   handleFullname = (e) => {
+    if(e.target.value != '') {
+      e.target.style.boxShadow = '0 1px 0 0 #fff'
+      e.target.style.color = '#ffffff'
+    } else {
+      console.log(e.target.value)
+      e.target.style.boxShadow = '0 1px 0 0 #2b2b2b'
+    }
+
     this.setState({
       fullname: e.target.value,
       nameRequired: false
@@ -159,6 +154,13 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
 
 
   handleEmail = (e) => {
+    if(e.target.value != '') {
+      e.target.style.boxShadow = '0 1px 0 0 #fff'
+      e.target.style.color = '#ffffff'
+    } else {
+      e.target.style.boxShadow = '0 1px 0 0 #2b2b2b'
+    }
+
     this.setState({
       email: e.target.value,
       emailRequired: false,
@@ -168,6 +170,13 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
 
 
   handlePhone = (e) => {
+    if(e.target.value != '') {
+      e.target.style.boxShadow = '0 1px 0 0 #fff'
+      e.target.style.color = '#ffffff'
+    } else {
+      e.target.style.boxShadow = '0 1px 0 0 #2b2b2b'
+    }
+
     this.setState({
       phone: e.target.value,
       phoneRequired: false,
@@ -177,6 +186,13 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
 
 
   handleDesc = (e) => {
+    if(e.target.value != '') {
+      e.target.style.boxShadow = '0 1px 0 0 #fff'
+      e.target.style.color = '#ffffff'
+    } else {
+      e.target.style.boxShadow = '0 1px 0 0 #2b2b2b'
+    }
+
     this.setState({
       description: e.target.value,
       messageRequired: false
@@ -185,6 +201,13 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
 
 
   handleCompany = (e) => {
+    if(e.target.value != '') {
+      e.target.style.boxShadow = '0 1px 0 0 #fff'
+      e.target.style.color = '#ffffff'
+    } else {
+      e.target.style.boxShadow = '0 1px 0 0 #2b2b2b'
+    }
+
     if(e.target !== null)
       this.setState({
         company: e.target.value
