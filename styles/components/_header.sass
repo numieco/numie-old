@@ -8,15 +8,14 @@
   z-index: 3
   .menu-wrapper
     padding: 20px
-    display: inline-block
-    width: calc(100% - 40px)
+    display: flex
+    width: 100%
+    flex-direction: row
+    justify-content: space-between
     a
       color: white
       text-decoration: none
     .logo
-      display: inline-block
-      float: left
-      margin-right: calc(100% - 205.5px)
       div
         height: 40px
         svg
@@ -39,8 +38,9 @@
       color: white
 
     .wrap-buttons
-      display: inline-block
-      float: right
+      display: flex
+      flex-direction: row
+      justify-content: space-between
 
     .mobile-menu
       height: 21px
@@ -65,7 +65,7 @@
         position: absolute
         content: ''
         margin: 15px 0px 9px
-        top: 0px
+        top: 4px
 
       .menu-button-inner:after
         width: 12px
@@ -80,11 +80,13 @@
 @media (min-width: 768px)
   .header
     .menu-wrapper
-      max-width: 992px
-      display: block
+      max-width: 1032px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
       margin: 0 auto
       position: relative
-      height: 40px
+      height: 80px
       .logo
         position: absolute
         z-index: 1

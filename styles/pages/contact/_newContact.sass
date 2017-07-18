@@ -1,0 +1,386 @@
+@import 'utilities/variables'
+@import 'contactFormAnimations'
+
+.block-revealer__element
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: #000
+  pointer-events: none
+  opacity: 0
+  z-index: 9999
+  color: transparent
+  font-size: 60px
+  display: flex
+  justify-content: center
+  align-items: center
+  text-transform: uppercase
+.form--open
+  z-index: 1
+  .page-wrap
+    opacity: 1 !important
+
+.error
+  position: relative
+  input, select, textarea
+    color: $numie-red !important
+    border-color: $numie-red !important
+    box-shadow: 0 1px 0 0 $numie-red !important
+    &::placeholder
+      color: $numie-red !important
+.error-text
+  position: absolute
+  bottom: 10px
+  color: $numie-red
+  font-size: 10px
+
+.contact-form
+  min-height: 100vh
+  overflow: hidden
+  //background-color: $dark-grey
+  font-family: 'Open sans' !important
+  position: fixed
+  z-index: -1
+  top: 100vh
+  width: 100%
+  .background
+    height: 100vh
+    width: 100%
+    background: #141516
+    z-index: -1
+    opacity: 0 //<<<<-------- Needed to change dynamically to 0
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+
+  .page-wrap
+    display: flex
+    flex-direction: column
+    padding: 20px
+    min-height: 100vh
+    opacity: 0
+    .contact-header
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      padding-bottom: 20px
+      position: relative
+      &:after
+        content: ' '
+        position: absolute
+        width: 50px
+        height: 3px
+        background-color: $faded-red
+        bottom: 0
+        left: 0
+      .title
+        font-size: 20px
+        font-weight: bold
+        letter-spacing: 1.2px
+        line-height: 1.8
+        color: $white
+        text-transform: uppercase
+        margin: 0px
+      .close-button
+        border-radius: 4px
+        border: solid 1px #434444
+        padding: 10px 15px
+        opacity: 0.5
+        font-size: 14px
+        font-weight: bold
+        line-height: 1.14
+        letter-spacing: 1.1px
+        color: #747474
+        text-transform: uppercase
+
+    .contact-content
+      margin-top: 30px
+      display: flex
+      flex-direction: column
+      .sidebar-content
+        margin-bottom: 30px
+      .sidebar-text
+        font-size: 18px
+        font-weight: 600
+        line-height: 1.5
+        color: $white
+        max-width: 230px
+      .sidebar-title
+        font-size: 14px
+        font-weight: bold
+        font-style: normal
+        font-stretch: normal
+        line-height: normal
+        letter-spacing: 1px
+        color: $white
+        text-transform: uppercase
+      .sidebar-value
+        font-size: 12px
+        color: $faded-red
+
+      .social-media-buttons
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        max-width: 120px
+        svg, div
+          height: 22px
+          width: auto
+    .contact-input
+      div
+        background-color: transparent
+      .input, .textarea
+        background-color: transparent
+        box-shadow: 0 1px 0 0 #2b2b2b
+        border: none
+        border-radius: initial
+        padding: 10px
+        margin-bottom: 30px
+        font-size: 16px
+        color: #646464
+        height: auto
+        &::-webkit-input-placeholder
+          color: #646464
+        &:-ms-input-placeholder
+          color: #646464
+        &::-moz-placeholder
+          color: #646464
+          opacity: 1
+        &:-moz-placeholder
+          color: #646464
+          opacity: 1
+        &:focus
+          color: white
+          box-shadow: 0 1px 0 0 #fff !important
+          //&::placeholder
+            color: white
+      .textarea
+        resize: none
+        min-height: 225px
+
+      .button
+        border-radius: 4px
+        background-color: $faded-red
+        border: none
+        height: auto
+        width: 100%
+      .send
+        font-size: 16px
+        font-weight: bold
+        font-style: normal
+        font-stretch: normal
+        line-height: 1.25
+        letter-spacing: 1px
+        color: $white
+        padding: 15px
+        text-transform: uppercase
+  .wrap-buttons
+    position: fixed
+    top: -100vh
+    display: none
+    margin-bottom: 10px
+
++large-phone
+  .contact-form
+    .page-wrap
+      .contact-header
+        .title
+          line-height: 1.5
+
+      .send
+        margin-bottom: 10px
+
++medium-phone
+  .contact-form
+    .page-wrap
+      .contact-header
+        .title
+          font-size: 24px
+          line-height: 1.5
+
+      .contact-content
+        .sidebar-text
+          font-size: 20px
+
++tablet
+  .contact-form
+    .page-wrap
+      padding: 30px
+      position: relative
+
+      .close-button
+        position: fixed
+        padding: 16px 20px !important
+        font-size: 16px !important
+        line-height: 1 !important
+        letter-spacing: 1px !important
+        width: 100px
+        bottom: 40px
+        left: 30px
+
+      .contact-header
+        .title
+          font-size: 30px
+        .close-button
+          position: fixed
+          top: -100vh
+          display: none
+
+      .contact-content
+        max-width: 552px
+        display: flex
+        flex-wrap: wrap
+        flex-direction: row
+        justify-content: space-between
+
+        .sidebar-text
+          flex: 0 1 100%
+          max-width: none
+          font-size: 26px
+          line-height: 1.15
+          margin-bottom: 50px
+
+        .sidebar-content
+          flex: 1 0 33%
+          .sidebar-title
+            font-size: 20px
+          .sidebar-value
+            font-size: 18px
+
+        .social-media-buttons
+          align-items: flex-end
+          padding-bottom: 3px
+
+      .contact-input
+        .wrap-input
+          display: flex
+          flex-direction: row
+          flex-wrap: wrap
+          flex-basis: auto
+          div
+            flex: 0 0 calc(50% - 15px)
+            &:nth-child(odd)
+              margin-right: 15px
+            &:nth-child(even)
+              margin-left: 15px
+            &:last-child
+              margin: 0
+          .message
+            flex: 0 0 100%
+          .input
+            font-size: 16px
+        .send
+          display: none
+          position: fixed
+          top: -100vh
+        .wrap-buttons
+          position: static
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+          .close-button
+            position: static
+            border-radius: 4px
+            border: solid 1px #434444
+            padding: 10px 15px
+            opacity: 0.5
+            font-size: 14px
+            font-weight: bold
+            line-height: 1.14
+            letter-spacing: 1.1px
+            color: #747474
+            text-transform: uppercase
+            text-align: center
+          .send-button
+            position: static
+            font-size: 16px
+            font-weight: bold
+            font-style: normal
+            font-stretch: normal
+            line-height: 1.25
+            letter-spacing: 1px
+            color: $white
+            padding: 15px
+            text-transform: uppercase
+            border-radius: 4px
+            background-color: $faded-red
+            border: none
+            text-align: center
+            width: 200px
+
+@media screen and (min-width: 900px)
+  .contact-form
+    .page-wrap
+      padding: 0
+      flex-direction: row-reverse
+      .sidebar
+        flex: 0 0 300px
+        width: 300px
+        padding: 50px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+        .contact-header
+          align-self: flex-start
+          .title
+            font-size: 22px
+            letter-spacing: 0.7px
+
+        .contact-content
+          .sidebar-text
+            font-size: 20px
+            line-height: 1.5
+
+          .social-media-buttons
+            flex: 0 0 100% !important
+            padding-bottom: 0px
+
+          .sidebar-content
+            flex: 1 0 100%
+            &:last-child
+              margin-bottom: 0
+            .sidebar-title
+              font-size: 16px
+              letter-spacing: 1.1px
+            .sidebar-value
+              font-size: 14px
+
+      .contact-input
+        position: relative
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        width: 100%
+        .wrap-input
+          max-width: 580px
+          margin: 0 !important
+          display: flex
+          flex-direction: row
+          flex-wrap: wrap
+          flex-basis: auto
+          div
+            flex: 0 0 calc(50% - 15px)
+            &:nth-child(odd)
+              margin-right: 15px
+            &:nth-child(even)
+              margin-left: 15px
+            &:last-child
+              margin: 0
+          .input
+            padding: 15px
+          .message
+            flex: 0 0 100%
+            textarea
+              padding: 15px
+              line-height: 1.25
+
+        .wrap-buttons
+          max-width: 580px
+          width: 100%
