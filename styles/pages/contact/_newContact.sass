@@ -52,7 +52,7 @@
     z-index: -1
     opacity: 0 //<<<<-------- Needed to change dynamically to 0
     position: fixed
-    top: 0 
+    top: 0
     bottom: 0
     right: 0
     left: 0
@@ -153,6 +153,11 @@
         &:-moz-placeholder
           color: #646464
           opacity: 1
+        &:focus
+          color: white
+          box-shadow: 0 1px 0 0 #fff
+          //&::placeholder
+            color: white
       .textarea
         resize: none
         min-height: 225px

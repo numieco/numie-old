@@ -67,6 +67,9 @@ export default class ContactPage extends React.Component {
     submitClickOne = document.querySelector('.send-button'),
     submitClickTwo = document.querySelector('.contact-input .send')
 
+    this.listenToInputs();
+
+
     //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
@@ -108,12 +111,22 @@ export default class ContactPage extends React.Component {
 
   }
 
+  listenToInputs = () => {
+ var inputs = document.querySelectorAll('input, textarea');
+ for (var i=0; i<inputs.length; i++){
+     inputs[i].addEventListener('change', () => {
+           inputs[i].style.boxShadow = '0 1px 0 0 #fff';
+           inputs[i].style.color = '#ffffff';
+     });
+ }
+}
+
   successReveal = () => {
     var formEl = document.querySelector('.contact-form')
     let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
     revealer.reveal({
-      bgcolor: '#228B22',
-      direction: 'tb',
+      bgcolor: '#42E464',
+      direction: 'bt',
       duration: 1000,
       onCover: function(contentEl, revealerEl) {
         formEl.classList.remove('form--open')
@@ -224,7 +237,7 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
       || this.state.emailRequired || !this.validateEmail(this.state.email)
       || (this.state.phone != '' && !this.validatePhone(this.state.phone))
       || this.state.messageRequired || this.state.messageMinChar) {
-      
+
       console.log(this.state.nameRequired,
         this.state.nameMinChar,
         this.state.emailRequired,
@@ -232,7 +245,7 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
         this.state.phone != '' && !this.validatePhone(this.state.phone),
         this.state.messageRequired,
         this.state.messageMinChar)
-              
+
       if (this.state.fullname == '')
         this.setState({ nameRequired: true })
       if (this.state.email == '')
@@ -325,7 +338,7 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
             <div className='contact-input'>
               <div className='wrap-input'>
                 <div className={ (this.state.nameRequired || this.state.nameMinChar) ? 'name error' : 'name form__section' }>
-                  <input 
+                  <input
                     type='text'
                     className='input'
                     value={ this.state.fullname }
@@ -356,7 +369,7 @@ let revealBlock = document.querySelector('.block-revealer__element').style.color
                     onChange={ this.handlePhone }
                     placeholder='Phone'
                   />
-                  { this.state.phoneInvalid ? <div className='error-text'> Invalid Phone Number </div> : null }               
+                  { this.state.phoneInvalid ? <div className='error-text'> Invalid Phone Number </div> : null }
                 </div>
                 <div className='company form__section'>
                   <input
