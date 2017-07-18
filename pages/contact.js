@@ -19,6 +19,8 @@ const options = [
   { value: '> $20,000', label: '> $20,000' }
 ]
 
+var revealer = null
+
 export default class ContactPage extends React.Component {
   constructor (props) {
     super (props)
@@ -30,6 +32,7 @@ export default class ContactPage extends React.Component {
       company: '',
       isBusinessEnquiry: false,
       type: 'anything',
+      success: false,
 
       nameRequired: false,
       nameMinChar: false,
@@ -37,7 +40,6 @@ export default class ContactPage extends React.Component {
       emailInvalid: false,
       phoneRequired: false,
       phoneInvalid: false,
-      budgetRequired: false,
       messageRequired: false,
       messageMinChar: false,
 
@@ -53,19 +55,22 @@ export default class ContactPage extends React.Component {
     this.handleCompany = this.handleCompany.bind(this)
     this.handleType = this.handleType.bind(this)
     this.submitData = this.submitData.bind(this)
+    this.successReveal = this.successReveal.bind(this)
   }
 
   componentDidMount () {
 
-    var formEl = document.querySelector('.contact-form'),
-    revealer = new RevealFx(formEl),
-    closeCtrlOne = document.querySelector('.contact-header .close-button'),
-    closeCtrlTwo = document.querySelector('.wrap-buttons .close-button')
+    var formEl = document.querySelector('.contact-form')
+    revealer = new RevealFx(formEl)
+    var closeCtrlOne = document.querySelector('.contact-header .close-button'),
+    closeCtrlTwo = document.querySelector('.wrap-buttons .close-button'),
+    submitClickOne = document.querySelector('.send-button'),
+    submitClickTwo = document.querySelector('.contact-input .send')
 
     //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
-
+      let revealBlock = document.querySelector('.block-revealer__element').innerHTML = 'success !!'
       document.querySelector('.header').style.zIndex = -2
       document.querySelector('.contact-form').style.position = 'static'
 
@@ -101,6 +106,27 @@ export default class ContactPage extends React.Component {
       })
     }
 
+  }
+
+  successReveal = () => {
+    var formEl = document.querySelector('.contact-form')
+    let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
+    revealer.reveal({
+      bgcolor: '#228B22',
+      direction: 'tb',
+      duration: 1000,
+      onCover: function(contentEl, revealerEl) {
+        formEl.classList.remove('form--open')
+        contentEl.style.opacity = 0
+        setTimeout(() => {
+          document.querySelector('.contact-form').style.position = 'fixed'
+          document.querySelector('.header').style.zIndex = 3
+        }, 600)
+      },
+      onComplete: function() {
+let revealBlock = document.querySelector('.block-revealer__element').style.color = 'transparent'
+      }
+    })
   }
 
   validateEmail (email) {
@@ -234,8 +260,9 @@ export default class ContactPage extends React.Component {
           email : '',
           phone : '',
           description: '',
-          company: ''
-        })
+          company: '',
+          success: true
+        }, this.successReveal)
       })
       .catch(function (error) {
         console.log('AXIOS error')
