@@ -20,6 +20,7 @@ const options = [
 ]
 
 var revealer = null
+var successRevealer = null
 
 export default class ContactPage extends React.Component {
   constructor (props) {
@@ -60,14 +61,19 @@ export default class ContactPage extends React.Component {
 
   componentDidMount () {
 
+    var successBlock = document.querySelector('.success-block')
+    successRevealer = new RevealFx(successBlock)
+
     var formEl = document.querySelector('.contact-form')
     revealer = new RevealFx(formEl)
+
+    let successRevealContent = document.querySelector('.success-content')
+    successBlock.appendChild(successRevealContent)
+
     var closeCtrlOne = document.querySelector('.contact-header .close-button'),
     closeCtrlTwo = document.querySelector('.wrap-buttons .close-button'),
     submitClickOne = document.querySelector('.send-button'),
     submitClickTwo = document.querySelector('.contact-input .send')
-
-    //document.querySelector('lower').addEventListener('click', () => {})
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
       let revealBlock = document.querySelector('.block-revealer__element')
@@ -111,30 +117,67 @@ export default class ContactPage extends React.Component {
 
   successReveal = () => {
     var formEl = document.querySelector('.contact-form')
-    let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
+    // let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
 
-    document.querySelector('.success-block').classList.add('success-block-active')
-    document.querySelector('.success-block').style.top = '10%'
+    var successBlock = document.querySelector('.success-block')
 
-    revealer.reveal({
+    document.querySelector('.success-block').style.top = '0'
+    document.querySelector('.success-block').style.zIndex = '9999'
+    successRevealer.reveal({
       bgcolor: '#42E464',
       direction: 'bt',
-      duration: 2000,
+      duration: 600,
       onCover: function(contentEl, revealerEl) {
-        formEl.classList.remove('form--open')
-        contentEl.style.opacity = 0
+        document.querySelector('.success-block').classList.add('success-block-active')
+        // formEl.classList.remove('form--open')
+        // contentEl.style.opacity = 0
+
+        successBlock.classList.add('form--open')
+        contentEl.style.opacity = 1
+
         setTimeout(() => {
-          document.querySelector('.contact-form').style.position = 'fixed'
-          document.querySelector('.header').style.zIndex = 3
-        }, 2000)
+          document.querySelector('.background').style.opacity = 0
+          // document.querySelector('.header').style.zIndex = 3
+        }, 600)
       },
       onComplete: function() {
         let revealBlock = document.querySelector('.block-revealer__element').style.color = 'transparent'
-        document.querySelector('.success-block').classList.remove('success-block-active')
-        document.querySelector('.success-block').style.top = '-100vh'
+        // document.querySelector('.success-block').classList.remove('success-block-active')
+        // document.querySelector('.success-block').style.top = '-100vh'
+        setTimeout(() => {
+          closeSuccess()
+        }, 2000)
       }
     })
+
+    function closeSuccess () {
+      var formEl = document.querySelector('.contact-form')
+      var successBlock = document.querySelector('.success-block')
+      document.querySelector('.success-block').style.zIndex = '2'
+      // let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
+      revealer.reveal({
+        bgcolor: '#e0394a',
+        direction: 'bt',
+        duration: 600,
+        onCover: function(contentEl, revealerEl) {
+          formEl.classList.remove('form--open')
+          successBlock.classList.remove('form--open')
+          contentEl.style.opacity = 0
+            document.querySelector('.success-block').classList.remove('success-block-active')
+          setTimeout(() => {
+            document.querySelector('.contact-form').style.position = 'fixed'
+
+          }, 600)
+        },
+        onComplete: function() {
+          document.querySelector('.header').style.zIndex = 3
+          document.querySelector('.success-block').style.zIndex = '-1'
+          document.querySelector('.success-block').style.top = '100vh'
+        }
+      })
+    }
   }
+
 
   validateEmail (email) {
     return (/^(([^<>()[\]\\.,:\s@\"]+(\.[^<>()[\]\\.,:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
@@ -316,8 +359,16 @@ export default class ContactPage extends React.Component {
 
   render () {
     return (
+      <div>
+      <div className='success-block'>
+        <div className='block-revealer__content success-content'>
+          <div className='success-content'>
+            SUCCESS !!
+          </div>
+        </div>
+      </div>
+
       <div id='contact' className='contact-form'>
-        <div className='success-block'> SUCCESS !! </div>
         <div className='block-revealer__content'>
           <div className='background' />
           <div className='page-wrap'>
@@ -441,6 +492,7 @@ export default class ContactPage extends React.Component {
           </div>
 
         </div>
+      </div>
       </div>
     )
   }
