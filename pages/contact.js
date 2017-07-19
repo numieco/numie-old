@@ -67,7 +67,7 @@ export default class ContactPage extends React.Component {
     var formEl = document.querySelector('.contact-form')
     revealer = new RevealFx(formEl)
 
-    let successRevealContent = document.querySelector('.success-content')
+    let successRevealContent = document.querySelector('.block-ref')
     successBlock.appendChild(successRevealContent)
 
     var closeCtrlOne = document.querySelector('.contact-header .close-button'),
@@ -88,11 +88,10 @@ export default class ContactPage extends React.Component {
         onCover: function(contentEl, revealerEl) {
           formEl.classList.add('form--open')
           contentEl.style.opacity = 1
-          document.querySelector('.background').style.opacity = 1
         },
         onComplete: function() {
-          // closeCtrlOne.addEventListener('click', closeForm)
-          // closeCtrlTwo.addEventListener('click', closeForm)
+          closeCtrlOne.addEventListener('click', closeForm)
+          closeCtrlTwo.addEventListener('click', closeForm)
         }
       })
     })
@@ -107,6 +106,7 @@ export default class ContactPage extends React.Component {
           contentEl.style.opacity = 0
           setTimeout(() => {
             document.querySelector('.contact-form').style.position = 'fixed'
+            // document.querySelector('.background').style.opacity = 0
             document.querySelector('.header').style.zIndex = 3
           }, 600)
         }
@@ -117,7 +117,6 @@ export default class ContactPage extends React.Component {
 
   successReveal = () => {
     var formEl = document.querySelector('.contact-form')
-    // let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
 
     var successBlock = document.querySelector('.success-block')
 
@@ -129,21 +128,15 @@ export default class ContactPage extends React.Component {
       duration: 600,
       onCover: function(contentEl, revealerEl) {
         document.querySelector('.success-block').classList.add('success-block-active')
-        // formEl.classList.remove('form--open')
-        // contentEl.style.opacity = 0
-
         successBlock.classList.add('form--open')
         contentEl.style.opacity = 1
 
         setTimeout(() => {
           document.querySelector('.background').style.opacity = 0
-          // document.querySelector('.header').style.zIndex = 3
         }, 600)
       },
       onComplete: function() {
         let revealBlock = document.querySelector('.block-revealer__element').style.color = 'transparent'
-        // document.querySelector('.success-block').classList.remove('success-block-active')
-        // document.querySelector('.success-block').style.top = '-100vh'
         setTimeout(() => {
           closeSuccess()
         }, 2000)
@@ -154,9 +147,8 @@ export default class ContactPage extends React.Component {
       var formEl = document.querySelector('.contact-form')
       var successBlock = document.querySelector('.success-block')
       document.querySelector('.success-block').style.zIndex = '2'
-      // let revealBlock = document.querySelector('.block-revealer__element').style.color = 'black'
       revealer.reveal({
-        bgcolor: '#e0394a',
+        bgcolor: '#42E464',
         direction: 'bt',
         duration: 600,
         onCover: function(contentEl, revealerEl) {
@@ -361,7 +353,7 @@ export default class ContactPage extends React.Component {
     return (
       <div>
       <div className='success-block'>
-        <div className='block-revealer__content success-content'>
+        <div className='block-revealer__content block-ref'>
           <div className='success-content'>
             SUCCESS !!
           </div>
@@ -378,7 +370,7 @@ export default class ContactPage extends React.Component {
                 <div className='title'>
                   get in touch
                 </div>
-                <div className='close-button' onClick={ this.successReveal }>
+                <div className='close-button'>
                   close
                 </div>
               </div>
@@ -478,7 +470,7 @@ export default class ContactPage extends React.Component {
               </div>
 
               <div className='wrap-buttons form__section'>
-                <div className='close-button' onClick={ this.successReveal }>
+                <div className='close-button'>
                   close
                 </div>
                 <div className='send-button' onClick={this.submitData}>
