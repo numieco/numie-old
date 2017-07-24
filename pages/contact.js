@@ -89,8 +89,8 @@ export default class ContactPage extends React.Component {
           formEl.classList.add('form--open')
           contentEl.style.opacity = 1
           document.querySelector('.header').style.zIndex = -1
-          document.querySelector('.home-section').style.zIndex = -2
-          document.querySelector('.home-section').style.display = 'none'  
+          document.querySelector('.main-page-revealer').style.zIndex = -2
+          document.querySelector('.main-page-revealer').style.display = 'none'  
         },
         onComplete: function() {
           closeCtrlOne.addEventListener('click', closeForm)
@@ -100,7 +100,7 @@ export default class ContactPage extends React.Component {
     })
 
     function closeForm() {
-      document.querySelector('.home-section').style.display = 'block'
+      document.querySelector('.main-page-revealer').style.display = 'block'
 
       revealer.reveal({
         bgcolor: '#e0394a',
@@ -110,7 +110,7 @@ export default class ContactPage extends React.Component {
           formEl.classList.remove('form--open')
           contentEl.style.opacity = 0
           document.querySelector('.header').style.zIndex = 1
-          document.querySelector('.home-section').style.zIndex = 0
+          document.querySelector('.main-page-revealer').style.zIndex = 0
         },
         onComplete: function () {
           document.querySelector('.contact-form').style.position = 'fixed'
@@ -155,7 +155,7 @@ export default class ContactPage extends React.Component {
       var formEl = document.querySelector('.contact-form')
       var successBlock = document.querySelector('.success-block')
       document.querySelector('.success-block').style.zIndex = '2'
-      document.querySelector('.home-section').style.display = 'block'
+      document.querySelector('.main-page-revealer').style.display = 'block'
       
       revealer.reveal({
         bgcolor: '#42E464',
@@ -167,7 +167,7 @@ export default class ContactPage extends React.Component {
           contentEl.style.opacity = 0
           document.querySelector('.header').style.zIndex = 1
           document.querySelector('.success-block').classList.remove('success-block-active')
-          document.querySelector('.home-section').style.zIndex = 0
+          document.querySelector('.main-page-revealer').style.zIndex = 0
         },
         onComplete: function() {
           document.querySelector('.contact-form').style.position = 'fixed'

@@ -4,7 +4,7 @@ export default class HomeComponent extends React.Component {
   render () {
     return (
       <div>
-        <section className='home-section'>
+        <section className='home-section main-page-revealer'>
           <div className='circle-container'>
             <div className='small' />
             <div className='circle'>

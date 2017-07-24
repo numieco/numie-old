@@ -1,0 +1,206 @@
+// General colors
+$faded-red:  #e0394a
+$dark-grey:  #141516 
+$light-grey: #7f8691
+
+// Category colors
+$purple: #974ef9
+$blue:   #518fdd
+$green:  #5dcf75
+$red:    #e35e6b
+$orange: #f4915b
+
+
+html, body
+  height: 100%
+
+.blogPage
+  padding-top: 80px
+  background-color: white
+  // General, re-used Components
+  .btn-container
+    position: relative
+    overflow: hidden
+    display: inline-block
+    padding-bottom: 10px
+    border-bottom: 1px solid blue
+
+  .read-btn
+    color: blue
+    transition: all 0.3s ease-in-out
+
+    &:hover
+      color: white
+      &:after
+        top: 0
+
+    &:after
+      content: ""
+      position: absolute
+      z-index: -1
+
+      width: 100%
+      height: 100%
+      top: 100%
+      left: 0
+
+      background-color: green
+      transition: all 0.3s ease-in-out
+
+  #heading
+    padding: 20px
+    text-align: center
+    color: $dark-grey
+
+    .title
+      font-size: 30px
+      font-weight: bold
+      font-size: calc(1.25rem + 1.3vmax)
+      line-height: 2.6
+      letter-spacing: 3.8px
+
+    .subtitle
+      opacity: 0.5
+      font-size: 14px
+      font-size: calc(0.48rem + 0.8vmax)
+
+
+  #featured
+    // Linear gradient colors
+    $ft-red:   rgba(224, 57, 74, 0.95)
+    $ft-black: rgba(36, 37, 38, 0.95)
+
+    color: white
+    padding: 20px
+    text-align: center
+
+    background-image: linear-gradient(310deg, $ft-red, $ft-black), url("../images/watch.jpg")
+    background-size: cover
+    background-position: center
+
+    .featured-title
+      margin-bottom: 20px
+      margin-top: 10px
+
+      font-size: 20px
+      font-size: calc(1.1rem + 0.3vmax)
+      font-weight: 600
+      line-height: 1.7
+      letter-spacing: 0.5px
+
+    .featured-desc
+      opacity: 0.8
+      margin-bottom: 36px
+
+      font-size: 12px
+      line-height: 1.83
+
+    .btn-container
+      border-bottom: 1px solid white
+    .featured-btn
+      color: white
+      opacity: 0.8
+      width: 24%
+      padding-bottom: 10px
+
+      font-size: 12px
+      letter-spacing: 0.9px
+
+
+  #category-bar
+    height: 67px
+    margin: 0
+    overflow-x: hidden
+    font-size: 12px
+    a
+      border-bottom: 0
+      opacity: 0.5
+
+
+  #posts
+    #post-container
+      padding: 20px
+      padding-left: 30px
+
+      .post-title
+        font-size: 16px
+        font-weight: 600
+        &:before
+          content: ""
+          height: 26px
+          width: 4px
+          position: absolute
+          left: 0
+          background-color: $purple
+
+      .post-category
+        opacity: 0.5
+        font-size: 11px
+
+      .post-content
+        margin-top: 10px
+        margin-bottom: 20px
+
+        font-size: 12px
+        line-height: 1.92
+        color: $light-grey
+
+      .post-btn
+        font-size: 12px
+        font-weight: 600
+        letter-spacing: 0.9px
+
+  #load-more
+    color: $dark-grey
+    margin-top: 50px
+    text-align: center
+    font-size: 12px
+
+    &:after
+      content: ""
+      background-color: blue
+      border-radius: 20% 20% 53% 20%
+      transform: scaleX(1.155) skewY(-30deg) rotate(-30deg) translateY(-42.3%) skewX(-30deg) scaleY(.866) translateX(24%)
+
+
+  footer
+    color: white
+    text-align: center
+    padding-top: 80px
+    background-image: linear-gradient(to bottom, #252525, $dark-grey)
+
+    .sub-tagline
+      font-size: 18px
+      margin-bottom: 20px
+
+    #sub-btn
+      padding: 3px
+      padding-bottom: 0
+      margin-bottom: 20px
+
+      input
+        color: white
+        background-color: $dark-grey
+        font-size: 16px
+
+        width: 100%
+        height: 45px
+        margin: auto
+        padding-left: 10px
+        border-radius: 5px
+
+      button
+        color: $dark-grey
+        width: 100%
+        height: 50px
+
+        font-size: 14px
+        font-weight: 600
+        letter-spacing: 0.9px
+
+        &:hover
+          background-color: #e2e2e2
+
+    hr
+      height: 2px
+      opacity: 0.05
