@@ -10,7 +10,7 @@ export default class Home extends React.Component {
       <div>
         <Layout>
           <main>
-            <Header />
+            <Header defaultLogo='red' />
             <ContactPage />
             <HomeComponent />
           </main>
