@@ -1,1 +1,95 @@
 // Home
+
+.small
+  height: 50px
+  width: 50px
+  border-radius: 50px
+  background: #e0394a
+  position: absolute
+  top: 165px
+
+
+.home-section
+  min-height: 100vh
+  width: 100%
+  background: $dark-grey
+  .circle-container
+    height: 100vh
+    width: 100vw
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    .circle
+      border: 8px $faded-red solid
+      border-radius: 300px
+      background: $numie-black
+      min-width: 225px
+      display: flex
+      min-height: 225px
+      justify-content: center
+      align-items: center
+      position: absolute
+      .circle-inside
+        position: absolute
+        height: 100%
+        width: 100%
+        z-index: 1 //<- small circles around large one's z-index should be less than 1
+        background: $numie-black
+        border-radius: 300px
+      .home-hero-title
+        position: absolute
+        top: calc(50% - 4rem)
+        width: 100vw
+        z-index: 2
+        text-transform: uppercase
+        text-align: center
+        span
+          font-size: 46px
+          font-weight: 300
+          line-height: 1.2
+          color: $white
+          text-shadow: 0 1px 2px rgb(0, 0, 0)
+        .create
+          font-weight: bold
+
+  .test
+    height: 50vh
+    width: 100%
+    padding-top: calc(100vh - 20px)
+    background: red
+
+@media screen and (min-width: 375px)
+  .home-hero-title
+    span
+      font-size: 54px !important
+      line-height: 1.11 !important
+@media screen and (min-width: 626px)
+  .home-hero-title
+    top: calc(50% - 2rem) !important
+
+@media screen and (min-width: 768px)
+  .circle
+    min-height: 280px !important
+    min-width: 280px !important
+    border: 10px solid $faded-red
+  .home-hero-title
+    top: calc(50% - 2rem) !important
+    span
+      font-size: 60px !important
+
+@media screen and (min-width: 1024px)
+  .home-hero-title
+    span
+      font-size: 76px !important
+      line-height: 78px !important
+
+
+
+
+
+
+
+
+
+

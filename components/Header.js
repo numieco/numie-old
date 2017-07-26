@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
-import NumieLogo from './SVG/NumieLogo'
+import { NumieLogoRed, NumieLogoBlack } from './SVG/NumieLogo'
+
+let NUMIELOGO = null
 
 export default class Header extends React.Component {
   constructor (props) {
@@ -10,6 +12,13 @@ export default class Header extends React.Component {
     this.state = {
       isMobile : false
     }
+  }
+
+  componentWillMount () {
+    if (this.props.defaultLogo == 'red')
+      NUMIELOGO = <NumieLogoRed />
+    if (this.props.defaultLogo == 'black')
+      NUMIELOGO = <NumieLogoBlack />
   }
 
   componentDidMount () {
@@ -39,7 +48,9 @@ export default class Header extends React.Component {
         <div className='menu-wrapper'>
           <div className='logo'>
             <Link href='/'>
-              <a><NumieLogo /></a>
+              <a>
+                { NUMIELOGO }
+              </a>
             </Link>  
           </div>
           <div className={this.state.isMobile ? 'wrap-buttons' : ''}>
@@ -59,7 +70,9 @@ export default class Header extends React.Component {
                       Our work
                     </div>
                     <div className='writing-menu'>
-                      Writing
+                      <Link href='/blog'>
+                        <a>Writing</a>
+                      </Link>
                     </div>
                   </div>
                 )

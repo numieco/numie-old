@@ -10,17 +10,54 @@
   background: #000
   pointer-events: none
   opacity: 0
-  z-index: 9999
+  z-index: 9998
   color: transparent
   font-size: 60px
   display: flex
   justify-content: center
   align-items: center
   text-transform: uppercase
+
+.success-block
+  display: flex
+  min-height: 100vh
+  overflow: hidden
+  position: fixed
+  z-index: -1
+  top: 100vh
+  width: 100%
+  .success-content
+    opacity: 0
+
+.form--open
+  .block-ref
+    width: 100%
+    background: #42E464
+  .success-content
+    -webkit-animation: success 2.1s linear
+    animation: success 2.1s linear
+    animation-delay: 0.6s
+    
+    opacity: 0
+    width: 100%
+    height: 100vh
+    
+    color: red
+    font-size: 60px
+    display: flex
+    justify-content: center
+    align-items: center
+    text-transform: uppercase
+    
+
 .form--open
   z-index: 1
+  .background
+    opacity: 1 !important
   .page-wrap
     opacity: 1 !important
+
+  
 
 .error
   position: relative
@@ -39,7 +76,7 @@
 .contact-form
   min-height: 100vh
   overflow: hidden
-  //background-color: $dark-grey
+  background-color: $dark-grey
   font-family: 'Open sans' !important
   position: fixed
   z-index: -1

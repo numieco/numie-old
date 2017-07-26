@@ -16,6 +16,8 @@ const smtpTransport = require('nodemailer-smtp-transport')
 const xoauth2 = require('xoauth2')
 const Slack = require('slack-node')
 
+const ghostMiddleware = require('./server/ghost-middleware')
+
 const secret =  process.env.NODE_ENV == 'production' ? process.env : require('./secrets')
 const host = process.env.HOST || "localhost"
 const port = process.env.PORT || 3000
@@ -38,6 +40,8 @@ app.prepare()
     else
       next()
   })
+
+  server.get('/fetchposts', ghostMiddleware)
 
   server.post('/getdata', (req, res) => {
     console.log(req.body)

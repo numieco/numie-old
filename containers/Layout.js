@@ -38,7 +38,7 @@ export default class Layout extends Component {
           <title>{page.index.title}</title>
 
           <meta charSet='utf-8'></meta>
-          <meta http-equiv='x-ua-compatible' content='ie=edge'></meta>
+          <meta httpEquiv='x-ua-compatible' content='ie=edge'></meta>
           <meta name='format-detection' content='telephone=no'></meta>
           <meta name='viewport' content='width=device-width,initial-scale=1'></meta>
           <meta content='width=device-width' name='viewport'></meta>
