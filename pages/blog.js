@@ -1,11 +1,66 @@
 import React from 'react'
+import axios from 'axios'
 import Layout from '../containers/Layout'
-import Header from '../components/Header'
 import ContactPage from './contact'
+import Header from '../components/Header'
+import SinglePost from '../components/SinglePost'
 
+const domain = 'https://numie.ghost.io'
+let page = 1
 export default class Blog extends React.Component {
   constructor (props) {
     super (props)
+
+    this.state = {
+      posts: null,
+      populatePosts: []
+    }
+
+    this.processPosts = this.processPosts.bind(this)
+    this.loadMore = this.loadMore.bind(this)
+  }
+
+  componentDidMount () {
+    this.makeARequest()
+  }
+
+  processPosts = () => {
+    let populatePosts = this.state.populatePosts
+    this.state.posts.map((post, i) => {
+      populatePosts.push( 
+        <SinglePost
+          key={i}
+          id={post.id}
+          title={post.title}
+          image={post.image}
+          html={post.html}
+        />
+      )
+    })
+
+    this.setState({
+      populatePosts
+    })
+  }
+
+  makeARequest = () => {
+    axios.get('/fetchposts?page=' + page)
+      .then((response) => {
+        this.setState({
+          posts: response.data.posts
+        }, this.processPosts)
+        page++
+      })
+      .then((error) => {
+        if (error) {
+          console.log('error')
+          console.log(error)
+        }
+      })
+  }
+
+  loadMore = () => {
+    this.makeARequest()
   }
 
   render () {
@@ -47,80 +102,11 @@ export default class Blog extends React.Component {
               </ul>
             </div>
             <section id="posts">
-              <div className="post columns">
-                <div className="column is-half"><img src="static/images/blog/forest.jpg" alt="" /></div>
-                <div className="column is-half" id="post-container">
-                  <h2 className="post-title">Why Remote Teams Thrive</h2><span className="post-category"># COMPANY</span>
-                  <p className="post-content">
-                    Tofu typewriter microdosing, plaid tumblr palo
-                    santo bushwick kale chips gentrify humblebrag
-                    hashtag swag. Small batch cred plaid, four loko
-                    brooklyn pug raw denim. Small batch cred plaid,
-                    four loko brooklyn pug raw denim.
-                  </p>
-                  <div className="btn-container">
-                    <a className="read-btn post-btn">READ MORE</a>
-                  </div>
-                </div>
-              </div>
-              <div className="post columns">
-                <div className="column is-half"><img src="static/images/blog/fireworks.png" alt="" /></div>
-                <div className="column is-half" id="post-container">
-                  <h2 className="post-title">Why Remote Teams Thrive</h2><span className="post-category"># COMPANY</span>
-                  <p className="post-content">
-                    Tofu typewriter microdosing, plaid tumblr palo
-                    santo bushwick kale chips gentrify humblebrag
-                    hashtag swag. Small batch cred plaid, four loko
-                    brooklyn pug raw denim. Small batch cred plaid,
-                    four loko brooklyn pug raw denim.
-                  </p>
-                  <div className="btn-container"><a className="read-btn post-btn">READ MORE</a></div>
-                </div>
-              </div>
-              <div className="post columns">
-                <div className="column is-half"><img src="static/images/blog/watch.jpg" alt="" /></div>
-                <div className="column is-half" id="post-container">
-                  <h2 className="post-title">Why Remote Teams Thrive</h2><span className="post-category"># COMPANY</span>
-                  <p className="post-content">
-                    Tofu typewriter microdosing, plaid tumblr palo
-                    santo bushwick kale chips gentrify humblebrag
-                    hashtag swag. Small batch cred plaid, four loko
-                    brooklyn pug raw denim. Small batch cred plaid,
-                    four loko brooklyn pug raw denim.
-                  </p>
-                  <div className="btn-container"><a className="read-btn post-btn">READ MORE</a></div>
-                </div>
-              </div>
-              <div className="post columns">
-                <div className="column is-half"><img src="static/images/blog/fireworks.png" alt="" /></div>
-                <div className="column is-half" id="post-container">
-                  <h2 className="post-title">Why Remote Teams Thrive</h2><span className="post-category"># COMPANY</span>
-                  <p className="post-content">
-                    Tofu typewriter microdosing, plaid tumblr palo
-                    santo bushwick kale chips gentrify humblebrag
-                    hashtag swag. Small batch cred plaid, four loko
-                    brooklyn pug raw denim. Small batch cred plaid,
-                    four loko brooklyn pug raw denim.
-                  </p>
-                  <div className="btn-container"><a className="read-btn post-btn">READ MORE</a></div>
-                </div>
-              </div>
-              <div className="post columns">
-                <div className="column is-half"><img src="static/images/blog/mountains.jpg" alt="" /></div>
-                <div className="column is-half" id="post-container">
-                  <h2 className="post-title">Why Remote Teams Thrive</h2><span className="post-category"># COMPANY</span>
-                  <p className="post-content">
-                    Tofu typewriter microdosing, plaid tumblr palo
-                    santo bushwick kale chips gentrify humblebrag
-                    hashtag swag. Small batch cred plaid, four loko
-                    brooklyn pug raw denim. Small batch cred plaid,
-                    four loko brooklyn pug raw denim.
-                  </p>
-                  <div className="btn-container"><a className="read-btn post-btn">READ MORE</a></div>
-                </div>
-              </div>
+              { this.state.populatePosts }
             </section>
-            <div id="load-more"><a>LOAD MORE <br /> + </a></div>
+            <div id="load-more" onClick={this.loadMore}>
+              <a>LOAD MORE <br /> + </a>
+            </div>
             <footer className="footer">
               <div id="subscribe">
                 <h3 className="sub-tagline">
