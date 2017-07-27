@@ -6,13 +6,12 @@ export default class HomeComponent extends React.Component {
       <div>
         <section className='home-section main-page-revealer'>
           <div className='circle-container'>
-            <div className='small' />
-            <div className='circle'>
-              <div className='home-hero-title'>
-                <span>lets </span>
-                <span className='create'>create </span>
-                <span>together.</span>
-              </div>
+            
+            <div className='circle' />
+            <div className='home-hero-title'>
+              <span>lets </span>
+              <span className='create'>create </span>
+              <span>together.</span>
             </div>
           </div>
           <div className='test' />
