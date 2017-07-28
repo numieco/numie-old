@@ -5,6 +5,11 @@ import ContactPage from './contact'
 import Header from '../components/Header'
 import SinglePost from '../components/SinglePost'
 
+import FacebookSvg from '../components/SVG/FacebookSvg'
+import InstagramSvg from '../components/SVG/InstagramSvg'
+import TwitterSvg from '../components/SVG/TwitterSvg'
+import GithubSvg from '../components/SVG/GithubSvg'
+
 const domain = 'https://numie.ghost.io'
 let page = 1
 export default class Blog extends React.Component {
@@ -34,6 +39,8 @@ export default class Blog extends React.Component {
           title={post.title}
           image={post.image}
           html={post.html}
+          tag={post.tags}
+          author={post.author}
         />
       )
     })
@@ -67,7 +74,7 @@ export default class Blog extends React.Component {
     return (
       <div className='blog-page'>
         <Layout>
-          <Header defaultLogo='black' />
+          <Header defaultLogo='white' />
           <ContactPage />
           <div className='blog-page-main-section main-page-revealer'>
             <header>
@@ -80,32 +87,12 @@ export default class Blog extends React.Component {
                 </h2>
               </div>
             </header>
-            <section className="section" id="featured">
-              <div className="container">
-                <h2 className="featured-title">Numie is Google Certified</h2>
-                <p className="featured-desc">
-                  We're a multicultural, internationally based team
-                  of designers, developers, and marketers who live
-                  and breathe creating products that push the
-                  boundaries.
-                </p>
-              </div>
-              <div className="btn-container"><a className="read-btn featured-btn">READ POST</a></div>
-            </section>
-            <div className="tabs is-centered is-fullwidth" id="category-bar">
-              <ul>
-                <li><a>DESIGN</a></li>
-                <li><a>DEVELOPMENT</a></li>
-                <li><a>MARKETING</a></li>
-                <li><a>PEOPLE</a></li>
-                <li><a>COMPANY</a></li>
-              </ul>
-            </div>
+
             <section id="posts">
               { this.state.populatePosts }
             </section>
             <div id="load-more" onClick={this.loadMore}>
-              <a>LOAD MORE <br /> + </a>
+              MORE <br /> +
             </div>
             <footer className="footer">
               <div id="subscribe">
@@ -117,17 +104,24 @@ export default class Blog extends React.Component {
                   <p className="control">
                     <input className="input" type="email" placeholder="Your email" />
                   </p>
-                  <button className="button is-white" type="submit">SUBSCRIBE</button>
+                  <div className="subscribe-button button is-white">
+                    SUBSCRIBE
+                  </div>
                 </form>
-                <small className="sub-promise">
+                <div className="sub-promise">
                   <div>No spam. No ads. No selfies. We promise.</div>
-                </small>
+                </div>
               </div>
-              <hr />
-              <div id="social">
-                <h4 id="numie-title">NUMIE STUDIO</h4>
-                <span id="numie-email">yo@numie.co</span>
-                <a href="#">GO UP</a>
+              <div className="social">
+                <div className="numie-title">NUMIE STUDIO</div>
+                <div className="numie-email">yo@numie.co</div>
+                <div className='social-buttons'>
+                  <InstagramSvg />
+                  <TwitterSvg />
+                  <FacebookSvg />
+                  <GithubSvg />
+                </div>
+                <div className='go-up'>GO UP</div>
               </div>
             </footer>
           </div>
