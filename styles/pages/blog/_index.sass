@@ -1,6 +1,6 @@
 // General colors
 $faded-red:  #e0394a
-$dark-grey:  #141516 
+$dark-grey:  #141516
 $light-grey: #7f8691
 $greyish-brown: #404040
 // Category colors
@@ -58,7 +58,7 @@ html, body
     color: white
     background-image: linear-gradient(310deg, rgba(224, 57, 74, 0.95), rgba(36, 37, 38, 0.95)), url("static/images/blog/watch.jpg")
     background-size: cover
-    background-position: center 
+    background-position: center
     .title
       font-size: 30px
       font-weight: bold
@@ -189,9 +189,9 @@ html, body
     border-radius: 300px
     background-color: #252525
     color: $dark-grey
-    margin: 80px auto 0
+    margin: 5rem auto 0
     text-align: center
-    font-size: 7.1px
+    font-size: .5rem
     font-weight: 600
     letter-spacing: 0.5px
     text-align: center
@@ -200,6 +200,8 @@ html, body
     flex-direction: column
     justify-content: center
     align-items: center
+    padding-left: 2px
+    padding-top: 5px
 
   footer
     color: white
@@ -208,7 +210,7 @@ html, body
     background-image: linear-gradient(to bottom, #252525, $dark-grey)
     margin-top: 5px
     position: relative
-    &:before, &:after 
+    &:before, &:after
       position: absolute
       content: ' '
       background: transparent
@@ -221,7 +223,7 @@ html, body
       right: -10px
       border-radius: 0 0 0 35px
       transform: rotate(-10deg)
-    &:before 
+    &:before
       transform: rotate(10deg)
       border-radius: 0 0 35px 0
       left: -10px
@@ -240,7 +242,6 @@ html, body
         color: white
         background-color: $dark-grey
         font-size: 16px
-        opacity: 0.8
         text-align: left
         width: 100%
         height: 50px
@@ -256,11 +257,14 @@ html, body
         font-size: 14px
         font-weight: 600
         letter-spacing: 0.9px
+        +ease(.2s)
         &:hover
-          background-color: #e2e2e2
+          //background-color: #e2e2e2
+          color: $faded-red
     .sub-promise
       opacity: 0.8
       font-size: 12px
+      font-weight: 600
       text-align: center
       color: white
       margin-bottom: 25px
@@ -291,6 +295,11 @@ html, body
         text-align: center
         color: white
         margin-bottom: 20px
+        a
+          color: white
+          +ease(.2s)
+          &:hover
+            color: $faded-red
       .social-buttons
         display: flex
         justify-content: space-between
@@ -298,8 +307,23 @@ html, body
         width: 100%
         max-width: 170px
         margin: 0 auto 80px
+        svg
+          +ease(.2s)
+          &:hover
+            cursor: pointer
+            transform: scale(1.2)
       .go-up
         font-size: 12px
         font-weight: 600
         letter-spacing: 0.9px
         color: white
+        &:before
+          content: '\2191'
+          color: white
+          position: absolute
+          bottom: 1.1rem
+          left: 0
+          right: 0
+          +ease(.2s)
+        &:hover:before
+          bottom: 1.3rem

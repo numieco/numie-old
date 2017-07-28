@@ -3,9 +3,11 @@ import Link from 'next/link'
 import Select from 'react-select'
 import axios from 'axios'
 import Header from '../components/Header'
+
 import FacebookSvg from '../components/SVG/FacebookSvg'
 import InstagramSvg from '../components/SVG/InstagramSvg'
 import TwitterSvg from '../components/SVG/TwitterSvg'
+import PaperplaneSvg from '../components/SVG/PaperplaneSvg'
 
 import Layout from '../containers/Layout'
 
@@ -77,7 +79,7 @@ export default class ContactPage extends React.Component {
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
       let revealBlock = document.querySelector('.block-revealer__element')
-      
+
       document.querySelector('.header').style.zIndex = 1
       document.querySelector('.contact-form').style.position = 'static'
 
@@ -90,7 +92,7 @@ export default class ContactPage extends React.Component {
           contentEl.style.opacity = 1
           document.querySelector('.header').style.zIndex = -1
           document.querySelector('.main-page-revealer').style.zIndex = -2
-          document.querySelector('.main-page-revealer').style.display = 'none'  
+          document.querySelector('.main-page-revealer').style.display = 'none'
         },
         onComplete: function() {
           closeCtrlOne.addEventListener('click', closeForm)
@@ -135,7 +137,7 @@ export default class ContactPage extends React.Component {
     document.querySelector('.success-block').style.top = '0'
     document.querySelector('.success-block').style.zIndex = '9999'
     successRevealer.reveal({
-      bgcolor: '#42E464',
+      bgcolor: '#76FA81',
       direction: 'bt',
       duration: 600,
       onCover: function(contentEl, revealerEl) {
@@ -156,9 +158,9 @@ export default class ContactPage extends React.Component {
       var successBlock = document.querySelector('.success-block')
       document.querySelector('.success-block').style.zIndex = '2'
       document.querySelector('.main-page-revealer').style.display = 'block'
-      
+
       revealer.reveal({
-        bgcolor: '#42E464',
+        bgcolor: '#76FA81',
         direction: 'bt',
         duration: 600,
         onCover: function(contentEl, revealerEl) {
@@ -332,14 +334,15 @@ export default class ContactPage extends React.Component {
         <div className='success-block'>
           <div className='block-revealer__content block-ref'>
             <div className='success-content'>
-              SUCCESS !!
+              <PaperplaneSvg/>
+              {/*<h2>Message sent! We'll get back to you shortly!</h2>*/}
             </div>
           </div>
         </div>
 
         <div id='contact' className='contact-form'>
           <div className='block-revealer__content'>
-            
+
             <div className='page-wrap'>
 
               <div className='sidebar'>
@@ -358,7 +361,7 @@ export default class ContactPage extends React.Component {
                       email
                     </div>
                     <div className='sidebar-value'>
-                      yo@numie.co
+                      <a href='mailto:yo@numie.co?subject=Howdy!'>yo@numie.co</a>
                     </div>
                   </div>
                   <div className='sidebar-content form__section'>
@@ -366,18 +369,18 @@ export default class ContactPage extends React.Component {
                       phone
                     </div>
                     <div className='sidebar-value'>
-                      +1 960.333.5235
+                      <a href='tel:19603335235'>+1 960.333.5235</a>
                     </div>
                   </div>
                   <div className='sidebar-content social-media-buttons form__section'>
                     <div className='sidebar-instagram'>
-                      <InstagramSvg />
+                      <a href='https://instagram.com/numieco'><InstagramSvg /></a>
                     </div>
                     <div className='sidebar-twitter'>
-                      <TwitterSvg />
+                      <a href='https://twitter.com/numieco'><TwitterSvg /></a>
                     </div>
                     <div className='sidebar-facebook'>
-                      <FacebookSvg />
+                      <a href='https://facebook.com/numieco'><FacebookSvg /></a>
                     </div>
                   </div>
                   <div className='sidebar-content sidebar-text form__section'>

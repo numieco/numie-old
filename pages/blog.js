@@ -32,7 +32,7 @@ export default class Blog extends React.Component {
   processPosts = () => {
     let populatePosts = this.state.populatePosts
     this.state.posts.map((post, i) => {
-      populatePosts.push( 
+      populatePosts.push(
         <SinglePost
           key={i}
           id={post.id}
@@ -83,7 +83,7 @@ export default class Blog extends React.Component {
                 <h2 className="subtitle">
                   A curated collection of self-published articles
                   written by the Numie team for you to enjoy.
-                  
+
                 </h2>
               </div>
             </header>
@@ -114,7 +114,7 @@ export default class Blog extends React.Component {
               </div>
               <div className="social">
                 <div className="numie-title">NUMIE STUDIO</div>
-                <div className="numie-email">yo@numie.co</div>
+                <div className="numie-email"><a href='mailto:yo@numie.co?subject=Howdy!'>yo@numie.co</a></div>
                 <div className='social-buttons'>
                   <InstagramSvg />
                   <TwitterSvg />

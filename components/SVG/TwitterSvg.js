@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class TwitterSvg extends React.Component {
+export default class Twitter extends React.Component {
   render () {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" width="27" height="22" viewBox="0 0 27 22">
