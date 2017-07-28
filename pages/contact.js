@@ -335,7 +335,7 @@ export default class ContactPage extends React.Component {
           <div className='block-revealer__content block-ref'>
             <div className='success-content'>
               <PaperplaneSvg/>
-              {/*<h2>Message sent! We'll get back to you shortly!</h2>*/}
+              <h2>Message sent!</h2>
             </div>
           </div>
         </div>
