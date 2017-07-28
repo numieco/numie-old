@@ -3,7 +3,7 @@ const secret =  process.env.NODE_ENV == 'production' ? process.env : require('..
 
 var ghostMiddleware = (req, res, next) => {
   let URL = secret.domain + '/ghost/api/v0.1/posts/?page=' + req.query.page 
-    + '&limit=12&client_id='+ secret.clientId 
+    + '&limit=12&include=tags%2Cauthor&client_id='+ secret.clientId 
     +'&client_secret='+ secret.clientSecret
 
   request.get(URL, (err, response, body) => {
