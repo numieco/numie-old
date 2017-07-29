@@ -137,7 +137,7 @@ export default class ContactPage extends React.Component {
     document.querySelector('.success-block').style.top = '0'
     document.querySelector('.success-block').style.zIndex = '9999'
     successRevealer.reveal({
-      bgcolor: '#76FA81',
+      bgcolor: '#62E17C',
       direction: 'bt',
       duration: 600,
       onCover: function(contentEl, revealerEl) {
@@ -160,7 +160,7 @@ export default class ContactPage extends React.Component {
       document.querySelector('.main-page-revealer').style.display = 'block'
 
       revealer.reveal({
-        bgcolor: '#76FA81',
+        bgcolor: '#62E17C',
         direction: 'bt',
         duration: 600,
         onCover: function(contentEl, revealerEl) {
