@@ -1,13 +1,24 @@
 import React from 'react'
 
 const domain = 'https://numie.ghost.io'
-
+let inlineImageStyle = null
 export default class SinglePost extends React.Component {
+
+  constructor (props) {
+    super (props)
+
+    inlineImageStyle = {
+      backgroundImage: 'url(' + domain + this.props.image + ')'
+    }
+  }
+
   render () {
     return (
       <div className="post columns">
-        <div className="image column is-half">
-          <img src={ domain + (this.props.image !== null ? this.props.image : '/content/images/2017/07/crowd.png') } alt="" />
+        <div
+          className="image column is-half"
+          style={ inlineImageStyle }
+        >
         </div>
         <div className="column is-half post-container">
           {
@@ -31,6 +42,31 @@ export default class SinglePost extends React.Component {
           <div className="post-content"
             dangerouslySetInnerHTML={{ __html: this.props.html !== null ? this.props.html : (<p>Loading ...</p>) }}
           />
+
+          <div className='author'>
+            {
+              ( this.props.author.image !== null)
+              ? (
+                  <div className='author-image'>
+                    <img
+                      src={ this.props.author.image }
+                      alt={ this.props.author.name } 
+                    />
+                  </div>
+                )
+              : <div className='author-image blank-image' />
+
+            }
+            
+            <div className='author-name'>
+              {
+                ( this.props.author.name !== null )
+                ? this.props.author.name
+                : null
+              }
+            </div>
+
+          </div>
         </div>
       </div>
     )

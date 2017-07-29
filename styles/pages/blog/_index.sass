@@ -135,53 +135,94 @@ html, body
     background: transparent
     margin-top: -72px
     .post
+      display: block
       margin: 0
       margin-bottom: 20px
       overflow: hidden
       background: white
       border-radius: 4px
       box-shadow: 0 0 18px 6px rgba(0, 0, 0, 0.03)
-    .image
-      padding: 0
+      .image
+        width: auto
+        height: 200px
+        background: #c5d2d9 no-repeat 50%
+        background-size: cover
+        padding: 0
 
-    .post-container
-      max-height: 295px
-      padding: 20px 25px
+      .post-container
+        max-height: 295px
+        padding: 25px
+        padding-bottom: 70px
+        position: relative
+        width: 100%
 
-      .general
-        font-size: 12px
-        font-weight: 600
-        letter-spacing: 1px
-        color: $dark-grey
-        text-transform: uppercase
-      .design
-        color: #518fdd
-      .marketing
-        color: #974ef9
-      .development
-        color: #f4915b
-      .company
-        color: #e35e6b
-      .people
-        color: #5dcf75
+        .general
+          font-size: 12px
+          font-weight: 600
+          letter-spacing: 1px
+          color: $dark-grey
+          text-transform: uppercase
+        .design
+          color: #518fdd
+        .marketing
+          color: #974ef9
+        .development
+          color: #f4915b
+        .company
+          color: #e35e6b
+        .people
+          color: #5dcf75
 
-      .post-title
-        font-size: 22px
-        font-weight: bold
-        color: $greyish-brown
+        .post-title
+          font-size: 22px
+          font-weight: bold
+          color: $greyish-brown
 
-      .post-content
-        margin-top: 10px
-        max-height: 120px
-        overflow: hidden
-        font-size: 14px
-        line-height: 24.0px
-        color: $greyish-brown
+        .post-content
+          margin-top: 10px
+          max-height: 120px
+          min-height: 120px
+          overflow: hidden
+          font-size: 14px
+          line-height: 24.0px
+          color: $greyish-brown
 
-      .post-btn
-        font-size: 12px
-        font-weight: 600
-        letter-spacing: 0.9px
+        .author
+          max-height: 30px
+          display: flex
+          flex-direction: row
+          justify-content: flex-start
+          position: absolute
+          bottom: 20px
+          left: 25px
+          width: calc(100% - 50px)
+
+          .author-image
+            overflow: hidden
+            height: 30px
+            width: 30px
+            border-radius: 50px
+            margin-right: 10px
+            img
+              width: 100%
+              height: auto
+          .blank-image
+            background: $greyish-brown
+
+          .author-name
+            font-size: 12px
+            font-weight: 600
+            letter-spacing: 1px
+            color: $greyish-brown
+            display: flex
+            flex-direction: column
+            justify-content: center
+            text-transform: uppercase
+
+        .post-btn
+          font-size: 12px
+          font-weight: 600
+          letter-spacing: 0.9px
 
   #load-more
     width: 50px
@@ -228,11 +269,14 @@ html, body
       border-radius: 0 0 35px 0
       left: -10px
 
+    .numie-logo
+      display: none
+
     .sub-tagline
       font-size: 18px
       text-align: center
       color: white
-      margin-bottom: 20px
+      margin: 0 auto 20px
 
     #sub-btn
       padding: 2px
@@ -283,6 +327,8 @@ html, body
         height: 2px
         opacity: 0.05
         border-top: solid 1px $white
+      .want-to-work
+        display: none
       .numie-title
         font-size: 12px
         font-weight: bold
@@ -317,6 +363,7 @@ html, body
         font-weight: 600
         letter-spacing: 0.9px
         color: white
+        position: relative
         &:before
           content: '\2191'
           color: white
@@ -327,3 +374,271 @@ html, body
           +ease(.2s)
         &:hover:before
           bottom: 1.3rem
+
++medium-phone
+  .blog-page-main-section
+    #heading
+      padding-top: 91px
+      padding-bottom: 80px
+
++tablet
+  .blog-page-main-section
+    #heading
+      align-items: center
+      padding-bottom: 95px
+      .title
+        font-size: calc(1.540rem + 2vw)
+      .subtitle
+        max-width: 400px
+        opacity: 0.85
+        font-size: 18px
+        line-height: 26.0px
+        text-align: center
+        color: $white
+
+    #posts
+      flex-wrap: wrap
+      justify-content: space-between
+      flex-direction: row
+      .post
+        flex-basis: calc(50% - 10px)
+        .post-title
+          font-size: 28px !important
+
+        &:nth-child(1), &:nth-child(5n+1)
+          flex-basis: 100%
+          .post-content
+            min-height: 72px
+            max-height: 72px
+    #load-more
+      height: 70px
+      width: 70px
+      font-size: 10px
+      font-size: .63rem
+
+    .footer
+      padding-top: 150px
+      .sub-tagline
+        width: 344px
+        font-size: 24px
+        text-align: center
+        color: $white
+      #sub-btn
+        max-width: 480px
+        margin: 0 auto 20px
+        display: flex
+        flex-direction: row
+        .control
+          width: 100%
+        .subscribe-button
+          width: 50%
+      .sub-promise
+        margin-bottom: 40px
+      .social
+        padding-top: 40px
+        .go-up
+          margin-bottom: 70px
+
++small-desktop
+  .blog-page
+    .header
+      top: 30px
+      left: 80px
+      right: 80px
+      width: calc(100% - 160px)
+
+    .blog-page-main-section
+      #heading
+        padding-top: 150px
+        padding-bottom: 105px
+        .title
+          font-size: calc(1.885rem + 2vw)
+          letter-spacing: 6.2px
+        .subtitle
+          font-size: 20px
+          line-height: 30px
+          max-width: 600px
+
+      #posts
+        padding-left: 100px
+        padding-right: 100px
+      @media (min-width: 992px) and (max-width: 1279px)
+        .post
+          margin-bottom: 40px
+          flex-basis: calc(50% - 20px)
+          .post-container
+            .post-title
+              font-size: 22px !important
+          &:nth-child(1), &:nth-child(5n+1)
+            display: flex
+            flex-direction: row
+            flex-basis: 100%
+            .image
+              height: 350px
+              width: 455px
+            .post-container
+              width: calc(100% - 455px)
+              min-height: 350px
+              padding-left: 40px
+              padding-right: 40px
+              .post-title
+                font-size: 28px !important
+              .post-content
+                min-height: 145px
+                max-height: 145px
+
+      #load-more
+        margin-top: 60px
+        height: 100px
+        width: 100px
+        font-size: 14.3px
+
+      .footer
+        padding: 165px 100px 80px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        .numie-logo
+          display: block
+          height: 42px
+          width: 42px
+          align-self: flex-start
+          margin-bottom: 50px
+
+        #subscribe
+          align-self: flex-start
+          .sub-tagline
+            text-align: left
+            margin-bottom: 30px
+            font-size: 28px
+            width: 400px
+          #sub-btn
+            max-width: 370px
+            margin: 0 0 30px
+          .sub-promise
+            text-align: left
+            margin: 0
+
+        .social
+          align-self: flex-end
+          padding: 0
+          position: absolute
+          right: 100px
+          display: flex
+          flex-direction: column
+          justify-content: flex-end
+          max-width: 250px
+          &:before
+            display: none
+
+          .numie-title
+            visibility: hidden
+            position: relative
+            margin-bottom: 105px
+            &:before
+              content: 'LET’S TALK'
+              display: block
+              font-size: 26px
+              font-weight: bold
+              letter-spacing: 1.9px
+              text-align: right
+              visibility: visible
+              color: $white
+            &:after
+              content: ''
+              position: absolute
+              bottom: 10px
+              width: 153px
+              right: 0
+              visibility: visible
+              border: solid 1px $white
+          .want-to-work
+            display: block
+            font-size: 20px
+            text-align: right
+            color: $white
+            margin-bottom: 20px
+          .numie-email
+            text-align: right
+            font-size: 14px
+          .social-buttons
+            margin-bottom: 0px
+            margin-right: 0px
+          .go-up
+            display: none
+
++desktop
+  .blog-page
+    .header
+      left: 125px
+      right: 125px
+      width: calc(100% - 250px)
+
+    .blog-page-main-section
+      #heading
+        padding-bottom: 110px
+        .subtitle
+          line-height: 26px
+
+      #posts
+        padding-left: 0
+        padding-right: 0
+        max-width: 992px
+        margin: -72px auto 0
+        .post
+          flex-basis: calc(33% - 26.66px)
+          margin-bottom: 40px
+          .post-container
+            padding-top: 20px
+            max-height: 325px
+            .post-title
+              font-size: 22px !important
+            .post-content
+              min-height: 168px
+              max-height: 168px
+
+          &:nth-child(9n+5), &:nth-child(9n+6)
+            display: flex
+            flex-direction: column
+            flex-basis: calc(50% - 20px)
+            .image
+              height: 200px
+              width: 100%
+            .post-container
+              width: 100%
+              .post-content
+                min-height: 96px
+                max-height: 96px
+              .author
+                left: 40px
+          &:nth-child(1), &:nth-child(9n+1)
+            display: flex
+            flex-direction: row
+            flex-basis: 100%
+            .image
+              height: 350px
+              width: 650px
+            .post-container
+              width: calc(100% - 650px)
+              min-height: 350px
+              padding-left: 40px
+              padding-right: 40px
+              .post-title
+                font-size: 28px !important
+              .post-content
+                min-height: 145px
+                max-height: 145px
+              .author
+                left: 40px
+      .footer
+        padding-left: 145px
+        padding-right: 145px
+
+        .social
+          right: 145px
+
+
+
+
+

@@ -9,6 +9,7 @@ import FacebookSvg from '../components/SVG/FacebookSvg'
 import InstagramSvg from '../components/SVG/InstagramSvg'
 import TwitterSvg from '../components/SVG/TwitterSvg'
 import GithubSvg from '../components/SVG/GithubSvg'
+import { NumieLogoWhite } from '../components/SVG/NumieLogo'
 
 const domain = 'https://numie.ghost.io'
 let page = 1
@@ -95,6 +96,9 @@ export default class Blog extends React.Component {
               MORE <br /> +
             </div>
             <footer className="footer">
+              <div className='numie-logo'>
+                <NumieLogoWhite />
+              </div>
               <div id="subscribe">
                 <h3 className="sub-tagline">
                   Fresh articles of fascinating
@@ -109,10 +113,13 @@ export default class Blog extends React.Component {
                   </div>
                 </form>
                 <div className="sub-promise">
-                  <div>No spam. No ads. No selfies. We promise.</div>
+                  No spam. No ads. No selfies. We promise.
                 </div>
               </div>
               <div className="social">
+                <div className='want-to-work'>
+                  Want to work on something great together?
+                </div>
                 <div className="numie-title">NUMIE STUDIO</div>
                 <div className="numie-email"><a href='mailto:yo@numie.co?subject=Howdy!'>yo@numie.co</a></div>
                 <div className='social-buttons'>
