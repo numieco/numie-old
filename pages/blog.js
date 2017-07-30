@@ -93,7 +93,7 @@ export default class Blog extends React.Component {
               { this.state.populatePosts }
             </section>
             <div id="load-more" onClick={this.loadMore}>
-              MORE <br /> +
+              MORE <br /> <span>+</span>
             </div>
             <footer className="footer">
               <div className='numie-logo'>

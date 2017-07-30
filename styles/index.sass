@@ -1,3 +1,11 @@
+//Vendors
+// @import normalize.css // Need to use
+@import '~bulma' // Need to use
+
+//Helpers
+@import 'utilities/mixins'
+@import 'utilities/variables'
+
 html
   -webkit-font-smoothing: antialiased
   //-webkit-font-smoothing: subpixel-antialiased
@@ -16,17 +24,13 @@ img
   width: 100%
   display: table
 
-//Vendors
-// @import normalize.css // Need to use
-@import '~bulma' // Need to use
+
 
 //Animations
 @import 'utilities/blockReveal'
 @import 'utilities/keyframes'
 
-//Helpers
-@import 'utilities/mixins'
-@import 'utilities/variables'
+
 
 //Pages
 @import 'pages/home/index'
@@ -38,4 +42,3 @@ img
 
 //Components
 @import 'components/header'
-
