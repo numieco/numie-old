@@ -4,9 +4,8 @@ import Select from 'react-select'
 import axios from 'axios'
 import Header from '../components/Header'
 
-import FacebookSvg from '../components/SVG/FacebookSvg'
-import InstagramSvg from '../components/SVG/InstagramSvg'
-import TwitterSvg from '../components/SVG/TwitterSvg'
+
+import {Facebook, Twitter, Github, Instagram} from '../components/SVG/Socials'
 import PaperplaneSvg from '../components/SVG/PaperplaneSvg'
 
 import Layout from '../containers/Layout'
@@ -374,14 +373,17 @@ export default class ContactPage extends React.Component {
                   </div>
                   <div className='sidebar-content social-media-buttons form__section'>
                     <div className='sidebar-instagram'>
-                      <a href='https://instagram.com/numieco'><InstagramSvg /></a>
+                      <a href='https://instagram.com/numieco'><Instagram/></a>
                     </div>
                     <div className='sidebar-twitter'>
-                      <a href='https://twitter.com/numieco'><TwitterSvg /></a>
+                      <a href='https://twitter.com/numieco'><Twitter/></a>
                     </div>
                     <div className='sidebar-facebook'>
-                      <a href='https://facebook.com/numieco'><FacebookSvg /></a>
+                      <a href='https://facebook.com/numieco'><Facebook/></a>
                     </div>
+                    {/*<div className='sidebar-github'>
+                      <a href='https://github.com/numieco'><Github/></a>
+                    </div>*/}
                   </div>
                   <div className='sidebar-content sidebar-text form__section'>
                     We’d love to help build your newest project.

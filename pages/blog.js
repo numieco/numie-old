@@ -5,10 +5,7 @@ import ContactPage from './contact'
 import Header from '../components/Header'
 import SinglePost from '../components/SinglePost'
 
-import FacebookSvg from '../components/SVG/FacebookSvg'
-import InstagramSvg from '../components/SVG/InstagramSvg'
-import TwitterSvg from '../components/SVG/TwitterSvg'
-import GithubSvg from '../components/SVG/GithubSvg'
+import {Facebook, Twitter, Github, Instagram} from '../components/SVG/Socials'
 import { NumieLogoWhite } from '../components/SVG/NumieLogo'
 
 const domain = 'https://numie.ghost.io'
@@ -123,10 +120,10 @@ export default class Blog extends React.Component {
                 <div className="numie-title">NUMIE STUDIO</div>
                 <div className="numie-email"><a href='mailto:yo@numie.co?subject=Howdy!'>yo@numie.co</a></div>
                 <div className='social-buttons'>
-                  <InstagramSvg />
-                  <TwitterSvg />
-                  <FacebookSvg />
-                  <GithubSvg />
+                  <a href='https://instagram.com/numieco'><Instagram/></a>
+                  <a href='https://twitter.com/numieco'><Twitter/></a>
+                  <a href='https://facebook.com/numieco'><Facebook/></a>
+                  <a href='https://github.com/numieco'><Github/></a>
                 </div>
                 <div className='go-up'>GO UP</div>
               </div>
