@@ -262,23 +262,16 @@ html, body
     background-image: linear-gradient(to bottom, #252525, $dark-grey)
     margin-top: 5px
     position: relative
-    &:before, &:after
+
+    .dip
       position: absolute
-      content: ' '
-      background: transparent
-      position: absolute
-      top: -15px
-      height: 35px
-      width: 63%
-      background: #f4f8fb
-    &:after
-      right: -10px
-      border-radius: 0 0 0 35px
-      transform: rotate(-10deg)
-    &:before
-      transform: rotate(10deg)
-      border-radius: 0 0 35px 0
-      left: -10px
+      top: 0
+      left: 0
+      display: inline-block
+      width: 100vw
+      svg
+        height: 7.80vw
+        width: 100vw
 
     .numie-logo
       display: none

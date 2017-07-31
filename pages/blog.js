@@ -5,11 +5,13 @@ import ContactPage from './contact'
 import Header from '../components/Header'
 import SinglePost from '../components/SinglePost'
 
-import {Facebook, Twitter, Github, Instagram} from '../components/SVG/Socials'
+import { Facebook, Twitter, Github, Instagram } from '../components/SVG/Socials'
 import { NumieLogoWhite } from '../components/SVG/NumieLogo'
+import Dip from '../components/SVG/Dip'
 
 const domain = 'https://numie.ghost.io'
 let page = 1
+
 export default class Blog extends React.Component {
   constructor (props) {
     super (props)
@@ -32,13 +34,13 @@ export default class Blog extends React.Component {
     this.state.posts.map((post, i) => {
       populatePosts.push(
         <SinglePost
-          key={i}
-          id={post.id}
-          title={post.title}
-          image={post.image}
-          html={post.html}
-          tag={post.tags}
-          author={post.author}
+          key={ i }
+          id={ post.id }
+          title={ post.title }
+          image={ post.image }
+          html={ post.html }
+          tag={ post.tags }
+          author={ post.author }
         />
       )
     })
@@ -89,10 +91,16 @@ export default class Blog extends React.Component {
             <section id="posts">
               { this.state.populatePosts }
             </section>
+
             <div id="load-more" onClick={this.loadMore}>
               MORE <br /> <span>+</span>
             </div>
+
             <footer className="footer">
+              
+              <div className='dip'>            
+                <Dip className='dip' />
+              </div>
               <div className='numie-logo'>
                 <NumieLogoWhite />
               </div>
