@@ -8,6 +8,8 @@
     background-color: white
     min-height: 100vh
     min-width: 100%
+    +tablet
+      padding-top: 210px
     .single-blog
       .image
         width: 100%
@@ -19,6 +21,8 @@
         top: 0
         left: 0
         z-index: -1
+        +tablet
+          height: 600px
 
       .post-container
         position: relative
@@ -26,6 +30,10 @@
         padding: 0px 20px
         +tablet
           padding: 0px 65px
+        +small-desktop
+          padding: 0px 125px
+        +desktop
+          padding: 0px 240px
         .general
           display: block
           min-width: 100%
@@ -33,6 +41,9 @@
           text-transform: uppercase
           font-size: 10px
           color: white
+          +tablet
+            font-size: 12px
+            margin-bottom: 15px
         .design
           color: #518fdd
         .marketing
@@ -45,11 +56,15 @@
           color: #5dcf75
 
         .post-title
-        	font-size: 30px
-        	font-weight: 600
-        	line-height: 40.0px
-        	text-align: center
-        	color: $white
+          font-size: 30px
+          font-weight: 600
+          line-height: 40px
+          text-align: center
+          color: white
+          +tablet
+            font-size: 50px
+            line-height: 78px
+
         .post-by
           display: none
           +tablet
@@ -92,7 +107,11 @@
           color: $greyish-brown
           +tablet
             margin-top: 40px
-            padding: 40px 30px 35px
+            padding: 30px 30px 35px
+          +small-desktop
+            padding: 30px 40px 35px
+          +desktop
+
           &:first-letter
             font-size: 3rem
           p, ul, ol, h1, h2, h3, h4, pre
@@ -108,6 +127,9 @@
             +tablet
               margin: 0
               width: 100%
+            +small-desktop
+              margin-left: -40px
+              width: calc(100% + 80px)
           ol
             margin-left: 20px
         .author
@@ -119,6 +141,8 @@
           justify-content: flex-end
           +tablet
             padding: 20px 30px 40px
+          +small-desktop
+            padding: 20px 40px 40px
           &:before
             position: absolute
             content: 'author'
@@ -137,6 +161,8 @@
             +tablet
               left: 30px
               padding-left: 0
+            +small-desktop
+              left: 40px
           &:after
             position: absolute
             content: ' '
@@ -148,6 +174,9 @@
             +tablet
               left: 30px
               width: calc(100% - 60px)
+            +small-desktop
+              left: 40px
+              width: calc(100% - 80px)
 
           .author-image
             flex: 0 0 70px
@@ -186,9 +215,13 @@
             +tablet
               flex: 0 0 calc(100% - 120px)
               margin-top: -65px
+              font-size: 16px
+              line-height: 30px
 
     .more-blogs
       padding-top: 20px
+      +small-desktop
+        padding-top: 35px
       .title
         font-size: 12px
         font-weight: bold
@@ -207,9 +240,9 @@
           justify-content: space-between
           flex-direction: row
         +small-desktop
-          max-width: 840px
+          padding: 0px 100px 20px
         +desktop
-          max-width: 1032px
+          padding: 0px 145px 20px
         .post
           +tablet
             display: flex
