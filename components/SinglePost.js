@@ -35,6 +35,7 @@ export default class SinglePost extends React.Component {
         <div
           className="image column is-half"
           style={ inlineImageStyle }>
+          <div className='red-gradient' />
         </div>
         <div className="column is-half post-container">
           {
