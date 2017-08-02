@@ -6,6 +6,15 @@ html, body
   .header
     position: absolute
     background-color: transparent
+    +small-desktop
+      top: 30px
+      left: 80px
+      right: 80px
+      width: calc(100% - 160px)
+    +desktop
+      left: 125px
+      right: 125px
+      width: calc(100% - 250px)
 
 .blog-page-main-section
   padding-top: 80px
@@ -46,6 +55,18 @@ html, body
     background-image: linear-gradient(310deg, rgba(224, 57, 74, 0.95), rgba(36, 37, 38, 0.95)), url("/static/images/blog/watch.jpg")
     background-size: cover
     background-position: center
+    +medium-phone
+      padding-top: 91px
+      padding-bottom: 80px
+    +tablet
+      align-items: center
+      padding-bottom: 95px
+    +small-desktop
+      padding-top: 150px
+      padding-bottom: 105px
+    +desktop
+      padding-bottom: 110px
+
     .title
       font-size: 30px
       font-weight: bold
@@ -53,6 +74,11 @@ html, body
       line-height: 78px
       letter-spacing: 3.8px
       color: white
+      +tablet
+        font-size: calc(1.540rem + 2vw)
+      +small-desktop
+        font-size: calc(1.885rem + 2vw)
+        letter-spacing: 6.2px
 
     .subtitle
       opacity: 0.85
@@ -65,7 +91,19 @@ html, body
       line-height: calc(1.2rem + 2vw)
       text-align: center
       color: white
-
+      +tablet
+        max-width: 400px
+        opacity: 0.85
+        font-size: 18px
+        line-height: 26.0px
+        text-align: center
+        color: $white
+      +small-desktop
+        font-size: 20px
+        line-height: 30px
+        max-width: 500px
+      +desktop
+        line-height: 26px
 
 
   #featured
@@ -126,6 +164,18 @@ html, body
     padding-bottom: 0px
     background: transparent
     margin-top: -72px
+    +tablet
+      flex-wrap: wrap
+      justify-content: space-between
+      flex-direction: row
+    +small-desktop
+      padding-left: 100px
+      padding-right: 100px
+    +desktop
+      padding-left: 0
+      padding-right: 0
+      max-width: 992px
+      margin: -72px auto 0
 
   #load-more
     width: 50px
@@ -147,90 +197,19 @@ html, body
     padding-left: 2px
     padding-top: 5px
     +ease(.2s)
+    +tablet
+      height: 70px
+      width: 70px
+      font-size: 10px
+      font-size: .63rem
+    +small-desktop
+      margin-top: 60px
+      height: 100px
+      width: 100px
+      font-size: 14.3px
+
     &:hover
       transform: scale(1.1)
       cursor: pointer
     &:focus
       transform: scale(.90)
-
-
-+medium-phone
-  .blog-page-main-section
-    #heading
-      padding-top: 91px
-      padding-bottom: 80px
-
-+tablet
-  .blog-page-main-section
-    #heading
-      align-items: center
-      padding-bottom: 95px
-      .title
-        font-size: calc(1.540rem + 2vw)
-      .subtitle
-        max-width: 400px
-        opacity: 0.85
-        font-size: 18px
-        line-height: 26.0px
-        text-align: center
-        color: $white
-
-    #posts
-      flex-wrap: wrap
-      justify-content: space-between
-      flex-direction: row
-
-    #load-more
-      height: 70px
-      width: 70px
-      font-size: 10px
-      font-size: .63rem
-
-+small-desktop
-  .blog-page
-    .header
-      top: 30px
-      left: 80px
-      right: 80px
-      width: calc(100% - 160px)
-
-    .blog-page-main-section
-      #heading
-        padding-top: 150px
-        padding-bottom: 105px
-        .title
-          font-size: calc(1.885rem + 2vw)
-          letter-spacing: 6.2px
-        .subtitle
-          font-size: 20px
-          line-height: 30px
-          max-width: 500px
-
-      #posts
-        padding-left: 100px
-        padding-right: 100px
-
-      #load-more
-        margin-top: 60px
-        height: 100px
-        width: 100px
-        font-size: 14.3px
-
-+desktop
-  .blog-page
-    .header
-      left: 125px
-      right: 125px
-      width: calc(100% - 250px)
-
-    .blog-page-main-section
-      #heading
-        padding-bottom: 110px
-        .subtitle
-          line-height: 26px
-
-      #posts
-        padding-left: 0
-        padding-right: 0
-        max-width: 992px
-        margin: -72px auto 0
