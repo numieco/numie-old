@@ -1,0 +1,239 @@
+.individual-blog
+  position: relative
+  .header
+    position: absolute
+    background-color: transparent
+  .individual-blog-main-section
+    padding-top: 190px
+    background-color: white
+    min-height: 100vh
+    min-width: 100%
+    .single-blog
+      .image
+        width: 100%
+        height: 500px
+        background: #c5d2d9 no-repeat 50%
+        background-size: cover
+        padding: 0
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+
+      .post-container
+        position: relative
+        width: 100%
+        padding: 0px 20px
+        +tablet
+          padding: 0px 65px
+        .general
+          display: block
+          min-width: 100%
+          text-align: center
+          text-transform: uppercase
+          font-size: 10px
+          color: white
+        .design
+          color: #518fdd
+        .marketing
+          color: #974ef9
+        .development
+          color: #f4915b
+        .company
+          color: #e35e6b
+        .people
+          color: #5dcf75
+
+        .post-title
+        	font-size: 30px
+        	font-weight: 600
+        	line-height: 40.0px
+        	text-align: center
+        	color: $white
+        .post-by
+          display: none
+          +tablet
+            display: block
+            margin: 60px auto 0
+            max-width: 90px
+            min-width: 90px
+            .author
+              padding: 0
+              position: static
+              &:after, &:before
+                position: static
+                content: ''
+                content: none
+              .author-image
+                height: 50px
+                width: 50px
+                flex: 0 0 50px
+                margin: 0 auto 10px
+                img
+                  height: 50px
+                  width: 50px
+              .author-name
+                flex: 1
+                font-size: 12px
+                font-style: italic
+                font-weight: normal
+                line-height: normal
+                letter-spacing: normal
+                text-align: center
+                color: #ffffff
+
+        .post-content
+          margin-top: 160px
+          padding: 40px 10px 35px
+          background: white
+          border-radius: 4px 4px 0px 0px
+          font-size: 16px
+          line-height: 30px
+          color: $greyish-brown
+          +tablet
+            margin-top: 40px
+            padding: 40px 30px 35px
+          &:first-letter
+            font-size: 3rem
+          p, ul, ol, h1, h2, h3, h4, pre
+            margin-bottom: 30px
+          a
+            color: #527cbf
+            text-decoration: underline
+          img
+            width: 100vw
+            margin: 40px 0px
+            margin-left: -30px
+            max-width: none
+            +tablet
+              margin: 0
+              width: 100%
+          ol
+            margin-left: 20px
+        .author
+          padding: 20px 10px 40px
+          position: relative
+          display: flex
+          flex-direction: row
+          flex-wrap: wrap
+          justify-content: flex-end
+          +tablet
+            padding: 20px 30px 40px
+          &:before
+            position: absolute
+            content: 'author'
+            text-transform: uppercase
+            font-size: 12px
+            font-weight: bold
+            line-height: 30.0px
+            letter-spacing: 1px
+            text-align: center
+            color: #abb0b7
+            left: calc(50% - 33.5px)
+            padding: 0 5px
+            z-index: 1
+            top: -20px
+            background: white
+            +tablet
+              left: 30px
+              padding-left: 0
+          &:after
+            position: absolute
+            content: ' '
+            top: -6px
+            width: 100vw
+            background: red
+            left: -20px
+            border: solid 1px #abb0b7
+            +tablet
+              left: 30px
+              width: calc(100% - 60px)
+
+          .author-image
+            flex: 0 0 70px
+            margin-right: 25px
+            height: 70px
+            width: 70px
+            border-radius: 100px
+            background: #c5d2d9
+            +tablet
+              height: 100px
+              width: 100px
+              flex: 0 0 100px
+              margin-right: 20px
+            img
+              height: 70px
+              width: 70px
+              border-radius: 100px
+              +tablet
+                height: 100px
+                width: 100px
+
+          .author-name
+            flex: 0 0 calc(100% - 95px)
+            font-size: 18px
+            font-weight: bold
+            line-height: 30.0px
+            color: #404040
+            +tablet
+              flex: 0 0 calc(100% - 120px)
+
+          .author-bio
+            flex: 0 0 calc(100% - 95px)
+            font-size: 14px
+            line-height: 26.0px
+            color: #404040
+            +tablet
+              flex: 0 0 calc(100% - 120px)
+              margin-top: -65px
+
+    .more-blogs
+      padding-top: 20px
+      .title
+        font-size: 12px
+        font-weight: bold
+        line-height: 30.0px
+        letter-spacing: 1px
+        text-align: center
+        color: #141516
+        margin-bottom: 40px
+      #posts
+        padding: 20px
+        width: 100%
+        margin: 0 auto
+        +tablet
+          display: flex
+          flex-wrap: wrap
+          justify-content: space-between
+          flex-direction: row
+        +small-desktop
+          max-width: 840px
+        +desktop
+          max-width: 1032px
+        .post
+          +tablet
+            display: flex
+            flex-direction: column
+            flex-basis: calc(50% - 10px) !important
+            & > div
+              display: block
+          +small-desktop
+            flex-basis: calc(33.33% - 26.66px) !important
+          .image
+            +tablet
+              height: 200px
+              width: 100%
+          .post-container
+            width: 100%
+            max-height: 200px
+            min-height: 200px
+            padding: 25px 25px 20px
+            .post-title
+              font-size: 22px !important
+            .post-content
+              display: none
+
+    footer
+      margin-top: 60px
+      +small-desktop
+        margin-top: 40px

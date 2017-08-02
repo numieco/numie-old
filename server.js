@@ -41,7 +41,12 @@ app.prepare()
       next()
   })
 
-  server.get('/fetchposts', ghostMiddleware)
+  server.get('/fetchposts', ghostMiddleware.fetchAllPosts)
+  server.get('/fetch-single-post', ghostMiddleware.fetchSinglePost)
+
+  server.get('/blog/:id', (req, res) => {
+    return app.render(req, res, '/_individualBlog', req.query, req.params)
+  })
 
   server.post('/getdata', (req, res) => {
     console.log(req.body)

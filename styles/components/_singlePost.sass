@@ -1,0 +1,187 @@
+.post
+  display: block
+  margin: 0
+  margin-bottom: 20px !important
+  overflow: hidden
+  background: white
+  border-radius: 4px
+  box-shadow: 0 0 18px 6px rgba(0, 0, 0, 0.03)
+  .image
+    width: auto
+    height: 200px
+    background: #c5d2d9 no-repeat 50%
+    background-size: cover
+    padding: 0
+
+  .post-container
+    max-height: 295px
+    padding: 25px
+    padding-bottom: 70px
+    position: relative
+    width: 100%
+
+    .general
+      font-size: 12px
+      font-weight: 600
+      letter-spacing: 1px
+      color: $dark-grey
+      text-transform: uppercase
+    .design
+      color: #518fdd
+    .marketing
+      color: #974ef9
+    .development
+      color: #f4915b
+    .company
+      color: #e35e6b
+    .people
+      color: #5dcf75
+
+    .post-title
+      font-size: 22px
+      font-weight: bold
+      color: $greyish-brown
+
+    .post-by
+      display: none
+
+    .post-content
+      margin-top: 10px
+      max-height: 120px
+      min-height: 120px
+      overflow: hidden
+      font-size: 14px
+      line-height: 24.0px
+      color: $greyish-brown
+
+    .author
+      max-height: 30px
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      position: absolute
+      bottom: 20px
+      left: 25px
+      width: calc(100% - 50px)
+      .author-bio
+        display: none
+      .author-image
+        overflow: hidden
+        height: 30px
+        width: 30px
+        border-radius: 50px
+        margin-right: 10px
+        img
+          width: 100%
+          height: auto
+      .blank-image
+        background: $greyish-brown
+
+      .author-name
+        font-size: 12px
+        font-weight: 600
+        letter-spacing: 1px
+        color: $greyish-brown
+        display: flex
+        flex-direction: column
+        justify-content: center
+        text-transform: uppercase
+
+    .post-btn
+      font-size: 12px
+      font-weight: 600
+      letter-spacing: 0.9px
+
++tablet
+  .post
+    flex-basis: calc(50% - 10px)
+    .post-title
+      font-size: 28px !important
+
+    &:nth-child(1), &:nth-child(5n+1)
+      flex-basis: 100%
+      .post-content
+        min-height: 72px
+        max-height: 72px
+
++small-desktop
+  @media (min-width: 992px) and (max-width: 1279px)
+    .post
+      margin-bottom: 40px !important
+      flex-basis: calc(50% - 20px)
+      .post-container
+        .post-title
+          font-size: 22px !important
+      &:nth-child(1), &:nth-child(5n+1)
+        display: flex
+        flex-direction: row
+        flex-basis: 100%
+        & > div
+          display: flex
+        .image
+          height: 350px
+          width: 455px
+        .post-container
+          width: calc(100% - 455px)
+          min-height: 350px
+          padding-left: 40px
+          padding-right: 40px
+          .post-title
+            font-size: 28px !important
+          .post-content
+            min-height: 145px
+            max-height: 145px
+
++desktop
+  .post
+    flex-basis: calc(33% - 26.66px) !important
+    margin-bottom: 40px !important
+    .post-container
+      padding-top: 20px
+      max-height: 325px
+      .post-title
+        font-size: 22px !important
+      .post-content
+        min-height: 168px
+        max-height: 168px
+
+    &:nth-child(6),
+    &:nth-child(7n+6),
+    &:nth-child(7n)
+      display: flex
+      flex-direction: column
+      flex-basis: calc(50% - 20px) !important
+      .image
+        height: 200px
+        width: 100%
+      .post-container
+        width: 100%
+        .post-content
+          min-height: 96px
+          max-height: 96px
+        .author
+          left: 40px
+    &:nth-child(1),
+    &:nth-child(5),
+    &:nth-child(7n+1),
+    &:nth-child(7n+5)
+      display: flex
+      flex-direction: row
+      flex-basis: 100% !important
+      & > div
+        display: flex
+      .image
+        height: 350px
+        width: 650px
+      .post-container
+        width: calc(100% - 650px)
+        min-height: 350px
+        padding-left: 40px
+        padding-right: 40px
+        .post-title
+          font-size: 28px !important
+        .post-content
+          min-height: 145px
+          max-height: 145px
+        .author
+          left: 40px
