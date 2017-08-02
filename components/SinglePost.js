@@ -8,7 +8,6 @@ export default class SinglePost extends React.Component {
 
   constructor (props) {
     super (props)
-    console.log('reached', this.props.slug)
     inlineImageStyle = {
       backgroundImage: (this.props.image)
         ? ('url(' + domain + this.props.image + ')')

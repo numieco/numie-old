@@ -64,7 +64,6 @@ export default class Blog extends React.Component {
   }
 
   makeARequest = () => {
-    console.log(page)
     axios.get('/fetchposts?page=' + page)
       .then((response) => {
         this.setState({

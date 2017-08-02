@@ -27,19 +27,7 @@ export default class IndividualBlog extends React.Component {
   }
 
   componentWillMount () {
-    console.log(this.props)
-    if (this.props.url.query.id != undefined) {
-      console.log('it is undefined')
-      this.setState({
-        id: this.props.url.query.id,
-        title: this.props.url.query.title,
-        image: this.props.url.query.image,
-        html: this.props.url.query.html,
-        tag: this.props.url.query.tags,
-        author: this.props.url.query.author,
-        slug: this.props.url.query.slug
-      }, () => console.log(this.props.url.query))
-    }
+
   }
 
   componentDidMount () {
@@ -51,7 +39,6 @@ export default class IndividualBlog extends React.Component {
   makeARequest = () => {
     axios.get('/fetch-single-post?slug=' + window.location.href.slice(window.location.href.lastIndexOf('/blog/')+6))
       .then((response) => {
-        console.log(response.data.posts[0])
         this.setState({
           id: response.data.posts[0].id,
           title: response.data.posts[0].title,
@@ -62,7 +49,6 @@ export default class IndividualBlog extends React.Component {
           slug: response.data.posts[0].slug,
           published: response.data.posts[0].published_at
         }, () => {
-          console.log(response.data.posts[0].published_at)
           mainPost.push(
             <SinglePost
               key={0}

@@ -10,16 +10,6 @@ import PaperplaneSvg from '../components/SVG/PaperplaneSvg'
 
 import Layout from '../containers/Layout'
 
-const options = [
-  { value: 'Prefer not to say', label: 'Prefer not to say' },
-  { value: '< $2000', label: '< $2000' },
-  { value: '$2000 - $5000', label: '$2000 - $5000' },
-  { value: '$5000 - $10000', label: '$5000 - $10000' },
-  { value: '$10,000 - $15,000', label: '$10,000 - $15,000' },
-  { value: '$15,000 - $20,000', label: '$15,000 - $20,000' },
-  { value: '> $20,000', label: '> $20,000' }
-]
-
 var revealer = null
 var successRevealer = null
 
@@ -194,7 +184,6 @@ export default class ContactPage extends React.Component {
       e.target.style.boxShadow = '0 1px 0 0 #fff'
       e.target.style.color = '#ffffff'
     } else {
-      console.log(e.target.value)
       e.target.style.boxShadow = '0 1px 0 0 #2b2b2b'
     }
 
@@ -273,21 +262,13 @@ export default class ContactPage extends React.Component {
       emailInvalid: this.state.email == '' ? false : !this.validateEmail(this.state.email),
       phoneInvalid: this.state.phone == '' ? false : !this.validatePhone(this.state.phone)
 
-    }, () => console.log(this.state.emailInvalid))
+    })
 
     if( this.state.fullname == '' || this.state.email == '' || this.state.description == ''
       || this.state.nameRequired || this.state.nameMinChar
       || this.state.emailRequired || !this.validateEmail(this.state.email)
       || (this.state.phone != '' && !this.validatePhone(this.state.phone))
       || this.state.messageRequired || this.state.messageMinChar) {
-
-      console.log(this.state.nameRequired,
-        this.state.nameMinChar,
-        this.state.emailRequired,
-        !this.validateEmail(this.state.email),
-        this.state.phone != '' && !this.validatePhone(this.state.phone),
-        this.state.messageRequired,
-        this.state.messageMinChar)
 
       if (this.state.fullname == '')
         this.setState({ nameRequired: true })
@@ -309,8 +290,6 @@ export default class ContactPage extends React.Component {
         }
       })
       .then((response) => {
-        console.log('AXIOS response')
-        console.log(response)
         this.setState({
           fullname : '',
           email : '',
