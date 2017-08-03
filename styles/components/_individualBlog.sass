@@ -16,6 +16,7 @@
     +tablet
       padding-top: 210px
     .single-blog
+      padding: 0 4vw
       .image
         width: 100%
         height: 500px
@@ -37,13 +38,9 @@
       .post-container
         position: relative
         width: 100%
-        padding: 0px 20px
-        +tablet
-          padding: 0px 65px
-        +small-desktop
-          padding: 0px 125px
-        +desktop
-          padding: 0px 240px
+        padding: 0
+        max-width: 992px
+        margin: 0 auto
         .general
           display: block
           min-width: 100%
@@ -179,7 +176,7 @@
             top: -6px
             width: 100vw
             background: red
-            left: -20px
+            left: -4vw
             border: solid 1px #abb0b7
             +tablet
               left: 30px
@@ -229,7 +226,7 @@
               line-height: 30px
 
     .more-blogs
-      padding-top: 20px
+      padding: 20px 4vw 0px
       +small-desktop
         padding-top: 35px
       .title
@@ -241,7 +238,7 @@
         color: #141516
         margin-bottom: 40px
       #posts
-        padding: 20px
+        padding: 20px 0
         width: 100%
         margin: 0 auto
         +tablet
@@ -249,32 +246,38 @@
           flex-wrap: wrap
           justify-content: space-between
           flex-direction: row
-        +small-desktop
-          padding: 0px 100px 20px
-        +desktop
-          padding: 0px 145px 20px
-        .post
+        .single-post-container
+          max-width: 992px
+          width: 100%
+          margin: 0 auto
+          display: flex
+          flex-direction: column
           +tablet
-            display: flex
-            flex-direction: column
-            flex-basis: calc(50% - 10px) !important
-            & > div
-              display: block
-          +small-desktop
-            flex-basis: calc(33.33% - 26.66px) !important
-          .image
+            flex-wrap: wrap
+            justify-content: space-between
+            flex-direction: row
+          .post
             +tablet
-              height: 200px
+              display: flex
+              flex-direction: column
+              flex-basis: calc(50% - 10px) !important
+              & > div
+                display: block
+            +small-desktop
+              flex-basis: calc(33.33% - 26.66px) !important
+            .image
+              +tablet
+                height: 200px
+                width: 100%
+            .post-container
               width: 100%
-          .post-container
-            width: 100%
-            max-height: 200px
-            min-height: 200px
-            padding: 25px 25px 20px
-            .post-title
-              font-size: 22px !important
-            .post-content
-              display: none
+              max-height: 200px
+              min-height: 200px
+              padding: 25px 25px 20px
+              .post-title
+                font-size: 22px !important
+              .post-content
+                display: none
 
     footer
       margin-top: 60px

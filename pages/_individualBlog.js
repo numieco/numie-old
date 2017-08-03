@@ -90,71 +90,73 @@ export default class IndividualBlog extends React.Component {
                 ARTICLES YOU WILL ENJOY
               </div>
               <div id='posts'>
-                <div className='post columns'>
-                <SinglePost
-                  id={ this.state.id }
-                  title={ this.state.title }
-                  image={ this.state.image }
-                  html={ this.state.html }
-                  tag={ this.state.tag }
-                  author={ this.state.author }
-                  slug={ this.state.slug }
-                />
-                </div>
-                <div className='post columns'>
-                <SinglePost
-                  id={ this.state.id }
-                  title={ this.state.title }
-                  image={ this.state.image }
-                  html={ this.state.html }
-                  tag={ this.state.tag }
-                  author={ this.state.author }
-                  slug={ this.state.slug }
-                />
-                </div>
-                <div className='post columns'>
-                <SinglePost
-                  id={ this.state.id }
-                  title={ this.state.title }
-                  image={ this.state.image }
-                  html={ this.state.html }
-                  tag={ this.state.tag }
-                  author={ this.state.author }
-                  slug={ this.state.slug }
-                />
-                </div>
-                <div className='post columns'>
-                <SinglePost
-                  id={ this.state.id }
-                  title={ this.state.title }
-                  image={ this.state.image }
-                  html={ this.state.html }
-                  tag={ this.state.tag }
-                  author={ this.state.author }
-                  slug={ this.state.slug }
-                />
-                </div>
-                <div className='post columns'>
-                <SinglePost
-                  id={ this.state.id }
-                  title={ this.state.title }
-                  image={ this.state.image }
-                  html={ this.state.html }
-                  tag={ this.state.tag }
-                  author={ this.state.author }
-                  slug={ this.state.slug }
-                />
-                </div>
-                <div className='post columns'>
-                <SinglePost
-                  id={ this.state.id }
-                  title={ this.state.title }
-                  image={ this.state.image }
-                  html={ this.state.html }
-                  tag={ this.state.tag }
-                  author={ this.state.author }
-                  slug={ this.state.slug }
-                />
+                <div className='single-post-container'>
+                  <div className='post columns'>
+                    <SinglePost
+                      id={ this.state.id }
+                      title={ this.state.title }
+                      image={ this.state.image }
+                      html={ this.state.html }
+                      tag={ this.state.tag }
+                      author={ this.state.author }
+                      slug={ this.state.slug }
+                    />
+                  </div>
+                  <div className='post columns'>
+                    <SinglePost
+                      id={ this.state.id }
+                      title={ this.state.title }
+                      image={ this.state.image }
+                      html={ this.state.html }
+                      tag={ this.state.tag }
+                      author={ this.state.author }
+                      slug={ this.state.slug }
+                    />
+                  </div>
+                  <div className='post columns'>
+                    <SinglePost
+                      id={ this.state.id }
+                      title={ this.state.title }
+                      image={ this.state.image }
+                      html={ this.state.html }
+                      tag={ this.state.tag }
+                      author={ this.state.author }
+                      slug={ this.state.slug }
+                    />
+                  </div>
+                  <div className='post columns'>
+                    <SinglePost
+                      id={ this.state.id }
+                      title={ this.state.title }
+                      image={ this.state.image }
+                      html={ this.state.html }
+                      tag={ this.state.tag }
+                      author={ this.state.author }
+                      slug={ this.state.slug }
+                    />
+                  </div>
+                  <div className='post columns'>
+                    <SinglePost
+                      id={ this.state.id }
+                      title={ this.state.title }
+                      image={ this.state.image }
+                      html={ this.state.html }
+                      tag={ this.state.tag }
+                      author={ this.state.author }
+                      slug={ this.state.slug }
+                    />
+                  </div>
+                  <div className='post columns'>
+                    <SinglePost
+                      id={ this.state.id }
+                      title={ this.state.title }
+                      image={ this.state.image }
+                      html={ this.state.html }
+                      tag={ this.state.tag }
+                      author={ this.state.author }
+                      slug={ this.state.slug }
+                    />
+                  </div>
                 </div>
               </div>
 
