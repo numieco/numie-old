@@ -100,7 +100,9 @@ export default class Blog extends React.Component {
             </header>
 
             <section id="posts">
-              { this.state.populatePosts }
+              <div className='single-post-container'>
+                { this.state.populatePosts }
+              </div>
             </section>
 
             <div id="load-more" onClick={this.loadMore}>

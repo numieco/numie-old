@@ -106,7 +106,7 @@
         max-height: 72px
 
 +small-desktop
-  @media (min-width: 992px) and (max-width: 1279px)
+  @media (min-width: 992px)
     .post
       margin-bottom: 40px !important
       flex-basis: calc(50% - 20px)
@@ -119,11 +119,12 @@
         flex-basis: 100%
         & > div
           display: flex
+          width: 100%
         .image
           height: 350px
-          width: 455px
+          width: calc(100% - 340px)
         .post-container
-          width: calc(100% - 455px)
+          width: 340px
           min-height: 350px
           padding-left: 40px
           padding-right: 40px
@@ -133,7 +134,7 @@
             min-height: 145px
             max-height: 145px
 
-+desktop
+@media (min-width: 1075px)
   .post
     flex-basis: calc(33% - 26.66px) !important
     margin-bottom: 40px !important
@@ -171,6 +172,7 @@
       flex-basis: 100% !important
       & > div
         display: flex
+        width: 100%
       .image
         height: 350px
         width: 650px
