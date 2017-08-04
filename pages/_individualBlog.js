@@ -89,12 +89,16 @@ export default class IndividualBlog extends React.Component {
                 postBy.style.opacity = 0
               }
 
-              if((heroImage.clientHeight > window.scrollY) && (windowScrollY < window.scrollY)) {
-                console.log('hide and zoome in')
+              if(((heroImage.clientHeight > window.scrollY) && (window.scrollY>=0) && (windowScrollY < window.scrollY))
+                ||((heroImage.clientHeight > window.scrollY) && (window.scrollY>=0) && (windowScrollY > window.scrollY))) {
 
                 translateY = 0 - (300*(window.scrollY/heroImage.clientHeight))
                 scale = 1 + (window.scrollY/heroImage.clientHeight)
                 heroImage.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
+                generalEl.style.transform = 'translate3d(0px, '+ -translateY +'px, 0px)'
+                heroTitleEl.style.transform = 'translate3d(0px, '+ -translateY +'px, 0px)'
+
+
                 generalEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
                 heroTitleEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
                 heroImage.style.opacity = 1 - (window.scrollY/heroImage.clientHeight)
@@ -108,24 +112,6 @@ export default class IndividualBlog extends React.Component {
                 windowScrollY = window.scrollY
               }
 
-              if((heroImage.clientHeight > window.scrollY) && (windowScrollY > window.scrollY)) {
-                console.log('show and zoom out')
-
-                translateY = 0 - (300*(window.scrollY/heroImage.clientHeight))
-                scale = 1 + (window.scrollY/heroImage.clientHeight)
-                heroImage.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
-                generalEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
-                heroTitleEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
-                heroImage.style.opacity = 1 - (window.scrollY/heroImage.clientHeight)
-
-                if(translateY <= -100) {
-                  postBy.style.opacity = 0
-                } else {
-                  postBy.style.opacity = 1
-                }
-
-                windowScrollY = window.scrollY
-              }
             })
 
           })
