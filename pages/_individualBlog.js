@@ -65,7 +65,70 @@ export default class IndividualBlog extends React.Component {
 
           this.setState({
             mainPost
-          }, () => mainPost = [])
+          }, () => {
+            mainPost = []
+            let postBy = document.getElementsByClassName('post-by')[0]
+            let heroImage = document.getElementsByClassName('image')[0]
+            let generalEl = document.getElementsByClassName('general')[0]
+            let heroTitleEl = document.getElementsByClassName('post-title')[0]
+
+            let scale = 0
+            let translateY = 0
+
+            let windowScrollY = window.scrollY
+
+            let var1 = 10
+
+            window.addEventListener('scroll', () => {
+
+              if(window.scrollY == 0) {
+
+              }
+
+              if(window.scrollY >= heroImage.clientHeight) {
+                postBy.style.opacity = 0
+              }
+
+              if((heroImage.clientHeight > window.scrollY) && (windowScrollY < window.scrollY)) {
+                console.log('hide and zoome in')
+
+                translateY = 0 - (300*(window.scrollY/heroImage.clientHeight))
+                scale = 1 + (window.scrollY/heroImage.clientHeight)
+                heroImage.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
+                generalEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
+                heroTitleEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
+                heroImage.style.opacity = 1 - (window.scrollY/heroImage.clientHeight)
+
+                if(translateY <= -100) {
+                  postBy.style.opacity = 0
+                } else {
+                  postBy.style.opacity = 1
+                }
+
+                windowScrollY = window.scrollY
+              }
+
+              if((heroImage.clientHeight > window.scrollY) && (windowScrollY > window.scrollY)) {
+                console.log('show and zoom out')
+
+                translateY = 0 - (300*(window.scrollY/heroImage.clientHeight))
+                scale = 1 + (window.scrollY/heroImage.clientHeight)
+                heroImage.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
+                generalEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
+                heroTitleEl.style.opacity = 1 - 2*(window.scrollY/heroImage.clientHeight)
+                heroImage.style.opacity = 1 - (window.scrollY/heroImage.clientHeight)
+
+                if(translateY <= -100) {
+                  postBy.style.opacity = 0
+                } else {
+                  postBy.style.opacity = 1
+                }
+
+                windowScrollY = window.scrollY
+              }
+            })
+
+          })
         })
       })
       .catch((error) => {
@@ -75,10 +138,15 @@ export default class IndividualBlog extends React.Component {
       })
   }
 
+  revealHeroImage = () => {
+
+
+  }
+
   render () {
     return (
-      <div className='individual-blog'>
         <Layout>
+          <div className='individual-blog'>
           <Header defaultLogo='white' />
           <ContactPage />
           <div className='main-page-revealer individual-blog-main-section'>
@@ -163,8 +231,8 @@ export default class IndividualBlog extends React.Component {
             </div>
             <Footer white={true}/>
           </div>
-        </Layout>
-      </div>
+        </div>
+      </Layout>
     )
   }
 }

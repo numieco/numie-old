@@ -32,6 +32,7 @@ export default class SinglePost extends React.Component {
 
     return (
       <div>
+        <div className='black-block' />
         <div
           className="image column is-half"
           style={ inlineImageStyle }>
