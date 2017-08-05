@@ -17,6 +17,7 @@ const xoauth2 = require('xoauth2')
 const Slack = require('slack-node')
 
 const ghostMiddleware = require('./server/ghost-middleware')
+const mailChimpMiddleware = require('./server/mailchimp-middleware')
 
 const secret =  process.env.NODE_ENV == 'production' ? process.env : require('./secrets')
 const host = process.env.HOST || "localhost"
@@ -47,6 +48,8 @@ app.prepare()
   server.get('/blog/:id', (req, res) => {
     return app.render(req, res, '/_individualBlog', req.query, req.params)
   })
+
+  server.post('/subscribe', mailChimpMiddleware.subscribe)
 
   server.post('/getdata', (req, res) => {
     console.log(req.body)
