@@ -71,7 +71,7 @@ export default class IndividualBlog extends React.Component {
             let heroImage = document.getElementsByClassName('image')[0]
             let generalEl = document.getElementsByClassName('general')[0]
             let heroTitleEl = document.getElementsByClassName('post-title')[0]
-
+            let blackBlock = document.getElementsByClassName('black-block')[0]
             let scale = 0
             let translateY = 0
 
@@ -95,6 +95,7 @@ export default class IndividualBlog extends React.Component {
                 translateY = 0 - (300*(window.scrollY/heroImage.clientHeight))
                 scale = 1 + (window.scrollY/heroImage.clientHeight)
                 heroImage.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
+                blackBlock.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
                 generalEl.style.transform = 'translate3d(0px, '+ -translateY +'px, 0px)'
                 heroTitleEl.style.transform = 'translate3d(0px, '+ -translateY +'px, 0px)'
 
