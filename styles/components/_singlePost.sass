@@ -107,36 +107,36 @@
         min-height: 72px
         max-height: 72px
 
-+small-desktop
-  @media (min-width: 992px) and (max-width: 1074px)
-    .post
-      margin-bottom: 40px !important
-      flex-basis: calc(50% - 20px)
-      .post-container
-        .post-title
-          font-size: 22px !important
-      &:nth-child(1), &:nth-child(5n+1)
+
+@media (min-width: 800px) and (max-width: 1074px)
+  .post
+    margin-bottom: 40px !important
+    flex-basis: calc(50% - 20px)
+    .post-container
+      .post-title
+        font-size: 22px !important
+    &:nth-child(1), &:nth-child(5n+1)
+      display: flex
+      flex-direction: row
+      flex-basis: 100%
+      & > div
         display: flex
-        flex-direction: row
-        flex-basis: 100%
-        & > div
-          display: flex
-          width: 100%
-        .image
-          height: 350px
-          width: calc(100% - 340px)
-        .post-container
-          width: 340px
-          min-height: 350px
-          padding-left: 40px
-          padding-right: 40px
-          .post-title
-            font-size: 28px !important
-          .post-content
-            min-height: 145px
-            max-height: 145px
-          .author
-            left: 40px
+        width: 100%
+      .image
+        height: 350px
+        width: calc(100% - 340px)
+      .post-container
+        width: 340px
+        min-height: 350px
+        padding-left: 40px
+        padding-right: 40px
+        .post-title
+          font-size: 28px !important
+        .post-content
+          min-height: 145px
+          max-height: 145px
+        .author
+          left: 40px
 @media (min-width: 1075px)
   .post
     flex-basis: calc(33% - 26.66px) !important
