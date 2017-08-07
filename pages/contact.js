@@ -128,7 +128,7 @@ export default class ContactPage extends React.Component {
     successRevealer.reveal({
       bgcolor: '#62E17C',
       direction: 'bt',
-      duration: 600,
+      duration: 1000,
       onCover: function(contentEl, revealerEl) {
         document.querySelector('.success-block').classList.add('success-block-active')
         successBlock.classList.add('form--open')
