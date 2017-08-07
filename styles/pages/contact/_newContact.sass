@@ -32,11 +32,38 @@
     flex-direction: column
     justify-content: center
     align-items: center
+    max-width: 250px
+    margin-left: auto
+    margin-right: auto
+    +tablet
+      max-width: 380px
+
     svg
       display: block
+      width: 200px
+      +tablet
+        width: 380px
+    span
+      font-size: 18px
+      letter-spacing: 0.2px !important
+      text-align: center !important
+      color: #ffffff !important
+      text-transform: none
+      +tablet
+        font-size: 28px
     h2
+      margin-top: 30px
+      letter-spacing: 0.3px !important
+      text-align: center !important
+      color: #ffffff !important
       color: white !important
+      text-transform: none
       display: block
+      font-size: 26px
+      font-weight: 600
+      +tablet
+        margin-top: 40px
+        font-size: 34px
 
 .form--open
   .block-ref

@@ -84,8 +84,8 @@ export default class ContactPage extends React.Component {
           document.querySelector('.main-page-revealer').style.display = 'none'
         },
         onComplete: function() {
-          closeCtrlOne.addEventListener('click', closeForm)
-          closeCtrlTwo.addEventListener('click', closeForm)
+          // closeCtrlOne.addEventListener('click', closeForm)
+          // closeCtrlTwo.addEventListener('click', closeForm)
         }
       })
     })
@@ -314,6 +314,7 @@ export default class ContactPage extends React.Component {
             <div className='success-content'>
               <PaperplaneSvg/>
               <h2>Message sent!</h2>
+              <span>We’ll get back to you shortly!</span>
             </div>
           </div>
         </div>
@@ -328,7 +329,7 @@ export default class ContactPage extends React.Component {
                   <div className='title'>
                     get in touch
                   </div>
-                  <div className='close-button'>
+                  <div className='close-button' onClick={this.successReveal}>
                     close
                   </div>
                 </div>
@@ -431,7 +432,7 @@ export default class ContactPage extends React.Component {
                 </div>
 
                 <div className='wrap-buttons form__section'>
-                  <div className='close-button'>
+                  <div className='close-button' onClick={this.successReveal}>
                     close
                   </div>
                   <div className='send-button' onClick={this.submitData}>
