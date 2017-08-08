@@ -20,7 +20,6 @@ const Footer  = (props) => (
         LET’S WORK TOGETHER.
       </div>
       <div className='medium-text'>
-        <div className='small-box' />
         GET IN TOUCH
       </div>
     </div>
