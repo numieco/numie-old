@@ -3,21 +3,12 @@ import Link from 'next/link'
 import Select from 'react-select'
 import axios from 'axios'
 import Header from '../components/Header'
-import FacebookSvg from '../components/SVG/FacebookSvg'
-import InstagramSvg from '../components/SVG/InstagramSvg'
-import TwitterSvg from '../components/SVG/TwitterSvg'
+
+
+import {Facebook, Twitter, Github, Instagram} from '../components/SVG/Socials'
+import PaperplaneSvg from '../components/SVG/PaperplaneSvg'
 
 import Layout from '../containers/Layout'
-
-const options = [
-  { value: 'Prefer not to say', label: 'Prefer not to say' },
-  { value: '< $2000', label: '< $2000' },
-  { value: '$2000 - $5000', label: '$2000 - $5000' },
-  { value: '$5000 - $10000', label: '$5000 - $10000' },
-  { value: '$10,000 - $15,000', label: '$10,000 - $15,000' },
-  { value: '$15,000 - $20,000', label: '$15,000 - $20,000' },
-  { value: '> $20,000', label: '> $20,000' }
-]
 
 var revealer = null
 var successRevealer = null
@@ -77,7 +68,7 @@ export default class ContactPage extends React.Component {
 
     document.querySelector('.get-in-touch').addEventListener('click', function() {
       let revealBlock = document.querySelector('.block-revealer__element')
-      
+
       document.querySelector('.header').style.zIndex = 1
       document.querySelector('.contact-form').style.position = 'static'
 
@@ -90,7 +81,7 @@ export default class ContactPage extends React.Component {
           contentEl.style.opacity = 1
           document.querySelector('.header').style.zIndex = -1
           document.querySelector('.main-page-revealer').style.zIndex = -2
-          document.querySelector('.main-page-revealer').style.display = 'none'  
+          document.querySelector('.main-page-revealer').style.display = 'none'
         },
         onComplete: function() {
           closeCtrlOne.addEventListener('click', closeForm)
@@ -135,9 +126,9 @@ export default class ContactPage extends React.Component {
     document.querySelector('.success-block').style.top = '0'
     document.querySelector('.success-block').style.zIndex = '9999'
     successRevealer.reveal({
-      bgcolor: '#42E464',
+      bgcolor: '#62E17C',
       direction: 'bt',
-      duration: 600,
+      duration: 1000,
       onCover: function(contentEl, revealerEl) {
         document.querySelector('.success-block').classList.add('success-block-active')
         successBlock.classList.add('form--open')
@@ -156,9 +147,9 @@ export default class ContactPage extends React.Component {
       var successBlock = document.querySelector('.success-block')
       document.querySelector('.success-block').style.zIndex = '2'
       document.querySelector('.main-page-revealer').style.display = 'block'
-      
+
       revealer.reveal({
-        bgcolor: '#42E464',
+        bgcolor: '#62E17C',
         direction: 'bt',
         duration: 600,
         onCover: function(contentEl, revealerEl) {
@@ -193,7 +184,6 @@ export default class ContactPage extends React.Component {
       e.target.style.boxShadow = '0 1px 0 0 #fff'
       e.target.style.color = '#ffffff'
     } else {
-      console.log(e.target.value)
       e.target.style.boxShadow = '0 1px 0 0 #2b2b2b'
     }
 
@@ -272,21 +262,13 @@ export default class ContactPage extends React.Component {
       emailInvalid: this.state.email == '' ? false : !this.validateEmail(this.state.email),
       phoneInvalid: this.state.phone == '' ? false : !this.validatePhone(this.state.phone)
 
-    }, () => console.log(this.state.emailInvalid))
+    })
 
     if( this.state.fullname == '' || this.state.email == '' || this.state.description == ''
       || this.state.nameRequired || this.state.nameMinChar
       || this.state.emailRequired || !this.validateEmail(this.state.email)
       || (this.state.phone != '' && !this.validatePhone(this.state.phone))
       || this.state.messageRequired || this.state.messageMinChar) {
-
-      console.log(this.state.nameRequired,
-        this.state.nameMinChar,
-        this.state.emailRequired,
-        !this.validateEmail(this.state.email),
-        this.state.phone != '' && !this.validatePhone(this.state.phone),
-        this.state.messageRequired,
-        this.state.messageMinChar)
 
       if (this.state.fullname == '')
         this.setState({ nameRequired: true })
@@ -308,8 +290,6 @@ export default class ContactPage extends React.Component {
         }
       })
       .then((response) => {
-        console.log('AXIOS response')
-        console.log(response)
         this.setState({
           fullname : '',
           email : '',
@@ -332,14 +312,16 @@ export default class ContactPage extends React.Component {
         <div className='success-block'>
           <div className='block-revealer__content block-ref'>
             <div className='success-content'>
-              SUCCESS !!
+              <PaperplaneSvg/>
+              <h2>Message sent!</h2>
+              <span>We’ll get back to you shortly!</span>
             </div>
           </div>
         </div>
 
         <div id='contact' className='contact-form'>
           <div className='block-revealer__content'>
-            
+
             <div className='page-wrap'>
 
               <div className='sidebar'>
@@ -347,7 +329,7 @@ export default class ContactPage extends React.Component {
                   <div className='title'>
                     get in touch
                   </div>
-                  <div className='close-button'>
+                  <div className='close-button' >
                     close
                   </div>
                 </div>
@@ -358,7 +340,7 @@ export default class ContactPage extends React.Component {
                       email
                     </div>
                     <div className='sidebar-value'>
-                      yo@numie.co
+                      <a href='mailto:yo@numie.co?subject=Howdy!'>yo@numie.co</a>
                     </div>
                   </div>
                   <div className='sidebar-content form__section'>
@@ -366,19 +348,22 @@ export default class ContactPage extends React.Component {
                       phone
                     </div>
                     <div className='sidebar-value'>
-                      +1 960.333.5235
+                      <a href='tel:19603335235'>+1 960.333.5235</a>
                     </div>
                   </div>
                   <div className='sidebar-content social-media-buttons form__section'>
                     <div className='sidebar-instagram'>
-                      <InstagramSvg />
+                      <a href='https://instagram.com/numieco'><Instagram/></a>
                     </div>
                     <div className='sidebar-twitter'>
-                      <TwitterSvg />
+                      <a href='https://twitter.com/numieco'><Twitter/></a>
                     </div>
                     <div className='sidebar-facebook'>
-                      <FacebookSvg />
+                      <a href='https://facebook.com/numieco'><Facebook/></a>
                     </div>
+                    {/*<div className='sidebar-github'>
+                      <a href='https://github.com/numieco'><Github/></a>
+                    </div>*/}
                   </div>
                   <div className='sidebar-content sidebar-text form__section'>
                     We’d love to help build your newest project.
@@ -447,7 +432,7 @@ export default class ContactPage extends React.Component {
                 </div>
 
                 <div className='wrap-buttons form__section'>
-                  <div className='close-button'>
+                  <div className='close-button' >
                     close
                   </div>
                   <div className='send-button' onClick={this.submitData}>

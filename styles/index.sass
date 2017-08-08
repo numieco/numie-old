@@ -1,32 +1,40 @@
+//Vendors
+// @import normalize.css // Need to use
+@import '~bulma' // Need to use
+
+//Helpers
+@import 'utilities/mixins'
+@import 'utilities/variables'
+
 html
   -webkit-font-smoothing: antialiased
   //-webkit-font-smoothing: subpixel-antialiased
   -moz-osx-font-smoothing: grayscale
   -webkit-overflow-scrolling: touch
+  height: 100%
+  overflow: auto
 
 body
   margin: 0
-  font-family: 'Open sans'
-  min-height: 100vh
+  font-family: 'Open sans' !important
   position: relative
   margin: 0
   background: #141516
+  overflow-x: visible
 
 img
   width: 100%
   display: table
 
-//Vendors
-// @import normalize.css // Need to use
-@import '~bulma' // Need to use
+.main-page-revealer
+  overflow: hidden
+
 
 //Animations
 @import 'utilities/blockReveal'
 @import 'utilities/keyframes'
 
-//Helpers
-@import 'utilities/mixins'
-@import 'utilities/variables'
+
 
 //Pages
 @import 'pages/home/index'
@@ -38,4 +46,7 @@ img
 
 //Components
 @import 'components/header'
-
+@import 'components/footer'
+@import 'components/callToAction'
+@import 'components/singlePost'
+@import 'components/individualBlog'

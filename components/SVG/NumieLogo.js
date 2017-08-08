@@ -26,3 +26,11 @@ export const NumieLogoBlack = () => (
       </g>
   </svg>
 )
+
+export const NumieLogoWhite = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="38" height="42" viewBox="0 0 38 42">
+    <g fill="#FFF" fillRule="evenodd">
+      <path d="M37.337 37.018l.537-.527v-3.948L27.671 22.539v14.034l4.732 4.64.35.348zM12.371 7.54v14.033l13.216 12.956V20.496zM10.287 19.53V5.495L5.197.506.125 5.477v4.089l.014.013v.01zM.14 12.48V36.53l5.057 5.03 5.076-5.03V22.417zM37.818 29.598V5.528L32.76.497l-5.076 5.03v14.135z"/>
+    </g>
+  </svg>
+)

@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { NumieLogoRed, NumieLogoBlack } from './SVG/NumieLogo'
+import { NumieLogoRed, NumieLogoBlack, NumieLogoWhite } from './SVG/NumieLogo'
 
-let NUMIELOGO = null
+let NUMIELOGO = <NumieLogoRed />
 
 export default class Header extends React.Component {
   constructor (props) {
@@ -19,6 +19,8 @@ export default class Header extends React.Component {
       NUMIELOGO = <NumieLogoRed />
     if (this.props.defaultLogo == 'black')
       NUMIELOGO = <NumieLogoBlack />
+    if (this.props.defaultLogo == 'white')
+      NUMIELOGO =  <NumieLogoWhite />
   }
 
   componentDidMount () {

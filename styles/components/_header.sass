@@ -1,4 +1,4 @@
-.header 
+.header
   width: 100%
   display: inline-block
   height: 80px
@@ -37,6 +37,9 @@
       font-weight: 600
       letter-spacing: 0.9px
       color: white
+      +ease(.2s)
+      &:active
+        transform: scale(.97)
 
     .wrap-buttons
       display: flex
@@ -120,13 +123,3 @@
           text-transform: uppercase
         .writing-menu
           margin-right: 0px
-
-
-
-
-
-
-
-
-
-
