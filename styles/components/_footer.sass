@@ -16,14 +16,27 @@ footer
     align-items: center
     padding: 50px
 
+  svg.circularSvg
+    animation: rotation 20s infinite linear
+
   .circular
     position: absolute
     top: -50%
     right: -70%
     z-index: 0
+    +ease(.2s)
     +large-phone
+      top: -50%
+      right: -50%
+    @media screen and (min-width: 500px)
       top: -45%
-      right: -60%
+      right: -45%
+    @media screen and (min-width: 600px)
+      top: -40%
+      right: -40%
+    @media screen and (min-width: 700px)
+      top: -35%
+      right: -35%
     +tablet
       top: calc(50% - 245px)
       left: 0
