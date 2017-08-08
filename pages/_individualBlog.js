@@ -5,6 +5,7 @@ import Layout from '../containers/Layout'
 import ContactPage from './contact'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import CallToAction from '../components/CallToAction'
 import SinglePost from '../components/SinglePost'
 
 let mainPost = []
@@ -139,6 +140,9 @@ export default class IndividualBlog extends React.Component {
           <div className='main-page-revealer individual-blog-main-section'>
             <div className='single-blog'>
             { mainPost }
+            </div>
+            <div className='call-to-action-container'>
+              <CallToAction />
             </div>
             <div className='more-blogs'>
               <div className='title'>
