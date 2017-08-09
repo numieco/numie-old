@@ -44,10 +44,16 @@ export default class CallToAction extends React.Component {
 
   render () {
     return (
-      <div id="subscribe">
-        <div className='doodles'>
-          <Doodles />
-        </div>
+      <div id="subscribe" className={ this.props.transparent ? "bg-transparent" : null }>
+        {
+          !this.props.transparent
+          ? (
+              <div className='doodles'>
+                <Doodles />
+              </div>
+            )
+          : null
+        }
         <h3 className="sub-tagline">
           Fresh articles of fascinating
           things delivered to your inbox.

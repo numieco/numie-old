@@ -142,7 +142,7 @@ export default class IndividualBlog extends React.Component {
             { mainPost }
             </div>
             <div className='call-to-action-container'>
-              <CallToAction />
+              <CallToAction transparent={false} />
             </div>
             <div className='more-blogs'>
               <div className='title'>
