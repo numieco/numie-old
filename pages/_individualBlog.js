@@ -95,8 +95,8 @@ export default class IndividualBlog extends React.Component {
 
                 translateY = 0 - (300*(window.scrollY/heroImage.clientHeight))
                 scale = 1 + (window.scrollY/heroImage.clientHeight)
-                heroImage.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
-                blackBlock.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
+                // heroImage.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
+                // blackBlock.style.transform = 'translate3d(0px, '+ translateY +'px, 0px) scale('+ scale +', '+ scale +')'
                 generalEl.style.transform = 'translate3d(0px, '+ -translateY +'px, 0px)'
                 heroTitleEl.style.transform = 'translate3d(0px, '+ -translateY +'px, 0px)'
 
