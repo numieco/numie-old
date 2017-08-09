@@ -18,6 +18,10 @@ export default class CallToAction extends React.Component {
     this.submitOnEnter = this.submitOnEnter.bind(this)
   }
 
+  componentDidMount() {
+    document.querySelector('.success-message').classList.add('hide-success')
+  }
+
   handleSubscriber = (e) => {
     this.setState({
       subscriber: e.target.value
@@ -50,6 +54,7 @@ export default class CallToAction extends React.Component {
               this.setState({
                 animate: !this.state.animate
               })
+              document.querySelector('.success-message').classList.add('hide-success')
             }, 6000)
           }
 

@@ -19,11 +19,13 @@
   justify-content: center
   align-items: center
   opacity: 0
-  z-index: -1
   span
     font-size: calc(0.634rem + 2vw)
     text-align: center
+    color: white
 
+.hide-success
+  z-index: -1
 
 .content-fadeout
   transition: opacity 1s ease-in
@@ -31,6 +33,7 @@
 .content-fadein
   transition: opacity 1s ease-in
   opacity: 1 !important
+  z-index: 0
 
 
 #subscribe
