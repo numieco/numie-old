@@ -1,12 +1,15 @@
 .bg-transparent
   background-image: linear-gradient(to bottom, #f4f8fb, #ffffff) !important
-  h3, .sub-promise, input
+  h3, .sub-promise, input, span
     color: #141516 !important
   input
     background-image: linear-gradient(to bottom, #f4f8fb, #ffffff) !important
   #sub-btn, .subscribe-button
     background-color: #141516 !important
     color: #ffffff !important
+  span
+    &:after
+      background: #141516 !important
 
 .success-message
   position: absolute
@@ -23,6 +26,16 @@
     font-size: calc(0.634rem + 2vw)
     text-align: center
     color: white
+    position: relative
+    &:after
+      content: ' '
+      position: absolute
+      height: 3px
+      width: 150px
+      bottom: -20px
+      background: #ffffff
+      left: calc(50% - 75px)
+
 
 .hide-success
   z-index: -1
@@ -37,6 +50,7 @@
 
 
 #subscribe
+  margin-top: 50px
   height: 300px
   width: 100%
   background: #141516

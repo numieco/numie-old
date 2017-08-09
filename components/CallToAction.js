@@ -45,17 +45,6 @@ export default class CallToAction extends React.Component {
                 animateSuccess: !this.state.animateSuccess
               })
             },1000)
-            setTimeout(() => {
-              this.setState({
-                animateSuccess: !this.state.animateSuccess
-              })
-            },5000)
-            setTimeout(() => {
-              this.setState({
-                animate: !this.state.animate
-              })
-              document.querySelector('.success-message').classList.add('hide-success')
-            }, 6000)
           }
 
           if(response.data.failure && !response.data.success)
