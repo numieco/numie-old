@@ -1,0 +1,29 @@
+.footer-button
+  cursor: pointer
+  position: relative
+  &:before, &:after
+    position: absolute
+    content: ' '
+    top: -9px
+    width: 0%
+    height: 200%
+    background-color: rgba(255, 255, 255, 0.1)
+  &:before
+    width: 24%
+    left: -5px
+    transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)
+    transition-delay: 0.5s
+  &:after
+    width: 0%
+    right: 0
+    left: auto
+    transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)
+  &:hover:before
+    width: 0%
+    transition: width 0.01s cubic-bezier(0.22, 0.61, 0.36, 1)
+  &:hover:after
+    width: calc(100% + 5px)
+    right: 0
+    left: -5px
+    background-color: rgba(255, 255, 255, 0.1)
+    transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)
