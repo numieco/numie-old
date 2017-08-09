@@ -23,8 +23,10 @@ const Footer  = (props) => (
       </div>
 
       <FooterButton
-        className='medium-text get-in-touch'
-        content='GET IN TOUCH'
+        smallClassName='medium-text get-in-touch'
+        footerSmallText='GET IN TOUCH'
+        footerLargeText={null}
+        largeClassName=''
       />
 
     </div>
