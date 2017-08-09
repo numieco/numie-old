@@ -2,6 +2,10 @@
   cursor: pointer
   position: relative
   min-height: 20px
+  padding: 0 !important
+  color: white !important
+  background: transparent !important
+  box-shadow: none !important
   &:before, &:after
     position: absolute
     content: ' '
@@ -34,6 +38,8 @@
     position: absolute
     transition: color .5s cubic-bezier(0.22, 0.61, 0.36, 1)
     transition-delay: 0s
+    width: 100% !important
+    left: 0 !important
     &:hover
       z-index: 1
       color: $numie-red
