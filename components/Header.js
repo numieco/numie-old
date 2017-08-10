@@ -80,7 +80,7 @@ export default class Header extends React.Component {
                 )
               : null
             }
-            <div className='primary hollow get-in-touch'>
+            <div className='secondary hollow get-in-touch'>
               <a>
                 Get In Touch
               </a>
