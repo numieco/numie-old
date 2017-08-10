@@ -329,7 +329,7 @@ export default class ContactPage extends React.Component {
                   <div className='title'>
                     get in touch
                   </div>
-                  <div className='close-button' >
+                  <div className='primary hollow close-button' >
                     close
                   </div>
                 </div>
@@ -432,14 +432,14 @@ export default class ContactPage extends React.Component {
                 </div>
 
                 <div className='wrap-buttons form__section'>
-                  <div className='close-button' >
+                  <div className='primary hollow close-button' >
                     close
                   </div>
-                  <div className='send-button' onClick={this.submitData}>
+                  <div className='primary hollow send-button' onClick={this.submitData}>
                     send
                   </div>
                 </div>
-                <div className='send button form__section' onClick={this.submitData}>
+                <div className='primary send button form__section' onClick={this.submitData}>
                   send
                 </div>
               </div>
