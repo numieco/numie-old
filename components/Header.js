@@ -53,7 +53,7 @@ export default class Header extends React.Component {
               <a>
                 { NUMIELOGO }
               </a>
-            </Link>  
+            </Link>
           </div>
           <div className={this.state.isMobile ? 'wrap-buttons' : ''}>
             {
@@ -80,7 +80,7 @@ export default class Header extends React.Component {
                 )
               : null
             }
-            <div className='get-in-touch'>
+            <div className='primary hollow get-in-touch'>
               <a>
                 Get In Touch
               </a>
