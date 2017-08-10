@@ -16,7 +16,6 @@ export default class HomeComponent extends React.Component {
               <span>together.</span>
             </div>
           </div>
-          <CallToAction transparent={true} />
           <Footer />
         </section>
       </div>
