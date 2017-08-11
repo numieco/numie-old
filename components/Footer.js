@@ -1,5 +1,7 @@
 import React from 'react'
 
+import FooterButton from './FooterButton'
+
 import Circular from './SVG/Circular'
 import { NewFacebook, NewTwitter, Github, NewInstagram } from './SVG/Socials'
 import { NumieLogoWhite } from './SVG/NumieLogo'
@@ -19,10 +21,14 @@ const Footer  = (props) => (
       <div className='large-text'>
         LET’S WORK TOGETHER.
       </div>
-      <div className='medium-text'>
-        <div className='small-box' />
-        GET IN TOUCH
-      </div>
+
+      <FooterButton
+        smallClassName='medium-text get-in-touch'
+        footerSmallText='GET IN TOUCH'
+        footerLargeText={null}
+        largeClassName=''
+      />
+
     </div>
     <div className='footer-bottom'>
       <div className="social">

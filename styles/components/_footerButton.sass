@@ -1,0 +1,51 @@
+.footer-button
+  cursor: pointer
+  position: relative
+  min-height: 40px
+  padding: 0 !important
+  color: white !important
+  background: transparent !important
+  box-shadow: none !important
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  &:before, &:after
+    position: absolute
+    content: ' '
+    top: 0
+    width: 0%
+    height: 100%
+    background-color: rgba(255, 255, 255, 0.1)
+  &:before
+    width: 24%
+    left: 0px
+    transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)
+    transition-delay: 0.5s
+  &:after
+    width: 0%
+    right: 0
+    left: auto
+    background: white
+    transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)
+  &:hover:before
+    width: 0%
+    transition: width 0.01s cubic-bezier(0.22, 0.61, 0.36, 1)
+  &:hover:after
+    width: 100%
+    right: 0
+    left: 0
+    background-color: rgba(255, 255, 255, 1)
+    transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)
+
+  span
+    position: absolute
+    transition: color .5s cubic-bezier(0.22, 0.61, 0.36, 1)
+    transition-delay: 0s
+    width: calc(100% + 5px)!important
+    left: 0 !important
+    z-index: 1
+    padding: 10px 0px
+    padding-right: 5px
+    &:hover
+      color: $numie-red

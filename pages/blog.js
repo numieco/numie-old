@@ -6,6 +6,7 @@ import ContactPage from './contact'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import SinglePost from '../components/SinglePost'
+import CallToAction from '../components/CallToAction'
 
 const domain = 'https://numie.ghost.io'
 let page = 1
@@ -88,6 +89,7 @@ export default class Blog extends React.Component {
         <Layout>
           <Header defaultLogo='white' />
           <ContactPage />
+
           <div className='blog-page-main-section main-page-revealer'>
             <header>
               <div className="hero" id="heading">
@@ -109,6 +111,7 @@ export default class Blog extends React.Component {
               MORE <br /> <span>+</span>
             </div>
 
+            <CallToAction transparent={true} />
             <Footer />
           </div>
         </Layout>

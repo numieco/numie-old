@@ -112,7 +112,7 @@ export default class SinglePost extends React.Component {
               {
                 this.props.author.bio !== null
                 ? this.props.author.bio
-                : 'Freegan tbh keytar copper mug literally marfa selfies organic squid coloring book small batch. Stumptown bicycle rights PBR&B chia hashtag, swag biodiesel letterpress craft beer next level squid 90'
+                : this.props.author.name + ' hasn’t written anything about themselves… probably because there isn’t too much to talk about'
               }
             </div>
 

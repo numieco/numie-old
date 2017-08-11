@@ -12,11 +12,24 @@
     width: 100%
     flex-direction: row
     justify-content: space-between
+    +tablet
+      max-width: 1032px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      margin: 0 auto
+      position: relative
+      height: 80px
     a
       color: white
       text-decoration: none
     .logo
       height: 40px
+      +tablet
+        position: absolute
+        z-index: 1
+        left: 20px
+        margin-right: 0
       div
         height: 40px
         svg
@@ -24,8 +37,31 @@
           height: 40px
     .menu
       display: none
+      +tablet
+        display: inline-block
+        text-align: center
+        width: 100%
+        position: absolute
+        z-index: 0
+        left: 0
+        padding: 10px 0px
+        line-height: 17px
+        top: 21px
+
+        .home-menu, .what-we-do-menu, .out-work-menu, .writing-menu
+          font-size: 12px
+          font-weight: 600
+          letter-spacing: 0.9px
+          color: white
+          margin-right: 40px
+          display: inline-block
+          text-transform: uppercase
+        .writing-menu
+          margin-right: 0px
+        .social-butons
+          display: none
+
     .get-in-touch
-      border-radius: 4px
       border: solid 1px #ffffff
       display: inline-block
       padding: 10px 15px
@@ -35,22 +71,27 @@
       text-transform: uppercase
       font-size: 12px
       font-weight: 600
+      line-height: 18px
       letter-spacing: 0.9px
       color: white
       +ease(.2s)
       &:active
         transform: scale(.97)
-
-    .wrap-buttons
-      display: flex
-      flex-direction: row
-      justify-content: space-between
+      +tablet
+        float: right
+        margin-right: 0px
+        position: absolute
+        z-index: 1
+        right: 20px
 
     .mobile-menu
-      height: 21px
       width: 24px
+      height: 40px
       display: inline-block
       position: relative
+      float: right
+      +tablet
+        display: none
 
       .menu-button-inner:before
         width: 12px
@@ -81,45 +122,81 @@
         top: 9px
         right: 0px
 
-@media (min-width: 768px)
-  .header
-    .menu-wrapper
-      max-width: 1032px
+//Revealed menu bar
+
+.wrap-buttons
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  +tablet
+    display: none
+  .menu-for-mobile
+    position: fixed
+    width: 100vw
+    height: 100vh
+    top: 0
+    right: 0
+    opacity: 0
+    background: transparent
+    z-index: -3
+    padding-right: 30px
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    justify-content: center
+    +medium-phone
+      padding: 0 70px
+    a
+      color: white
+      text-decoration: none
+    .logo
+      height: 40px
+      div
+        height: 40px
+        svg
+          width: 35px
+          height: 40px
+    .block-ref-menu
+      opacity: 0
+    .home-menu, .what-we-do-menu, .out-work-menu, .writing-menu
+      margin-bottom: 30px
+      text-decoration: none
+      color: white
+      font-size: 30px
+      font-weight: bold
+      line-height: 30px
+      text-align: right
+      text-transform: uppercase
+    .social-butons
+      margin-top: 60px
+      display: flex
+      justify-content: space-between
+      flex-direction: row
+      width: 100%
+      max-width: 230px
+    .menu-header
       display: flex
       flex-direction: row
       justify-content: space-between
-      margin: 0 auto
-      position: relative
-      height: 80px
-      .logo
-        position: absolute
-        z-index: 1
-        left: 20px
-        margin-right: 0
-      .get-in-touch
-        float: right
-        margin-right: 0px
-        position: absolute
-        z-index: 1
-        right: 20px
-      .menu
-        display: inline-block
-        text-align: center
-        width: 100%
-        position: absolute
-        z-index: 0
-        left: 0
-        padding: 10px 0px
-        line-height: 17px
-        top: 21px
-
-        .home-menu, .what-we-do-menu, .out-work-menu, .writing-menu
-          font-size: 12px
-          font-weight: 600
-          letter-spacing: 0.9px
-          color: white
-          margin-right: 40px
-          display: inline-block
-          text-transform: uppercase
-        .writing-menu
-          margin-right: 0px
+      padding: 20px
+      position: absolute
+      top: 0
+      left: 0
+      width: 100vw
+      .menu-close-cross
+        position: relative
+        width: 40px
+        height: 40px
+        &:after, &:before
+          position: absolute
+          content: ' '
+          width: 35px
+          height: 1px
+          border: 2px solid #ffffff
+          top: 20px
+          right: 0px
+          border-radius: 3px
+        &:after
+          transform: rotate(45deg)
+        &:before
+          transform: rotate(135deg)

@@ -8,12 +8,18 @@ export default class CallToAction extends React.Component {
     super (props)
 
     this.state = {
-      subscriber: ''
+      subscriber: '',
+      animate: false,
+      animateSuccess: false
     }
 
     this.handleSubscriber = this.handleSubscriber.bind(this)
     this.submitEmail = this.submitEmail.bind(this)
     this.submitOnEnter = this.submitOnEnter.bind(this)
+  }
+
+  componentDidMount() {
+    document.querySelector('.success-message').classList.add('hide-success')
   }
 
   handleSubscriber = (e) => {
@@ -28,8 +34,19 @@ export default class CallToAction extends React.Component {
         email: this.state.subscriber
       })
         .then((response) => {
-          if(response.data.success && !response.data.failure)
-            alert('SUBSCRIBED')
+          if(response.data.success && !response.data.failure) {
+            setTimeout(() => {
+              this.setState({
+                animate: !this.state.animate
+              })
+            }, 0)
+            setTimeout(() => {
+              this.setState({
+                animateSuccess: !this.state.animateSuccess
+              })
+            },1000)
+          }
+
           if(response.data.failure && !response.data.success)
             alert('FAILURE')
         })
@@ -44,15 +61,21 @@ export default class CallToAction extends React.Component {
 
   render () {
     return (
-      <div id="subscribe">
-        <div className='doodles'>
-          <Doodles />
-        </div>
-        <h3 className="sub-tagline">
+      <div id="subscribe" className={ this.props.transparent ? "bg-transparent" : null }>
+        {
+          !this.props.transparent
+          ? (
+              <div className='doodles'>
+                <Doodles />
+              </div>
+            )
+          : null
+        }
+        <h3 className={ this.state.animate ? "sub-tagline content-fadeout" : "sub-tagline content-fadein" }>
           Fresh articles of fascinating
           things delivered to your inbox.
         </h3>
-        <form className="box field" id="sub-btn">
+        <form className={ this.state.animate ? "box field content-fadeout" : "box field content-fadein" } id="sub-btn">
           <p className="control">
             <input
               className="input"
@@ -67,9 +90,14 @@ export default class CallToAction extends React.Component {
             SUBSCRIBE
           </div>
         </form>
-        <div className="sub-promise">
+        <div className={ this.state.animate ? "sub-promise content-fadeout" : "sub-promise content-fadein" }>
           No spam. No ads. No selfies. We promise.
         </div>
+
+        <div className={ !this.state.animateSuccess ? "success-message content-fadeout" : "success-message content-fadein" }>
+          <span>Thanks for subscribing. <br/> We hope you enjoy our content!</span>
+        </div>
+
       </div>
     )
   }
