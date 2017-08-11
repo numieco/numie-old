@@ -40,7 +40,7 @@ export default class Header extends React.Component {
     this.listenResizeEvent()
     window.addEventListener('resize', this.listenResizeEvent)
 
-    var menu = document.querySelector('.menu')
+    var menu = document.querySelector('.menu-for-mobile')
     let menuRevealer = new RevealFx(menu)
 
     var closeControl = document.querySelector('.menu-close-cross')
@@ -48,8 +48,6 @@ export default class Header extends React.Component {
     var menuRevealContent = document.querySelector('.block-ref-menu')
 
     document.querySelector('.mobile-menu').addEventListener('click', function() {
-
-      menu.appendChild(menuRevealContent)
       menu.style.zIndex = 5
       menu.style.opacity = 1
 
@@ -80,7 +78,7 @@ export default class Header extends React.Component {
         },
         onComplete: function () {
           menu.style.opacity = 0
-          menu.style.zIndex = -1
+          menu.style.zIndex = -3
         }
       })
     }
@@ -112,28 +110,18 @@ export default class Header extends React.Component {
 
   render () {
     return (
-      <div className='header'>
-        <div className='menu-wrapper'>
-          <div className='logo'>
-            <Link href='/'>
-              <a>
-                { NUMIELOGO }
-              </a>
-            </Link>
-          </div>
-          <div className={this.state.isMobile ? 'wrap-buttons' : ''}>
-            <div className='menu'>
-              <div className='block-revealer__content block-ref-menu'>
-                {
-                  (this.state.isMobile)
-                  ? (
-                      <div className='menu-header'>
-                        <NumieLogoRed />
-                        <div className='menu-close-cross' onClick={this.toggleMenu}></div>
-                      </div>
-                    )
-                  : null
-                }
+      <div>
+        <div className='header'>
+          <div className='menu-wrapper'>
+            <div className='logo'>
+              <Link href='/'>
+                <a>
+                  { NUMIELOGO }
+                </a>
+              </Link>
+            </div>
+            <div>
+              <div className='menu'>
                 <div className='home-menu'>
                   <Link href='/'>
                     <a>Home</a>
@@ -150,28 +138,51 @@ export default class Header extends React.Component {
                     <a>Writing</a>
                   </Link>
                 </div>
-                <div className='social-butons'>
-                  <SmallInstagram />
-                  <SmallTwitter />
-                  <SmallFacebook />
+              </div>
+              <div className='secondary hollow get-in-touch'>
+                <a>
+                  Get In Touch
+                </a>
+              </div>
+              <div className='mobile-menu'>
+                <div className='menu-button-inner'>
                 </div>
               </div>
             </div>
-            <div className='secondary hollow get-in-touch'>
-              <a>
-                Get In Touch
-              </a>
+          </div>
+        </div>
+
+        <div className='wrap-buttons'>
+          <div className='menu-for-mobile'>
+            <div className='block-revealer__content block-ref-menu'>
+              <div className='menu-header'>
+                <div className='logo'>
+                  <NumieLogoRed />
+                </div>
+                <div className='menu-close-cross' onClick={this.toggleMenu}></div>
+              </div>
+              <div className='home-menu'>
+                <Link href='/'>
+                  <a>Home</a>
+                </Link>
+              </div>
+              <div className='what-we-do-menu'>
+                What we do
+              </div>
+              <div className='out-work-menu'>
+                Our work
+              </div>
+              <div className='writing-menu'>
+                <Link href='/blog'>
+                  <a>Writing</a>
+                </Link>
+              </div>
+              <div className='social-butons'>
+                <SmallInstagram />
+                <SmallTwitter />
+                <SmallFacebook />
+              </div>
             </div>
-            {
-              this.state.isMobile
-              ? (
-                  <div className='mobile-menu' onClick={this.toggleMenu}>
-                    <div className='menu-button-inner'>
-                    </div>
-                  </div>
-                )
-              : null
-            }
           </div>
         </div>
       </div>
