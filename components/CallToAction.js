@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import Doodles from './SVG/Doodles'
-const secret =  process.env.NODE_ENV == 'production' ? process.env : require('../secrets')
 
 export default class CallToAction extends React.Component {
   constructor (props) {
