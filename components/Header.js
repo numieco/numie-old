@@ -40,7 +40,7 @@ export default class Header extends React.Component {
     this.listenResizeEvent()
     window.addEventListener('resize', this.listenResizeEvent)
 
-    // document.body.style.overflowY = 'visible'
+    document.body.style.overflowY = 'visible'
 
     var menu = document.querySelector('.menu-for-mobile')
     let menuRevealer = new RevealFx(menu)
@@ -61,7 +61,7 @@ export default class Header extends React.Component {
           menu.classList.add('form--open')
           contentEl.style.opacity = 1
           menu.style.background = '#141516'
-          // document.body.style.overflowY = 'hidden'
+          document.body.style.overflowY = 'hidden'
         },
         onComplete: function() {
           closeControl.addEventListener('click', closeForm)
@@ -78,7 +78,7 @@ export default class Header extends React.Component {
           menu.classList.remove('form--open')
           contentEl.style.opacity = 0
           menu.style.background = 'transparent'
-          // document.body.style.overflowY = 'visible'
+          document.body.style.overflowY = 'visible'
         },
         onComplete: function () {
           menu.style.opacity = 0
