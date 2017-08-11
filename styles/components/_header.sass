@@ -92,6 +92,9 @@
       float: right
       +tablet
         display: none
+      &:active
+        transform: scale(0.87)
+        +ease(0.1s)
 
       .menu-button-inner:before
         width: 12px
@@ -158,17 +161,19 @@
           height: 40px
     .block-ref-menu
       opacity: 0
+      @media (max-width: 374px)
+        margin-top: 30px
     .home-menu, .what-we-do-menu, .out-work-menu, .writing-menu
-      margin-bottom: 30px
+      margin-bottom: calc(1rem + 4vw)
       text-decoration: none
       color: white
-      font-size: 30px
+      font-size: calc(1rem + 4vw)
       font-weight: bold
       line-height: 30px
       text-align: right
       text-transform: uppercase
     .social-butons
-      margin-top: 60px
+      margin-top: calc(2rem + 8vw)
       display: flex
       justify-content: space-between
       flex-direction: row
@@ -187,6 +192,9 @@
         position: relative
         width: 40px
         height: 40px
+        &:active
+          transform: scale(0.87)
+          +ease(0.1s)
         &:after, &:before
           position: absolute
           content: ' '

@@ -40,6 +40,8 @@ export default class Header extends React.Component {
     this.listenResizeEvent()
     window.addEventListener('resize', this.listenResizeEvent)
 
+    document.body.style.overflowY = 'visible'
+
     var menu = document.querySelector('.menu-for-mobile')
     let menuRevealer = new RevealFx(menu)
 
@@ -59,6 +61,7 @@ export default class Header extends React.Component {
           menu.classList.add('form--open')
           contentEl.style.opacity = 1
           menu.style.background = '#141516'
+          document.body.style.overflowY = 'hidden'
         },
         onComplete: function() {
           closeControl.addEventListener('click', closeForm)
@@ -75,6 +78,7 @@ export default class Header extends React.Component {
           menu.classList.remove('form--open')
           contentEl.style.opacity = 0
           menu.style.background = 'transparent'
+          document.body.style.overflowY = 'visible'
         },
         onComplete: function () {
           menu.style.opacity = 0
@@ -161,23 +165,23 @@ export default class Header extends React.Component {
                 </div>
                 <div className='menu-close-cross' onClick={this.toggleMenu}></div>
               </div>
-              <div className='home-menu'>
+              <div className='home-menu slide-fadein-from-right'>
                 <Link href='/'>
                   <a>Home</a>
                 </Link>
               </div>
-              <div className='what-we-do-menu'>
+              <div className='what-we-do-menu slide-fadein-from-right'>
                 What we do
               </div>
-              <div className='out-work-menu'>
+              <div className='out-work-menu slide-fadein-from-right'>
                 Our work
               </div>
-              <div className='writing-menu'>
+              <div className='writing-menu slide-fadein-from-right'>
                 <Link href='/blog'>
                   <a>Writing</a>
                 </Link>
               </div>
-              <div className='social-butons'>
+              <div className='social-butons slide-fadein-from-right'>
                 <SmallInstagram />
                 <SmallTwitter />
                 <SmallFacebook />
