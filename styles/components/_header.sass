@@ -22,8 +22,7 @@
         svg
           width: 35px
           height: 40px
-    .menu
-      display: none
+
     .get-in-touch
       border: solid 1px #ffffff
       display: inline-block
@@ -45,6 +44,65 @@
       display: flex
       flex-direction: row
       justify-content: space-between
+      .menu-header
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        padding: 20px
+        padding-right: 30px
+        position: absolute
+        top: 0
+        left: 0
+        width: 100vw
+        .menu-close-cross
+          position: relative
+          width: 40px
+          height: 40px
+          &:after, &:before
+            position: absolute
+            content: ' '
+            width: 35px
+            height: 1px
+            border: 2px solid #ffffff
+            top: 20px
+            right: 0px
+            border-radius: 3px
+          &:after
+            transform: rotate(45deg)
+          &:before
+            transform: rotate(135deg)
+      .menu
+        position: fixed
+        width: 100vw
+        height: 100vh
+        top: 0
+        right: 0
+        opacity: 0
+        background: transparent
+        z-index: 0
+        padding-right: 30px
+        padding-left: 60px
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        justify-content: center
+        .block-ref-menu
+          opacity: 0
+        .home-menu, .what-we-do-menu, .out-work-menu, .writing-menu
+          margin-bottom: 30px
+          text-decoration: none
+          color: white
+          font-size: 30px
+          font-weight: bold
+          line-height: 30px
+          text-align: right
+          text-transform: uppercase
+        .social-butons
+          margin-top: 30px
+          display: flex
+          justify-content: space-between
+          flex-direction: row
+          width: 100%
 
     .mobile-menu
       height: 21px
@@ -123,3 +181,5 @@
           text-transform: uppercase
         .writing-menu
           margin-right: 0px
+        .social-butons
+          display: none
