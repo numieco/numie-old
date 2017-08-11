@@ -161,23 +161,23 @@ export default class Header extends React.Component {
                 </div>
                 <div className='menu-close-cross' onClick={this.toggleMenu}></div>
               </div>
-              <div className='home-menu'>
+              <div className='home-menu slide-fadein-from-right'>
                 <Link href='/'>
                   <a>Home</a>
                 </Link>
               </div>
-              <div className='what-we-do-menu'>
+              <div className='what-we-do-menu slide-fadein-from-right'>
                 What we do
               </div>
-              <div className='out-work-menu'>
+              <div className='out-work-menu slide-fadein-from-right'>
                 Our work
               </div>
-              <div className='writing-menu'>
+              <div className='writing-menu slide-fadein-from-right'>
                 <Link href='/blog'>
                   <a>Writing</a>
                 </Link>
               </div>
-              <div className='social-butons'>
+              <div className='social-butons slide-fadein-from-right'>
                 <SmallInstagram />
                 <SmallTwitter />
                 <SmallFacebook />
