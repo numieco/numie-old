@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './Header'
 import Footer from './Footer'
 import CallToAction from './CallToAction'
 
@@ -6,6 +7,7 @@ export default class HomeComponent extends React.Component {
   render () {
     return (
       <div className='home-page'>
+        <Header defaultLogo='red' />
         <section className='home-section main-page-revealer'>
           <div className='circle-container'>
 

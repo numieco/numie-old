@@ -9,13 +9,8 @@ export default class Home extends React.Component {
     return (
       <div>
         <Layout>
-          <main>
-            <Header defaultLogo='red' />
-            <ContactPage />
             <HomeComponent />
-          </main>
         </Layout>
-
       </div>
     )
   }

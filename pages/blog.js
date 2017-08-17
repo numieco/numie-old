@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import Link from 'next/link'
 import Layout from '../containers/Layout'
-import ContactPage from './contact'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import SinglePost from '../components/SinglePost'
@@ -88,7 +87,6 @@ export default class Blog extends React.Component {
       <div className='blog-page'>
         <Layout>
           <Header defaultLogo='white' />
-          <ContactPage />
 
           <div className='blog-page-main-section main-page-revealer'>
             <header>

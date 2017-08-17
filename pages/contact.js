@@ -4,7 +4,6 @@ import Select from 'react-select'
 import axios from 'axios'
 import Header from '../components/Header'
 
-
 import {Facebook, Twitter, Github, Instagram} from '../components/SVG/Socials'
 import PaperplaneSvg from '../components/SVG/PaperplaneSvg'
 
@@ -46,9 +45,71 @@ export default class ContactPage extends React.Component {
     this.handleDesc = this.handleDesc.bind(this)
     this.handleCompany = this.handleCompany.bind(this)
     this.submitData = this.submitData.bind(this)
-    this.successReveal = this.successReveal.bind(this)
+    // this.successReveal = this.successReveal.bind(this)
   }
 
+  componentDidMount () {
+    document.querySelector('.contact-form').classList.add('form--open')
+    if(this.props.url.query.origin !== undefined)
+      this.completePageReveal()
+  }
+
+  completePageReveal = () => {
+    var initialRevealer = this.createDOMEl('div', 'default-reveal__element')
+    document.querySelector('main').appendChild(initialRevealer)
+    this.showInitialAnimation()
+  }
+
+  createDOMEl = (type, className, content) => {
+    var el = document.createElement(type)
+    el.className = className || ''
+    el.innerHTML = content || ''
+    return el
+  }
+
+  transformSettings = {
+    val: 'scale3d(1,0,1)',
+    origin: '50% 100%',
+    halfway: '50% 0'
+  }
+
+  revealProps = { // In case revealSettings is incomplete, its properties deafault to:
+    duration: 600,
+    easing: 'easeInOutQuint',
+    delay: 0,
+    bgcolor: '#e0394a',
+    direction: 'bt',
+    coverArea: 0
+  }
+
+  showInitialAnimation = () => {
+
+    let revealBlock = document.querySelector('.default-reveal__element')
+    revealBlock.style.top = '-100vh'
+    revealBlock.style.WebkitTransform = revealBlock.style.transform = this.transformSettings.val
+    revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin =  this.transformSettings.origin.initial
+    revealBlock.style.backgroundColor = this.revealProps.bgcolor
+    revealBlock.style.opacity = 1
+
+    var coverArea = this.revealProps.coverArea
+
+    let animationSetting = {
+      targets: revealBlock,
+      delay: 0,
+      duration: 600,
+      easing: 'easeInOutQuint',
+      scaleY: [1, coverArea/100],
+      complete: function () {
+        // revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin = this.transformSettings.origin.halfway
+        // document.getElementsByClassName('header-ref')[0].style.opacity = 0
+      }
+    }
+
+    anime(animationSetting)
+  }
+
+
+/*
   componentDidMount () {
     //Success block reveal
     var successBlock = document.querySelector('.success-block')
@@ -170,7 +231,7 @@ export default class ContactPage extends React.Component {
     }
   }
 
-
+*/
   validateEmail (email) {
     return (/^(([^<>()[\]\\.,:\s@\"]+(\.[^<>()[\]\\.,:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
   }
@@ -308,7 +369,7 @@ export default class ContactPage extends React.Component {
 
   render () {
     return (
-      <div>
+      <Layout>
         <div className='success-block'>
           <div className='block-revealer__content block-ref'>
             <div className='success-content'>
@@ -447,7 +508,7 @@ export default class ContactPage extends React.Component {
 
           </div>
         </div>
-      </div>
+      </Layout>
     )
   }
 }

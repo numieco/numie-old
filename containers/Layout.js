@@ -74,8 +74,9 @@ export default class Layout extends Component {
           <style dangerouslySetInnerHTML={{ __html: stylesheet }}/>
 
         </Head>
-
-        {this.props.children}
+        <main>
+          {this.props.children}
+        </main>
 
         <script type="text/javascript" src='/static/scripts/anime.min.js'></script>
         <script type="text/javascript" src='/static/scripts/main.js'></script>

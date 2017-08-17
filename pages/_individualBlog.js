@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 
 import Layout from '../containers/Layout'
-import ContactPage from './contact'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CallToAction from '../components/CallToAction'
@@ -136,7 +135,6 @@ export default class IndividualBlog extends React.Component {
         <Layout>
           <div className='individual-blog'>
           <Header defaultLogo='white' />
-          <ContactPage />
           <div className='main-page-revealer individual-blog-main-section'>
             <div className='single-blog'>
             { mainPost }
