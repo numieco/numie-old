@@ -49,9 +49,14 @@ export default class ContactPage extends React.Component {
   }
 
   componentDidMount () {
-    document.querySelector('.contact-form').classList.add('form--open')
-    if(this.props.url.query.origin !== undefined)
+    if(this.props.url.query.origin !== undefined){
       this.completePageReveal()
+    } else {
+      setTimeout(() => {
+        document.querySelector('.contact-form').classList.add('form--open')
+        console.log('done')
+      }, 750)
+    }
   }
 
   completePageReveal = () => {
@@ -100,8 +105,7 @@ export default class ContactPage extends React.Component {
       easing: 'easeInOutQuint',
       scaleY: [1, coverArea/100],
       complete: function () {
-        // revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin = this.transformSettings.origin.halfway
-        // document.getElementsByClassName('header-ref')[0].style.opacity = 0
+        document.querySelector('.contact-form').classList.add('form--open')
       }
     }
 
