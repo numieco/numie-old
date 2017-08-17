@@ -86,7 +86,7 @@ export default class Blog extends React.Component {
     return (
       <div className='blog-page'>
         <Layout>
-          <Header defaultLogo='white' />
+          <Header defaultLogo='white' url={ this.props.url }/>
 
           <div className='blog-page-main-section main-page-revealer'>
             <header>

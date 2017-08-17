@@ -134,7 +134,7 @@ export default class IndividualBlog extends React.Component {
     return (
         <Layout>
           <div className='individual-blog'>
-          <Header defaultLogo='white' />
+          <Header defaultLogo='white' url={ this.props.url } />
           <div className='main-page-revealer individual-blog-main-section'>
             <div className='single-blog'>
             { mainPost }

@@ -9,7 +9,7 @@ export default class Home extends React.Component {
     return (
       <div>
         <Layout>
-            <HomeComponent />
+            <HomeComponent url={ this.props.url } />
         </Layout>
       </div>
     )

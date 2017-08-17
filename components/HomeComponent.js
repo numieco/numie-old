@@ -7,7 +7,7 @@ export default class HomeComponent extends React.Component {
   render () {
     return (
       <div className='home-page'>
-        <Header defaultLogo='red' />
+        <Header defaultLogo='red' url={ this.props.url } />
         <section className='home-section main-page-revealer'>
           <div className='circle-container'>
 
