@@ -14,6 +14,8 @@ import {
   SmallInstagram
 } from './SVG/Socials'
 
+let showCloseAnimation = require('../helpers/pageToPageAnimation')
+
 let NUMIELOGO = <NumieLogoRed />
 
 export default class Header extends React.Component {
@@ -39,6 +41,16 @@ export default class Header extends React.Component {
   }
 
   componentDidMount () {
+    if (this.props.url !== undefined && this.props.url.query.origin === 'contact') {
+      showCloseAnimation({
+        type: 'close',
+        direction: 'tb',
+        delay: 0,
+        duration: 600,
+        bgcolor: '#e0394a'
+      })
+    }
+    
     this.listenResizeEvent()
     window.addEventListener('resize', this.listenResizeEvent)
 
@@ -117,7 +129,7 @@ export default class Header extends React.Component {
   onContactPageNav = () => {
     this.showInitialAnimation()
     setTimeout(() => Router.push(
-      '/contact?origin=header',
+      '/contact?origin=' + window.location.href.slice(window.location.href.lastIndexOf('/')),
       '/contact'
     ), 700)
   }
