@@ -23,7 +23,6 @@ export default class Header extends React.Component {
     super (props)
 
     this.state = {
-      isMobile : true,
       toggleMenu: false
     }
 
@@ -50,9 +49,6 @@ export default class Header extends React.Component {
         bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a'
       })
     }
-
-    this.listenResizeEvent()
-    window.addEventListener('resize', this.listenResizeEvent)
 
     document.body.style.overflowY = 'visible'
 
@@ -104,26 +100,10 @@ export default class Header extends React.Component {
     this.initReveal()
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.listenResizeEvent)
-  }
-
   toggleMenu = () => {
     this.setState({
       toggleMenu: !this.state.toggleMenu
     })
-  }
-
-  listenResizeEvent = () => {
-    if (window.innerWidth <= 767) {
-      this.setState({
-        isMobile: true
-      })
-    } else {
-      this.setState({
-        isMobile: false
-      })
-    }
   }
 
   onContactPageNav = () => {
