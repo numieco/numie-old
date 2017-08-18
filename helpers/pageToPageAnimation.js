@@ -59,6 +59,15 @@ var showAnimation = (revealSettings) => {
     revealBlock.style.top = '0'
   }
 
+  if((revealSettings.direction === 'lr') || (revealSettings.direction === 'rl')) {
+    revealBlock.style.width = '200vw'
+    if (revealSettings.direction === 'rl' && revealSettings.type === 'start')
+      revealBlock.style.right = '100vw'
+
+    if (revealSettings.direction === 'lr' && revealSettings.type === 'start')
+      revealBlock.style.left = '-100vw'
+  }
+
   revealBlock.style.WebkitTransform = revealBlock.style.transform = transformSettings.val
   revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin =  transformSettings.origin.initial
   revealBlock.style.backgroundColor = revealSettings.bgcolor
