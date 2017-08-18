@@ -29,6 +29,7 @@ export default class Header extends React.Component {
 
     this.toggleMenu = this.toggleMenu.bind(this)
     this.onContactPageNav = this.onContactPageNav.bind(this)
+    //this.changePage = this.changePage.bind(this)
   }
 
   componentWillMount () {
@@ -43,10 +44,20 @@ export default class Header extends React.Component {
   componentDidMount () {
     window.scrollTo(0, 0)
 
-    if (this.props.url !== undefined && this.props.url.query.origin) {
+    if (this.props.url !== undefined && this.props.url.query.origin === 'contact') {
       showCloseAnimation({
         type: 'close',
         direction: this.props.url.query.success ? 'bt' : 'tb',
+        delay: 0,
+        duration: 600,
+        bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a'
+      })
+    }
+
+    if (this.props.url !== undefined && this.props.url.query.origin === 'header') {
+      showCloseAnimation({
+        type: 'close',
+        direction: 'lr',
         delay: 0,
         duration: 600,
         bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a'
@@ -121,6 +132,23 @@ export default class Header extends React.Component {
     ), 700)
   }
 
+  changePage = (nextPage) => {
+    let currentPage = window.location.href.slice(window.location.href.lastIndexOf('/'))
+    if (currentPage !== nextPage) {
+      showOpenAnimation({
+        type: 'start',
+        direction: 'lr',
+        delay: 0,
+        duration: 600,
+        bgcolor: '#e0394a'
+      })
+      setTimeout(() => Router.push(
+        nextPage + '?origin=header',
+        nextPage
+      ), 700)
+    }
+  }
+
   render () {
     return (
       <div>
@@ -135,21 +163,21 @@ export default class Header extends React.Component {
             </div>
             <div>
               <div className='menu'>
-                <div className='home-menu'>
-                  <Link href='/'>
+                <div className='home-menu' onClick={() => this.changePage('/')}>
+
                     <a>Home</a>
-                  </Link>
+
                 </div>
-                <div className='what-we-do-menu'>
+                <div className='what-we-do-menu' onClick={() => this.changePage('/whatwedo')}>
                   What we do
                 </div>
-                <div className='out-work-menu'>
+                <div className='out-work-menu' onClick={() => this.changePage('/ourwork')}>
                   Our work
                 </div>
-                <div className='writing-menu'>
-                  <Link href='/blog'>
+                <div className='writing-menu' onClick={() => this.changePage('/blog')}>
+
                     <a>Writing</a>
-                  </Link>
+
                 </div>
               </div>
               <div
@@ -176,21 +204,21 @@ export default class Header extends React.Component {
                 </div>
                 <div className='menu-close-cross' onClick={this.toggleMenu}></div>
               </div>
-              <div className='home-menu slide-fadein-from-right'>
-                <Link href='/'>
+              <div className='home-menu slide-fadein-from-right'  onClick={() => this.changePage('/')}>
+
                   <a>Home</a>
-                </Link>
+
               </div>
-              <div className='what-we-do-menu slide-fadein-from-right'>
+              <div className='what-we-do-menu slide-fadein-from-right'  onClick={() => this.changePage('/whatwedo')}>
                 What we do
               </div>
-              <div className='out-work-menu slide-fadein-from-right'>
+              <div className='out-work-menu slide-fadein-from-right' onClick={() => this.changePage('/ourwork')}>
                 Our work
               </div>
-              <div className='writing-menu slide-fadein-from-right'>
-                <Link href='/blog'>
+              <div className='writing-menu slide-fadein-from-right' onClick={() => this.changePage('/blog')}>
+
                   <a>Writing</a>
-                </Link>
+
               </div>
               <div className='social-butons slide-fadein-from-right'>
                 <SmallInstagram />
