@@ -15,6 +15,7 @@ import {
 } from './SVG/Socials'
 
 let showCloseAnimation = require('../helpers/pageToPageAnimation')
+let showOpenAnimation = require('../helpers/pageToPageAnimation')
 
 let NUMIELOGO = <NumieLogoRed />
 
@@ -40,7 +41,7 @@ export default class Header extends React.Component {
   }
 
   componentDidMount () {
-    if (this.props.url !== undefined && this.props.url.query.origin === 'contact') {
+    if (this.props.url !== undefined && this.props.url.query.origin) {
       showCloseAnimation({
         type: 'close',
         direction: this.props.url.query.success ? 'bt' : 'tb',
@@ -96,8 +97,6 @@ export default class Header extends React.Component {
         }
       })
     }
-
-    this.initReveal()
   }
 
   toggleMenu = () => {
@@ -107,65 +106,18 @@ export default class Header extends React.Component {
   }
 
   onContactPageNav = () => {
-    this.showInitialAnimation()
+    showOpenAnimation({
+      type: 'start',
+      direction: 'bt',
+      delay: 0,
+      duration: 600,
+      bgcolor: '#e0394a'
+    })
     setTimeout(() => Router.push(
       '/contact?origin=' + window.location.href.slice(window.location.href.lastIndexOf('/')),
       '/contact'
     ), 700)
   }
-
-  createDOMEl = (type, className, content) => {
-    var el = document.createElement(type)
-    el.className = className || ''
-    el.innerHTML = content || ''
-    return el
-  }
-
-  transformSettings = {
-    val: 'scale3d(1,0,1)',
-    origin: '50% 100%',
-    halfway: '50% 0'
-  }
-
-  revealProps = { // In case revealSettings is incomplete, its properties deafault to:
-    duration: 600,
-    easing: 'easeInOutQuint',
-    delay: 0,
-    bgcolor: '#e0394a',
-    direction: 'bt',
-    coverArea: 0
-  }
-
-  initReveal = () => {
-    var initialRevealer = this.createDOMEl('div', 'default-reveal__element')
-    document.querySelector('main').appendChild(initialRevealer)
-  }
-
-  showInitialAnimation = () => {
-
-    let revealBlock = document.querySelector('.default-reveal__element')
-
-    revealBlock.style.WebkitTransform = revealBlock.style.transform = this.transformSettings.val
-    revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin =  this.transformSettings.origin.initial
-    revealBlock.style.backgroundColor = this.revealProps.bgcolor
-    revealBlock.style.opacity = 1
-
-    let animationSetting = {
-      targets: revealBlock,
-      delay: 0,
-      duration: 600,
-      easing: 'easeInOutQuint',
-      scaleY: [0,1],
-      complete: function () {
-        // revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin = this.transformSettings.origin.halfway
-        // document.getElementsByClassName('header-ref')[0].style.opacity = 0
-      }
-    }
-
-    anime(animationSetting)
-  }
-
-
 
   render () {
     return (
