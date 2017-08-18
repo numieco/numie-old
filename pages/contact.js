@@ -1,16 +1,23 @@
 import React from 'react'
 import Link from 'next/link'
+import Router from 'next/router'
 import Select from 'react-select'
 import axios from 'axios'
+
+import Layout from '../containers/Layout'
 import Header from '../components/Header'
 
 import {Facebook, Twitter, Github, Instagram} from '../components/SVG/Socials'
 import PaperplaneSvg from '../components/SVG/PaperplaneSvg'
 
-import Layout from '../containers/Layout'
+let showOpenAnimation = require('../helpers/pageToPageAnimation')
+let showCloseAnimation = require('../helpers/pageToPageAnimation')
+let showSuccessCloseAnimation = require('../helpers/pageToPageAnimation')
 
 var revealer = null
 var successRevealer = null
+
+let prevUrl = '/'
 
 export default class ContactPage extends React.Component {
   constructor (props) {
@@ -45,148 +52,52 @@ export default class ContactPage extends React.Component {
     this.handleDesc = this.handleDesc.bind(this)
     this.handleCompany = this.handleCompany.bind(this)
     this.submitData = this.submitData.bind(this)
-    // this.successReveal = this.successReveal.bind(this)
+    this.successReveal = this.successReveal.bind(this)
+    this.closeContactAnimation = this.closeContactAnimation.bind(this)
   }
 
   componentDidMount () {
+    //========= Code block for page reveal CONTACT-PAGE ----> OTHER-PAGE =========
     if(this.props.url.query.origin !== undefined){
-      this.completePageReveal()
+      prevUrl = this.props.url.query.origin.slice(this.props.url.query.origin.lastIndexOf('/'))
+
+      showCloseAnimation({
+        type: 'close',
+        direction: 'bt',
+        delay: 0,
+        duration: 600,
+        bgcolor: '#e0394a',
+        onComplete: function () {
+          document.querySelector('.contact-form').classList.add('form--open')
+        }
+      })
     } else {
       setTimeout(() => {
         document.querySelector('.contact-form').classList.add('form--open')
-        console.log('done')
       }, 750)
     }
+    //============================================================================
   }
 
-  completePageReveal = () => {
-    var initialRevealer = this.createDOMEl('div', 'default-reveal__element')
-    document.querySelector('main').appendChild(initialRevealer)
-    this.showInitialAnimation()
-  }
-
-  createDOMEl = (type, className, content) => {
-    var el = document.createElement(type)
-    el.className = className || ''
-    el.innerHTML = content || ''
-    return el
-  }
-
-  transformSettings = {
-    val: 'scale3d(1,0,1)',
-    origin: '50% 100%',
-    halfway: '50% 0'
-  }
-
-  revealProps = { // In case revealSettings is incomplete, its properties deafault to:
-    duration: 600,
-    easing: 'easeInOutQuint',
-    delay: 0,
-    bgcolor: '#e0394a',
-    direction: 'bt',
-    coverArea: 0
-  }
-
-  showInitialAnimation = () => {
-
-    let revealBlock = document.querySelector('.default-reveal__element')
-    revealBlock.style.top = '-100vh'
-    revealBlock.style.WebkitTransform = revealBlock.style.transform = this.transformSettings.val
-    revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin =  this.transformSettings.origin.initial
-    revealBlock.style.backgroundColor = this.revealProps.bgcolor
-    revealBlock.style.opacity = 1
-
-    var coverArea = this.revealProps.coverArea
-
-    let animationSetting = {
-      targets: revealBlock,
-      delay: 0,
-      duration: 600,
-      easing: 'easeInOutQuint',
-      scaleY: [1, coverArea/100],
-      complete: function () {
-        document.querySelector('.contact-form').classList.add('form--open')
-      }
-    }
-
-    anime(animationSetting)
-  }
-
-
-/*
-  componentDidMount () {
-    //Success block reveal
+  //===================== Code block for SUCCESS-REVEAL ======================
+  successReveal = () => {
     var successBlock = document.querySelector('.success-block')
     successRevealer = new RevealFx(successBlock)
-
-    //Contact form block reveal
-    var formEl = document.querySelector('.contact-form')
-    revealer = new RevealFx(formEl)
 
     let successRevealContent = document.querySelector('.block-ref')
     successBlock.appendChild(successRevealContent)
 
-    var closeCtrlOne = document.querySelector('.contact-header .close-button'),
-    closeCtrlTwo = document.querySelector('.wrap-buttons .close-button'),
-    submitClickOne = document.querySelector('.send-button'),
+    var submitClickOne = document.querySelector('.send-button'),
     submitClickTwo = document.querySelector('.contact-input .send')
 
-    document.querySelector('.get-in-touch').addEventListener('click', function() {
-      let revealBlock = document.querySelector('.block-revealer__element')
-
-      document.querySelector('.header').style.zIndex = 1
-      document.querySelector('.contact-form').style.position = 'static'
-
-      revealer.reveal({
-        bgcolor: '#e0394a',
-        direction: 'bt',
-        duration: 600,
-        onCover: function(contentEl, revealerEl) {
-          formEl.classList.add('form--open')
-          contentEl.style.opacity = 1
-          document.querySelector('.header').style.zIndex = -1
-          document.querySelector('.main-page-revealer').style.zIndex = -2
-          document.querySelector('.main-page-revealer').style.display = 'none'
-        },
-        onComplete: function() {
-          closeCtrlOne.addEventListener('click', closeForm)
-          closeCtrlTwo.addEventListener('click', closeForm)
-        }
-      })
-    })
-
-    function closeForm() {
-      document.querySelector('.main-page-revealer').style.display = 'block'
-
-      revealer.reveal({
-        bgcolor: '#e0394a',
-        direction: 'tb',
-        duration: 600,
-        onCover: function(contentEl, revealerEl) {
-          formEl.classList.remove('form--open')
-          contentEl.style.opacity = 0
-          document.querySelector('.header').style.zIndex = 1
-          document.querySelector('.main-page-revealer').style.zIndex = 0
-        },
-        onComplete: function () {
-          document.querySelector('.contact-form').style.position = 'fixed'
-          document.querySelector('.header').style.zIndex = 3
-        }
-      })
-    }
-
-  }
-
-  successReveal = () => {
-
     let inputs = document.getElementById('contact').getElementsByTagName('input')
+
     for(var i=0; i<inputs.length; i++) {
       inputs[i].style.boxShadow = '0 1px 0 0 #2b2b2b'
     }
     document.getElementById('contact').getElementsByTagName('textarea')[0].style.boxShadow = '0 1px 0 0 #2b2b2b'
 
     var formEl = document.querySelector('.contact-form')
-    var successBlock = document.querySelector('.success-block')
 
     document.querySelector('.success-block').style.top = '0'
     document.querySelector('.success-block').style.zIndex = '9999'
@@ -201,41 +112,33 @@ export default class ContactPage extends React.Component {
       },
       onComplete: function() {
         let revealBlock = document.querySelector('.block-revealer__element').style.color = 'transparent'
-        setTimeout(() => {
-          closeSuccess()
-        }, 2000)
+
+        setTimeout(() => Router.push(
+          (prevUrl.indexOf('-') !== -1 ? '/_individualBlog' : prevUrl) + '?origin=contact&success=true',
+          prevUrl.indexOf('-') !== -1 ? ('/blog' + prevUrl) : prevUrl
+        ), 3000)
       }
     })
-
-    function closeSuccess () {
-      var formEl = document.querySelector('.contact-form')
-      var successBlock = document.querySelector('.success-block')
-      document.querySelector('.success-block').style.zIndex = '2'
-      document.querySelector('.main-page-revealer').style.display = 'block'
-
-      revealer.reveal({
-        bgcolor: '#62E17C',
-        direction: 'bt',
-        duration: 600,
-        onCover: function(contentEl, revealerEl) {
-          formEl.classList.remove('form--open')
-          successBlock.classList.remove('form--open')
-          contentEl.style.opacity = 0
-          document.querySelector('.header').style.zIndex = 1
-          document.querySelector('.success-block').classList.remove('success-block-active')
-          document.querySelector('.main-page-revealer').style.zIndex = 0
-        },
-        onComplete: function() {
-          document.querySelector('.contact-form').style.position = 'fixed'
-          document.querySelector('.header').style.zIndex = 3
-          document.querySelector('.success-block').style.zIndex = '-1'
-          document.querySelector('.success-block').style.top = '100vh'
-        }
-      })
-    }
   }
+  //==========================================================================
 
-*/
+  //========= Code block for page reveal OTHER-PAGE ----> CONTACT-PAGE =========
+  closeContactAnimation = () => {
+    showOpenAnimation({
+      type: 'start',
+      direction: 'tb',
+      delay: 0,
+      duration: 600,
+      bgcolor: '#e0394a',
+    })
+
+    setTimeout(() => Router.push(
+      (prevUrl.indexOf('-') !== -1 ? '/_individualBlog' : prevUrl) + '?origin=contact',
+      prevUrl.indexOf('-') !== -1 ? ('/blog' + prevUrl) : prevUrl
+    ), 700)
+  }
+  //============================================================================
+
   validateEmail (email) {
     return (/^(([^<>()[\]\\.,:\s@\"]+(\.[^<>()[\]\\.,:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
   }
@@ -326,7 +229,6 @@ export default class ContactPage extends React.Component {
     this.setState({
       emailInvalid: this.state.email == '' ? false : !this.validateEmail(this.state.email),
       phoneInvalid: this.state.phone == '' ? false : !this.validatePhone(this.state.phone)
-
     })
 
     if( this.state.fullname == '' || this.state.email == '' || this.state.description == ''
@@ -394,7 +296,7 @@ export default class ContactPage extends React.Component {
                   <div className='title'>
                     get in touch
                   </div>
-                  <div className='secondary hollow close-button' >
+                  <div className='secondary hollow close-button' onClick={ this.closeContactAnimation } >
                     close
                   </div>
                 </div>
@@ -497,14 +399,14 @@ export default class ContactPage extends React.Component {
                 </div>
 
                 <div className='wrap-buttons form__section'>
-                  <div className='secondary hollow close-button' >
+                  <div className='secondary hollow close-button' onClick={ this.closeContactAnimation } >
                     close
                   </div>
-                  <div className='secondary hollow send-button' onClick={this.submitData}>
+                  <div className='secondary hollow send-button' onClick={ this.submitData }>
                     send
                   </div>
                 </div>
-                <div className='secondary send button form__section' onClick={this.submitData}>
+                <div className='secondary send button form__section' onClick={ this.submitData } >
                   send
                 </div>
               </div>

@@ -44,13 +44,13 @@ export default class Header extends React.Component {
     if (this.props.url !== undefined && this.props.url.query.origin === 'contact') {
       showCloseAnimation({
         type: 'close',
-        direction: 'tb',
+        direction: this.props.url.query.success ? 'bt' : 'tb',
         delay: 0,
         duration: 600,
-        bgcolor: '#e0394a'
+        bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a'
       })
     }
-    
+
     this.listenResizeEvent()
     window.addEventListener('resize', this.listenResizeEvent)
 
