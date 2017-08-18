@@ -1,10 +1,12 @@
 import React from 'react'
-
+import Router from 'next/router'
 import FooterButton from './FooterButton'
 
 import Circular from './SVG/Circular'
 import { NewFacebook, NewTwitter, Github, NewInstagram } from './SVG/Socials'
 import { NumieLogoWhite } from './SVG/NumieLogo'
+
+let showOpenAnimation = require('../helpers/pageToPageAnimation')
 
 const Footer  = (props) => (
   <footer>
@@ -25,8 +27,21 @@ const Footer  = (props) => (
       <FooterButton
         smallClassName='medium-text get-in-touch'
         footerSmallText='GET IN TOUCH'
-        footerLargeText={null}
+        footerLargeText={ null }
         largeClassName=''
+        onClick={ () => {
+          showOpenAnimation({
+            type: 'start',
+            direction: 'bt',
+            delay: 0,
+            duration: 600,
+            bgcolor: '#e0394a'
+          })
+          setTimeout(() => Router.push(
+            '/contact?origin=' + window.location.href.slice(window.location.href.lastIndexOf('/')),
+            '/contact'
+          ), 700)
+        } }
       />
 
     </div>
