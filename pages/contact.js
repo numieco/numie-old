@@ -57,6 +57,7 @@ export default class ContactPage extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0,0)
     //========= Code block for page reveal CONTACT-PAGE ----> OTHER-PAGE =========
     if(this.props.url.query.origin !== undefined){
       prevUrl = this.props.url.query.origin.slice(this.props.url.query.origin.lastIndexOf('/'))
