@@ -41,6 +41,8 @@ export default class Header extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0)
+
     if (this.props.url !== undefined && this.props.url.query.origin) {
       showCloseAnimation({
         type: 'close',
