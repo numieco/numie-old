@@ -61,11 +61,20 @@ var showAnimation = (revealSettings) => {
 
   if((revealSettings.direction === 'lr') || (revealSettings.direction === 'rl')) {
     revealBlock.style.width = '200vw'
-    if (revealSettings.direction === 'rl' && revealSettings.type === 'start')
+    if (revealSettings.direction === 'rl' && revealSettings.type === 'start') {
       revealBlock.style.right = '100vw'
+      revealBlock.style.left = '0'
+    }
 
-    if (revealSettings.direction === 'lr' && revealSettings.type === 'start')
+    if (revealSettings.direction === 'rl' && revealSettings.type === 'close') {
       revealBlock.style.left = '-100vw'
+    }
+
+
+    if (revealSettings.direction === 'lr' && revealSettings.type === 'start') {
+      revealBlock.style.left = '-100vw'
+    }
+
   }
 
   revealBlock.style.WebkitTransform = revealBlock.style.transform = transformSettings.val

@@ -55,9 +55,10 @@ export default class Header extends React.Component {
     }
 
     if (this.props.url !== undefined && this.props.url.query.origin === 'header') {
+      console.log(this.props.url.query.dir)
       showCloseAnimation({
         type: 'close',
-        direction: 'lr',
+        direction: this.props.url.query.dir ? this.props.url.query.dir : 'lr',
         delay: 0,
         duration: 600,
         bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a'
@@ -133,17 +134,24 @@ export default class Header extends React.Component {
   }
 
   changePage = (nextPage) => {
+    let pageIndex = ['/', '/whatwedo', '/ourwork', '/blog']
     let currentPage = window.location.href.slice(window.location.href.lastIndexOf('/'))
+    let dir = 'lr' //default transition
+
+    if (pageIndex.indexOf(currentPage) > pageIndex.indexOf(nextPage)) {
+      dir = 'rl'
+    }
+
     if (currentPage !== nextPage) {
       showOpenAnimation({
         type: 'start',
-        direction: 'lr',
+        direction: dir,
         delay: 0,
         duration: 600,
         bgcolor: '#e0394a'
       })
       setTimeout(() => Router.push(
-        nextPage + '?origin=header',
+        nextPage + '?origin=header&dir='+dir,
         nextPage
       ), 700)
     }
@@ -154,12 +162,12 @@ export default class Header extends React.Component {
       <div>
         <div className='header header-ref'>
           <div className='menu-wrapper'>
-            <div className='logo'>
-              <Link href='/'>
+            <div className='logo' onClick={() => this.changePage('/')}>
+
                 <a>
                   { NUMIELOGO }
                 </a>
-              </Link>
+
             </div>
             <div>
               <div className='menu'>
