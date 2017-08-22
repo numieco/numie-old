@@ -72,12 +72,19 @@ export default class Header extends React.Component {
 
     if (this.props.url !== undefined && this.props.url.query.origin === 'header') {
       let currentPage = window.location.href.slice(window.location.href.lastIndexOf('/'))
-      document.querySelector(".default-reveal__element").innerHTML = ''
-      document.querySelector(".default-reveal__element").appendChild( this.welcomeMessageEl(welcomeMessage[pageIndex.indexOf(currentPage)]) )
+      document.querySelector('.default-reveal__element').innerHTML = ''
+      document.querySelector('.default-reveal__element').appendChild( this.welcomeMessageEl(welcomeMessage[pageIndex.indexOf(currentPage)]) )
+
+      document.querySelector('.welcome-message').classList.add('welcome-message__active')
+      setTimeout (() => {
+        document.querySelector('.welcome-message').classList.add('welcome-message__inactive')
+        document.querySelector('.welcome-message').classList.remove('welcome-message__active')
+      }, 1000)
+
       showCloseAnimation({
         type: 'close',
         direction: this.props.url.query.dir ? this.props.url.query.dir : 'lr',
-        delay: 0,
+        delay: 2000,
         duration: 600,
         bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a',
         halfway: true
@@ -169,6 +176,10 @@ export default class Header extends React.Component {
 
     document.querySelector(".default-reveal__element").innerHTML = ''
     document.querySelector(".default-reveal__element").appendChild( this.welcomeMessageEl(welcomeMessage[pageIndex.indexOf(nextPage)]) )
+
+    setTimeout(() => {
+      document.querySelector('.welcome-message').classList.add('welcome-message__active')
+    }, 200)
 
     if (currentPage !== nextPage) {
       showOpenAnimation({

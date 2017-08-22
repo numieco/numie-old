@@ -29,6 +29,19 @@ html[xmlns] .clearfix
     width: 100%
     font-size: 50px
     color: white
+    opacity: 0
+  .welcome-message__active
+    -webkit-transition: opacity .6s ease-in
+    -moz-transition: opacity .6s ease-in
+    -ms-transition: opacity .6s ease-in
+    -o-transition: opacity .6s ease-in
+    opacity: 1
+  .welcome-message__inactive
+    -webkit-transition: opacity 1s ease-out
+    -moz-transition: opacity 1s ease-out
+    -ms-transition: opacity 1s ease-out
+    -o-transition: opacity 1s ease-out
+    opacity: 0
 
 .header
   width: 100%
