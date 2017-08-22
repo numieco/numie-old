@@ -167,11 +167,8 @@ export default class Header extends React.Component {
       dir = 'lr'
     }
 
-document.querySelector(".default-reveal__element").innerHTML = ''
+    document.querySelector(".default-reveal__element").innerHTML = ''
     document.querySelector(".default-reveal__element").appendChild( this.welcomeMessageEl(welcomeMessage[pageIndex.indexOf(nextPage)]) )
-
-    console.log(document.querySelector(".default-reveal__element").innerHTML)
-
 
     if (currentPage !== nextPage) {
       showOpenAnimation({
