@@ -19,6 +19,14 @@ let showOpenAnimation = require('../helpers/pageToPageAnimation')
 
 let NUMIELOGO = <NumieLogoRed />
 
+let pageIndex = ['/', '/whatwedo', '/ourwork', '/blog']
+let welcomeMessage = [
+  'Message 1',
+  'Message 2',
+  'Message 3',
+  'Message 4'
+]
+
 export default class Header extends React.Component {
   constructor (props) {
     super (props)
@@ -43,6 +51,13 @@ export default class Header extends React.Component {
 
   componentDidMount () {
     window.scrollTo(0, 0)
+    document.body.style.overflowY = 'visible'
+
+    if(document.querySelector('.default-reveal__element') === null) {
+      let revealBlock = document.createElement('div')
+      revealBlock.className = 'default-reveal__element'
+      document.querySelector('main').appendChild(revealBlock)
+    }
 
     if (this.props.url !== undefined && this.props.url.query.origin === 'contact') {
       showCloseAnimation({
@@ -50,22 +65,24 @@ export default class Header extends React.Component {
         direction: this.props.url.query.success ? 'bt' : 'tb',
         delay: 0,
         duration: 600,
-        bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a'
+        bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a',
+        halfway: true
       })
     }
 
     if (this.props.url !== undefined && this.props.url.query.origin === 'header') {
-      console.log(this.props.url.query.dir)
+      let currentPage = window.location.href.slice(window.location.href.lastIndexOf('/'))
+      document.querySelector(".default-reveal__element").innerHTML = ''
+      document.querySelector(".default-reveal__element").appendChild( this.welcomeMessageEl(welcomeMessage[pageIndex.indexOf(currentPage)]) )
       showCloseAnimation({
         type: 'close',
         direction: this.props.url.query.dir ? this.props.url.query.dir : 'lr',
         delay: 0,
         duration: 600,
-        bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a'
+        bgcolor: this.props.url.query.success ? '#62E17C' : '#e0394a',
+        halfway: true
       })
     }
-
-    document.body.style.overflowY = 'visible'
 
     var menu = document.querySelector('.menu-for-mobile')
     let menuRevealer = new RevealFx(menu)
@@ -113,6 +130,13 @@ export default class Header extends React.Component {
     }
   }
 
+  welcomeMessageEl = (message) => {
+    let elem = document.createElement('div')
+    elem.className = 'welcome-message'
+    elem.innerHTML = message
+    return elem
+  }
+
   toggleMenu = () => {
     this.setState({
       toggleMenu: !this.state.toggleMenu
@@ -120,6 +144,7 @@ export default class Header extends React.Component {
   }
 
   onContactPageNav = () => {
+    document.querySelector(".default-reveal__element").innerHTML = ''
     showOpenAnimation({
       type: 'start',
       direction: 'bt',
@@ -134,13 +159,19 @@ export default class Header extends React.Component {
   }
 
   changePage = (nextPage) => {
-    let pageIndex = ['/', '/whatwedo', '/ourwork', '/blog']
+
     let currentPage = window.location.href.slice(window.location.href.lastIndexOf('/'))
-    let dir = 'lr' //default transition
+    let dir = 'rl' //default transition
 
     if (pageIndex.indexOf(currentPage) > pageIndex.indexOf(nextPage)) {
-      dir = 'rl'
+      dir = 'lr'
     }
+
+document.querySelector(".default-reveal__element").innerHTML = ''
+    document.querySelector(".default-reveal__element").appendChild( this.welcomeMessageEl(welcomeMessage[pageIndex.indexOf(nextPage)]) )
+
+    console.log(document.querySelector(".default-reveal__element").innerHTML)
+
 
     if (currentPage !== nextPage) {
       showOpenAnimation({

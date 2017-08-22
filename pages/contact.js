@@ -68,6 +68,7 @@ export default class ContactPage extends React.Component {
         delay: 0,
         duration: 600,
         bgcolor: '#e0394a',
+        halfway: true,
         onComplete: function () {
           document.querySelector('.contact-form').classList.add('form--open')
         }
