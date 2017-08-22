@@ -52,6 +52,8 @@ var showAnimation = (revealSettings) => {
     }
   })(revealSettings.direction)
 
+  /*
+
   if ((revealSettings.type === 'start' && revealSettings.direction === 'tb')
       || (revealSettings.type !== 'start' && revealSettings.direction === 'bt')) {
     revealBlock.style.top = '-100vh'
@@ -77,8 +79,13 @@ var showAnimation = (revealSettings) => {
 
   }
 
+  */
+
   revealBlock.style.WebkitTransform = revealBlock.style.transform = transformSettings.val
-  revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin =  transformSettings.origin.initial
+  revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin =  transformSettings.origin
+  if(revealSettings.halfway) {
+    revealBlock.style.WebkitTransformOrigin = revealBlock.style.transformOrigin =  transformSettings.halfway
+  }
   revealBlock.style.backgroundColor = revealSettings.bgcolor
   revealBlock.style.opacity = 1
 
