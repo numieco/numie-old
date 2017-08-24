@@ -61,6 +61,222 @@
       .create
         font-weight: bold
 
+  .development
+    background: #ffffff
+    display: flex
+    flex-direction: column
+    padding: 80px 20px 60px
+    +medium-phone
+      padding-bottom: 90px
+    +large-phone
+      padding-left: 5vw
+      padding-right: 5vw
+    +tablet
+      padding-right: 60px
+      padding-left: 40px
+      padding-bottom: 100px
+      position: relative
+    +small-desktop
+      padding-left: 115px
+      padding-right: 115px
+
+    .title-image
+      width: calc(100vw - 15px)
+      max-width: 480px
+      align-self: flex-end
+      border-radius: 2.4px
+      box-shadow: -2px 1px 10px 0 rgba(0, 0, 0, 0.05)
+      margin-right: -25px
+      +tablet
+        margin-right: 0px
+        box-shadow: -3px 2px 9px 0 rgba(0, 0, 0, 0.05)
+      +small-desktop
+        max-width: 400px
+
+    .section-title
+      margin-top: 30px
+      max-width: 80vw
+      font-size: 24px
+      font-weight: bold
+      line-height: 32.0px
+      text-align: left
+      color: #141516
+      +large-phone
+        max-width: 72.5vw
+        font-size: calc(2vw + 1rem)
+      +tablet
+        font-size: 50px
+        line-height: 68px
+        max-width: 505px
+        margin-top: 0px
+        z-index: 1
+        position: absolute
+        top: 330px
+      +small-desktop
+        top: 150px
+
+    .section-description
+      max-width: 260px
+      margin-top: 5px
+      text-align: left
+      align-self: flex-end
+      font-size: 14px
+      line-height: 26.0px
+      text-align: left
+      color: #5c5c5c
+      +medium-phone
+        max-width: 315px
+      +large-phone
+        max-width: 85.75vw
+        font-size: calc(1vw + 0.6163rem)
+      +tablet
+        margin-top: 100px
+        max-width: 635px
+        font-size: 18px
+        line-height: 37px
+        margin-right: -20px
+      +small-desktop
+        max-width: 237px
+        font-size: 14px
+        line-height: 29px
+        align-self: flex-start
+        margin-top: -20px
+        margin-left: 10vw
+        z-index: 1
+
+
+  .what-we-do
+    background-color: #fcfdff
+    padding: 10vw 20px 40px
+    position: relative
+    +medium-phone
+      padding-bottom: 75px
+    +large-phone
+      padding: 10vw 5vw 75px
+    +tablet
+      padding-left: 85px
+      padding-right: 85px
+      padding-bottom: 50px
+    +small-desktop
+      padding: 5vw 115px 140px
+    &:before
+      content: ' '
+      position: absolute
+      background-color: #fcfdff
+      box-shadow: 0 -10px 18px 0 rgba(20, 21, 22, 0.05)
+      top: 0
+      width: 120%
+      height: 13vw
+      left: -10%
+      transform: rotate(-6deg)
+      transform-origin: 0
+      +small-desktop
+        transform: rotate(-4deg)
+        height: 8vw
+    .title
+      font-size: calc(2vw + 0.85rem)
+      font-weight: bold
+      line-height: 28.0px
+      text-align: center
+      color: #141516
+      margin-bottom: 10px
+      +medium-phone
+        font-size: calc(2vw + 0.7813rem)
+      +large-phone
+        font-size: calc(2vw + 0.7325rem)
+      +tablet
+        font-size: calc(2vw + 0.915rem)
+        line-height: 40px
+    .section-description
+      font-size: 14px
+      line-height: 24.0px
+      text-align: center
+      color: #5c5c5c
+      margin: 0 auto 30px
+      +medium-phone
+        max-width: 335px
+      +large-phone
+        margin-bottom: 7.25vw
+        max-width: 81vw
+      +tablet
+        max-width: 600px
+        margin-bottom: 50px
+
+    .services
+      .section, .card
+        background: transparent
+        border: none
+        box-shadow: none
+      .dev-design, .app-marketing
+        padding: 0
+        display: flex
+        flex-direction: column
+        justify-content: center
+        .card
+          display: flex
+          flex-direction: row
+          justify-content: space-between
+          margin-bottom: 20px
+          +tablet
+            margin-bottom: 50px
+          .image
+            min-width: 90px
+            height: 90px
+            border-radius: 100px
+            border: solid 1px #5c5c5c
+            margin-right: 20px
+          .intro
+            width: 100%
+            .title
+              font-size: 18px
+              font-weight: 600
+              line-height: 20.0px
+              text-align: left
+              color: #5c5c5c
+            .description
+              font-size: 14px
+              line-height: 28.0px
+              text-align: left
+              color: #b1b3b6
+
+    .learn-more
+      font-size: 16px
+      font-weight: bold
+      line-height: 16.0px
+      letter-spacing: 2px
+      text-align: center
+      color: #434445 !important
+      width: 228px
+      display: block
+      margin: 15px auto 0
+      min-height: 36px
+      +large-phone
+        margin-top: 30px
+      +tablet
+        margin-top: 0px
+    .footer-button
+      &:before, &:after
+        background-color: rgba(0, 0, 0, 0.07)
+        height: 36px
+      &:before
+        width: 18%
+      &:after
+        right: -10px
+      &:hover:before
+        width: 0%
+      &:hover:after
+        width: calc(100% + 10px)
+
+      span
+        width: calc(100% + 10px) !important
+        padding-left: 5px
+
+
+
+
+
+
+
   footer
     margin-top: 0
 
