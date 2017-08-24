@@ -107,8 +107,6 @@ export default class HomeComponent extends React.Component {
             />
           </div>
 
-          
-
           <Footer />
         </section>
 
