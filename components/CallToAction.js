@@ -9,7 +9,8 @@ export default class CallToAction extends React.Component {
     this.state = {
       subscriber: '',
       animate: false,
-      animateSuccess: false
+      animateSuccess: false,
+      failure: false
     }
 
     this.handleSubscriber = this.handleSubscriber.bind(this)
@@ -36,18 +37,21 @@ export default class CallToAction extends React.Component {
           if(response.data.success && !response.data.failure) {
             setTimeout(() => {
               this.setState({
-                animate: !this.state.animate
+                animate: true,
+                failure: false
               })
             }, 0)
             setTimeout(() => {
               this.setState({
-                animateSuccess: !this.state.animateSuccess
+                animateSuccess: true,
               })
             },1000)
           }
 
           if(response.data.failure && !response.data.success)
-            alert('FAILURE')
+            this.setState({
+              failure: true
+            })
         })
     }
   }
@@ -89,8 +93,11 @@ export default class CallToAction extends React.Component {
             SUBSCRIBE
           </div>
         </form>
-        <div className={ this.state.animate ? "sub-promise content-fadeout" : "sub-promise content-fadein" }>
+        <div className={ (this.state.animate || this.state.failure) ? "sub-promise content-fadeout" : "sub-promise content-fadein" }>
           No spam. No ads. No selfies. We promise.
+        </div>
+        <div className={ this.state.failure ? "error failure-fadein" : "error failure-fadeout" }>
+          Something went wrong! Please enter your email again.
         </div>
 
         <div className={ !this.state.animateSuccess ? "success-message content-fadeout" : "success-message content-fadein" }>

@@ -48,6 +48,14 @@
   transition: opacity 0.5s ease-in
   opacity: 1 !important
   z-index: 0
+.failure-fadein
+  transition: opacity 0.5s ease-in
+  transition-delay: 2s
+  opacity: 1 !important
+  z-index: 0
+.failure-fadeout
+  transition: opacity 1s ease-in
+  opacity: 0 !important
 
 
 #subscribe
@@ -72,6 +80,11 @@
     svg
       width: inherit
       height: inherit
+
+  .error
+    color: $numie-red
+    margin-top: -24px
+    font-size: calc(0.3rem + 1vw)
 
 .sub-tagline
   font-size: calc(0.925rem + 1vw)
