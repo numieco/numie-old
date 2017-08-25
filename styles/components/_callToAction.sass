@@ -41,21 +41,18 @@
 .hide-success
   z-index: -1
 
-.content-fadeout
-  transition: opacity 1s ease-in
-  opacity: 0 !important
 .content-fadein
   transition: opacity 0.5s ease-in
   opacity: 1 !important
   z-index: 0
+.content-fadeout, .failure-fadeout
+  transition: opacity 1s ease-in
+  opacity: 0 !important
 .failure-fadein
   transition: opacity 0.5s ease-in
   transition-delay: 2s
   opacity: 1 !important
   z-index: 0
-.failure-fadeout
-  transition: opacity 1s ease-in
-  opacity: 0 !important
 
 
 #subscribe
