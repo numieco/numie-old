@@ -43,7 +43,9 @@ export default class ContactPage extends React.Component {
 
       typeUpperClass: 'upper',
       typeLowerClass: 'lower',
-      wrapTypeClass: 'wrap-type'
+      wrapTypeClass: 'wrap-type',
+
+      sidebarReveal: 'display-none'
     }
 
     this.handleFullname = this.handleFullname.bind(this)
@@ -61,7 +63,7 @@ export default class ContactPage extends React.Component {
     //========= Code block for page reveal CONTACT-PAGE ----> OTHER-PAGE =========
     if(this.props.url.query.origin !== undefined){
       prevUrl = this.props.url.query.origin.slice(this.props.url.query.origin.lastIndexOf('/'))
-
+      this.setState({ sidebarReveal: '' })
       showCloseAnimation({
         type: 'close',
         direction: 'bt',
@@ -71,6 +73,14 @@ export default class ContactPage extends React.Component {
         halfway: true,
         onComplete: function () {
           document.querySelector('.contact-form').classList.add('form--open')
+          showOpenAnimation({
+            type: 'close',
+            direction: 'rl',
+            delay: 0,
+            duration: 600,
+            bgcolor: '#e0394a',
+            revealBlock: 'block-reveal__element'
+          })
         }
       })
     } else {
@@ -131,7 +141,7 @@ export default class ContactPage extends React.Component {
       direction: 'tb',
       delay: 0,
       duration: 600,
-      bgcolor: '#e0394a',
+      bgcolor: '#e0394a'
     })
 
     setTimeout(() => Router.push(
@@ -294,7 +304,8 @@ export default class ContactPage extends React.Component {
             <div className='page-wrap'>
 
               <div className='sidebar'>
-                <div className='contact-header form__section'>
+                <div className={ 'block-reveal__element ' + this.state.sidebarReveal}></div>
+                <div className='contact-header slide-fadein-from-right'>
                   <div className='title'>
                     get in touch
                   </div>
@@ -304,7 +315,7 @@ export default class ContactPage extends React.Component {
                 </div>
 
                 <div className='contact-content'>
-                  <div className='sidebar-content form__section'>
+                  <div className='sidebar-content slide-fadein-from-right'>
                     <div className='sidebar-title'>
                       email
                     </div>
@@ -312,7 +323,7 @@ export default class ContactPage extends React.Component {
                       <a href='mailto:yo@numie.co?subject=Howdy!'>yo@numie.co</a>
                     </div>
                   </div>
-                  <div className='sidebar-content form__section'>
+                  <div className='sidebar-content slide-fadein-from-right'>
                     <div className='sidebar-title'>
                       phone
                     </div>
@@ -320,7 +331,7 @@ export default class ContactPage extends React.Component {
                       <a href='tel:19603335235'>+1 960.333.5235</a>
                     </div>
                   </div>
-                  <div className='sidebar-content social-media-buttons form__section'>
+                  <div className='sidebar-content social-media-buttons slide-fadein-from-right'>
                     <div className='sidebar-instagram'>
                       <a href='https://instagram.com/numieco'><Instagram/></a>
                     </div>
@@ -334,7 +345,7 @@ export default class ContactPage extends React.Component {
                       <a href='https://github.com/numieco'><Github/></a>
                     </div>*/}
                   </div>
-                  <div className='sidebar-content sidebar-text form__section'>
+                  <div className='sidebar-content sidebar-text slide-fadein-from-right'>
                     We’d love to help build your newest project.
                   </div>
                 </div>

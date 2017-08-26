@@ -6,10 +6,14 @@ var createDOMEl = (type, className, content) => {
 }
 
 var showAnimation = (revealSettings) => {
-  let revealBlock = document.querySelector('.default-reveal__element')
 
+  let revealBlock = (
+    revealSettings.revealBlock
+    ? document.querySelector('.' + revealSettings.revealBlock)
+    : document.querySelector('.default-reveal__element')
+  )
   if(revealBlock === null) {
-    revealBlock = createDOMEl('div', 'default-reveal__element')
+    revealBlock = createDOMEl('div', revealSettings.revealBlock ? revealSettings.revealBlock : 'default-reveal__element')
     document.querySelector('main').appendChild(revealBlock)
   }
 
