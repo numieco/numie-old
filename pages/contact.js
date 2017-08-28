@@ -73,14 +73,6 @@ export default class ContactPage extends React.Component {
         halfway: true,
         onComplete: function () {
           document.querySelector('.contact-form').classList.add('form--open')
-          showOpenAnimation({
-            type: 'close',
-            direction: 'rl',
-            delay: 0,
-            duration: 600,
-            bgcolor: '#e0394a',
-            revealBlock: 'block-reveal__element'
-          })
         }
       })
     } else {
@@ -304,7 +296,7 @@ export default class ContactPage extends React.Component {
             <div className='page-wrap'>
 
               <div className='sidebar'>
-                <div className={ 'block-reveal__element ' + this.state.sidebarReveal}></div>
+                <div className={ this.state.sidebarReveal }></div>
                 <div className='contact-header slide-fadein-from-right'>
                   <div className='title'>
                     get in touch
