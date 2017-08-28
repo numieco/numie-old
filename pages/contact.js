@@ -297,7 +297,7 @@ export default class ContactPage extends React.Component {
 
               <div className='sidebar'>
                 <div className={ this.state.sidebarReveal }></div>
-                <div className='contact-header slide-fadein-from-right'>
+                <div className='contact-header form__section'>
                   <div className='title'>
                     get in touch
                   </div>
@@ -307,7 +307,7 @@ export default class ContactPage extends React.Component {
                 </div>
 
                 <div className='contact-content'>
-                  <div className='sidebar-content slide-fadein-from-right'>
+                  <div className='sidebar-content form__section'>
                     <div className='sidebar-title'>
                       email
                     </div>
@@ -315,7 +315,7 @@ export default class ContactPage extends React.Component {
                       <a href='mailto:yo@numie.co?subject=Howdy!'>yo@numie.co</a>
                     </div>
                   </div>
-                  <div className='sidebar-content slide-fadein-from-right'>
+                  <div className='sidebar-content form__section'>
                     <div className='sidebar-title'>
                       phone
                     </div>
@@ -323,7 +323,7 @@ export default class ContactPage extends React.Component {
                       <a href='tel:19603335235'>+1 960.333.5235</a>
                     </div>
                   </div>
-                  <div className='sidebar-content social-media-buttons slide-fadein-from-right'>
+                  <div className='sidebar-content social-media-buttons form__section'>
                     <div className='sidebar-instagram'>
                       <a href='https://instagram.com/numieco'><Instagram/></a>
                     </div>
@@ -337,7 +337,7 @@ export default class ContactPage extends React.Component {
                       <a href='https://github.com/numieco'><Github/></a>
                     </div>*/}
                   </div>
-                  <div className='sidebar-content sidebar-text slide-fadein-from-right'>
+                  <div className='sidebar-content sidebar-text form__section'>
                     We’d love to help build your newest project.
                   </div>
                 </div>
