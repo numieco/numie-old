@@ -81,6 +81,10 @@ export default class Layout extends Component {
         <script type="text/javascript" src='/static/scripts/anime.min.js'></script>
         <script type="text/javascript" src='/static/scripts/main.js'></script>
 
+        <script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.slim.js'></script>
+        <script type="text/javascript" src='/static/scripts/scrollToFix.js'></script>
+        <script type="text/javascript" src='/static/scripts/scrollFix.js'></script>
+
       </div>
 
     )

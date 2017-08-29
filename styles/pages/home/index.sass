@@ -351,7 +351,6 @@
         width: calc(100% + 10px) !important
         padding-left: 5px
 
-
   .project-preview
     min-height: 100vh
     background-color: $numie-black !important
@@ -366,10 +365,12 @@
       padding: 30px 11.1vw 50px
     +small-desktop
       padding: 0 70px 0 85px
-      height: 100vh
+      justify-content: space-between
     div
       background: transparent
-
+    .bg-looper--bottom
+      top: 100vh !important
+      bottom: 0px !important
     .bg-looper
       position: absolute
       top: 0
@@ -378,11 +379,11 @@
       width: 110vw
       height: 70vh
       padding: 20%
-      transition: 0.2s all ease-in-out
       +small-desktop
         width: 100vw
         height: 100vh
         padding: 0
+        z-index: 0 !important
       svg
         height: 200%
         width: 300%
@@ -395,6 +396,7 @@
           height: 300%
           right: -65%
           bottom: -80%
+          z-index: 0
 
     .clique-meet
       display: flex
@@ -424,6 +426,19 @@
         flex-direction: row-reverse
         align-items: center
         justify-content: space-between
+        height: 100vh
+        overflow: hidden
+        .project-bg
+          position: absolute
+          bottom: 0
+          left: 0
+          height: 100vh
+          width: 100vw
+          background: transparent
+        .project-bg--red
+          @extend .project-bg
+          background-color: red
+          opacity: 0.4
 
         .image-group-1, .image-group-2
           img
@@ -493,7 +508,17 @@
             font-size: 18px
             line-height: 32px
 
-
+  .project-preview--fixed
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 9999
+  .project-ref--filled
+    width: 100vw
+    height: 300vh
+    display: block
 
 
   footer
