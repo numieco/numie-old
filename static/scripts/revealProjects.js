@@ -1,5 +1,5 @@
 window.onscroll = () => {
-  document.querySelector('.bg-looper > svg').style.transform = 'rotate(' + (window.scrollY / 180 / (Math.PI * 4)) + 'rad)'
+  document.querySelector('.bg-looper > svg').style.transform = 'rotate(' + (window.scrollY / 180 / (Math.PI * 2)) + 'rad)'
 }
 
 window.onload = () => {
