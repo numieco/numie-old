@@ -394,7 +394,11 @@
         position: absolute
         right: -70%
         bottom: 50%
-        transition: all 0.09s  linear
+        transition: all 0.09s linear
+        g
+          g
+            transition: stroke .5s ease
+
         +small-desktop
           width: 300%
           height: 300%
@@ -548,6 +552,9 @@
 
   footer
     margin-top: 0
+    +small-desktop
+      position: relative
+      z-index: 1
 
 @media screen and (min-width: 375px)
   .home-hero-title

@@ -1,3 +1,5 @@
+var colors = ['#61D97A', '#8125FB']
+
 window.onscroll = () => {
   document.querySelector('.bg-looper > svg').style.transform = 'rotate(' + (window.scrollY / 180 / (Math.PI * 2)) + 'rad)'
 }
@@ -8,11 +10,13 @@ window.onload = () => {
 
   for (var i=0; i<arr.length; i++) {
     (function (i, arr) {
+      console.log(colors[i])
 
       var scrollWatch = arr[i],
       watcher = scrollMonitor.create(scrollWatch, -500)
 
       watcher.enterViewport(function () {
+        document.querySelector('.bg-looper > svg > g > g').style.stroke = colors[i]
         scrollWatch.querySelector('.project-intro').classList.add('project-fadein')
         setTimeout(function () {
           scrollWatch.querySelector('.project-showcase').classList.add('project-fadein')
