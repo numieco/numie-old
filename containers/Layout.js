@@ -81,6 +81,8 @@ export default class Layout extends Component {
         <script type="text/javascript" src='/static/scripts/anime.min.js'></script>
         <script type="text/javascript" src='/static/scripts/main.js'></script>
 
+        <script type="text/javascript" src='/static/scripts/jquery-3.2.1.min.js'></script>
+        <script type="text/javascript" src='/static/scripts/sticky.min.js'></script>
         <script type="text/javascript" src='/static/scripts/scrollMonitor.js'></script>
         <script type="text/javascript" src='/static/scripts/revealProjects.js'></script>
 

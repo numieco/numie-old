@@ -14,6 +14,7 @@ export default class ProjectsSection extends React.Component {
         <div className='bg-looper'>
           <Looper />
         </div>
+        <div className='my-project'>
         <div className='project clique-meet'>
           <div className='project-showcase'>
             <div className='section image-group-1'>
@@ -27,7 +28,7 @@ export default class ProjectsSection extends React.Component {
           </div>
           <div className='project-intro'>
             <div className='title'>
-              Clique Meet
+              One: Clique Meet
             </div>
             <span className='tech'>
               UI / UX + BRAND + WEB
@@ -39,7 +40,9 @@ export default class ProjectsSection extends React.Component {
             </div>
           </div>
         </div>
+        </div>
 
+        <div className='my-project'>
         <div className='project clique-meet'>
           <div className='project-showcase'>
             <div className='section image-group-1'>
@@ -53,7 +56,7 @@ export default class ProjectsSection extends React.Component {
           </div>
           <div className='project-intro'>
             <div className='title'>
-              Clique Meet
+              Two: Clique Meet
             </div>
             <span className='tech'>
               UI / UX + BRAND + WEB
@@ -64,6 +67,7 @@ export default class ProjectsSection extends React.Component {
               We’re in this with you until the end.
             </div>
           </div>
+        </div>
         </div>
       </div>
     )

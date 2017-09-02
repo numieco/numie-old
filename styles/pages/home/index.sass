@@ -66,6 +66,7 @@
   .development
     background: #ffffff
     z-index: 1
+    position: relative
     display: flex
     flex-direction: column
     padding: 80px 20px 60px
@@ -367,7 +368,7 @@
     +tablet
       padding: 30px 11.1vw 50px
     +small-desktop
-      padding: 0 70px 0 85px
+      padding: 0
       justify-content: space-between
     div
       background: transparent
@@ -428,15 +429,25 @@
           +small-desktop
             margin-top: 14vw
 
+    .my-project
+      display: flex
+      min-height: 100vh
+      width: 100%
+      position: relative
+      +small-desktop
+        height: calc(100vh + 1000px)
+
     .project
       z-index: 1
       +small-desktop
-        position: relative
+        position: absolute
+        left: 85px
+        right: 70px
         flex-direction: row-reverse
         align-items: center
         justify-content: space-between
         height: 100vh
-        margin-bottom: 50px
+        margin-bottom: 0px
         overflow: hidden
         .project-bg
           position: absolute
