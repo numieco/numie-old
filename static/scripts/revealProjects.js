@@ -27,7 +27,7 @@ window.onload = () => {
         console.log(colors[i])
 
         var scrollWatch = arr[i],
-        watcher = scrollMonitor.create(scrollWatch, {top: -window.innerHeight/2, bottom: -1000})
+        watcher = scrollMonitor.create(scrollWatch, {top: -window.innerHeight/2, bottom: -window.innerHeight*2})
 
         scrollWatch.style.opacity = 1
 
