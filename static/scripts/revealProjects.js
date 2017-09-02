@@ -16,7 +16,9 @@ window.onload = () => {
 
 
     $('.project').fixer({
-      gap: 50
+      isFixed: function () {
+        console.log('check')
+      }
     })
 
      for (var i=0; i<arr.length; i++) {
@@ -25,7 +27,7 @@ window.onload = () => {
         console.log(colors[i])
 
         var scrollWatch = arr[i],
-        watcher = scrollMonitor.create(scrollWatch, -500)
+        watcher = scrollMonitor.create(scrollWatch, {top: -window.innerHeight/2, bottom: -1000})
 
         scrollWatch.style.opacity = 1
 
