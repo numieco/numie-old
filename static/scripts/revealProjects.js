@@ -1,4 +1,5 @@
 var colors = ['#61D97A', '#8125FB']
+var currentLocation = window.scrollY
 
 window.onscroll = () => {
   document.querySelector('.bg-looper > svg').style.transform = 'rotate(' + (window.scrollY / 180 / (Math.PI * 2)) + 'rad)'
@@ -37,21 +38,44 @@ window.onload = () => {
           setTimeout(function () {
             scrollWatch.querySelector('.project-showcase').classList.add('project-fadein')
           }, 1000)
+
+          setTimeout (function () {
+            scrollWatch.querySelector('.project-intro').classList.remove('project-fadeout')
+            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeout')
+          }, 1500)
+
+          currentLocation = window.scrollY
         })
 
         watcher.exitViewport(function () {
-          scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
-          scrollWatch.querySelector('.project-intro').classList.add('project-fadeout')
+          console.log('direction : ' + (currentLocation > window.scrollY ? 'UP' : 'DOWN'))
 
-          setTimeout(function () {
-            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
-            scrollWatch.querySelector('.project-showcase').classList.add('project-fadeout')
-          }, 500)
+          if (currentLocation < window.scrollY) {
+            console.log('up')
+            scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
+            scrollWatch.querySelector('.project-intro').classList.add('project-fadeout')
 
-          setTimeout(function() {
-            scrollWatch.querySelector('.project-intro').classList.remove('project-fadeout')
-            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeout')
-          }, 2000)
+            setTimeout(function () {
+              scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
+              scrollWatch.querySelector('.project-showcase').classList.add('project-fadeout')
+            }, 500)
+          } else {
+            console.log('DOWN')
+            scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
+            // scrollWatch.querySelector('.project-intro').classList.add('project-fadeout')
+
+            setTimeout(function () {
+              scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
+              // scrollWatch.querySelector('.project-showcase').classList.add('project-fadeout')
+            }, 500)
+          }
+
+          // setTimeout(function() {
+          //   scrollWatch.querySelector('.project-intro').classList.remove('project-fadeout')
+          //   scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeout')
+          // }, 2000)
+
+          currentLocation = window.scrollY
         })
       })(i, arr)
     }

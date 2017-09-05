@@ -477,7 +477,8 @@
           max-width: 465px
           transform: translate3d(0,100px,0)
           opacity: 0
-          transition: opacity 1s 0.6s
+          transition: transform 0.5s 0.6s, opacity 1s 0.6s
+          // transition: transform 0.5s 0.6s, opacity 0.5s 0.6s !important
         .section
           padding: 0
           flex: 0 0 50%
@@ -496,7 +497,7 @@
         +small-desktop
           transform: translate3d(0,100px,0)
           opacity: 0
-          transition: opacity 1s 0.6s
+          transition: transform 0.5s 0.6s,opacity 1s 0.6s
 
           padding-left: 0
           flex: 0 0 50%
@@ -581,13 +582,13 @@
               margin-left: -4vw
               margin-top: 15vh
 
-    .project-fadein
-      transform: translate3d(0,0,0) !important
-      opacity: 1 !important
-      transition: transform 0.5s 0.6s, opacity 0.5s 0.6s !important
     .project-fadeout
       transform: translate3d(0,-50px,0) !important
       opacity: 0 !important
+      transition: transform 0.5s 0.6s, opacity 0.5s 0.6s !important
+    .project-fadein
+      transform: translate3d(0,0,0) !important
+      opacity: 1 !important
       transition: transform 0.5s 0.6s, opacity 0.5s 0.6s !important
 
   .project-preview--fixed
