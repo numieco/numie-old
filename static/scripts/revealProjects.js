@@ -8,7 +8,7 @@ window.onscroll = () => {
 if (window.innerWidth >= 992) {
 
 window.onload = () => {
-  var arr =  document.getElementsByClassName('my-project')
+  var arr =  document.getElementsByClassName('project-details')
   var projectPreview = document.querySelector('.project-preview')
   var height = projectPreview.clientHeight
   // height += (1000 * arr.length)

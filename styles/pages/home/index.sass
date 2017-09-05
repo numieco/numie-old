@@ -376,7 +376,7 @@
       top: 100vh !important
       bottom: 0px !important
     .bg-looper
-      position: fixed
+      position: absolute
       top: 0
       right: 0
       z-index: 0
@@ -385,6 +385,7 @@
       height: 70vh
       padding: 20%
       +small-desktop
+        position: fixed
         width: 100vw
         height: 100vh
         padding: 0
@@ -407,37 +408,20 @@
           bottom: -80%
           z-index: 0
 
-    .clique-meet
+    .project-details
       display: flex
-      flex-direction: column
-      .project-showcase
-        display: flex
-        flex-direction: row
-        justify-content: space-between
-        align-items: flex-start
-        +small-desktop
-          flex: 0 0 calc(50% - 50px)
-          max-width: 465px
-        .section
-          padding: 0
-          flex: 0 0 calc(50% - 7px)
-        .image-group-1
-          margin-left: -8px
-          margin-top: 25vw
-          +large-phone
-            margin-left: -2vw
-          +small-desktop
-            margin-top: 14vw
-
-    .my-project
-      display: flex
-      min-height: 100vh
       width: 100%
       position: relative
+      margin-bottom: 50px
+      &:last-child
+        margin-bottom: 0px
       +small-desktop
+        min-height: 100vh
         height: calc(350vh + 1000px)
 
     .project
+      display: flex
+      flex-direction: column
       z-index: 1
       +small-desktop
         position: absolute
@@ -463,7 +447,7 @@
 
         .image-group-1, .image-group-2
           img
-            width: calc(100% + 8px)
+            width: 100%
             max-width: none
             margin-bottom: 10px
             +tablet
@@ -472,10 +456,23 @@
               width: calc(100% + 2vw)
 
       .project-showcase
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: flex-start
         +small-desktop
+          flex: 0 0 calc(50% - 50px)
+          max-width: 465px
           transform: translate3d(0,100px,0)
           opacity: 0
           transition: opacity 1s 0.6s
+        .section
+          padding: 0
+          flex: 0 0 50%
+        .image-group-1
+          margin-top: 25vw
+          +small-desktop
+            margin-top: 14vw
 
       .project-intro
         padding-top: 60px
@@ -538,6 +535,39 @@
             margin-left: 45px
             font-size: 18px
             line-height: 32px
+
+    .clique-meet
+      .project-showcase
+        .image-group-1
+          z-index: 1
+          img
+            margin-left: 12vw
+            +small-desktop
+              margin-left: 5vw
+        .image-group-2
+          img
+            margin-left: -8vw
+            +small-desktop
+              margin-left: -2vw
+
+    .kic
+      .project-showcase
+        .image-group-1
+          z-index: 1
+          margin-top: 0
+          +small-desktop
+            margin-top: -15vh
+          img
+            +small-desktop
+              width: 100%
+        .image-group-2
+          margin-top: 120px
+          +small-desktop
+            margin-top: 0
+          img
+            +small-desktop
+              margin-left: -4vw
+              margin-top: 15vh
 
     .project-fadein
       transform: translate3d(0,0,0) !important
