@@ -50,6 +50,7 @@
       position: absolute
       // top: calc(50vh - 3.437rem)
       top: calc(50vh - 55px)
+      left: 0
       width: 100vw
       z-index: 2
       text-transform: uppercase
@@ -424,12 +425,13 @@
       display: flex
       width: 100%
       position: relative
-      margin-bottom: 50px
+      margin-bottom: 0px
       &:last-child
         margin-bottom: 0px
       +small-desktop
+        justify-content: center
         min-height: 100vh
-        height: calc(350vh + 1000px)
+        height: calc(100vh + 1000px)
 
     .project
       display: flex
