@@ -381,32 +381,44 @@
       right: 0
       z-index: 0
       overflow: hidden
-      width: 110vw
-      height: 70vh
+      width: 100vw
+      height: 100vh
       padding: 20%
       +small-desktop
         position: fixed
-        width: 100vw
-        height: 100vh
         padding: 0
         z-index: 0 !important
       svg
-        height: 200%
-        width: 300%
+        height: 200vh
+        width: 300vw
         position: absolute
-        right: -70%
-        bottom: 50%
+        right: -70vw
+        bottom: 50vh
         transition: all 0.09s linear
         g
           g
             transition: stroke .5s ease
 
+        @media (min-width: 768px) and (min-height: 1024px)
+          right: -80vw
+          bottom: 70vh
+
         +small-desktop
-          width: 300%
-          height: 300%
-          right: -65%
-          bottom: -80%
+          width: 300vw
+          height: 300vh
+          right: -35vw
+          bottom: -100vh
           z-index: 0
+        @media (min-width: 1024px) and (min-height: 1366px)
+          right: 10vw
+        @media (min-width: 1050px)
+          right: -50vw
+        @media (min-width: 1100px)
+          right: -60vw
+        @media (min-width: 1400px)
+          right: -70vw
+        @media (min-width: 1600px)
+          right: -80vw
 
     .project-details
       display: flex
