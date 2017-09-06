@@ -1,5 +1,6 @@
 import React from 'react'
 import Looper from './SVG/Looper'
+import FooterButton from './FooterButton'
 
 export default class ProjectsSection extends React.Component {
   constructor (props) {
@@ -34,6 +35,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -60,6 +66,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -86,6 +97,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -112,6 +128,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -138,6 +159,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -164,6 +190,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -190,6 +221,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -216,6 +252,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -242,6 +283,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
@@ -268,6 +314,11 @@ export default class ProjectsSection extends React.Component {
                 development and marketing for you or your company.
                 We’re in this with you until the end.
               </div>
+              <FooterButton
+                footerSmallText='VIEW CASE STUDY'
+                smallClassName='view-case-study'
+                onClick={() => console.log('view-case-study')}
+              />
             </div>
           </div>
         </div>
