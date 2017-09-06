@@ -1,8 +1,6 @@
 import React from 'react'
 import Looper from './SVG/Looper'
 
-let blockOffsetTop = 0
-
 export default class ProjectsSection extends React.Component {
   constructor (props) {
     super (props)
