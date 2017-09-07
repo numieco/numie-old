@@ -22,35 +22,63 @@ if (window.innerWidth >= 992) {
 
         watcher.enterViewport(function () {
           document.querySelector('.bg-looper > svg > g > g').style.stroke = colors[i]
-          scrollWatch.querySelector('.project-intro').classList.add('project-fadein')
-          setTimeout(function () {
-            scrollWatch.querySelector('.project-showcase').classList.add('project-fadein')
-          }, 1000)
+          // scrollWatch.querySelector('.project-intro').classList.add('project-fadein')
+          // setTimeout(function () {
+          //   scrollWatch.querySelector('.project-showcase').classList.add('project-fadein')
+          // }, 1000)
+          //
+          // setTimeout (function () {
+          //   scrollWatch.querySelector('.project-intro').classList.remove('project-fadeout')
+          //   scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeout')
+          // }, 1500)
 
-          setTimeout (function () {
-            scrollWatch.querySelector('.project-intro').classList.remove('project-fadeout')
-            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeout')
-          }, 1500)
-          currentLocation = window.scrollY
+          // currentLocation = window.scrollY
+
+          scrollWatch.querySelector('.project-intro .hr-line').style.width = '50px'
+          scrollWatch.querySelector('.cover-inner').classList.add('right')
+
+          setTimeout(function () {
+            scrollWatch.querySelector('.view-case-study').style.opacity = 1
+          }, 600)
+
+          var textRevealBlocks = scrollWatch.getElementsByClassName('init-animate-object')
+          for (var i=0; i<textRevealBlocks.length; i++) {
+            textRevealBlocks[i].classList.add('animate-object')
+          }
+
         })
 
         watcher.exitViewport(function () {
-          if (currentLocation <= window.scrollY) {
-            scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
-            scrollWatch.querySelector('.project-intro').classList.add('project-fadeout')
 
-            setTimeout(function () {
-              scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
-              scrollWatch.querySelector('.project-showcase').classList.add('project-fadeout')
-            }, 500)
-          } else {
-            scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
+          // if (currentLocation <= window.scrollY) {
+          //   scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
+          //   scrollWatch.querySelector('.project-intro').classList.add('project-fadeout')
+          //
+          //   setTimeout(function () {
+          //     scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
+          //     scrollWatch.querySelector('.project-showcase').classList.add('project-fadeout')
+          //   }, 500)
+          // } else {
+          //   scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
+          //
+          //   setTimeout(function () {
+          //     scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
+          //   }, 500)
+          // }
+          // currentLocation = window.scrollY
 
-            setTimeout(function () {
-              scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
-            }, 500)
+          scrollWatch.querySelector('.project-intro .hr-line').style.width = '0px'
+          scrollWatch.querySelector('.cover-inner').classList.remove('right')
+
+          setTimeout(function () {
+            scrollWatch.querySelector('.view-case-study').style.opacity = 0
+          }, 600)
+
+          var textRevealBlocks = scrollWatch.getElementsByClassName('init-animate-object')
+          for (var i=0; i<textRevealBlocks.length; i++) {
+            textRevealBlocks[i].classList.remove('animate-object')
           }
-          currentLocation = window.scrollY
+
         })
       })(i, arr)
     }

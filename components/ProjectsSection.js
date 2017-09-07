@@ -24,22 +24,32 @@ export default class ProjectsSection extends React.Component {
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                One: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  One: Clique Meet
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -48,29 +58,39 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1'>
-                <img src='static/images/projects/kic-top.png' />
+                <img src='static/images/projects/cm-left.png' />
               </div>
               <div className='section image-group-2'>
-                <img src='static/images/projects/kic-bottom.png' />
+                <img src='static/images/projects/cm-right.png' />
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                Two: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  Two: KIC
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -86,22 +106,32 @@ export default class ProjectsSection extends React.Component {
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                One: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  One: Clique Meet
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -110,29 +140,39 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1'>
-                <img src='static/images/projects/kic-top.png' />
+                <img src='static/images/projects/cm-left.png' />
               </div>
               <div className='section image-group-2'>
-                <img src='static/images/projects/kic-bottom.png' />
+                <img src='static/images/projects/cm-right.png' />
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                Two: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  Two: KIC
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -148,22 +188,32 @@ export default class ProjectsSection extends React.Component {
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                One: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  One: Clique Meet
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -172,29 +222,39 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1'>
-                <img src='static/images/projects/kic-top.png' />
+                <img src='static/images/projects/cm-left.png' />
               </div>
               <div className='section image-group-2'>
-                <img src='static/images/projects/kic-bottom.png' />
+                <img src='static/images/projects/cm-right.png' />
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                Two: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  Two: KIC
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -210,22 +270,32 @@ export default class ProjectsSection extends React.Component {
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                One: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  One: Clique Meet
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -234,29 +304,39 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1'>
-                <img src='static/images/projects/kic-top.png' />
+                <img src='static/images/projects/cm-left.png' />
               </div>
               <div className='section image-group-2'>
-                <img src='static/images/projects/kic-bottom.png' />
+                <img src='static/images/projects/cm-right.png' />
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                Two: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  Two: KIC
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -272,22 +352,32 @@ export default class ProjectsSection extends React.Component {
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                One: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  One: Clique Meet
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -296,32 +386,43 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1'>
-                <img src='static/images/projects/kic-top.png' />
+                <img src='static/images/projects/cm-left.png' />
               </div>
               <div className='section image-group-2'>
-                <img src='static/images/projects/kic-bottom.png' />
+                <img src='static/images/projects/cm-right.png' />
               </div>
             </div>
             <div className='project-intro'>
-              <div className='title'>
-                Two: Clique Meet
+              <div className='hr-line'></div>
+              <div className='reveal-object title'>
+                <div className='init-animate-object'>
+                  Two: KIC
+                </div>
               </div>
-              <span className='tech'>
-                UI / UX + BRAND + WEB
-              </span>
-              <div className='description'>
-                Numie is a full service design studio that provides end-to-end design,
-                development and marketing for you or your company.
-                We’re in this with you until the end.
+              <div className='reveal-object tech'>
+                <div className='init-animate-object'>
+                  UI / UX + BRAND + WEB
+                </div>
               </div>
-              <FooterButton
-                footerSmallText='VIEW CASE STUDY'
-                smallClassName='view-case-study'
-                onClick={() => console.log('view-case-study')}
-              />
+              <div className='reveal-object description'>
+                <div className='init-animate-object'>
+                  Numie is a full service design studio that provides end-to-end design,
+                  development and marketing for you or your company.
+                  We’re in this with you until the end.
+                </div>
+              </div>
+              <div className='cover-button'>
+                <div className='cover-inner left'></div>
+                <FooterButton
+                  footerSmallText='VIEW CASE STUDY'
+                  smallClassName='view-case-study'
+                  onClick={() => console.log('view-case-study')}
+                />
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     )
   }
