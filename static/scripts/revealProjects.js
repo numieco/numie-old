@@ -34,6 +34,14 @@ if (window.innerWidth >= 992) {
 
           // currentLocation = window.scrollY
 
+          if (scrollWatch.querySelector('.project-showcase').classList.contains('project-fadedown')) {
+            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadedown')
+          }
+
+          if (scrollWatch.querySelector('.project-showcase').classList.contains('project-fadeup')) {
+            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeup')
+          }
+
           scrollWatch.querySelector('.project-intro .hr-line').style.width = '50px'
           scrollWatch.querySelector('.cover-inner').classList.add('right')
 
@@ -45,6 +53,8 @@ if (window.innerWidth >= 992) {
           for (var i=0; i<textRevealBlocks.length; i++) {
             textRevealBlocks[i].classList.add('animate-object')
           }
+
+          currentLocation = window.scrollY
 
         })
 
@@ -66,6 +76,16 @@ if (window.innerWidth >= 992) {
           //   }, 500)
           // }
           // currentLocation = window.scrollY
+
+          if (currentLocation <= window.scrollY) {
+            console.log('page going up')
+            scrollWatch.querySelector('.project-showcase').classList.add('project-fadeup')
+          } else {
+            console.log('.page goign down')
+            scrollWatch.querySelector('.project-showcase').classList.add('project-fadedown')
+          }
+
+          currentLocation = window.scrollY
 
           scrollWatch.querySelector('.project-intro .hr-line').style.width = '0px'
           scrollWatch.querySelector('.cover-inner').classList.remove('right')
