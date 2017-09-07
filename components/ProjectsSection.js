@@ -58,10 +58,10 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-left.png' />
+                <img src='static/images/projects/kic-top.png' />
               </div>
               <div className='section image-group-2 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-right.png' />
+                <img src='static/images/projects/kic-bottom.png' />
               </div>
             </div>
             <div className='project-intro'>
@@ -140,10 +140,10 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-left.png' />
+                <img src='static/images/projects/kic-top.png' />
               </div>
               <div className='section image-group-2 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-right.png' />
+                <img src='static/images/projects/kic-bottom.png' />
               </div>
             </div>
             <div className='project-intro'>
@@ -222,10 +222,10 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-left.png' />
+                <img src='static/images/projects/kic-top.png' />
               </div>
               <div className='section image-group-2 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-right.png' />
+                <img src='static/images/projects/kic-bottom.png' />
               </div>
             </div>
             <div className='project-intro'>
@@ -304,10 +304,10 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-left.png' />
+                <img src='static/images/projects/kic-top.png' />
               </div>
               <div className='section image-group-2 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-right.png' />
+                <img src='static/images/projects/kic-bottom.png' />
               </div>
             </div>
             <div className='project-intro'>
@@ -386,10 +386,10 @@ export default class ProjectsSection extends React.Component {
           <div className='project kic'>
             <div className='project-showcase'>
               <div className='section image-group-1 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-left.png' />
+                <img src='static/images/projects/kic-top.png' />
               </div>
               <div className='section image-group-2 animate-image project-fadedown'>
-                <img src='static/images/projects/cm-right.png' />
+                <img src='static/images/projects/kic-bottom.png' />
               </div>
             </div>
             <div className='project-intro'>

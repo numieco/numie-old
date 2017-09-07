@@ -1,4 +1,4 @@
-var colors = ['#61D97A', '#8125FB']
+var colors = ['#61D97A', '#8125FB', '#61D97A', '#8125FB', '#61D97A', '#8125FB', '#61D97A', '#8125FB', '#61D97A', '#8125FB']
 var currentLocation = window.scrollY
 
 window.onscroll = () => {
@@ -15,14 +15,14 @@ if (window.innerWidth >= 992) {
     $('.project').fixer()
 
     for (var i=0; i<arr.length; i++) {
-      (function (i, arr) {
-        var scrollWatch = arr[i],
+      ;(function (index, arr, colors) {
+        var scrollWatch = arr[index],
         watcher = scrollMonitor.create(scrollWatch, { top: -window.innerHeight/2, bottom: -window.innerHeight/2 })
         scrollWatch.style.opacity = 1
 
         watcher.enterViewport(function () {
-          document.querySelector('.bg-looper > svg > g > g').style.stroke = colors[i]
-
+          document.getElementById('Looper_Group').style.stroke = colors[index]
+          console.log(index)
           var animateImage = scrollWatch.getElementsByClassName('animate-image')
           for (var i=0; i<animateImage.length; i++) {
             if (animateImage[i].classList.contains('project-fadedown')) {
@@ -76,7 +76,7 @@ if (window.innerWidth >= 992) {
           }
 
         })
-      })(i, arr)
+      })(i, arr, colors)
     }
   }
 }
