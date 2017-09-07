@@ -121,10 +121,14 @@
         +small-desktop
           flex: 0 0 calc(50% - 50px)
           max-width: 465px
-          transform: translate3d(0,0px,0)
           opacity: 1
+        .animate-image
+          transform: translate3d(0,0px,0)
           transition: transform 1s, opacity 1s
-          // transition: transform 0.5s 0.6s, opacity 0.5s 0.6s !important
+          &:nth-child(1)
+            transition-delay: 0.2s !important
+          &:nth-child(2)
+            transition-delay: 0.4s !important
         .section
           padding: 0
           flex: 0 0 50%
@@ -141,9 +145,6 @@
         +tablet
           padding-top: 40px
         +small-desktop
-          // transform: translate3d(0,100px,0)
-          // opacity: 0
-          // transition: transform 0.5s 0.6s,opacity 1s 0.6s
           padding-left: 0
           flex: 0 0 50%
           max-width: 490px
@@ -294,16 +295,16 @@
       overflow: hidden
       &:nth-child(1)
         .init-animate-object
-          transition-delay: 0.1s !important
+          transition-delay: 0.3s !important
       &:nth-child(2)
         .init-animate-object
-          transition-delay: 0.2s !important
+          transition-delay: 0.6s !important
       &:nth-child(3)
         .init-animate-object
-          transition-delay: 0.3s !important
+          transition-delay: 0.9s !important
       &:nth-child(4)
         .init-animate-object
-          transition-delay: 0.4s !important
+          transition-delay: 1.2s !important
 
     .animate-object
       transform: translate3d(0px, 0%, 0px) !important
@@ -316,11 +317,17 @@
     .project-fadeup
       transform: translate3d(0,-100px,0) !important
       opacity: 0 !important
-      // transition: transform 0.5s 0.6s, opacity 0.5s 0.6s !important
+      &:nth-child(1)
+        transition-delay: 0.2s !important
+      &:nth-child(2)
+        transition-delay: 0.4s !important
     .project-fadedown
       transform: translate3d(0,100px,0) !important
       opacity: 0 !important
-      // transition: transform 0.5s 0.6s, opacity 0.5s 0.6s !important
+      &:nth-child(1)
+        transition-delay: 0.2s !important
+      &:nth-child(2)
+        transition-delay: 0.4s !important
 
   .project-preview--fixed
     position: fixed

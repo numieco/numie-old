@@ -22,24 +22,15 @@ if (window.innerWidth >= 992) {
 
         watcher.enterViewport(function () {
           document.querySelector('.bg-looper > svg > g > g').style.stroke = colors[i]
-          // scrollWatch.querySelector('.project-intro').classList.add('project-fadein')
-          // setTimeout(function () {
-          //   scrollWatch.querySelector('.project-showcase').classList.add('project-fadein')
-          // }, 1000)
-          //
-          // setTimeout (function () {
-          //   scrollWatch.querySelector('.project-intro').classList.remove('project-fadeout')
-          //   scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeout')
-          // }, 1500)
 
-          // currentLocation = window.scrollY
-
-          if (scrollWatch.querySelector('.project-showcase').classList.contains('project-fadedown')) {
-            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadedown')
-          }
-
-          if (scrollWatch.querySelector('.project-showcase').classList.contains('project-fadeup')) {
-            scrollWatch.querySelector('.project-showcase').classList.remove('project-fadeup')
+          var animateImage = scrollWatch.getElementsByClassName('animate-image')
+          for (var i=0; i<animateImage.length; i++) {
+            if (animateImage[i].classList.contains('project-fadedown')) {
+              animateImage[i].classList.remove('project-fadedown')
+            }
+            if (animateImage[i].classList.contains('project-fadeup')) {
+              animateImage[i].classList.remove('project-fadeup')
+            }
           }
 
           scrollWatch.querySelector('.project-intro .hr-line').style.width = '50px'
@@ -55,34 +46,19 @@ if (window.innerWidth >= 992) {
           }
 
           currentLocation = window.scrollY
-
         })
 
         watcher.exitViewport(function () {
 
-          // if (currentLocation <= window.scrollY) {
-          //   scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
-          //   scrollWatch.querySelector('.project-intro').classList.add('project-fadeout')
-          //
-          //   setTimeout(function () {
-          //     scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
-          //     scrollWatch.querySelector('.project-showcase').classList.add('project-fadeout')
-          //   }, 500)
-          // } else {
-          //   scrollWatch.querySelector('.project-intro').classList.remove('project-fadein')
-          //
-          //   setTimeout(function () {
-          //     scrollWatch.querySelector('.project-showcase').classList.remove('project-fadein')
-          //   }, 500)
-          // }
-          // currentLocation = window.scrollY
-
+          var animateImage = scrollWatch.getElementsByClassName('animate-image')
           if (currentLocation <= window.scrollY) {
-            console.log('page going up')
-            scrollWatch.querySelector('.project-showcase').classList.add('project-fadeup')
+            for (var i=0; i<animateImage.length; i++) {
+              animateImage[i].classList.add('project-fadeup')
+            }
           } else {
-            console.log('.page goign down')
-            scrollWatch.querySelector('.project-showcase').classList.add('project-fadedown')
+            for (var i=0; i<animateImage.length; i++) {
+              animateImage[i].classList.add('project-fadedown')
+            }
           }
 
           currentLocation = window.scrollY
