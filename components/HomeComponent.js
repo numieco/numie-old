@@ -13,6 +13,7 @@ export default class HomeComponent extends React.Component {
         <Header defaultLogo='red' url={ this.props.url } />
 
         <section className='home-section main-page-revealer'>
+        <div className='circle-wrapper'>
           <div className='circle-container'>
             <div className='circle' ></div>
             <div className='home-hero-title'>
@@ -21,7 +22,8 @@ export default class HomeComponent extends React.Component {
               <span>together.</span>
             </div>
           </div>
-
+        </div>
+        <div className='development-wrapper'>
           <div className='development section'>
             <img className='image hero title-image' src='static/images/blog/forest.jpg'>
             </img>
@@ -35,7 +37,8 @@ export default class HomeComponent extends React.Component {
               We’re in this with you until the end.
             </div>
           </div>
-
+        </div>
+        <div className='what-we-do-wrapper'>
           <div className='what-we-do section'>
             <div className='title'>
               What we do best
@@ -107,9 +110,10 @@ export default class HomeComponent extends React.Component {
               onClick={() => console.log('footerbutton')}
             />
           </div>
-
-          <div className='project-ref'></div>
+        </div>
+        <div className='projects-wrapper'>
           <ProjectsSection />
+        </div>
 
           <Footer />
         </section>

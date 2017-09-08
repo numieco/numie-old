@@ -83,14 +83,20 @@
       z-index: 1
       +small-desktop
         position: absolute
-        left: 85px
-        right: 70px
+        max-width: 992px
+        left: 11.5vw
+        right: 11.5vw
         flex-direction: row-reverse
         align-items: center
         justify-content: space-between
         height: 100vh
         margin-bottom: 0px
         overflow: hidden
+        +desktop
+          min-width: 992px
+          max-width: 992px
+          left: calc(50% - 496px)
+          right: calc(50% - 496px)
         .project-bg
           position: absolute
           bottom: 0

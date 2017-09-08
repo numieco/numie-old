@@ -194,6 +194,8 @@
       +small-desktop
         transform: rotate(-4deg)
         height: 8vw
+        width: 120vw
+        left: -20vw
     .title
       font-size: calc(2vw + 0.85rem)
       font-weight: bold
@@ -249,7 +251,6 @@
       +desktop
         margin-left: 40px
         width: calc(100% - 430px)
-
 
       .section, .card
         background: transparent
@@ -357,6 +358,37 @@
         width: calc(100% + 10px) !important
         padding-left: 5px
 
+  .circle-wrapper,
+  .development-wrapper,
+  .what-we-do-wrapper,
+  .projects-wrapper
+    min-width: 100vw
+    min-height: 100vh
+
+  .circle-wrapper, .development-wrapper, .what-we-do-wrapper
+    z-index: 1
+    position: relative
+
+  .circle-wrapper
+    background: #141516
+  .development-wrapper
+    background: #ffffff
+  .what-we-do-wrapper
+    background: #fcfdff
+  .projects-wrapper
+    background: #141516
+
+  .development, .what-we-do, .project-preview
+    margin: 0 auto
+  .development
+    max-width: calc(992px + 23.2vw)
+  .what-we-do
+    max-width: calc(992px + 23.75vw)
+  .project-preview
+    +desktop
+      max-width: 992px
+
+
   footer
     margin-top: 0
     +small-desktop
@@ -379,10 +411,10 @@
     min-height: 280px !important
     min-width: 280px !important
     border: 10px solid $faded-red
-    top: calc(50vh - 140px) !important
-    left: calc(50vw - 140px) !important
+    top: calc(50% - 140px) !important
+    left: calc(50% - 140px) !important
   .home-hero-title
-    top: calc(50vh - 33px) !important
+    top: calc(50% - 33px) !important
     span
       font-size: 60px !important
 
