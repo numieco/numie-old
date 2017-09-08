@@ -7,6 +7,10 @@ export default class ProjectsSection extends React.Component {
     super (props)
   }
 
+  componentDidMount () {
+    window.callOnLoad()
+  }
+
   render () {
     return (
       <div className='project-preview'>
