@@ -22,7 +22,7 @@ if (window.innerWidth >= 992) {
 
         watcher.enterViewport(function () {
           document.getElementById('Looper_Group').style.stroke = colors[index]
-          console.log(index)
+
           var animateImage = scrollWatch.getElementsByClassName('animate-image')
           for (var i=0; i<animateImage.length; i++) {
             if (animateImage[i].classList.contains('project-fadedown')) {
@@ -38,7 +38,7 @@ if (window.innerWidth >= 992) {
 
           setTimeout(function () {
             scrollWatch.querySelector('.view-case-study').style.opacity = 1
-          }, 600)
+          }, 1300)
 
           var textRevealBlocks = scrollWatch.getElementsByClassName('init-animate-object')
           for (var i=0; i<textRevealBlocks.length; i++) {
@@ -68,7 +68,7 @@ if (window.innerWidth >= 992) {
 
           setTimeout(function () {
             scrollWatch.querySelector('.view-case-study').style.opacity = 0
-          }, 600)
+          }, 1300)
 
           var textRevealBlocks = scrollWatch.getElementsByClassName('init-animate-object')
           for (var i=0; i<textRevealBlocks.length; i++) {
