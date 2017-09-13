@@ -85,7 +85,7 @@
       z-index: 1
       min-height: calc(100vh - 10vw)
       @media (max-width: 991px)
-        top: 0 !important
+        position: static !important
       +small-desktop
         position: absolute
         left: 6vw
@@ -164,6 +164,8 @@
           transition: width 1s 0.2s
           +tablet
             top: 10px
+          @media (max-width: 991px)
+            width: 50px !important
           +small-desktop
             width: 0px
             top: 25px
@@ -230,6 +232,8 @@
             background: #8125FB
             z-index: 2
             transition: transform 1s 1s
+            @media (max-width: 991px)
+              background: transparent !important
           .left
             transform: translate3d(-100%,0,0)
           .right
@@ -246,6 +250,8 @@
           display: block
           margin: 0 auto
           min-height: 36px
+          @media (max-width: 991px)
+            opacity: 1 !important
           +small-desktop
             opacity: 0
             margin-right: 0px
