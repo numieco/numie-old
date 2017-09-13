@@ -74,6 +74,18 @@ callOnLoad = () => {
         })
       })(i, arr, colors)
     }
+  } else {
+    var arr =  document.getElementsByClassName('project-details')
+    for (var i=0; i<arr.length; i++) {
+      ;(function (index, arr, colors) {
+        var scrollWatch = arr[index],
+        watcher = scrollMonitor.create(scrollWatch, { top: -window.innerHeight/2, bottom: -window.innerHeight/2 })
+
+        watcher.enterViewport(function () {
+          document.getElementById('Looper_Group').style.stroke = colors[index]
+        })
+      })(i, arr, colors)
+    }
   }
 }
 
