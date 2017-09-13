@@ -20,7 +20,7 @@
       top: 100vh !important
       bottom: 0px !important
     .bg-looper
-      position: absolute
+      position: fixed
       top: 0
       right: 0
       z-index: 0
@@ -81,6 +81,7 @@
       display: flex
       flex-direction: column
       z-index: 1
+      min-height: calc(100vh - 10vw)
       +small-desktop
         position: absolute
         left: 6vw
@@ -152,11 +153,17 @@
           content: ' '
           position: absolute
           background: #61d97a
-          top: 25px
-          left: 0
+          top: 30px
+          left: 10px
           height: 4px
-          width: 0px
+          width: 50px
           transition: width 1s 0.2s
+          +tablet
+            top: 10px
+          +small-desktop
+            width: 0px
+            top: 25px
+            left: 0px
 
         .title
           font-size: 24px
@@ -191,6 +198,11 @@
           text-align: left
           color: #ffffff
           margin-left: 30px
+          margin-bottom: 30px
+          .init-animate-object
+            min-height: 160px
+            +small-desktop
+              min-height: 180px
           +small-desktop
             margin-left: 45px
             font-size: 18px
@@ -199,10 +211,11 @@
         .cover-button
           width: 190px
           margin: 0 auto
-          margin-right: 0
           padding-right: 10px
           overflow: hidden
           position: relative
+          +small-desktop
+            margin-right: 0
           .cover-inner
             position: absolute
             bottom: 0
@@ -218,7 +231,6 @@
           .right
             transform: translate3d(100%,0,0) !important
 
-
         .view-case-study
           font-size: 16px
           font-weight: bold
@@ -228,14 +240,10 @@
           color: #61d97a !important
           width: 180px
           display: block
-          margin: 37px auto 0
+          margin: 0 auto
           min-height: 36px
-          opacity: 0
-          +medium-phone
-            margin-top: 67px
-          +tablet
-            margin-top: 87px
           +small-desktop
+            opacity: 0
             margin-right: 0px
 
         .footer-button
@@ -324,27 +332,31 @@
           transition-delay: 0.8s !important
 
     .animate-object
-      transform: translate3d(0px, 0%, 0px) !important
-      transition: transform 0.8s 0.6s, opacity 0.8s 0.6s !important
+      +small-desktop
+        transform: translate3d(0px, 0%, 0px) !important
+        transition: transform 0.8s 0.6s, opacity 0.8s 0.6s !important
 
     .init-animate-object
-      transform: translate3d(0px, 100%, 0px)
-      transition: transform 0.8s 0.6s, opacity 0.8s 0.6s !important
+      +small-desktop
+        transform: translate3d(0px, 100%, 0px)
+        transition: transform 0.8s 0.6s, opacity 0.8s 0.6s !important
 
     .project-fadeup
-      transform: translate3d(0,-100px,0) !important
-      opacity: 0 !important
-      &:nth-child(1)
-        transition-delay: 0.2s !important
-      &:nth-child(2)
-        transition-delay: 0.4s !important
+      +small-desktop
+        transform: translate3d(0,-100px,0) !important
+        opacity: 0 !important
+        &:nth-child(1)
+          transition-delay: 0.2s !important
+        &:nth-child(2)
+          transition-delay: 0.4s !important
     .project-fadedown
-      transform: translate3d(0,100px,0) !important
-      opacity: 0 !important
-      &:nth-child(1)
-        transition-delay: 0.2s !important
-      &:nth-child(2)
-        transition-delay: 0.4s !important
+      +small-desktop
+        transform: translate3d(0,100px,0) !important
+        opacity: 0 !important
+        &:nth-child(1)
+          transition-delay: 0.2s !important
+        &:nth-child(2)
+          transition-delay: 0.4s !important
 
   .project-preview--fixed
     position: fixed
