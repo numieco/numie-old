@@ -8,8 +8,8 @@ export default class ContactHeader extends React.Component {
         <div className='logo'>
           <NumieLogoRed />
         </div>
-        
-        <div className='close-button'>
+
+        <div className='close-button'onClick={this.props.onCloseClick}>
         </div>
       </div>
     )
