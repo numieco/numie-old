@@ -23,6 +23,7 @@ export default class ContactName extends React.Component {
   render () {
     return (
       <div className='contact-name'>
+        <div className='wrapper'>
         <span className='name-text'>My name is </span>
         <AutosizeInput
           name='form-field-name'
@@ -31,6 +32,7 @@ export default class ContactName extends React.Component {
           onChange={ this.handleName }
           placeholder='John Doe'
         />
+        </div>
       </div>
     )
   }
