@@ -5,6 +5,7 @@ import ContactFooter from '../components/ContactFooter'
 import ContactName from '../components/ContactName'
 import ContactInterest from '../components/ContactInterest'
 import ContactBudget from '../components/ContactBudget'
+import ContactEmail from '../components/ContactEmail'
 
 export default class ContactPage extends React.Component {
   constructor (props) {
@@ -17,7 +18,7 @@ export default class ContactPage extends React.Component {
       <div className='contact-wrapper'>
         <ContactHeader />
 
-        <ContactBudget />
+        <ContactEmail />
 
         <ContactFooter />
       </div>
