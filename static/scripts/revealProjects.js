@@ -89,7 +89,7 @@ callOnLoad = () => {
   }
 }
 
-window.callOnLoad = callOnLoad
+// window.callOnLoad = callOnLoad
 
 window.onscroll = () => {
   document.querySelector('.bg-looper > svg').style.transform = 'rotate(' + (window.scrollY / 180 / (Math.PI * 2)) + 'rad)'
@@ -99,4 +99,4 @@ window.addEventListener('resize', () => {
   callOnLoad ()
 })
 
-window.onload = callOnLoad
+// window.onload = callOnLoad
