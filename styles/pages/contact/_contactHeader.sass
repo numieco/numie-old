@@ -1,0 +1,25 @@
+.contact-header
+  max-height: 42px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  flex-direction: row
+  .logo
+    max-height: 42px
+    cursor: pointer
+  .close-button
+    height: 20px
+    width: 20px
+    position: relative
+    cursor: pointer
+    &:before, &:after
+      content: ''
+      position: absolute
+      height: 2px
+      width: 20px
+      background: white
+      top: calc(50% - 1px)
+    &:before
+      transform: rotate(135deg)
+    &:after
+      transform: rotate(45deg)
