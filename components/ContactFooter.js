@@ -9,6 +9,7 @@ export default class ContactFooter extends React.Component {
   render () {
     return (
       <div className='contact-footer'>
+      {/*
         <div className='nav-button prev'>
           <div className='arrow'>
             <ArrowSVG />
@@ -24,6 +25,10 @@ export default class ContactFooter extends React.Component {
         <span className='press-enter'>
           or press enter
         </span>
+        */}
+        <div className='nav-button home'>
+          home
+        </div>
       </div>
     )
   }
