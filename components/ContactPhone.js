@@ -25,7 +25,7 @@ export default class ContactPhone extends React.Component {
       <div className='contact-phone'>
         <span className='phone-text'>My phone number is </span>
         <AutosizeInput
-          phone='form-field-phone'
+          name='form-field-phone'
           value={this.state.phone}
           className='phone-input'
           onChange={ this.handlePhone }
