@@ -66,11 +66,29 @@ export default class ContactPage extends React.Component {
     ), 700)
   }
 
+  goToHomePage = () => {
+    showOpenAnimation({
+      type: 'start',
+      direction: 'tb',
+      delay: 0,
+      duration: 600,
+      bgcolor: '#e0394a'
+    })
+
+    setTimeout(() => Router.push(
+      '/?origin=contact',
+      '/'
+    ), 700)
+  }
+
   render () {
     return (
     <Layout>
       <div className='contact-wrapper'>
-        <ContactHeader onCloseClick={ this.closeContactAnimation } />
+        <ContactHeader
+          onLogoClick={ this.goToHomePage }
+          onCloseClick={ this.closeContactAnimation }
+        />
 
         <ContactSuccess />
 
