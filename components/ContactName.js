@@ -12,16 +12,7 @@ export default class ContactName extends React.Component {
     this.handleName = this.handleName.bind(this)
   }
 
-  // componentDidMount () {
-  //   window.addEventListener('keypress', this.handleName)
-  // }
-  //
-  // componentWillUnmount () {
-  //   window.removeEventListener('keypress', this.handleName)
-  // }
-  //
   handleName = (e) => {
-    // console.log(document.getElementById('contact-name').value)
     this.setState({
       name: e.target.value
     }, () => {
@@ -33,7 +24,6 @@ export default class ContactName extends React.Component {
     return (
       <div className='contact-name'>
         <span className='name-text'>My name is </span>
-        {/*<span id='contact-name' className='name-input' contentEditable="true"></span>*/}
         <AutosizeInput
           name='form-field-name'
           value={this.state.name}
