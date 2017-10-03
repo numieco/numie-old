@@ -24,14 +24,14 @@ export default class ContactName extends React.Component {
     return (
       <div className='contact-name'>
         <div className='wrapper'>
-        <span className='name-text'>My name is </span>
-        <AutosizeInput
-          name='form-field-name'
-          value={this.state.name}
-          className='name-input'
-          onChange={ this.handleName }
-          placeholder='John Doe'
-        />
+          <span className='name-text'>My name is </span>
+          <AutosizeInput
+            name='form-field-name'
+            value={this.state.name}
+            className='name-input'
+            onChange={ this.handleName }
+            placeholder='John Doe'
+          />
         </div>
       </div>
     )
