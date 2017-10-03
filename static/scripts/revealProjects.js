@@ -96,7 +96,7 @@ window.onscroll = () => {
 }
 
 window.addEventListener('resize', () => {
-  callOnLoad ()
+  //callOnLoad ()
 })
 
 // window.onload = callOnLoad
