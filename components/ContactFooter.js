@@ -19,10 +19,8 @@ export default class ContactFooter extends React.Component {
             <ArrowSVG />
           </div>
         </div>
-        {/*
-          <div className='skip'>Skip</div>
-          <div className='nav-button send'>Send</div>
-        */}
+        <div className='skip'>skip</div>
+        <div className='nav-button send'>Send</div>
         <span className='press-enter'>
           or press enter
         </span>
