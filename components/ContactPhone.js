@@ -22,7 +22,7 @@ export default class ContactPhone extends React.Component {
 
   render () {
     return (
-      <div className='contact-phone'>
+      <div className={ this.props.pageIndex === 4 ? 'contact-phone active' : 'contact-phone' }>
         <div className='wrapper'>
           <span className='phone-text'>My phone number is </span>
           <AutosizeInput
