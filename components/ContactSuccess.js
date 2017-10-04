@@ -25,7 +25,7 @@ export default class ContactMessage extends React.Component {
     }
 
     return (
-      <div className='contact-success'>
+      <div className={ this.props.pageIndex === 6 ? 'contact-success active' : 'contact-success' }>
         <div className='large-text'>Thanks for the message <b>{ this.state.name }!</b></div>
         <div className='small-text'>
           We’ll be in touch to discuss your <b>{ string }</b> project soon.
