@@ -9,26 +9,67 @@ export default class ContactFooter extends React.Component {
   render () {
     return (
       <div className='contact-footer'>
-      {/*
-        <div className='nav-button prev'>
-          <div className='arrow'>
-            <ArrowSVG />
-          </div>
-        </div>
-        <div className='nav-button next disable'>
-          <div className='arrow'>
-            <ArrowSVG />
-          </div>
-        </div>
-        <div className='skip'>skip</div>
-        <div className='nav-button send'>Send</div>
-        <span className='press-enter'>
-          or press enter
-        </span>
-        */}
-        <div className='nav-button home'>
-          home
-        </div>
+
+        {
+          this.props.pageIndex <= 5
+          ? (
+              <div className='nav-button prev' onClick={ this.props.decreaseIndex }>
+                <div className='arrow'>
+                  <ArrowSVG />
+                </div>
+              </div>
+            )
+          : null
+        }
+
+        {
+          this.props.pageIndex <= 4
+          ? (
+              <div className='nav-button next disable' onClick={ this.props.increaseIndex }>
+                <div className='arrow'>
+                  <ArrowSVG />
+                </div>
+              </div>
+            )
+          : null
+        }
+
+        {
+          this.props.pageIndex == 2
+          ? (
+              <div className='skip' onClick={ this.props.increaseIndex }>skip</div>
+            )
+          : null
+        }
+
+        {
+          this.props.pageIndex === 5
+          ? (
+              <div className='nav-button send'>Send</div>
+            )
+          : null
+        }
+
+        {
+          (this.props.pageIndex <= 4 & this.props.pageIndex != 2)
+          ? (
+              <span className='press-enter' onClick={ this.props.increaseIndex }>
+              or press enter
+              </span>
+            )
+          : null
+        }
+
+        {
+          this.props.pageIndex == 6
+          ? (
+              <div className='nav-button home' onClick={ this.props.navigateHome }>
+                home
+              </div>
+            )
+          : null
+        }
+
       </div>
     )
   }

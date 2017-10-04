@@ -20,10 +20,17 @@ var revealer = null
 var successRevealer = null
 
 let prevUrl = '/'
+let pageIndex = 0
 
 export default class ContactPage extends React.Component {
   constructor (props) {
     super (props)
+
+    this.state = {
+      pageIndex: 0
+    }
+
+    this.increaseIndex = this.increaseIndex.bind(this)
   }
 
   componentDidMount () {
@@ -81,26 +88,49 @@ export default class ContactPage extends React.Component {
     ), 700)
   }
 
+  increaseIndex = () => {
+    if (this.state.pageIndex <= 5) {
+      this.setState({
+        pageIndex: this.state.pageIndex + 1
+      }, () => console.log(this.state.pageIndex))
+    }
+
+  }
+
+  decreaseIndex = () => {
+    if (this.state.pageIndex > 0 && this.state.pageIndex != 0) {
+      this.setState({
+        pageIndex: this.state.pageIndex - 1
+      }, () => console.log(this.state.pageIndex))
+    }
+
+  }
+
   render () {
     return (
-    <Layout>
-      <div className='contact-wrapper'>
-        <ContactHeader
-          onLogoClick={ this.goToHomePage }
-          onCloseClick={ this.closeContactAnimation }
-        />
+      <Layout>
+        <div className='contact-wrapper'>
+          <ContactHeader
+            onLogoClick={ this.goToHomePage }
+            onCloseClick={ this.closeContactAnimation }
+          />
 
-        <ContactName />
-        <ContactInterest />
-        <ContactBudget />
-        <ContactEmail />
-        <ContactPhone />
-        <ContactMessage />
-        <ContactSuccess />
+          <ContactName pageIndex={ this.state.pageIndex } />
+          <ContactInterest pageIndex={ this.state.pageIndex } />
+          <ContactBudget pageIndex={ this.state.pageIndex } />
+          <ContactEmail pageIndex={ this.state.pageIndex } />
+          <ContactPhone pageIndex={ this.state.pageIndex } />
+          <ContactMessage pageIndex={ this.state.pageIndex } />
+          <ContactSuccess pageIndex={ this.state.pageIndex } />
 
-        <ContactFooter />
-      </div>
-    </Layout>
+          <ContactFooter
+            pageIndex={ this.state.pageIndex }
+            increaseIndex={ this.increaseIndex }
+            decreaseIndex={ this.decreaseIndex }
+            navigateHome={ this.goToHomePage }
+          />
+        </div>
+      </Layout>
     )
   }
 }
