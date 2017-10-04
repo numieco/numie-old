@@ -23,14 +23,16 @@ export default class ContactEmail extends React.Component {
   render () {
     return (
       <div className='contact-email'>
-        <span className='email-text'>My email is </span>
-        <AutosizeInput
-          name='form-field-email'
-          value={this.state.email}
-          className='email-input'
-          onChange={ this.handleEmail }
-          placeholder='email@company.com'
-        />
+        <div className='wrapper'>
+          <span className='email-text'>My email is </span>
+          <AutosizeInput
+            name='form-field-email'
+            value={this.state.email}
+            className='email-input'
+            onChange={ this.handleEmail }
+            placeholder='email@company.com'
+          />
+        </div>
       </div>
     )
   }
