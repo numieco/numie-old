@@ -22,7 +22,7 @@ export default class ContactMessage extends React.Component {
 
   render () {
     return (
-      <div className='contact-message'>
+      <div className={ this.props.pageIndex === 5 ? 'contact-message active' : 'contact-message' }>
         <textarea
           value={this.state.message}
           className='message-input'
