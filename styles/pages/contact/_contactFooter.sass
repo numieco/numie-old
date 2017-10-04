@@ -33,15 +33,21 @@
     opacity: 0.2
 
   .press-enter
-    font-size: 1rem
-    margin: 0 10px
-    cursor: pointer
+    display: none
+    +tablet
+      display: block
+      font-size: 1rem
+      margin: 0 10px
+      cursor: pointer
 
   .skip
-    margin: 0 10px
-    font-size: 16px
-    color: rgba(255, 255, 255, 0.2)
-    cursor: pointer
+    display: none
+    +tablet
+      display: block
+      margin: 0 10px
+      font-size: 16px
+      color: rgba(255, 255, 255, 0.2)
+      cursor: pointer
 
   .send, .home
     min-height: 50px
