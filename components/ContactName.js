@@ -22,7 +22,7 @@ export default class ContactName extends React.Component {
 
   render () {
     return (
-      <div className='contact-name'>
+      <div className={ this.props.pageIndex === 0 ? 'contact-name active' : 'contact-name' }>
         <div className='wrapper'>
           <span className='name-text'>My name is </span>
           <AutosizeInput
