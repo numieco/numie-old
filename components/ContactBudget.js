@@ -20,7 +20,7 @@ export default class ContactBudget extends React.Component {
 
   render () {
     return (
-      <div className='contact-budget'>
+      <div className={ this.props.pageIndex === 2 ? 'contact-budget active' : 'contact-budget' }>
         <div className='budget-value'>
           <span>My budget is </span>
           <span>${ this.state.budget }</span>
