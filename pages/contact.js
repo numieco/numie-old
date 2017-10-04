@@ -90,6 +90,12 @@ export default class ContactPage extends React.Component {
           onCloseClick={ this.closeContactAnimation }
         />
 
+        <ContactName />
+        <ContactInterest />
+        <ContactBudget />
+        <ContactEmail />
+        <ContactPhone />
+        <ContactMessage />
         <ContactSuccess />
 
         <ContactFooter />

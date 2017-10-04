@@ -12,14 +12,41 @@
   align-items: center
   flex-direction: column
   font-family: 'Open sans' !important
+
+  position: relative
   +tablet
     padding: 50px 60px 60px
 
   .contact-header,
-  .contact-footer,
-  .contact-name
+  .contact-footer
     width: 100%
     min-width: 100%
+
+  .contact-name,
+  .contact-interest,
+  .contact-budget,
+  .contact-email,
+  .contact-phone,
+  .contact-message,
+  .contact-success
+    width: 100%
+    min-width: 100%
+    position: absolute
+    height: calc(100vh - 172px)
+    top: 62px
+    bottom: 110px
+    z-index: -1
+    background: transparent
+
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    padding: 0 20px
+    +tablet
+      padding: 0 60px
+      top: 92px
+      height: calc(100vh - 202px)
 
 @import './contactHeader'
 @import './contactFooter'
