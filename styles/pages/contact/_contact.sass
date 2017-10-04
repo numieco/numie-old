@@ -22,6 +22,10 @@
     width: 100%
     min-width: 100%
 
+  .active
+    opacity: 1 !important
+    transform: translate(0, 0) !important
+
   .contact-name,
   .contact-interest,
   .contact-budget,
@@ -35,7 +39,6 @@
     height: calc(100vh - 172px)
     top: 62px
     bottom: 110px
-    z-index: -1
     background: transparent
 
     display: flex
@@ -43,6 +46,9 @@
     align-items: center
     flex-direction: column
     padding: 0 20px
+    transform: translate(0, 50px)
+    opacity: 0
+    transition: transform 0.3s linear, opacity 0.3s linear
     +tablet
       padding: 0 60px
       top: 92px
