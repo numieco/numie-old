@@ -22,7 +22,7 @@ export default class ContactEmail extends React.Component {
 
   render () {
     return (
-      <div className='contact-email'>
+      <div className={ this.props.pageIndex === 3 ? 'contact-email active' : 'contact-email' }>
         <div className='wrapper'>
           <span className='email-text'>My email is </span>
           <AutosizeInput
