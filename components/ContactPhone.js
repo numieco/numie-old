@@ -23,14 +23,16 @@ export default class ContactPhone extends React.Component {
   render () {
     return (
       <div className='contact-phone'>
-        <span className='phone-text'>My phone number is </span>
-        <AutosizeInput
-          name='form-field-phone'
-          value={this.state.phone}
-          className='phone-input'
-          onChange={ this.handlePhone }
-          placeholder='1118675309'
-        />
+        <div className='wrapper'>
+          <span className='phone-text'>My phone number is </span>
+          <AutosizeInput
+            name='form-field-phone'
+            value={this.state.phone}
+            className='phone-input'
+            onChange={ this.handlePhone }
+            placeholder='1118675309'
+          />
+        </div>
       </div>
     )
   }
