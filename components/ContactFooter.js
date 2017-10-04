@@ -45,7 +45,7 @@ export default class ContactFooter extends React.Component {
         {
           this.props.pageIndex === 5
           ? (
-              <div className='nav-button send'>Send</div>
+              <div className='nav-button send' onClick={ this.props.increaseIndex }>Send</div>
             )
           : null
         }
