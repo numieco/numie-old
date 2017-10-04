@@ -15,7 +15,7 @@ import React from 'react'
 
    render () {
      return (
-       <div className='contact-interest'>
+       <div className={ this.props.pageIndex === 1 ? 'contact-interest active' : 'contact-interest' }>
         <div className='contact-text'>
           I am interested in
         </div>
