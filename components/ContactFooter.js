@@ -6,6 +6,16 @@ export default class ContactFooter extends React.Component {
     super (props)
   }
 
+  componentDidMount () {
+    document.querySelector('.name-input').addEventListener('keypress', (e) => {
+      var keyCode = e.which || e.keyCode
+      if (keyCode === 13) {
+        this.props.increaseIndex()
+      }
+    })
+
+  }
+
   render () {
     return (
       <div className='contact-footer'>
