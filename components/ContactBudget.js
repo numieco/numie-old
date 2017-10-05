@@ -23,7 +23,7 @@ export default class ContactBudget extends React.Component {
       <div className={ this.props.pageIndex === 2 ? 'contact-budget active' : 'contact-budget' }>
         <div className='budget-value'>
           <span>My budget is </span>
-          <span>${ this.state.budget }</span>
+          <span>${ this.state.budget.toLocaleString() }</span>
         </div>
         <div className='budget-slider'>
           <Slider
