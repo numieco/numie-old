@@ -13,7 +13,7 @@ export default class ContactFooter extends React.Component {
         {
           this.props.pageIndex <= 5
           ? (
-              <div className='nav-button prev' onClick={ this.props.decreaseIndex }>
+              <div className='nav-button prev disable' onClick={ this.props.decreaseIndex }>
                 <div className='arrow'>
                   <ArrowSVG />
                 </div>
@@ -25,7 +25,7 @@ export default class ContactFooter extends React.Component {
         {
           this.props.pageIndex <= 4
           ? (
-              <div className='nav-button next disable' onClick={ this.props.increaseIndex }>
+              <div className='nav-button next' onClick={ this.props.increaseIndex }>
                 <div className='arrow'>
                   <ArrowSVG />
                 </div>
