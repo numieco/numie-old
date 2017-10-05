@@ -35,6 +35,8 @@
   .press-enter
     display: none
     +tablet
+      position: absolute
+      left: calc(50% + 72px)
       display: block
       font-size: 1rem
       margin: 0 10px
@@ -43,15 +45,20 @@
   .skip
     display: none
     +tablet
+      position: absolute
+      left: calc(50% + 72px)
       display: block
       margin: 0 10px
       font-size: 16px
       color: rgba(255, 255, 255, 0.2)
       cursor: pointer
 
+  .send
+    margin-right: -40px
+
   .send, .home
-    min-height: 50px
-    min-width: 100px
+    min-height: 52px
+    min-width: 102px
     font-size: 1rem
     line-height: 1rem
     letter-spacing: 2px
