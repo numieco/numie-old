@@ -27,7 +27,14 @@ export default class ContactPage extends React.Component {
     super (props)
 
     this.state = {
-      pageIndex: 0
+      pageIndex: 0,
+      validName: false,
+      validInterest: false,
+      validEmail: false,
+
+      nameError: false,
+
+      name: ''
     }
 
     this.increaseIndex = this.increaseIndex.bind(this)
@@ -88,13 +95,22 @@ export default class ContactPage extends React.Component {
     ), 700)
   }
 
+  validate = () => {
+    if (pageIndex == 0 && this.state.name != '') {
+      this.increaseIndex()
+    } else {
+      this.setState({
+        nameError: true
+      })
+    }
+  }
+
   increaseIndex = () => {
     if (this.state.pageIndex <= 5) {
       this.setState({
         pageIndex: this.state.pageIndex + 1
       }, () => console.log(this.state.pageIndex))
     }
-
   }
 
   decreaseIndex = () => {
@@ -103,7 +119,6 @@ export default class ContactPage extends React.Component {
         pageIndex: this.state.pageIndex - 1
       }, () => console.log(this.state.pageIndex))
     }
-
   }
 
   render () {
@@ -115,7 +130,17 @@ export default class ContactPage extends React.Component {
             onCloseClick={ this.closeContactAnimation }
           />
 
-          <ContactName pageIndex={ this.state.pageIndex } />
+          <ContactName
+            pageIndex={ this.state.pageIndex }
+            name={ this.state.name }
+            nameError={ this.state.nameError }
+            setName={ (value) => {
+              this.setState({
+                name: value,
+                nameError: (value != '' ? false : this.state.nameError)
+              })
+            } }
+          />
           <ContactInterest pageIndex={ this.state.pageIndex } />
           <ContactBudget pageIndex={ this.state.pageIndex } />
           <ContactEmail pageIndex={ this.state.pageIndex } />
@@ -125,7 +150,7 @@ export default class ContactPage extends React.Component {
 
           <ContactFooter
             pageIndex={ this.state.pageIndex }
-            increaseIndex={ this.increaseIndex }
+            increaseIndex={ this.validate }
             decreaseIndex={ this.decreaseIndex }
             navigateHome={ this.goToHomePage }
           />

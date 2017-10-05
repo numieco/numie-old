@@ -5,19 +5,11 @@ export default class ContactName extends React.Component {
   constructor (props) {
     super (props)
 
-    this.state = {
-      name: ''
-    }
-
     this.handleName = this.handleName.bind(this)
   }
 
   handleName = (e) => {
-    this.setState({
-      name: e.target.value
-    }, () => {
-      console.log(this.state.name)
-    })
+    this.props.setName(e.target.value)
   }
 
   render () {
@@ -27,11 +19,14 @@ export default class ContactName extends React.Component {
           <span className='name-text'>My name is </span>
           <AutosizeInput
             name='form-field-name'
-            value={this.state.name}
+            value={this.props.name}
             className='name-input'
             onChange={ this.handleName }
             placeholder='John Doe'
           />
+        </div>
+        <div className={ this.props.nameError ? 'error nameError' : 'error disable' }>
+          This field is required.
         </div>
       </div>
     )
