@@ -5,19 +5,11 @@ export default class ContactEmail extends React.Component {
   constructor (props) {
     super (props)
 
-    this.state = {
-      email: ''
-    }
-
     this.handleEmail = this.handleEmail.bind(this)
   }
 
   handleEmail = (e) => {
-    this.setState({
-      email: e.target.value
-    }, () => {
-      console.log(this.state.email)
-    })
+    this.props.setEmail(e.target.value)
   }
 
   render () {
@@ -27,11 +19,14 @@ export default class ContactEmail extends React.Component {
           <span className='email-text'>My email is </span>
           <AutosizeInput
             name='form-field-email'
-            value={this.state.email}
+            value={this.props.email}
             className='email-input'
             onChange={ this.handleEmail }
             placeholder='email@company.com'
           />
+        </div>
+        <div className={ this.props.emailError ? 'error emailError' : 'error emailError disable-err' }>
+          Invalid email.
         </div>
       </div>
     )
