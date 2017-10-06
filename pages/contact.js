@@ -33,8 +33,16 @@ export default class ContactPage extends React.Component {
       validEmail: false,
 
       nameError: false,
+      interestError: false,
 
-      name: ''
+      name: '',
+      interest: {
+        branding: false,
+        design: false,
+        dev: false,
+        marketing: false,
+        other: false
+      }
     }
 
     this.increaseIndex = this.increaseIndex.bind(this)
@@ -96,12 +104,30 @@ export default class ContactPage extends React.Component {
   }
 
   validate = () => {
-    if (pageIndex == 0 && this.state.name != '') {
+    if (this.state.pageIndex == 0 && this.state.name != '') {
       this.increaseIndex()
     } else {
       this.setState({
         nameError: true
       })
+    }
+
+    if (this.state.pageIndex == 1) {
+
+      if(!(this.state.interest.branding === false
+        && this.state.interest.design === false
+        && this.state.interest.dev === false
+        && this.state.interest.marketing === false
+        && this.state.interest.other === false)) {
+
+        this.increaseIndex()
+
+      } else {
+
+        this.setState({
+          interestError: true
+        })
+      }
     }
   }
 
@@ -141,7 +167,17 @@ export default class ContactPage extends React.Component {
               })
             } }
           />
-          <ContactInterest pageIndex={ this.state.pageIndex } />
+          <ContactInterest
+            pageIndex={ this.state.pageIndex }
+            interest={ this.state.interest }
+            interestError={ this.state.interestError }
+            changeInterestState = { (obj) => {
+              this.setState({
+                interest: Object.assign({}, this.state.interest, obj),
+                interestError: (Object.keys(obj).some(i => obj[i]) ? false : this.state.interestError)
+              },() => {console.log(this.state.interestError)})
+            }}
+          />
           <ContactBudget pageIndex={ this.state.pageIndex } />
           <ContactEmail pageIndex={ this.state.pageIndex } />
           <ContactPhone pageIndex={ this.state.pageIndex } />
