@@ -117,7 +117,7 @@ export default class ContactPage extends React.Component {
       }
     }
 
-    if (this.state.pageIndex == 1) {
+    if (this.state.pageIndex === 1) {
 
       if(!(this.state.interest.branding === false
         && this.state.interest.design === false
@@ -128,7 +128,6 @@ export default class ContactPage extends React.Component {
         this.increaseIndex()
 
       } else {
-
         this.setState({
           interestError: true
         })
@@ -154,7 +153,7 @@ export default class ContactPage extends React.Component {
     if (this.state.pageIndex <= 5) {
       this.setState({
         pageIndex: this.state.pageIndex + 1
-      }, () => console.log(this.state.pageIndex))
+      })
     }
   }
 
@@ -162,7 +161,7 @@ export default class ContactPage extends React.Component {
     if (this.state.pageIndex > 0 && this.state.pageIndex != 0) {
       this.setState({
         pageIndex: this.state.pageIndex - 1
-      }, () => console.log(this.state.pageIndex))
+      })
     }
   }
 
@@ -181,6 +180,7 @@ export default class ContactPage extends React.Component {
 
           <ContactName
             pageIndex={ this.state.pageIndex }
+            increaseIndex={ this.validate }
             name={ this.state.name }
             nameError={ this.state.nameError }
             setName={ (value) => {
@@ -190,8 +190,10 @@ export default class ContactPage extends React.Component {
               })
             } }
           />
+
           <ContactInterest
             pageIndex={ this.state.pageIndex }
+            increaseIndex={ this.validate }
             interest={ this.state.interest }
             interestError={ this.state.interestError }
             changeInterestState = { (obj) => {
@@ -201,9 +203,12 @@ export default class ContactPage extends React.Component {
               },() => {console.log(this.state.interestError)})
             }}
           />
+
           <ContactBudget pageIndex={ this.state.pageIndex } />
+
           <ContactEmail
             pageIndex={ this.state.pageIndex }
+            increaseIndex={ this.validate }
             email={ this.state.email }
             emailError={ this.state.emailError }
             setEmail={ (email) => {
@@ -214,8 +219,11 @@ export default class ContactPage extends React.Component {
             }}
 
           />
+
           <ContactPhone pageIndex={ this.state.pageIndex } />
+
           <ContactMessage pageIndex={ this.state.pageIndex } />
+
           <ContactSuccess pageIndex={ this.state.pageIndex } />
 
           <ContactFooter

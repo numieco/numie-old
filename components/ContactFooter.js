@@ -7,12 +7,19 @@ export default class ContactFooter extends React.Component {
   }
 
   componentDidMount () {
-    document.querySelector('.name-input').addEventListener('keypress', (e) => {
-      var keyCode = e.which || e.keyCode
-      if (keyCode === 13) {
-        this.props.increaseIndex()
-      }
-    })
+    // document.querySelector('.name-input').onkeypress = (e) => {
+    //   var keyCode = e.which || e.keyCode
+    //   if (keyCode === 13) {
+    //     this.props.increaseIndex()
+    //   }
+    // }
+    //
+    // document.querySelector('.email-input').onkeypress = (e) => {
+    //   var keyCode = e.which || e.keyCode
+    //   if (keyCode === 13) {
+    //     this.props.increaseIndex()
+    //   }
+    // }
 
   }
 
