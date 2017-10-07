@@ -1,5 +1,6 @@
 import React from 'react'
 import Router from 'next/router'
+import axios from 'axios'
 
 import Layout from '../containers/Layout'
 import ContactHeader from '../components/ContactHeader'
@@ -21,7 +22,7 @@ var successRevealer = null
 
 let prevUrl = '/'
 let pageIndex = 0
-let validIndex = [2, 4, 5, 6]
+let validIndex = [2, 5, 6]
 
 export default class ContactPage extends React.Component {
   constructor (props) {
@@ -36,6 +37,7 @@ export default class ContactPage extends React.Component {
       nameError: false,
       interestError: false,
       emailError: false,
+      phoneError: false,
 
       name: '',
       interest: {
@@ -45,10 +47,14 @@ export default class ContactPage extends React.Component {
         marketing: false,
         other: false
       },
+      interestString: '',
       email: '',
       budget: 5000,
       phone: '',
-      message: ''
+      message: '',
+
+      successName: '',
+      successInterest: {}
     }
 
     this.increaseIndex = this.increaseIndex.bind(this)
@@ -147,6 +153,17 @@ export default class ContactPage extends React.Component {
       }
     }
 
+    if (this.state.pageIndex == 4) {
+      console.log('phone')
+      if (this.state.phone == '' || this.validatePhone(this.state.phone))
+        this.increaseIndex()
+      else {
+        this.setState({
+          phoneError: true
+        })
+      }
+    }
+
     if (validIndex.includes(this.state.pageIndex)) {
       this.increaseIndex()
     }
@@ -170,6 +187,51 @@ export default class ContactPage extends React.Component {
 
   validateEmail = (email) => {
     return (/^(([^<>()[\]\\.,:\s@\"]+(\.[^<>()[\]\\.,:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
+  }
+
+  validatePhone = (number) => {
+    return (/^(\+?([0-9]{2})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(number))
+  }
+
+  sendData = () => {
+    this.setState({
+      successName: this.state.name,
+      successInterest: this.state.interest
+    })
+
+    axios({
+      method: 'POST',
+      url: '/getdata',
+      data: {
+        name: this.state.name,
+        interest: this.state.interestString,
+        email: this.state.email,
+        budget: this.state.budget,
+        phone: this.state.phone,
+        message: this.state.message
+      }
+    })
+    .then((response) => {
+      this.setState({
+        name: '',
+        interest: {
+          branding: false,
+          design: false,
+          dev: false,
+          marketing: false,
+          other: false
+        },
+        interestString: '',
+        email: '',
+        budget: 5000,
+        phone: '',
+        message: ''
+      }, this.increaseIndex())
+    })
+    .catch(function (error) {
+      console.log('AXIOS error')
+      console.log(error)
+    })
   }
 
   render () {
@@ -203,7 +265,17 @@ export default class ContactPage extends React.Component {
               this.setState({
                 interest: Object.assign({}, this.state.interest, obj),
                 interestError: (Object.keys(obj).some(i => obj[i]) ? false : this.state.interestError)
-              },() => {console.log(this.state.interestError)})
+              },() => {
+                let arr = []
+                Object.keys(this.state.interest).map((key) => {
+                  if (this.state.interest[key]) {
+                    arr.push(key)
+                  }
+                })
+                this.setState({
+                  interestString: arr.toString()
+                })
+              })
             }}
           />
 
@@ -224,13 +296,16 @@ export default class ContactPage extends React.Component {
                 emailError: (email != '' ? false : this.state.emailError)
               })
             }}
-
           />
 
           <ContactPhone
             pageIndex={ this.state.pageIndex }
             phone={ this.state.phone }
-            setPhone={ phone => this.setState({ phone }) }
+            phoneError={ this.state.phoneError }
+            setPhone={ phone => this.setState({
+              phone: phone,
+              phoneError: (phone != '' ? false : this.state.phoneError)
+            }) }
           />
 
           <ContactMessage
@@ -241,13 +316,8 @@ export default class ContactPage extends React.Component {
 
           <ContactSuccess
             pageIndex={ this.state.pageIndex }
-            name={ this.state.name }
-            interest={ this.state.interest }
-            budget={ this.state.budget }
-            email={ this.state.email }
-            phone={ this.state.phone }
-            message={ this.state.message }
-
+            name={ this.state.successName }
+            interest={ this.state.successInterest }
           />
 
           <ContactFooter
@@ -255,6 +325,7 @@ export default class ContactPage extends React.Component {
             increaseIndex={ this.validate }
             decreaseIndex={ this.decreaseIndex }
             navigateHome={ this.goToHomePage }
+            sendData={ this.sendData }
           />
         </div>
       </Layout>

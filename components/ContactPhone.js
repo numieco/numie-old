@@ -24,6 +24,9 @@ export default class ContactPhone extends React.Component {
             onChange={ this.handlePhone }
             placeholder='1118675309'
           />
+          <div className={ this.props.phoneError ? 'error phoneError' : 'error phoneError disable-err' }>
+            Invalid phone number.
+          </div>
         </div>
       </div>
     )

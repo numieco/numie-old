@@ -59,7 +59,8 @@ app.prepare()
       username: 'inquiries-bot',
       text: '=========================' +
         '\n\n*' + 'Inquiry!*' +
-        '\n\n*Name* : ' + req.body.firstname +
+        '\n\n*Name* : ' + req.body.name +
+        '\n\n*Interest* : ' + req.body.interest +
         '\n\n*Email* : ' + req.body.email +
         (
           req.body.phone != ''
@@ -67,11 +68,15 @@ app.prepare()
           : ''
         ) +
         (
-          req.body.company != ''
-          ? ('\n\n*Company* : ' + req.body.company)
+          req.body.budget != ''
+          ? ('\n\n*Budget* : ' + req.body.budget)
           : ''
         ) +
-        '\n\n*Message* : ' + req.body.description ,
+        (
+          req.body.message != ''
+          ? ('\n\n*Message* : ' + req.body.message)
+          : ''
+        )
     }, (err, resp) => {
       if (err)
         console.log(err)
@@ -94,7 +99,8 @@ app.prepare()
       to: process.env.NODE_ENV == 'production' ? 'yo@numie.co' : 'dhanesh.kapadiya92@gmail.com',
       replyTo: req.body.email,
       subject: 'Inquiry!',
-      html: '<b>Name</b> : ' + req.body.firstname +
+      html: '<b>Name</b> : ' + req.body.name +
+        '<br><b>Interest</b> : ' + req.body.interest +
         '<br><b>Email</b> : ' + req.body.email +
         (
           req.body.phone != ''
@@ -102,11 +108,15 @@ app.prepare()
           : ''
         ) +
         (
-          req.body.company != ''
-          ? ('<br><b>Company</b> : ' + req.body.company)
+          req.body.budget != ''
+          ? ('<br><b>Budget</b> : ' + req.body.budget)
           : ''
         ) +
-        '<br><b>Message</b> : ' + req.body.description,
+        (
+          req.body.message != ''
+          ? ('<br><b>Message</b> : ' + req.body.message)
+          : ''
+        )
     }
 
     transport.sendMail(mailOptions, (err, response) => {
