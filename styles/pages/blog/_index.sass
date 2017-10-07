@@ -1,0 +1,215 @@
+.blog-page
+  position: relative
+  min-height: 100vh
+  min-width: 100vw
+  .header
+    position: absolute
+    background-color: transparent
+    +small-desktop
+      top: 30px
+      left: 80px
+      right: 80px
+      width: calc(100% - 160px)
+    +desktop
+      left: 125px
+      right: 125px
+      width: calc(100% - 250px)
+
+.blog-page-main-section
+  padding-top: 80px
+  background-color: #f4f8fb
+  // General, re-used Components
+  .btn-container
+    position: relative
+    overflow: hidden
+    display: inline-block
+    padding-bottom: 10px
+    border-bottom: 1px solid blue
+
+  .read-btn
+    color: blue
+    transition: all 0.3s ease-in-out
+
+    &:hover
+      color: white
+      &:after
+        top: 0
+
+    &:after
+      content: ""
+      position: absolute
+      z-index: -1
+      width: 100%
+      height: 100%
+      top: 100%
+      left: 0
+      background-color: green
+      transition: all 0.3s ease-in-out
+
+  #heading
+    padding: 71px 20px 75px
+    margin-top: -80px
+    text-align: center
+    color: white
+    background-image: linear-gradient(310deg, rgba(224, 57, 74, 0.95), rgba(36, 37, 38, 0.95)), url("/static/images/blog/watch.jpg")
+    background-size: cover
+    background-position: center
+    +medium-phone
+      padding-top: 91px
+      padding-bottom: 80px
+    +tablet
+      align-items: center
+      padding-bottom: 95px
+    +small-desktop
+      padding-top: 150px
+      padding-bottom: 105px
+    +desktop
+      padding-bottom: 110px
+
+    .title
+      font-size: 30px
+      font-weight: bold
+      font-size: calc(1.475rem + 2vw)
+      line-height: 78px
+      letter-spacing: 3.8px
+      color: white
+      +tablet
+        font-size: calc(1.540rem + 2vw)
+      +small-desktop
+        font-size: calc(1.885rem + 2vw)
+        letter-spacing: 6.2px
+
+    .subtitle
+      opacity: 0.85
+      font-size: 14px
+      font-weight: 400
+      margin-left: auto
+      margin-right: auto
+      max-width: 400px
+      font-size: calc(0.475rem + 2vw)
+      line-height: calc(1.2rem + 2vw)
+      text-align: center
+      color: white
+      +tablet
+        max-width: 400px
+        opacity: 0.85
+        font-size: 18px
+        line-height: 26.0px
+        text-align: center
+        color: $white
+      +small-desktop
+        font-size: 20px
+        line-height: 30px
+        max-width: 500px
+      +desktop
+        line-height: 26px
+
+
+  #featured
+    // Linear gradient colors
+    $ft-red:   rgba(224, 57, 74, 0.95)
+    $ft-black: rgba(36, 37, 38, 0.95)
+
+    color: white
+    padding: 20px
+    text-align: center
+
+    background-image: linear-gradient(310deg, $ft-red, $ft-black), url("/static/images/blog/watch.jpg")
+    background-size: cover
+    background-position: center
+
+    .featured-title
+      margin-bottom: 20px
+      margin-top: 10px
+
+      font-size: 20px
+      font-size: calc(1.1rem + 0.3vmax)
+      font-weight: 600
+      line-height: 1.7
+      letter-spacing: 0.5px
+
+    .featured-desc
+      opacity: 0.8
+      margin-bottom: 36px
+
+      font-size: 12px
+      line-height: 1.83
+
+    .btn-container
+      border-bottom: 1px solid white
+    .featured-btn
+      color: white
+      opacity: 0.8
+      width: 24%
+      padding-bottom: 10px
+
+      font-size: 12px
+      letter-spacing: 0.9px
+
+
+  #category-bar
+    height: 67px
+    margin: 0
+    overflow-x: hidden
+    font-size: 12px
+    a
+      border-bottom: 0
+      opacity: 0.5
+
+  #posts
+    display: flex
+    padding: 20px 4vw
+    padding-bottom: 0px
+    background: transparent
+    margin-top: -72px
+    +desktop
+      margin: -72px auto 0
+    .single-post-container
+      max-width: 992px
+      width: 100%
+      margin: 0 auto
+      display: flex
+      flex-direction: column
+      +tablet
+        flex-wrap: wrap
+        justify-content: space-between
+        flex-direction: row
+
+  #load-more
+    width: 50px
+    height: 50px
+    border-radius: 300px
+    background-color: #252525
+    color: $dark-grey
+    margin: 5rem auto 0
+    text-align: center
+    font-size: .5rem
+    font-weight: 600
+    letter-spacing: 0.5px
+    text-align: center
+    color: white !important
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding-left: 2px
+    padding-top: 5px
+    +ease(.2s)
+    +tablet
+      height: 70px
+      width: 70px
+      font-size: 10px
+      font-size: .63rem
+    +small-desktop
+      margin-top: 60px
+      height: 100px
+      width: 100px
+      font-size: 14.3px
+
+    &:hover
+      transform: scale(1.1)
+      cursor: pointer
+    &:focus
+      transform: scale(.90)
+  footer
+    margin-top: 0px

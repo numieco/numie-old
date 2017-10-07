@@ -38,7 +38,7 @@ export default class Layout extends Component {
           <title>{page.index.title}</title>
 
           <meta charSet='utf-8'></meta>
-          <meta http-equiv='x-ua-compatible' content='ie=edge'></meta>
+          <meta httpEquiv='x-ua-compatible' content='ie=edge'></meta>
           <meta name='format-detection' content='telephone=no'></meta>
           <meta name='viewport' content='width=device-width,initial-scale=1'></meta>
           <meta content='width=device-width' name='viewport'></meta>
@@ -68,17 +68,22 @@ export default class Layout extends Component {
           <meta content={page.index.title} name='twitter:title'></meta>
           <meta content={page.index.description} name='twitter:description'></meta>
           <meta content={page.index.twitterShare} name='twitter:image'></meta>
-          
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet" />
 
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet" />
           <style dangerouslySetInnerHTML={{ __html: stylesheet }}/>
 
         </Head>
 
-        {this.props.children}
+        <main>
+          {this.props.children}
+        </main>
 
-        <script type="text/javascript" src='static/scripts/anime.min.js'></script>
-        <script type="text/javascript" src='static/scripts/main.js'></script>
+        <script type="text/javascript" src='/static/scripts/anime.min.js'></script>
+        <script type="text/javascript" src='/static/scripts/main.js'></script>
+        <script type="text/javascript" src='/static/scripts/jquery-3.2.1.min.js'></script>
+        <script type="text/javascript" src='/static/scripts/sticky.min.js'></script>
+        <script type="text/javascript" src='/static/scripts/scrollMonitor.js'></script>
+        <script type="text/javascript" src='/static/scripts/revealProjects.js'></script>
 
       </div>
 

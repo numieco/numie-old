@@ -1,0 +1,31 @@
+.contact-name
+  font-size: calc(30px + (50 - 30) * ((100vw - 375px) / (768 - 375)))
+  text-align: center
+  @media (max-width: 374px)
+    font-size: 30px
+  +tablet
+    font-size: 50px
+  .name-text
+    opacity: 0.2
+    color: white
+  .name-input
+    input
+      background: transparent
+      border: none
+      color: white
+      font-size: calc(30px + (50 - 30) * ((100vw - 375px) / (768 - 375)))
+      outline: none
+      border-bottom: 1px solid #ffffff
+      min-width: 10px
+      display: inline-block
+      text-align: left
+      +placeholder
+        color: white
+      @media (max-width: 374px)
+        font-size: 30px
+      +tablet
+        font-size: 50px
+
+  .nameError
+    bottom: 30%
+    left: 0

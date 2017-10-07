@@ -1,0 +1,159 @@
+.bg-transparent
+  background-image: linear-gradient(to bottom, #f4f8fb, #ffffff) !important
+  h3, .sub-promise, input, span
+    color: #141516 !important
+  input
+    background-image: linear-gradient(to bottom, #f4f8fb, #ffffff) !important
+  #sub-btn, .subscribe-button
+    background-color: #141516 !important
+    color: #ffffff !important
+  span
+    &:after
+      background: #141516 !important
+
+.success-message
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  opacity: 0
+  span
+    font-size: calc(0.634rem + 2vw)
+    text-align: center
+    color: white
+    font-weight: bold
+    position: relative
+    &:after
+      content: ' '
+      position: absolute
+      height: 3px
+      width: 150px
+      bottom: -20px
+      background: #ffffff
+      left: calc(50% - 75px)
+
+
+.hide-success
+  z-index: -1
+
+.content-fadein
+  transition: opacity 0.5s ease-in
+  opacity: 1 !important
+  z-index: 0
+.content-fadeout, .failure-fadeout
+  transition: opacity 1s ease-in
+  opacity: 0 !important
+.failure-fadein
+  transition: opacity 0.5s ease-in
+  transition-delay: 2s
+  opacity: 1 !important
+  z-index: 0
+
+
+#subscribe
+  margin-top: 50px
+  height: 300px
+  width: 100%
+  background: #141516
+  padding: 20px
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  position: relative
+  +small-desktop
+    height: 400px
+  .doodles
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    svg
+      width: inherit
+      height: inherit
+
+  .error
+    color: $numie-red
+    margin-top: -24px
+    font-size: calc(0.3rem + 1vw)
+
+.sub-tagline
+  font-size: calc(0.925rem + 1vw)
+  text-align: center
+  color: white
+  margin: 0 0 20px
+  max-width: 350px
+  +tablet
+    max-width: 344px
+
+#sub-btn
+  padding: 2px
+  margin: 0 0 20px
+  width: 100%
+  border-radius: 4px
+  input
+    color: white
+    background-color: $dark-grey
+    font-size: 16px
+    text-align: left
+    width: 100%
+    height: 50px
+    margin: auto
+    padding-left: 10px
+    padding-right: 10px
+    border-radius: 4px
+    border: none !important
+    +tablet
+      border-top-left-radius: 4px
+      border-bottom-left-radius: 4px
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+  .subscribe-button
+    color: $dark-grey
+    width: 100%
+    height: 50px
+    text-align: center
+    font-size: 14px
+    font-weight: 600
+    letter-spacing: 0.9px
+    +ease(.2s)
+    &:hover
+      //background-color: #e2e2e2
+      color: $faded-red
+.sub-promise
+  opacity: 0.8
+  font-size: calc(0.55rem + 1vw)
+  text-align: center
+  color: white
+  font-weight: 400
+
++tablet
+  .sub-tagline
+    width: 344px
+    font-size: 24px
+    text-align: center
+    color: $white
+  #sub-btn
+    max-width: 480px
+    display: flex
+    flex-direction: row
+    .control
+      width: 100%
+    .subscribe-button
+      width: 50%
+
++small-desktop
+  #subscribe
+    align-self: flex-start
+    #sub-btn
+      max-width: 480px
+    .sub-promise
+      text-align: left
+      margin: 0
+      font-size: calc(0.255rem + 1vw)

@@ -1,0 +1,57 @@
+.contact-interest
+  .contact-text
+    text-align: center
+    font-size: 30px
+    color: #ffffff
+    opacity: 0.2
+    +small-desktop
+      font-size: 50px
+
+  .button-wrapper
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    color: white
+    margin-top: 30px
+    +small-desktop
+      margin-top: 40px
+      flex-direction: row
+
+    .pair-wrapper
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      margin-bottom: 30px
+      width: calc(100% - 40px)
+      +small-desktop
+        margin-bottom: 0
+
+      .interest-btn
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 20px
+        max-height: 50px
+        height: 50px
+        margin: 0 15px
+        border: solid 1px rgba(255, 255, 255, 0.8)
+        border-radius: 4px
+        max-width: 142px
+        min-width: 142px
+        font-size: 1rem
+        color: rgba(255, 255, 255, 0.85)
+        cursor: pointer
+        +small-desktop
+          min-width: auto
+          margin: 0 10px
+
+      .disable
+        opacity: 0.2
+
+  .interestError
+    left: 0
+    bottom: 10%
+    +tablet
+      bottom: 20%

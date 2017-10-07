@@ -1,0 +1,382 @@
+.home-section
+  .project-preview
+    min-height: 100vh
+    background-color: $numie-black !important
+    padding: 20px
+    display: flex
+    flex-direction: column
+    position: relative
+    overflow: hidden
+    +large-phone
+      padding: 5vw
+    +tablet
+      padding: 30px 11.1vw 50px
+    +small-desktop
+      padding: 0
+      justify-content: space-between
+    div
+      background: transparent
+    .bg-looper--bottom
+      top: 100vh !important
+      bottom: 0px !important
+    .bg-looper
+      position: fixed
+      top: 0
+      right: 0
+      z-index: 0
+      overflow: hidden
+      width: 100vw
+      height: 100vh
+      padding: 20%
+      +small-desktop
+        position: fixed
+        padding: 0
+        z-index: 0 !important
+      svg
+        height: 200vh
+        width: 300vw
+        position: absolute
+        right: -80vw
+        bottom: 65vh
+        transition: all 0.09s linear
+        g
+          g
+            transition: stroke .5s ease
+
+        @media (min-width: 768px) and (min-height: 1024px)
+          right: -80vw
+          bottom: 75vh
+
+        +small-desktop
+          width: 300vw
+          height: 300vh
+          right: -35vw
+          bottom: -100vh
+          z-index: 0
+        @media (min-width: 1024px) and (min-height: 1366px)
+          right: 10vw
+        @media (min-width: 1050px)
+          right: -50vw
+        @media (min-width: 1100px)
+          right: -60vw
+        @media (min-width: 1400px)
+          right: -70vw
+        @media (min-width: 1600px)
+          right: -80vw
+
+    .project-details
+      display: flex
+      width: 100%
+      position: relative
+      margin-bottom: 50px
+      min-height: 100vh
+      &:last-child
+        margin-bottom: 0px
+
+      +small-desktop
+        margin-bottom: 0
+        justify-content: center
+        min-height: 100vh
+        height: calc(100vh + 1000px)
+
+    .project
+      display: flex
+      flex-direction: column
+      z-index: 1
+      justify-self: center
+      align-self: center
+      @media (max-width: 991px)
+        position: static !important
+      +small-desktop
+        position: absolute
+        left: 6vw
+        right: 6vw
+        flex-direction: row-reverse
+        align-items: center
+        justify-content: space-between
+        height: 100vh
+        margin-bottom: 0px
+        overflow: hidden
+        .project-bg
+          position: absolute
+          bottom: 0
+          left: 0
+          height: 100vh
+          width: 100vw
+          background: transparent
+        .project-bg--red
+          @extend .project-bg
+          background-color: red
+          opacity: 0.4
+
+        .image-group-1, .image-group-2
+          img
+            width: 100%
+            max-width: none
+            margin-bottom: 10px
+            +tablet
+              margin-bottom: 20px
+            +large-phone
+              width: calc(100% + 2vw)
+
+      .project-showcase
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: flex-start
+        +small-desktop
+          flex: 0 0 calc(50% - 50px)
+          max-width: 465px
+          opacity: 1
+        .animate-image
+          transform: translate3d(0,0px,0)
+          transition: transform 1s, opacity 1s
+          &:nth-child(1)
+            transition-delay: 1.2s !important
+          &:nth-child(2)
+            transition-delay: 1.4s !important
+        .section
+          padding: 0
+          flex: 0 0 50%
+        .image-group-1
+          margin-top: 25vw
+          +small-desktop
+            margin-top: 14vw
+
+      .project-intro
+        padding-top: 60px
+        padding-left: 10px
+        position: relative
+        min-height: 290px
+        +tablet
+          padding-top: 40px
+        +small-desktop
+          padding-left: 0
+          flex: 0 0 50%
+          max-width: 490px
+        .hr-line
+          content: ' '
+          position: absolute
+          background: #61d97a
+          top: 30px
+          left: 10px
+          height: 4px
+          width: 50px
+          transition: width 1s 0.2s
+          +tablet
+            top: 10px
+          @media (max-width: 991px)
+            width: 50px !important
+          +small-desktop
+            width: 0px
+            top: 25px
+            left: 0px
+
+        .title
+          font-size: 24px
+          font-weight: 600
+          text-align: left
+          color: #ffffff
+          +small-desktop
+            font-size: 34px
+
+        .tech
+          transform: translateX(-50%) translateY(-50%) rotate(-90deg)
+          position: absolute
+          top: 193px
+          left: 15px
+          font-size: 12px
+          line-height: 32.0px
+          letter-spacing: 0.9px
+          text-align: right
+          color: #61d97a
+          +tablet
+            top: 173px
+          +small-desktop
+            top: 195px
+            left: 5px
+            font-size: 14px
+            letter-spacing: 1px
+
+        .description
+          opacity: 0.85
+          font-size: 16px
+          line-height: 30.0px
+          text-align: left
+          color: #ffffff
+          margin-left: 30px
+          margin-bottom: 30px
+          .init-animate-object
+            min-height: 160px
+            +small-desktop
+              min-height: 180px
+          +small-desktop
+            margin-left: 45px
+            font-size: 18px
+            line-height: 32px
+
+        .cover-button
+          width: 190px
+          margin: 0 auto
+          padding-right: 10px
+          overflow: hidden
+          position: relative
+          +small-desktop
+            margin-right: 0
+          .cover-inner
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            height: 36px
+            width: 100%
+            background: #8125FB
+            z-index: 2
+            transition: transform 1s 1s
+            @media (max-width: 991px)
+              background: transparent !important
+          .left
+            transform: translate3d(-100%,0,0)
+          .right
+            transform: translate3d(100%,0,0) !important
+
+        .view-case-study
+          font-size: 16px
+          font-weight: bold
+          line-height: 16.0px
+          letter-spacing: 2px
+          text-align: center
+          color: #61d97a !important
+          width: 180px
+          display: block
+          margin: 0 auto
+          min-height: 36px
+          @media (max-width: 991px)
+            opacity: 1 !important
+          +small-desktop
+            opacity: 0
+            margin-right: 0px
+
+        .footer-button
+          &:before, &:after
+            background-color: rgba(255, 255, 255, 0.1)
+            height: 30px
+            top: 3px !important
+          &:before
+            width: 40px
+          &:after
+            right: -10px
+          &:hover:before
+            width: 0%
+          &:hover:after
+            width: calc(100% + 10px)
+
+          span
+            width: calc(100% + 10px) !important
+            padding-left: 5px
+            &:hover
+              color: white
+
+    .clique-meet
+      .project-intro
+        .hr-line
+          background: #61D97A
+        .tech
+          color: #61D97A
+        .view-case-study
+          color: #61D97A !important
+        .cover-button
+          .cover-inner
+            background: #61D97A
+      .project-showcase
+        .image-group-1
+          z-index: 1
+          img
+            margin-left: 12vw
+            +small-desktop
+              margin-left: 5vw
+        .image-group-2
+          img
+            margin-left: -8vw
+            +small-desktop
+              margin-left: -2vw
+
+    .kic
+      .project-intro
+        .hr-line
+          background: #8125FB
+        .tech
+          color: #8125FB
+        .view-case-study
+          color: #8125FB !important
+        .cover-button
+          .cover-inner
+            background: #8125FB
+      .project-showcase
+        .image-group-1
+          z-index: 1
+          margin-top: 0
+          +small-desktop
+            margin-top: -15vh
+          img
+            +small-desktop
+              width: 100%
+        .image-group-2
+          margin-top: 120px
+          +small-desktop
+            margin-top: 0
+          img
+            +small-desktop
+              margin-left: -4vw
+              margin-top: 15vh
+
+    .reveal-object
+      overflow: hidden
+      &:nth-child(1)
+        .init-animate-object
+          transition-delay: 0.4s !important
+      &:nth-child(2)
+        .init-animate-object
+          transition-delay: 0.6s !important
+      &:nth-child(3)
+        .init-animate-object
+          transition-delay: 0.8s !important
+
+    .animate-object
+      +small-desktop
+        transform: translate3d(0px, 0%, 0px) !important
+        transition: transform 0.8s 0.6s, opacity 0.8s 0.6s !important
+
+    .init-animate-object
+      +small-desktop
+        transform: translate3d(0px, 100%, 0px)
+        transition: transform 0.8s 0.6s, opacity 0.8s 0.6s !important
+
+    .project-fadeup
+      +small-desktop
+        transform: translate3d(0,-100px,0) !important
+        opacity: 0 !important
+        &:nth-child(1)
+          transition-delay: 0.2s !important
+        &:nth-child(2)
+          transition-delay: 0.4s !important
+    .project-fadedown
+      +small-desktop
+        transform: translate3d(0,100px,0) !important
+        opacity: 0 !important
+        &:nth-child(1)
+          transition-delay: 0.2s !important
+        &:nth-child(2)
+          transition-delay: 0.4s !important
+
+  .project-preview--fixed
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 9999
+  .project-ref--filled
+    width: 100vw
+    height: 300vh
+    display: block

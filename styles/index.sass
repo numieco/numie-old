@@ -1,37 +1,49 @@
-html
-  -webkit-font-smoothing: antialiased
-  //-webkit-font-smoothing: subpixel-antialiased
-  -moz-osx-font-smoothing: grayscale
-  -webkit-overflow-scrolling: touch
+//Vendors
+// @import normalize.css // Need to use
+// @import '~bulma' // Need to use
+@import 'utilities/bulmaSupport'
+
+//Helpers
+@import 'utilities/mixins'
+@import 'utilities/variables'
+
 
 body
   margin: 0
-  font-family: 'Open sans'
-  min-height: 100vh
+  font-family: 'Open sans' !important
   position: relative
-  margin: 0
+  background: #141516
+  overflow-x: visible
 
 img
   width: 100%
   display: table
 
-//Vendors
-//@import normalize.css // Need to use
-//@import '~bulma' // Need to use
+.main-page-revealer
+  overflow: hidden
 
-//Pages
-@import 'pages/home/index'
-@import 'pages/about/index'
-@import 'pages/work/index'
-@import 'pages/contact/index'
-
-//Components
-@import 'components/header'
 
 //Animations
 @import 'utilities/blockReveal'
 @import 'utilities/keyframes'
 
-//Helpers
-@import 'utilities/mixins'
-@import 'utilities/variables'
+//Utility components
+@import 'components/footerButton'
+@import 'components/callToAction'
+@import 'components/button'
+
+//Pages
+@import 'pages/home/index'
+@import 'pages/about/index'
+@import 'pages/work/index'
+@import 'pages/blog/index'
+// @import 'pages/contact/index'
+// @import 'pages/contact/newContact'
+@import 'pages/contact/contact'
+
+//Components
+@import 'components/header'
+@import 'components/footer'
+@import 'components/singlePost'
+@import 'components/individualBlog'
+@import 'components/projectSection'

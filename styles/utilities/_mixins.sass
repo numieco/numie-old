@@ -1,1 +1,37 @@
 @import 'variables'
+
+=medium-phone
+  @media (min-width: 375px)
+    @content
+
+=large-phone
+  @media (min-width: 414px)
+    @content
+
+=tablet
+  @media (min-width: 768px)
+    @content
+
+=small-desktop
+  @media (min-width: 992px)
+    @content
+
+=desktop
+  @media (min-width: 1280px)
+    @content
+
+=ease($time)
+  transition: $time all ease-in-out
+
+=easeCubic($time)
+  transition: all $time cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content

@@ -1,0 +1,32 @@
+.btn
+  position: relative
+  display: inline-block
+  vertical-align: middle
+  zoom: 1
+  text-align: center
+  padding: 15px 22px
+  line-height: 1em
+  font-size: .9rem
+  color: black
+  outline: none
+  text-transform: uppercase
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06)
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  &:hover
+    text-decoration: none
+    cursor: pointer
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)
+    transform: translateY(-1px)
+
+.primary
+  @extend .btn
+  border-radius: 50px
+  border: solid 1px black
+  background: white
+
+.secondary
+  @extend .primary
+  border-radius: 4px
+
+.hollow
+  background: transparent

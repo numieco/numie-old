@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
+import HomeComponent from '../components/HomeComponent'
 import ContactPage from './contact'
 import Layout from '../containers/Layout'
 
@@ -8,12 +9,8 @@ export default class Home extends React.Component {
     return (
       <div>
         <Layout>
-          <main>
-            <Header />
-            <ContactPage />
-          </main>
+            <HomeComponent url={ this.props.url } />
         </Layout>
-
       </div>
     )
   }

@@ -16,6 +16,9 @@ const smtpTransport = require('nodemailer-smtp-transport')
 const xoauth2 = require('xoauth2')
 const Slack = require('slack-node')
 
+const ghostMiddleware = require('./server/ghost-middleware')
+const mailChimpMiddleware = require('./server/mailchimp-middleware')
+
 const secret =  process.env.NODE_ENV == 'production' ? process.env : require('./secrets')
 const host = process.env.HOST || "localhost"
 const port = process.env.PORT || 3000
@@ -39,6 +42,15 @@ app.prepare()
       next()
   })
 
+  server.get('/fetchposts', ghostMiddleware.fetchAllPosts)
+  server.get('/fetch-single-post', ghostMiddleware.fetchSinglePost)
+
+  server.get('/blog/:id', (req, res) => {
+    return app.render(req, res, '/_individualBlog', req.query, req.params)
+  })
+
+  server.post('/subscribe', mailChimpMiddleware.subscribe)
+
   server.post('/getdata', (req, res) => {
     console.log(req.body)
 
@@ -46,8 +58,9 @@ app.prepare()
       channel: 'inquiries',
       username: 'inquiries-bot',
       text: '=========================' +
-        '\n\n*' + (req.body.budget != '' ? 'Work' : 'General') + '*' + ' Inquiry!' +
-        '\n\n*Name* : ' + req.body.firstname +
+        '\n\n*' + 'Inquiry!*' +
+        '\n\n*Name* : ' + req.body.name +
+        '\n\n*Interest* : ' + req.body.interest +
         '\n\n*Email* : ' + req.body.email +
         (
           req.body.phone != ''
@@ -59,7 +72,11 @@ app.prepare()
           ? ('\n\n*Budget* : ' + req.body.budget)
           : ''
         ) +
-        '\n\n*Message* : ' + req.body.description ,
+        (
+          req.body.message != ''
+          ? ('\n\n*Message* : ' + req.body.message)
+          : ''
+        )
     }, (err, resp) => {
       if (err)
         console.log(err)
@@ -79,10 +96,11 @@ app.prepare()
 
     let mailOptions = {
       from: req.body.email,
-      to: 'dhanesh.kapadiya92@gmail.com',
+      to: process.env.NODE_ENV == 'production' ? 'yo@numie.co' : 'dhanesh.kapadiya92@gmail.com',
       replyTo: req.body.email,
-      subject: req.body.budget != '' ? 'Work Inquiry!' : 'General Inquiry!',
-      html: '<b>Name</b> : ' + req.body.firstname +
+      subject: 'Inquiry!',
+      html: '<b>Name</b> : ' + req.body.name +
+        '<br><b>Interest</b> : ' + req.body.interest +
         '<br><b>Email</b> : ' + req.body.email +
         (
           req.body.phone != ''
@@ -94,7 +112,11 @@ app.prepare()
           ? ('<br><b>Budget</b> : ' + req.body.budget)
           : ''
         ) +
-        '<br><b>Message</b> : ' + req.body.description,
+        (
+          req.body.message != ''
+          ? ('<br><b>Message</b> : ' + req.body.message)
+          : ''
+        )
     }
 
     transport.sendMail(mailOptions, (err, response) => {
