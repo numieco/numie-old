@@ -24,9 +24,9 @@ export default class ContactName extends React.Component {
             onChange={ this.handleName }
             placeholder='John Doe'
           />
-        </div>
-        <div className={ this.props.nameError ? 'error nameError' : 'error nameError disable-err' }>
-          This field is required.
+          <div className={ this.props.nameError ? 'error nameError' : 'error nameError disable-err' }>
+            This field is required.
+          </div>
         </div>
       </div>
     )

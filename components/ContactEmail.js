@@ -24,9 +24,9 @@ export default class ContactEmail extends React.Component {
             onChange={ this.handleEmail }
             placeholder='email@company.com'
           />
-        </div>
-        <div className={ this.props.emailError ? 'error emailError' : 'error emailError disable-err' }>
-          Invalid email.
+          <div className={ this.props.emailError ? 'error emailError' : 'error emailError disable-err' }>
+            Invalid email.
+          </div>
         </div>
       </div>
     )
