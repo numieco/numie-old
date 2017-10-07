@@ -5,19 +5,11 @@ export default class ContactPhone extends React.Component {
   constructor (props) {
     super (props)
 
-    this.state = {
-      phone: ''
-    }
-
     this.handlePhone = this.handlePhone.bind(this)
   }
 
   handlePhone = (e) => {
-    this.setState({
-      phone: e.target.value
-    }, () => {
-      console.log(this.state.phone)
-    })
+    this.props.setPhone(e.target.value)
   }
 
   render () {
@@ -27,7 +19,7 @@ export default class ContactPhone extends React.Component {
           <span className='phone-text'>My phone number is </span>
           <AutosizeInput
             name='form-field-phone'
-            value={this.state.phone}
+            value={this.props.phone}
             className='phone-input'
             onChange={ this.handlePhone }
             placeholder='1118675309'

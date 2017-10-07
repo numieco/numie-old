@@ -5,17 +5,11 @@ export default class ContactBudget extends React.Component {
   constructor (props) {
     super (props)
 
-    this.state = {
-      budget: 5000
-    }
-
     this.handleBudget = this.handleBudget.bind(this)
   }
 
   handleBudget = (value) => {
-    this.setState({
-      budget: value
-    })
+    this.props.setBudget(value)
   }
 
   render () {
@@ -23,7 +17,7 @@ export default class ContactBudget extends React.Component {
       <div className={ this.props.pageIndex === 2 ? 'contact-budget active' : 'contact-budget' }>
         <div className='budget-value'>
           <span>My budget is </span>
-          <span>${ this.state.budget.toLocaleString() }</span>
+          <span>${ this.props.budget.toLocaleString() }</span>
         </div>
         <div className='budget-slider'>
           <Slider
@@ -31,7 +25,7 @@ export default class ContactBudget extends React.Component {
             max={ 50000 }
             step={ 500 }
             tooltip={ false }
-            value={this.state.budget}
+            value={this.props.budget}
             onChange={this.handleBudget}
           />
         </div>

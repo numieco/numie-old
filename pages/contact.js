@@ -45,7 +45,10 @@ export default class ContactPage extends React.Component {
         marketing: false,
         other: false
       },
-      email: ''
+      email: '',
+      budget: 5000,
+      phone: '',
+      message: ''
     }
 
     this.increaseIndex = this.increaseIndex.bind(this)
@@ -204,7 +207,11 @@ export default class ContactPage extends React.Component {
             }}
           />
 
-          <ContactBudget pageIndex={ this.state.pageIndex } />
+          <ContactBudget
+            pageIndex={ this.state.pageIndex }
+            budget={ this.state.budget }
+            setBudget={ budget => this.setState({ budget: budget })}
+          />
 
           <ContactEmail
             pageIndex={ this.state.pageIndex }
@@ -220,11 +227,28 @@ export default class ContactPage extends React.Component {
 
           />
 
-          <ContactPhone pageIndex={ this.state.pageIndex } />
+          <ContactPhone
+            pageIndex={ this.state.pageIndex }
+            phone={ this.state.phone }
+            setPhone={ phone => this.setState({ phone }) }
+          />
 
-          <ContactMessage pageIndex={ this.state.pageIndex } />
+          <ContactMessage
+            pageIndex={ this.state.pageIndex }
+            message={ this.state.message }
+            setMessage={ message => this.setState({ message }) }
+          />
 
-          <ContactSuccess pageIndex={ this.state.pageIndex } />
+          <ContactSuccess
+            pageIndex={ this.state.pageIndex }
+            name={ this.state.name }
+            interest={ this.state.interest }
+            budget={ this.state.budget }
+            email={ this.state.email }
+            phone={ this.state.phone }
+            message={ this.state.message }
+
+          />
 
           <ContactFooter
             pageIndex={ this.state.pageIndex }
